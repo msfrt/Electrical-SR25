@@ -11,7 +11,7 @@
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> cbus2;
 // CHECK TO SEE WHICH HARDWARE, PHYSICAL, CANBUS WE ARE USING
 static CAN_message_t msg;
-#define CAN2_BAUDRATE 1000000
+#define CAN2_BAUDRATE 250000
 
 // signal definitions
 // #include "CAN/CAN1.hpp"
@@ -66,14 +66,14 @@ void setup() {
   Serial.begin(112500);
 
   // initialize SPI communication
-  SPI.begin();
+  // SPI.begin();
 
   //initialize the CAN Bus and set its baud rate to 1Mb
   cbus2.begin();
   cbus2.setBaudRate(CAN2_BAUDRATE);
 
   //initialize ADCs
-  initialize_ADCs();
+  // initialize_ADCs();
 
 }
 
@@ -86,8 +86,9 @@ void loop() {
   switch (STMM)
   {
     case 1:
-      sample_ADCs_1();
+      // sample_ADCs_1();
       send_can_1(counter_1, 1);
+      send_can_2(counter_2, 2);
       break;
 
     // case 2:
