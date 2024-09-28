@@ -129,11 +129,10 @@ LightBarController::LightBarController(Adafruit_NeoPixel &left,
       new LightBarRPM(top_leds_, 0, top_leds_.numPixels(), M400_rpm, min_rpm,
                       max_rpm, downshift_rpm);
    */
-  int max_soc = 1;
-  int min_soc = 0;
-  float soc_value = 0.00;
+  
+  StateSignal & soc_signal = M400_groundSpeedLeft; // REPLACE WITH CAN SIGNAL
 
-  soc = new LightBarSOC(top_leds_, 0, top_leds_.numPixels(), soc_value, min_soc, max_soc);
+  soc = new LightBarSOC(top_leds_, 0, top_leds_.numPixels(), soc_signal, 0, 1);
 
   cooling_light_left_ = new LightBarBlinkSinusoidal(left_leds_, 0, 1);
   cooling_light_left_->AttachSignal(&PDM_coolingOverrideActive, 1);
@@ -197,6 +196,7 @@ void LightBarController::Initialize() { SetState(Normal); }
  * The time in milliseconds since the update method was last called
  */
 void LightBarController::Update(unsigned long &elapsed) {
+  
   switch (state_) {
     case Normal:
       tc_bar_left_->Update(elapsed);

@@ -67,6 +67,8 @@ class ScreensController {
   unsigned long lap_time_display_duration_ =
       5000;  ///< The time in milliseconds to display a laptime when triggered
 
+  unsigned long obd_display_duration_ = 2000;
+
   /* Screen definitions */
   ScreenStartupAnim *startup_screen_left_ = nullptr;
   ScreenStartupAnim *startup_screen_right_ = nullptr;
@@ -99,7 +101,7 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
 
   /* Info screen 1 */
   info_screen_1_left_ = new ScreenInfo(display_left_);
-  info_screen_1_left_->SetSignal(1, &M400_groundSpeed, "SPD:", "%4.1f");
+  info_screen_1_left_->SetSignal(1, &M400_groundSpeedLeft, "WHL:", "%4.1f"); //Was originally &M400_groundSpeed
   info_screen_1_left_->SetSignal(2, &PDM_pdmVoltAvg, "BAT:", "%4.1f");
   info_screen_1_left_->SetSignal(3, &ATCCF_brakeBias, "BIAS:", "%2.0f%%");
   info_screen_1_left_->SetSignal(4, &PDM_fanLeftDutyCycle, "FANS:", "%3.0f");
@@ -235,10 +237,12 @@ void ScreensController::Update(unsigned long &elapsed) {
       }
 
       // if the state is complete, set a new state
-      if (millis() - state_start_time_ > msg_display_duration_) {
+      if(M400_groundSpeedLeft.value() > 2 && millis() - state_start_time_ > obd_display_duration_) {
+        SetState(state_prev_);
+      } else if(millis() - state_start_time_ > msg_display_duration_) {
         SetState(state_prev_);
       }
-
+  
       break;
 
     case LapTime:
@@ -301,7 +305,7 @@ void ScreensController::SetState(ScreenStates state) {
     case Notification:
       // in order to prevent getting stuck in the Notification state,
       // set the state to the previous state. That way, it's like
-      // the notifaction state never existed, since after the next 10ish lines
+      // the notificaion state never existed, since after the next 10ish lines
       // of code, the previous state will be two states ago, and the current
       // state will be the last previous state... confusing but yeah
       state_ = state_prev_;

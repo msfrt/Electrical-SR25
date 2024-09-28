@@ -9,11 +9,11 @@
 #include "Adafruit_GFX.h"
 #include "ILI9341_t3n.h"
 #include "SPI.h"
+#include<string>
+using std::string;
 #define SPI0_DISP1
 
-
 #define READ_RESOLUTION_BITS 12
-
 
 // can bus decleration
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
@@ -282,6 +282,19 @@ void loop() {
     displayStringChars[6] = CMD_driverMessageChar6.value();
     displayStringChars[7] = CMD_driverMessageChar7.value();
     String displayString(displayStringChars);
+    screensController.OnMessage(displayString);
+  }
+
+  /*
+
+  ----------------------------------
+  ONLY FOR TESTING OBD FUNCTIONALITY
+  ----------------------------------
+
+  */
+  
+  if (M400_groundSpeedLeft.value() > 3) {
+    String displayString = "SOC LOW";
     screensController.OnMessage(displayString);
   }
 
