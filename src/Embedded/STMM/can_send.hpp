@@ -63,15 +63,15 @@ void send_STMM_1839F380(const int &seg) {
     // msg.flags.extended = 0;
     msg.len = 8;
 
-    // vector<pair<int, float>> module_temps = get_mod_temps(seg);
-    // vector<pair<int, float>> sorted_module_temps = sort_mod_temps(module_temps);
+    vector<pair<int, float>> module_temps = get_mod_temps(seg);
+    vector<pair<int, float>> sorted_module_temps = sort_mod_temps(module_temps);
     
-    // int min = static_cast<int>(get_min_temp(sorted_module_temps));
-    // int max = static_cast<int>(get_max_temp(sorted_module_temps));
-    // int avg = static_cast<int>(get_avg_temp(module_temps));
-    // int min_id = get_min_id(sorted_module_temps);
-    // int max_id = get_max_id(sorted_module_temps);
-    // int average = static_cast<int>(get_avg_temp(module_temps));
+    int min = static_cast<int>(get_min_temp(sorted_module_temps));
+    int max = static_cast<int>(get_max_temp(sorted_module_temps));
+    int avg = static_cast<int>(get_avg_temp(module_temps));
+    int min_id = get_min_id(sorted_module_temps);
+    int max_id = get_max_id(sorted_module_temps);
+    int average = static_cast<int>(get_avg_temp(module_temps));
 
     // int teensy_id = counter;
     // int global_id = get_global_id(counter, module_temps);
@@ -93,39 +93,58 @@ void send_STMM_1839F380(const int &seg) {
 
     // Serial.println("max_id: ");
     // Serial.println(max_id);
+    
+    // test message --- works
+    // msg.buf[0] = 0x00; // thermistor module number
+    // msg.buf[1] = 0x01; // lowest thermistor value
+    // msg.buf[2] = 0x11; // highest thermistor value
+    // msg.buf[3] = 0x01; // average thermistor value
+    // msg.buf[4] = 0x01; // number of thermistors enabled
+    // msg.buf[5] = 0x01; // ID of the module with the highest raw value
+    // msg.buf[6] = 0x00; // ID of the module with the lowest raw value
+    // msg.buf[7] = 0x56; // checksum
 
     msg.buf[0] = 0x00; // thermistor module number
-    msg.buf[1] = 0x01; // lowest thermistor value
-    msg.buf[2] = 0x11; // highest thermistor value
-    msg.buf[3] = 0x01; // average thermistor value
-    msg.buf[4] = 0x01; // number of thermistors enabled
-    msg.buf[5] = 0x01; // ID of the module with the highest raw value
-    msg.buf[6] = 0x00; // ID of the module with the lowest raw value
-    msg.buf[7] = 0x56; // checksum
+    msg.buf[1] = min; // lowest thermistor value
+    msg.buf[2] = max; // highest thermistor value
+    msg.buf[3] = avg; // average thermistor value
+    msg.buf[4] = 0x0C; // number of thermistors enabled (12)
+    msg.buf[5] = max_id; // ID of the module with the highest raw value
+    msg.buf[6] = min_id; // ID of the module with the lowest raw value
+    msg.buf[7] = msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
+                msg.buf[4] + msg.buf[5] + msg.buf[6] + 0x39 + 0x08; // checksum
 
     cbus2.write(msg);
 }
 
-void send_STMM_1838F380(const int &seg){
+// do i need to remove the 1838F380 message?
+
+// void send_STMM_1838F380(const int &seg){
     
-    msg.id = 406385536;
-    // flag as extended id
-    msg.flags.extended = 1;
-    msg.len = 8;
+//     msg.id = 406385536;
+//     // flag as extended id
+//     msg.flags.extended = 1;
+//     msg.len = 8;
 
-    // msg.buf[0] = 0x80;      // address claim
-    msg.buf[0] = 0x00;      // thermistor ID relative to all modules #1
-    msg.buf[1] = 0x01;      // thermistor ID relative to all modules #2
-    msg.buf[2] = 0x42;      // current thermistor value
-    msg.buf[3] = 0x01;      // thermistor ID relative to current module
-    msg.buf[4] = 0x38;    // lowest thermistor value
-    //msg.buf[4] = 0x00;
-    msg.buf[5] = 0x45;      // highest thermistor value
-    msg.buf[6] = 0x01;      // highest thermistor ID on the module
-    msg.buf[7] = 0x01;      // lowest thermistor ID on the module
+//     // msg.buf[0] = 0x80;      // address claim
+//     msg.buf[0] = 0x00;      // thermistor ID relative to all modules #1
+//     msg.buf[1] = 0x01;      // thermistor ID relative to all modules #2
+//     msg.buf[2] = 0x42;      // current thermistor value
+//     msg.buf[3] = 0x01;      // thermistor ID relative to current module
+//     msg.buf[4] = 0x38;    // lowest thermistor value
+//     //msg.buf[4] = 0x00;
+//     msg.buf[5] = 0x45;      // highest thermistor value
+//     msg.buf[6] = 0x01;      // highest thermistor ID on the module
+//     msg.buf[7] = 0x01;      // lowest thermistor ID on the module
 
-    cbus2.write(msg);
-}
+//     cbus2.write(msg);
+// }
+
+/*
+////////////////////////////////////////////////////////////////////////////////////////
+/ BELOW ARE THE MESSAGES THAT ARE BROADCASTED ON THE BUS TO MODULES OTHER THAN THE BMS /
+////////////////////////////////////////////////////////////////////////////////////////
+*/
 
 void send_STMM_300() {
     // static definition - only defined once (like a global variable, but is local to this function only)
@@ -226,7 +245,7 @@ void send_STMM_303() {
     cbus2.write(msg);
 }
 
-void send_can_1(int &counter_1, const int &seg) {
+void send_can_1(const int &seg) {
     // static EasyTimer STMM_18EEFF80_timer(5); // 5 Hz (200ms)
     // if (STMM_18EEFF80_timer.isup()){
     //     send_STMM_18EEFF80();
@@ -266,7 +285,7 @@ void send_can_1(int &counter_1, const int &seg) {
     }
 }
 
-void send_can_2(int &counter_2, const int &seg) {
+void send_can_2(const int &seg) {
     static EasyTimer STMM_18EEFF81_timer(5); // 5 Hz (200ms)
     if (STMM_18EEFF81_timer.isup()){
         send_STMM_18EEFF81();
