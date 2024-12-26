@@ -34,76 +34,31 @@ NS_ :
 BS_:
 
 BU_: MM5 STMM DD PDM BMS PM VCU
+VAL_TABLE_ contactorState 2 "Open" 1 "Close" 0 "Faulted" ;
+VAL_TABLE_ vehicleState 8 "Faulted" 7 "ReadyToMove" 6 "Standby" 5 "PrechargeComplete" 4 "PrechargeTimeout" 3 "Precharge" 2 "PrechargeReady" 1 "StartDelay" 0 "Off" ;
 
 
-BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
- SG_ VCU_counterMsg172 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
- SG_ VCU_groundSpeed : 0|16@1- (0.1,0) [0|120] "mph" Vector__XXX
- SG_ VCU_groundSpeedLeft : 0|16@1- (0.1,0) [0|120] "mph" Vector__XXX
- SG_ VCU_groundSpeedRight : 0|16@1- (0.1,0) [0|120] "mph" Vector__XXX
- SG_ VCU_driveSpeed : 0|16@1- (0.1,0) [0|120] "mph" Vector__XXX
- SG_ VCU_driveSpeedLeft : 0|16@1- (0.1,0) [0|120] "mph" Vector__XXX
- SG_ VCU_driveSpeedRight : 0|16@1- (0.1,0) [0|120] "mph" Vector__XXX
+BO_ 153 VCU_153: 8 VCU
+ SG_ VCU_coolSwitch : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_pwrDownSwitch : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_pwrUpSwitch : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_startSwitch : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_counterMsg153 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
-BO_ 173 VCU_173: 8 Vector__XXX
- SG_ VCU_driveSpeed : 32|16@1- (0.1,0) [-3276.8|3276.7] "mph" Vector__XXX
- SG_ VCU_groundSpeed : 16|16@1- (0.1,0) [-3276.8|3276.7] "mph" Vector__XXX
- SG_ VCU_counterMsg173 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+BO_ 152 VCU_152: 8 VCU
+ SG_ VCU_rtmSound : 48|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_mainMinusContactorState : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ VCU_mainPlusContactorState : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ VCU_prechargeContactorState : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ VCU_dischargeContactorState : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ VCU_vehicleState : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ VCU_counterMsg152 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
-BO_ 172 VCU_172: 8 Vector__XXX
- SG_ VCU_brakePosR : 24|16@1- (0.1,0) [-3276.8|3276.7] "%" Vector__XXX
- SG_ VCU_brakePosF : 8|16@1- (0.1,0) [-3276.8|3276.7] "%" Vector__XXX
- SG_ VCU_counterMsg172 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 171 VCU_171: 8 Vector__XXX
- SG_ VCU_throttlePos2 : 32|16@1- (0.1,0) [0|0] "%" Vector__XXX
- SG_ VCU_throttlePos1 : 16|16@1- (0.1,0) [-3276.8|3276.7] "%" Vector__XXX
- SG_ VCU_counterMsg171 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 170 VCU_170: 8 Vector__XXX
- SG_ VCU_roadSingleWheelAngle : 48|16@1- (0.1,0) [-3276.8|3276.7] "deg" Vector__XXX
- SG_ VCU_roadWheelAngleR : 32|16@1- (0.1,0) [-3276.8|3276.7] "deg" Vector__XXX
- SG_ VCU_roadWheelAngleL : 16|16@1- (0.1,0) [-3276.8|3276.7] "deg" Vector__XXX
- SG_ VCU_counterMsg170 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 169 VCU_169: 8 Vector__XXX
- SG_ VCU_tsSwitch : 24|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_coolSwitch : 16|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_pwrDownSwitch : 15|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_pwrUpSwitch : 14|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_startSwitch : 13|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_mainPlusState : 12|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_mainMinusState : 11|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_dischargeState : 10|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_prechargeState : 9|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_rtdState : 8|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_counterMsg169 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 168 VCU_168: 8 Vector__XXX
- SG_ VCU_latVehicleSpeed : 48|16@1- (0.1,0) [-3276.8|3276.7] "mph" Vector__XXX
- SG_ VCU_wheelSpeedRR : 32|16@1- (0.1,0) [-3276.8|3276.7] "mph" Vector__XXX
- SG_ VCU_wheelSpeedRL : 16|16@1- (0.1,0) [-3276.8|3276.7] "mph" Vector__XXX
- SG_ VCU_counterMsg168 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 167 VCU_167: 8 Vector__XXX
- SG_ VCU_longVehicleSpeed : 48|16@1- (0.1,0) [-3276.8|3276.7] "mph" Vector__XXX
- SG_ VCU_wheelSpeedFR : 32|16@1- (0.1,0) [-3276.8|3276.7] "mph" Vector__XXX
- SG_ VCU_wheelSpeedFL : 16|16@1- (0.1,0) [-3276.8|3276.7] "mph" Vector__XXX
- SG_ VCU_counterMsg167 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 166 VCU_166: 8 Vector__XXX
- SG_ VCU_cellSegment8FanPct : 32|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_cellSegment7FanPct : 24|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_cellSegment6FanPct : 16|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_cellSegment5FanPct : 8|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_counterMsg166 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 165 VCU_165: 8 Vector__XXX
- SG_ VCU_cellSegment4FanPct : 32|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_cellSegment3FanPct : 24|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_cellSegment2FanPct : 16|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_cellSegment1FanPct : 8|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_counterMsg165 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+BO_ 151 VCU_151: 8 VCU
+ SG_ VCU_brakePressureR : 48|16@1- (0.1,0) [0|2000] "psi" Vector__XXX
+ SG_ VCU_brakePressureF : 32|16@1- (0.1,0) [0|2000] "psi" Vector__XXX
+ SG_ VCU_brakeBias : 16|16@1- (0.1,0) [-32768|32767] "%" Vector__XXX
+ SG_ VCU_counterMsg151 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
 BO_ 2565799815 STMM_18EEFF87: 8 STMM
  SG_ STMM_seg8Constant3 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
@@ -643,182 +598,30 @@ BO_ 200 BMS_200: 8 BMS
  SG_ BMS_packSOC : 48|8@1- (0.5,0) [0|100] "%" Vector__XXX
  SG_ BMS_packCurr : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
 
-BO_ 161 VCU_161: 8 VCU
- SG_ VCU_wheelLockupRR : 7|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_wheelLockupRL : 6|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_wheelLockupFR : 5|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_wheelLockupFL : 4|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_counterMsg161 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 160 VCU_160: 8 VCU
- SG_ VCU_tcTorqueReduction : 16|16@1- (0.1,0) [0|75] "%" Vector__XXX
- SG_ VCU_tcSlipAimValue : 48|16@1- (0.1,0) [-3276.8|3276.7] "" Vector__XXX
- SG_ VCU_tcSlipAimError : 32|16@1- (0.1,0) [-3276.8|3276.7] "" Vector__XXX
- SG_ VCU_counterMsg160 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 159 VCU_159: 8 VCU
- SG_ VCU_counterMsg159 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
- SG_ VCU_brakePressureR : 32|16@1- (0.1,0) [0|2000] "psi" Vector__XXX
- SG_ VCU_brakePressureF : 16|16@1- (0.1,0) [0|2000] "psi" Vector__XXX
- SG_ VCU_brakeBias : 48|16@1- (0.1,0) [0|100] "%" Vector__XXX
-
-BO_ 158 VCU_158: 8 VCU
- SG_ VCU_suspensionTravelFR : 32|16@1- (0.001,0) [-4|4] "in" Vector__XXX
- SG_ VCU_suspensionTravelFL : 16|16@1- (0.001,0) [-4|4] "in" Vector__XXX
- SG_ VCU_counterMsg158 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 164 VCU_164: 8 VCU
- SG_ VCU_flowRateMotorIn : 16|16@1- (0.1,0) [0|20] "Lpm" Vector__XXX
- SG_ VCU_flowRateInverterOut : 48|16@1- (0.1,0) [0|20] "Lpm" Vector__XXX
- SG_ VCU_flowRateInverterIn : 32|16@1- (0.1,0) [0|20] "Lpm" Vector__XXX
- SG_ VCU_counterMsg162 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 157 VCU_157: 8 VCU
- SG_ VCU_tireTempRRO : 48|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_tireTempRRM : 32|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_tireTempRRI : 16|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_counterMsg157 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 156 VCU_156: 8 VCU
- SG_ VCU_tireTempRLO : 48|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_tireTempRLM : 32|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_tireTempRLI : 16|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_counterMsg156 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 155 VCU_155: 8 VCU
- SG_ VCU_rotorTempRR : 32|16@1- (0.1,0) [0|1000] "degC" Vector__XXX
- SG_ VCU_rotorTempRL : 16|16@1- (0.1,0) [0|1000] "degC" Vector__XXX
- SG_ VCU_counterMsg155 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 154 VCU_154: 8 VCU
- SG_ VCU_suspensionTravelRR : 32|16@1- (0.001,0) [-4|4] "in" Vector__XXX
- SG_ VCU_suspensionTravelRL : 16|16@1- (0.001,0) [-4|4] "in" Vector__XXX
- SG_ VCU_counterMsg154 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 153 VCU_153: 8 VCU
- SG_ VCU_tireTempFRO : 48|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_tireTempFRM : 32|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_tireTempFRI : 16|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_counterMsg153 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 152 VCU_152: 8 VCU
- SG_ VCU_tireTempFLO : 48|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_tireTempFLM : 32|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_tireTempFLI : 16|16@1- (0.1,0) [0|100] "degC" Vector__XXX
- SG_ VCU_counterMsg152 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 151 VCU_151: 8 VCU
- SG_ VCU_rotorTempFR : 32|16@1- (0.1,0) [0|1000] "degC" Vector__XXX
- SG_ VCU_rotorTempFL : 16|16@1- (0.1,0) [0|1000] "degC" Vector__XXX
- SG_ VCU_counterMsg151 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
 BO_ 150 VCU_150: 8 VCU
+ SG_ VCU_throttlePosition2 : 48|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_throttlePosition1 : 32|16@1- (0.1,0) [0|100] "%" Vector__XXX
  SG_ VCU_throttlePosition : 16|16@1- (0.1,0) [0|100] "%" Vector__XXX
- SG_ VCU_tcSet : 48|8@1+ (1,0) [0|11] "" Vector__XXX
  SG_ VCU_counterMsg150 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
- SG_ VCU_brakePosition : 32|16@1- (0.1,0) [0|100] "%" Vector__XXX
 
 
 
-CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
-CM_ SG_ 3221225472 VCU_counterMsg172 "Counter Message 172
-";
-CM_ SG_ 3221225472 VCU_groundSpeed "Ground Speed
-";
-CM_ SG_ 3221225472 VCU_groundSpeedLeft "Left Ground Speed
-";
-CM_ SG_ 3221225472 VCU_groundSpeedRight "Right Ground Speed
-";
-CM_ SG_ 3221225472 VCU_driveSpeed "Drive Speed
-";
-CM_ SG_ 3221225472 VCU_driveSpeedLeft "Left Drive Speed
-";
-CM_ SG_ 3221225472 VCU_driveSpeedRight "Right Drive Speed
-";
-CM_ SG_ 173 VCU_driveSpeed "Drive Speed
-";
-CM_ SG_ 173 VCU_groundSpeed "Ground speed
-";
-CM_ SG_ 173 VCU_counterMsg173 "Counter Message 173
-";
-CM_ SG_ 172 VCU_brakePosR "Brake position of the rear sensor
-";
-CM_ SG_ 172 VCU_brakePosF "Brake position of the front sensor
-";
-CM_ SG_ 172 VCU_counterMsg172 "Counter Message 172
-";
-CM_ SG_ 171 VCU_throttlePos2 "Throttle position of sensor 2
-";
-CM_ SG_ 171 VCU_throttlePos1 "Throttle position of sensor 1
-";
-CM_ SG_ 171 VCU_counterMsg171 "Counter Message 171
-";
-CM_ SG_ 170 VCU_roadSingleWheelAngle "Road wheel angle (no ackermann)
-";
-CM_ SG_ 170 VCU_roadWheelAngleR "Road wheel angle of the right wheel
-";
-CM_ SG_ 170 VCU_roadWheelAngleL "Road wheel angle of the left wheel
-";
-CM_ SG_ 170 VCU_counterMsg170 "Counter Message 170
-";
-CM_ SG_ 169 VCU_tsSwitch "1 = active, 0 = inactive
-";
-CM_ SG_ 169 VCU_coolSwitch "1 = active, 0 = inactive
-";
-CM_ SG_ 169 VCU_pwrDownSwitch "1 = active, 0 = inactive
-";
-CM_ SG_ 169 VCU_pwrUpSwitch "1 = active, 0 = inactive
-";
-CM_ SG_ 169 VCU_startSwitch "1 = active, 0 = inactive
-";
-CM_ SG_ 169 VCU_mainPlusState "1 = active, 0 = inactive
-";
-CM_ SG_ 169 VCU_mainMinusState "1 = active, 0 = inactive
-";
-CM_ SG_ 169 VCU_dischargeState "1 = active, 0 = inactive
-";
-CM_ SG_ 169 VCU_prechargeState "1 = active, 0 = inactive
-";
-CM_ SG_ 169 VCU_rtdState "1 = active, 0 = inactive
-";
-CM_ SG_ 169 VCU_counterMsg169 "Counter Message 169
-";
-CM_ SG_ 168 VCU_latVehicleSpeed "Lateral vehicle speed
-";
-CM_ SG_ 168 VCU_wheelSpeedRR "RR wheel speed
-";
-CM_ SG_ 168 VCU_wheelSpeedRL "RL wheel speed 
-";
-CM_ SG_ 168 VCU_counterMsg168 "Counter Message 168
-";
-CM_ SG_ 167 VCU_longVehicleSpeed "Longitudinal vehicle speed
-";
-CM_ SG_ 167 VCU_wheelSpeedFR "FR wheel speed
-";
-CM_ SG_ 167 VCU_wheelSpeedFL "FL wheel speed 
-";
-CM_ SG_ 167 VCU_counterMsg167 "Counter Message 167
-";
-CM_ SG_ 166 VCU_cellSegment8FanPct "Fan duty for segment 8
-";
-CM_ SG_ 166 VCU_cellSegment7FanPct "Fan duty for segment 7
-";
-CM_ SG_ 166 VCU_cellSegment6FanPct "Fan duty for segment 6
-";
-CM_ SG_ 166 VCU_cellSegment5FanPct "Fan duty for segment 5
-";
-CM_ SG_ 166 VCU_counterMsg166 "Counter Message 166
-";
-CM_ SG_ 165 VCU_cellSegment4FanPct "Fan duty for segment 4
-";
-CM_ SG_ 165 VCU_cellSegment3FanPct "Fan duty for segment 3
-";
-CM_ SG_ 165 VCU_cellSegment2FanPct "Fan duty for segment 2
-";
-CM_ SG_ 165 VCU_cellSegment1FanPct "Fan duty for segment 1
-";
-CM_ SG_ 165 VCU_counterMsg165 "Counter Message 165
-";
+CM_ SG_ 153 VCU_coolSwitch "Cool switch signal";
+CM_ SG_ 153 VCU_pwrDownSwitch "Power down switch signal";
+CM_ SG_ 153 VCU_pwrUpSwitch "Power up switch signal";
+CM_ SG_ 153 VCU_startSwitch "Start switch signal";
+CM_ SG_ 153 VCU_counterMsg153 "Counter Message 153";
+CM_ SG_ 152 VCU_rtmSound "Ready To Move sound";
+CM_ SG_ 152 VCU_mainMinusContactorState "Main- contactor state";
+CM_ SG_ 152 VCU_mainPlusContactorState "Main+ contactor state";
+CM_ SG_ 152 VCU_prechargeContactorState "Precharge contactor state";
+CM_ SG_ 152 VCU_dischargeContactorState "Discharge contactor state";
+CM_ SG_ 152 VCU_vehicleState "Vehicle state";
+CM_ SG_ 152 VCU_counterMsg152 "Counter Message 152";
+CM_ SG_ 151 VCU_brakePressureR "Rear brake pressure sensor";
+CM_ SG_ 151 VCU_brakePressureF "Front brake pressure sensor";
+CM_ SG_ 151 VCU_brakeBias "Brake bias";
+CM_ SG_ 151 VCU_counterMsg151 "Counter Message 151";
 CM_ SG_ 2565799815 STMM_seg8Constant3 "Constant 3 (0x90)
 ";
 CM_ SG_ 2565799815 STMM_seg8Constant2 "Constant 2 (0x1E)
@@ -1551,106 +1354,18 @@ CM_ SG_ 200 BMS_packSOC "This is the pack State of Charge
 ";
 CM_ SG_ 200 BMS_packCurr "This is the current pack amperage value for the battery pack. This will report a constant 0 if no current sensor is selected
 ";
-CM_ SG_ 161 VCU_wheelLockupRR "RR wheel lockup, 0 = no, 1 = yes
-";
-CM_ SG_ 161 VCU_wheelLockupRL "RL wheel lockup, 0 = no, 1 = yes
-";
-CM_ SG_ 161 VCU_wheelLockupFR "FR wheel lockup, 0 = no, 1 = yes
-";
-CM_ SG_ 161 VCU_wheelLockupFL "FL wheel lockup, 0 = no, 1 = yes
-";
-CM_ SG_ 161 VCU_counterMsg161 "Counter Message 115
-";
-CM_ SG_ 160 VCU_tcTorqueReduction "TC Torque Reduction
-";
-CM_ SG_ 160 VCU_tcSlipAimValue "TC Slip Aim Value
-";
-CM_ SG_ 160 VCU_tcSlipAimError "TC Slip Aim Error
-";
-CM_ SG_ 160 VCU_counterMsg160 "Counter Message 114
-";
-CM_ SG_ 159 VCU_counterMsg159 "Counter Message 113
-";
-CM_ SG_ 159 VCU_brakePressureR "Rear Brake Pressure
-";
-CM_ SG_ 159 VCU_brakePressureF "Front Brake Pressure
-";
-CM_ SG_ 159 VCU_brakeBias "BP_F / (BP_F + BP_R)
-";
-CM_ SG_ 158 VCU_suspensionTravelFR "FR Suspension Travel
-";
-CM_ SG_ 158 VCU_suspensionTravelFL "FL Suspension Travel
-";
-CM_ SG_ 158 VCU_counterMsg158 "Counter Message 110
-";
-CM_ SG_ 164 VCU_flowRateMotorIn "Motor In Flow Rate
-";
-CM_ SG_ 164 VCU_flowRateInverterOut "Inverter Out Flow Rate
-";
-CM_ SG_ 164 VCU_flowRateInverterIn "Inverter In Flow Rate
-";
-CM_ SG_ 164 VCU_counterMsg162 "Counter Message 109
-";
-CM_ SG_ 157 VCU_tireTempRRO "RRO Tire Temperature
-";
-CM_ SG_ 157 VCU_tireTempRRM "RRM Tire Temperature
-";
-CM_ SG_ 157 VCU_tireTempRRI "RRI Tire Temperature
-";
-CM_ SG_ 157 VCU_counterMsg157 "Counter Message 108
-";
-CM_ SG_ 156 VCU_tireTempRLO "RLO Tire Temperature
-";
-CM_ SG_ 156 VCU_tireTempRLM "RLM Tire Temperature
-";
-CM_ SG_ 156 VCU_tireTempRLI "RLI Tire Temperature
-";
-CM_ SG_ 156 VCU_counterMsg156 "Counter Message 107
-";
-CM_ SG_ 155 VCU_rotorTempRR "RR Rotor Temperature
-";
-CM_ SG_ 155 VCU_rotorTempRL "RL Rotor Temperature
-";
-CM_ SG_ 155 VCU_counterMsg155 "Counter Message 105
-";
-CM_ SG_ 154 VCU_suspensionTravelRR "RR Suspension Travel
-";
-CM_ SG_ 154 VCU_suspensionTravelRL "RL Suspension Travel
-";
-CM_ SG_ 154 VCU_counterMsg154 "Counter Message 104
-";
-CM_ SG_ 153 VCU_tireTempFRO "FRO Tire Temperature
-";
-CM_ SG_ 153 VCU_tireTempFRM "FRM Tire Temperature
-";
-CM_ SG_ 153 VCU_tireTempFRI "FRI Tire Temperature
-";
-CM_ SG_ 153 VCU_counterMsg153 "Counter Message 103
-";
-CM_ SG_ 152 VCU_tireTempFLO "FLO Tire Temperature
-";
-CM_ SG_ 152 VCU_tireTempFLM "FLM Tire Temperature
-";
-CM_ SG_ 152 VCU_tireTempFLI "FLI Tire Temperature
-";
-CM_ SG_ 152 VCU_counterMsg152 "Counter Message 102
-";
-CM_ SG_ 151 VCU_rotorTempFR "FR Rotor Temperature
-";
-CM_ SG_ 151 VCU_rotorTempFL "FL Rotor Temperature
-";
-CM_ SG_ 151 VCU_counterMsg151 "Counter Message 101
-";
-CM_ SG_ 150 VCU_throttlePosition "Throttle Position
-";
-CM_ SG_ 150 VCU_tcSet "TC Setting
-";
-CM_ SG_ 150 VCU_counterMsg150 "Counter Message 100
-";
-CM_ SG_ 150 VCU_brakePosition "Brake Position
+CM_ SG_ 150 VCU_throttlePosition2 "TPS2";
+CM_ SG_ 150 VCU_throttlePosition1 "TPS1";
+CM_ SG_ 150 VCU_throttlePosition "Final throttle position";
+CM_ SG_ 150 VCU_counterMsg150 "Counter Message 150
 ";
 BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "MultiplexExtEnabled" "No";
 BA_DEF_DEF_  "BusType" "CAN";
+VAL_ 152 VCU_mainMinusContactorState 2 "Open" 1 "Close" 0 "Faulted" ;
+VAL_ 152 VCU_mainPlusContactorState 2 "Open" 1 "Close" 0 "Faulted" ;
+VAL_ 152 VCU_prechargeContactorState 2 "Open" 1 "Close" 0 "Faulted" ;
+VAL_ 152 VCU_dischargeContactorState 2 "Open" 1 "Close" 0 "Faulted" ;
+VAL_ 152 VCU_vehicleState 8 "Faulted" 7 "ReadyToMove" 6 "Standby" 5 "PrechargeComplete" 4 "PrechargeTimeout" 3 "Precharge" 2 "PrechargeReady" 1 "StartDelay" 0 "Off" ;
 

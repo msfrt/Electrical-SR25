@@ -36,6 +36,12 @@ BS_:
 BU_: C50 ATCC LWS VCU PM CMD
 
 
+BO_ 201 VCU_201: 8 VCU
+ SG_ VCU_waterPumpDuty : 48|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_radFanRDuty : 32|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_radFanLDuty : 16|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_counterMsg201 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
 BO_ 2550255759 DCDC_1801D08F: 8 Vector__XXX
  SG_ DCDC_temperature : 55|16@0- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
  SG_ DCDC_outputOverCurrent : 46|1@1+ (1,0) [0|1] "" Vector__XXX
@@ -222,16 +228,10 @@ BO_ 688 LWS_688: 8 LWS
  SG_ LWS_speed : 16|8@1+ (4,0) [0|1020] "deg/s" Vector__XXX
  SG_ LWS_angle : 0|16@1- (0.1,0) [-3276.8|3276.7] "deg" Vector__XXX
 
-BO_ 201 VCU_201: 8 VCU
- SG_ VCU_cellSegmentFanDutyPctCmd : 24|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_wpPctCmd : 16|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_radFansPctCmd : 8|8@1+ (1,0) [0|255] "%" Vector__XXX
- SG_ VCU_counterMsg201 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
- SG_ VCU_brakelightCmd : 7|1@1+ (1,0) [0|1] "" Vector__XXX
-
 BO_ 200 VCU_200: 8 VCU
- SG_ VCU_glvPower : 6|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_dataPower : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_segmentHalf2Duty : 32|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_segmentHalf1Duty : 16|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_brakeLightCmd : 8|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ VCU_counterMsg200 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
 BO_ 192 VCU_192: 8 VCU
@@ -269,6 +269,10 @@ BO_ 170 PM_170: 8 PM
 
 
 
+CM_ SG_ 201 VCU_waterPumpDuty "Water pump duty";
+CM_ SG_ 201 VCU_radFanRDuty "Right radiator fan duty";
+CM_ SG_ 201 VCU_radFanLDuty "Left radiator fan duty";
+CM_ SG_ 201 VCU_counterMsg201 "Counter Message 201";
 CM_ SG_ 2550255759 DCDC_temperature "DCDC temperature
 ";
 CM_ SG_ 2550255759 DCDC_outputOverCurrent "DCDC output over current; 0: no error, 1: error
@@ -498,23 +502,9 @@ CM_ SG_ 688 LWS_speed "Angular Speed
 ";
 CM_ SG_ 688 LWS_angle "Steering Wheel Angle
 ";
-CM_ SG_ 201 VCU_cellSegmentFanDutyPctCmd "Fan duty command for all cell segments
-";
-CM_ SG_ 201 VCU_wpPctCmd "Water pump duty command
-
-";
-CM_ SG_ 201 VCU_radFansPctCmd "Left and right radiator fan duty command
-
-";
-CM_ SG_ 201 VCU_counterMsg201 "Counter Message 201
-
-";
-CM_ SG_ 201 VCU_brakelightCmd "Signal to actuate brake light
-";
-CM_ SG_ 200 VCU_glvPower "Grounded Low Voltage (GLV) power, 0 = Disable, 1 = Enable
-";
-CM_ SG_ 200 VCU_dataPower "Datalog power, 0 = Disable, 1 = Enable
-";
+CM_ SG_ 200 VCU_segmentHalf2Duty "Segment half 2 duty";
+CM_ SG_ 200 VCU_segmentHalf1Duty "Segment half 1 duty";
+CM_ SG_ 200 VCU_brakeLightCmd "Brake light command";
 CM_ SG_ 200 VCU_counterMsg200 "Counter Message 200
 
 ";
