@@ -1,0 +1,20 @@
+# 03/16/2024 14:19:54
+# Firmware Date-code: 20231107
+# Firmware Version  : 204f
+# Hardware Version  : 23450
+# Hardware ID       : G3
+# Com Port          : com12
+
+#decimal:
+
+Test
+
+
+Inverter_Enable                       ,      0  
+Vehicle_Direction                     ,      1  
+12V_Input_Voltage_(Vx100)             ,   1269  
+V_DC_Filtered_(Volts)_x_10            ,      0  
+I_DC_Filtered_(Amps)_x_10             ,      0  
+Commanded_Torque_(Nm)_x_10            ,      3  
+Feedback_Speed_(RPM)                  ,      0  
+Delta_Resolver_In_Fil_at_1000RPM      ,      0  

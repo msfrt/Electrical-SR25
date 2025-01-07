@@ -1,0 +1,564 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: C50 ATCC LWS VCU PM CMD
+
+
+BO_ 201 VCU_201: 8 VCU
+ SG_ VCU_waterPumpDuty : 48|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_radFanRDuty : 32|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_radFanLDuty : 16|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_counterMsg201 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 2550255759 DCDC_1801D08F: 8 Vector__XXX
+ SG_ DCDC_temperature : 55|16@0- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ DCDC_outputOverCurrent : 46|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_outputUnderVoltage : 45|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_outputOverVoltage : 44|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_inputUnderVoltage : 43|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_inputOverVoltage : 42|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_overTempError : 41|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_tempWarning : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_hvilError : 39|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_fanControl2 : 38|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_shutOffError : 37|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_fanControl1 : 36|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_canError : 35|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_hardwareFault : 34|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_status : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_ready : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_currentOutput : 23|16@0+ (0.1,0) [0|6553.5] "A" Vector__XXX
+ SG_ DCDC_voltageOutput : 7|16@0+ (0.1,0) [0|6553.5] "V" Vector__XXX
+
+BO_ 194 PM_194: 8 Vector__XXX
+ SG_ PM_dataResponse : 32|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ PM_writeSuccess : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_parameterAddressResponse : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 176 PM_176: 8 Vector__XXX
+ SG_ PM_fastDCBusVolt : 48|16@1- (0.1,0) [-3276.8|3276.7] "V" Vector__XXX
+ SG_ PM_fastMotorSpeed : 32|16@1- (1,0) [-32768|32767] "rpm" Vector__XXX
+ SG_ PM_fastTorqueFeedback : 16|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+ SG_ PM_fastTorqueCommand : 0|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+
+BO_ 175 PM_175: 8 Vector__XXX
+ SG_ PM_diagData3 : 48|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ PM_diagData2 : 32|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ PM_diagData1 : 16|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ PM_bufferSegment : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ PM_bufferRecord : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 174 PM_174: 8 Vector__XXX
+ SG_ PM_datecodeYYYY : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ PM_datecodeMMDD : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ PM_swVersion : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ PM_projectCodeEEPVer : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 173 PM_173: 8 Vector__XXX
+ SG_ PM_iqCommand : 48|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ PM_idCommand : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ PM_fluxWeakeningOutput : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ PM_modulationIndex : 0|16@1- (0.0001,0) [-3.2768|3.2767] "" Vector__XXX
+
+BO_ 172 PM_172: 8 Vector__XXX
+ SG_ PM_powerOnTimer : 32|32@1+ (0.003,0) [0|12884901.885] "sec" Vector__XXX
+ SG_ PM_torqueFeedback : 16|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+ SG_ PM_commandedTorque : 0|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+
+BO_ 171 PM_171: 8 Vector__XXX
+ SG_ PM_runFaultHi : 48|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ PM_runFaultLo : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ PM_postFaultHi : 16|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ PM_postFaultLo : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 169 PM_169: 8 Vector__XXX
+ SG_ PM_refVolt120 : 48|16@1- (0.01,0) [-327.68|327.67] "V" Vector__XXX
+ SG_ PM_refVolt50 : 32|16@1- (0.01,0) [-327.68|327.67] "V" Vector__XXX
+ SG_ PM_refVolt25 : 16|16@1- (0.01,0) [-327.68|327.67] "V" Vector__XXX
+ SG_ PM_refVolt15 : 0|16@1- (0.01,0) [-327.68|327.67] "V" Vector__XXX
+
+BO_ 168 PM_168: 8 Vector__XXX
+ SG_ PM_iq : 48|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ PM_id : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ PM_fluxFeedback : 16|16@1- (0.001,0) [-32.768|32.767] "Wb" Vector__XXX
+ SG_ PM_fluxCommand : 0|16@1- (0.001,0) [-32.768|32.767] "Wb" Vector__XXX
+
+BO_ 167 PM_167: 8 Vector__XXX
+ SG_ PM_vbcVqVolt : 48|16@1- (0.1,0) [-3276.8|3276.7] "V" Vector__XXX
+ SG_ PM_vabVdVolt : 32|16@1- (0.1,0) [-3276.8|3276.7] "V" Vector__XXX
+ SG_ PM_outputVolt : 16|16@1- (0.1,0) [-3276.8|3276.7] "V" Vector__XXX
+ SG_ PM_dcBusVolt : 0|16@1- (0.1,0) [-3276.8|3276.7] "V" Vector__XXX
+
+BO_ 166 PM_166: 8 Vector__XXX
+ SG_ PM_dcBusCurrent : 48|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ PM_phaseCCurrent : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ PM_phaseBCurrent : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+ SG_ PM_phaseACurrent : 0|16@1- (0.1,0) [-3276.8|3276.7] "A" Vector__XXX
+
+BO_ 165 PM_165: 8 Vector__XXX
+ SG_ PM_deltaResolverFiltered : 48|16@1- (0.1,0) [-3276.8|3276.7] "deg" Vector__XXX
+ SG_ PM_electricalOutputFrequency : 32|16@1- (0.1,0) [-3276.8|3276.7] "Hz" Vector__XXX
+ SG_ PM_motorSpeed : 16|16@1- (1,0) [-32768|32767] "rpm" Vector__XXX
+ SG_ PM_electricalMotorAngle : 0|16@1+ (0.1,0) [0|6553.5] "deg" Vector__XXX
+
+BO_ 164 PM_164: 8 Vector__XXX
+ SG_ PM_digitalInputStatus8 : 56|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_digitalInputStatus7 : 48|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_digitalInputStatus6 : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_digitalInputStatus5 : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_digitalInputStatus4 : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_digitalInputStatus3 : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_digitalInputStatus2 : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_digitalInputStatus1 : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 163 PM_163: 8 Vector__XXX
+ SG_ PM_analogInputVolt6 : 52|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+ SG_ PM_analogInputVolt5 : 42|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+ SG_ PM_analogInputVolt4 : 32|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+ SG_ PM_analogInputVolt3 : 20|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+ SG_ PM_analogInputVolt2 : 10|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+ SG_ PM_analogInputVolt1 : 0|10@1+ (0.01,0) [0|10.23] "V" Vector__XXX
+
+BO_ 162 PM_162: 8 Vector__XXX
+ SG_ PM_torqueShudder : 48|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+ SG_ PM_motorTemp : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ PM_rtd5Temp : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ PM_rtd4Temp : 0|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+
+BO_ 161 PM_161: 8 Vector__XXX
+ SG_ PM_rtd3Temp : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ PM_rtd2Temp : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ PM_rtd1Temp : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ PM_controlBoardTemp : 0|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+
+BO_ 160 PM_160: 8 Vector__XXX
+ SG_ PM_moduleCTemp : 32|16@1- (0.1,0) [0|0] "degC" Vector__XXX
+ SG_ PM_moduleBTemp : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ PM_gateDriverBoardTemp : 48|16@1- (0.1,0) [0|0] "degC" Vector__XXX
+ SG_ PM_moduleATemp : 0|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+
+BO_ 193 VCU_193: 8 Vector__XXX
+ SG_ VCU_pmDataCommand : 32|16@1- (1,0) [-32768|32767] "" Vector__XXX
+ SG_ VCU_pmReadWriteCommand : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_pmParameterAddressCommand : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+
+BO_ 2550173648 VCU_18008FD0: 8 VCU
+ SG_ VCU_dcdcProtect : 3|2@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_dcdcEnable : 1|2@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 454 C50_454: 8 C50
+ SG_ C50_gpsSigIndicator : 0|32@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 453 C50_453: 8 C50
+ SG_ C50_gpsSec : 32|32@1+ (1,0) [0|59] "sec" Vector__XXX
+ SG_ C50_gpsHsec : 0|32@1+ (1,0) [0|99] "hsec" Vector__XXX
+
+BO_ 452 C50_452: 8 C50
+ SG_ C50_gpsFix : 32|32@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ C50_gpsElevation : 0|32@1- (1,0) [-5000|5000] "m" Vector__XXX
+
+BO_ 451 C50_451: 8 C50
+ SG_ C50_gpsSpeed : 0|32@1- (1,0) [0|0] "kph" Vector__XXX
+ SG_ C50_gpsDirection : 32|32@1- (1,0) [-360|360] "degrees" Vector__XXX
+
+BO_ 450 C50_450: 8 C50
+ SG_ C50_gpsLong : 32|32@1- (1,0) [-180|180] "NDEG" Vector__XXX
+ SG_ C50_gpsLat : 0|32@1- (1,0) [-90|90] "NDEG" Vector__XXX
+
+BO_ 303 ATCC_303: 8 ATCC
+ SG_ ATCC_counterMsg303 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ATCC_coolantTempMotorIn : 16|16@1- (0.1,0) [0|120] "degC" Vector__XXX
+ SG_ ATCC_coolantTempInverterOut : 48|16@1- (0.1,0) [0|120] "degC" Vector__XXX
+ SG_ ATCC_coolantTempInverterIn : 32|16@1- (0.1,0) [0|120] "degC" Vector__XXX
+
+BO_ 302 ATCC_302: 8 ATCC
+ SG_ ATCC_counterMsg302 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ATCC_angularWheelFreqRR : 32|16@1+ (1,0) [0|2000] "Hz" Vector__XXX
+ SG_ ATCC_angularWheelFreqRL : 16|16@1+ (1,0) [0|2000] "Hz" Vector__XXX
+
+BO_ 301 ATCC_301: 8 ATCC
+ SG_ ATCC_counterMsg301 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ATCC_angularWheelFreqFR : 32|16@1+ (1,0) [0|2000] "Hz" Vector__XXX
+ SG_ ATCC_angularWheelFreqFL : 16|16@1+ (1,0) [0|2000] "Hz" Vector__XXX
+
+BO_ 300 ATCC_300: 8 ATCC
+ SG_ ATCC_teensyTemp : 32|16@1- (0.1,0) [0|150] "degC" Vector__XXX
+ SG_ ATCC_counterMsg300 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ ATCC_boardTemp : 16|16@1- (0.1,0) [0|150] "degC" Vector__XXX
+
+BO_ 1984 LWS_1984: 8 LWS
+ SG_ LWS_ccw : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 688 LWS_688: 8 LWS
+ SG_ LWS_trim : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LWS_cal : 25|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LWS_ok : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LWS_speed : 16|8@1+ (4,0) [0|1020] "deg/s" Vector__XXX
+ SG_ LWS_angle : 0|16@1- (0.1,0) [-3276.8|3276.7] "deg" Vector__XXX
+
+BO_ 200 VCU_200: 8 VCU
+ SG_ VCU_segmentHalf2Duty : 32|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_segmentHalf1Duty : 16|16@1- (0.1,0) [0|100] "%" Vector__XXX
+ SG_ VCU_brakeLightCmd : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_counterMsg200 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 192 VCU_192: 8 VCU
+ SG_ VCU_torqueLimitCommand : 48|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+ SG_ VCU_torqueCommand : 0|16@1- (0.1,0) [-3276.8|3276.7] "Nm" Vector__XXX
+ SG_ VCU_speedModeEnable : 42|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_speedCommand : 16|16@1- (1,0) [-32768|32767] "rpm" Vector__XXX
+ SG_ VCU_counterMsg192 : 44|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_inverterEnable : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_inverterDischarge : 41|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_directionCommand : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 170 PM_170: 8 PM
+ SG_ PM_vsmState : 0|8@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PM_startModeActive : 54|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_relayStatus6 : 29|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_relayStatus5 : 28|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_relayStatus4 : 27|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_relayStatus3 : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_relayStatus2 : 25|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_relayStatus1 : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_pwmFrequency : 8|8@1+ (1,0) [0|255] "kHz" Vector__XXX
+ SG_ PM_maxSpeedLimiting : 59|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_lowSpeedLimiting : 61|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_inverterState : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ PM_inverterRunMode : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_inverterEnableState : 48|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_inverterEnableLockout : 55|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_inverterDischargeMode : 37|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ PM_inverterCommandMode : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_directionCommand : 56|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_counterMsg170 : 44|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ PM_bmsTorqueLimiting : 58|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ PM_bmsActive : 57|1@1+ (1,0) [0|1] "" Vector__XXX
+
+
+
+CM_ SG_ 201 VCU_waterPumpDuty "Water pump duty";
+CM_ SG_ 201 VCU_radFanRDuty "Right radiator fan duty";
+CM_ SG_ 201 VCU_radFanLDuty "Left radiator fan duty";
+CM_ SG_ 201 VCU_counterMsg201 "Counter Message 201";
+CM_ SG_ 2550255759 DCDC_temperature "DCDC temperature
+";
+CM_ SG_ 2550255759 DCDC_outputOverCurrent "DCDC output over current; 0: no error, 1: error
+";
+CM_ SG_ 2550255759 DCDC_outputUnderVoltage "DCDC output under voltage; 0: no error, 1: error
+";
+CM_ SG_ 2550255759 DCDC_outputOverVoltage "DCDC output over voltage; 0: no error, 1: error
+";
+CM_ SG_ 2550255759 DCDC_inputUnderVoltage "DCDC input under voltage; 0: no error, 1: error
+";
+CM_ SG_ 2550255759 DCDC_inputOverVoltage "DCDC input over voltage; 0: no error, 1: error
+";
+CM_ SG_ 2550255759 DCDC_overTempError "DCDC over temp error; 0: no error, 1: error
+";
+CM_ SG_ 2550255759 DCDC_tempWarning "DCDC over temp warning; 0: no warning, 1: warning
+";
+CM_ SG_ 2550255759 DCDC_hvilError "High Voltage Interlock error; 0: no error, 1: error
+";
+CM_ SG_ 2550255759 DCDC_fanControl2 "DCDC fan control; 0: off, 1: on
+DCDC fan control; 0: off, 1: on
+";
+CM_ SG_ 2550255759 DCDC_shutOffError "DCDC shut off error; 0: no error, 1: error 
+";
+CM_ SG_ 2550255759 DCDC_canError "DCDC CAN error; 0: no error, 1: error
+";
+CM_ SG_ 2550255759 DCDC_hardwareFault "DCDC hardware error; 0: no error, 1: error
+";
+CM_ SG_ 2550255759 DCDC_status "DCDC state; 0: stopped, 1: working
+";
+CM_ SG_ 2550255759 DCDC_ready "DCDC initialization status; 0: incomplete, 1: complete
+";
+CM_ SG_ 2550255759 DCDC_currentOutput "DCDC output current
+";
+CM_ SG_ 2550255759 DCDC_voltageOutput "DCDC output voltage
+";
+CM_ SG_ 194 PM_dataResponse "All EEPROM data is 16 bits and is contained in bytes 4 and 5. Bytes 6 and 7 should be ignored
+";
+CM_ SG_ 194 PM_writeSuccess "0 = Write Failure, 1 = Success
+";
+CM_ SG_ 194 PM_parameterAddressResponse "Valid EEPROM Parameter CAN addresses are between 100 and 499
+";
+CM_ SG_ 176 PM_fastDCBusVolt "DC bus voltage
+";
+CM_ SG_ 176 PM_fastMotorSpeed "Motor speed
+";
+CM_ SG_ 176 PM_fastTorqueFeedback "The estimated torque
+";
+CM_ SG_ 176 PM_fastTorqueCommand "The commanded torque
+";
+CM_ SG_ 173 PM_iqCommand "The commanded Q-axis current
+";
+CM_ SG_ 173 PM_idCommand "The commanded D-axis current
+";
+CM_ SG_ 173 PM_fluxWeakeningOutput "This is the current output of the flux generator
+";
+CM_ SG_ 173 PM_modulationIndex "This is the modulation index. The scale factor is x100. To get the actual modulation index divide value by 100
+";
+CM_ SG_ 172 PM_powerOnTimer "Updated every 3 msec. This will roll over in approximately 150 days!
+";
+CM_ SG_ 172 PM_torqueFeedback "Estimated motor torque feedback
+";
+CM_ SG_ 172 PM_commandedTorque "The commanded torque
+";
+CM_ SG_ 171 PM_runFaultHi "Each bit represents a fault. Please refer to PM100 Users Manual for details
+";
+CM_ SG_ 171 PM_runFaultLo "Each bit represents a fault. Please refer to PM100 Users Manual for details
+";
+CM_ SG_ 171 PM_postFaultHi "Each bit represents a fault. Please refer to PM100 Users Manual for details
+";
+CM_ SG_ 171 PM_postFaultLo "Each bit represents a fault. Please refer to PM100 Users Manual for details
+";
+CM_ SG_ 169 PM_refVolt120 "12V Input Voltage
+";
+CM_ SG_ 169 PM_refVolt50 "Transducer voltage
+";
+CM_ SG_ 169 PM_refVolt25 "Internal reference voltage
+";
+CM_ SG_ 169 PM_refVolt15 "Internal reference voltage
+";
+CM_ SG_ 168 PM_iq "The measured Iq current
+";
+CM_ SG_ 168 PM_id "The measured Id current
+";
+CM_ SG_ 168 PM_fluxFeedback "The estimated flux
+";
+CM_ SG_ 168 PM_fluxCommand "The commanded flux
+";
+CM_ SG_ 167 PM_vbcVqVolt "Measured value of the voltage between Phase B and Phase C
+";
+CM_ SG_ 167 PM_vabVdVolt "Measured value of the voltage between Phase A and Phase B
+";
+CM_ SG_ 167 PM_outputVolt "The calculated value of the output voltage, in peak line-neutral volts
+";
+CM_ SG_ 167 PM_dcBusVolt "The actual measured value of the DC bus voltage
+";
+CM_ SG_ 166 PM_dcBusCurrent "The calculated DC Bus Current
+";
+CM_ SG_ 166 PM_phaseCCurrent "The measured value of Phase C current
+";
+CM_ SG_ 166 PM_phaseBCurrent "The measured value of Phase B current
+";
+CM_ SG_ 166 PM_phaseACurrent "The measured value of Phase A current
+";
+CM_ SG_ 165 PM_deltaResolverFiltered "Used in calibration of resolver angle adjustment
+";
+CM_ SG_ 165 PM_electricalOutputFrequency "The actual frequency of the inverter
+";
+CM_ SG_ 165 PM_motorSpeed "The measured speed of the motor
+";
+CM_ SG_ 165 PM_electricalMotorAngle "The Electrical Angle of the motor as read by the encoder or resolver
+";
+CM_ SG_ 164 PM_digitalInputStatus8 "Status of Digital Input #8
+";
+CM_ SG_ 164 PM_digitalInputStatus7 "Status of Digital Input #7
+";
+CM_ SG_ 164 PM_digitalInputStatus6 "Status of Digital Input #6
+";
+CM_ SG_ 164 PM_digitalInputStatus5 "Status of Digital Input #5
+";
+CM_ SG_ 164 PM_digitalInputStatus4 "Status of Digital Input #4
+";
+CM_ SG_ 164 PM_digitalInputStatus3 "Status of Digital Input #3
+";
+CM_ SG_ 164 PM_digitalInputStatus2 "Status of Digital Input #2
+";
+CM_ SG_ 164 PM_digitalInputStatus1 "Status of Digital Input #1
+";
+CM_ SG_ 163 PM_analogInputVolt6 "Voltage on Analog Input #6
+";
+CM_ SG_ 163 PM_analogInputVolt5 "Voltage on Analog Input #5
+";
+CM_ SG_ 163 PM_analogInputVolt4 "Voltage on Analog Input #4
+";
+CM_ SG_ 163 PM_analogInputVolt3 "Voltage on Analog Input #3
+";
+CM_ SG_ 163 PM_analogInputVolt2 "Voltage on Analog Input #2
+";
+CM_ SG_ 163 PM_analogInputVolt1 "Voltage on Analog Input #1
+";
+CM_ SG_ 162 PM_torqueShudder "Shudder Compensation Value of Torque
+";
+CM_ SG_ 162 PM_motorTemp "Motor Temperature Sensor
+";
+CM_ SG_ 162 PM_rtd5Temp "RTD Input 5 (PT1000) Temperature (Gen 2 Only)
+";
+CM_ SG_ 162 PM_rtd4Temp "RTD Input 4 (PT1000) Temperature (Gen 2 Only)
+";
+CM_ SG_ 161 PM_rtd3Temp "RTD Input 3 (PT1000) Temperature (Gen 2 Only)
+";
+CM_ SG_ 161 PM_rtd2Temp "RTD Input 2 (PT1000) Temperature
+";
+CM_ SG_ 161 PM_rtd1Temp "RTD Input 1 (PT1000) Temperature
+";
+CM_ SG_ 161 PM_controlBoardTemp "Control Board Temperature
+";
+CM_ SG_ 160 PM_moduleCTemp "IGBT Module C Temperature
+";
+CM_ SG_ 160 PM_moduleBTemp "IGBT Module B Temperature
+";
+CM_ SG_ 160 PM_gateDriverBoardTemp "Gate Driver Board Temperature
+";
+CM_ SG_ 160 PM_moduleATemp "IGBT Module A Temperature
+";
+CM_ SG_ 193 VCU_pmDataCommand "All EEPROM data is 16 bits and is contained in bytes 4 and 5
+";
+CM_ SG_ 193 VCU_pmReadWriteCommand "0 = Read, 1 = Write
+";
+CM_ SG_ 193 VCU_pmParameterAddressCommand "Valid EEPROM Parameter CAN addresses are between 100 and 499
+";
+CM_ SG_ 2550173648 VCU_dcdcProtect "Protect command - once commanded, converter won't work until restart (decimal); 1: protection confirmed
+";
+CM_ SG_ 2550173648 VCU_dcdcEnable "Enable command (decimal); 1: enable, 2: disable 
+";
+CM_ SG_ 454 C50_gpsSigIndicator "GPS quality indicator (0 = Invalid; 1 = Fix; 2 = Differential; 3 = Sensitive)
+";
+CM_ SG_ 453 C50_gpsSec "Seconds after the minute
+";
+CM_ SG_ 453 C50_gpsHsec "Hundredth part of a second
+";
+CM_ SG_ 452 C50_gpsFix "Operating mode, used for navigation (1 = Fix not available; 2 = 2D; 3 = 3D)
+";
+CM_ SG_ 452 C50_gpsElevation "Antenna altitude above/below mean sea level (geoid) in meters
+";
+CM_ SG_ 451 C50_gpsSpeed "Speed over the ground in kph
+";
+CM_ SG_ 451 C50_gpsDirection "Track angle in degrees
+";
+CM_ SG_ 450 C50_gpsLong "Longitude in NDEG: +/-[degree][min].[sec/60]
+";
+CM_ SG_ 450 C50_gpsLat "Latitude in NDEG: +/-[degree][min].[sec/60]
+";
+CM_ SG_ 303 ATCC_counterMsg303 "Counter Message 303
+";
+CM_ SG_ 303 ATCC_coolantTempMotorIn "Motor In Coolant Temperature 
+";
+CM_ SG_ 303 ATCC_coolantTempInverterOut "Inverter Out Coolant Temperature 
+";
+CM_ SG_ 303 ATCC_coolantTempInverterIn "Inverter In Coolant Temperature 
+";
+CM_ SG_ 302 ATCC_counterMsg302 "Counter Message 302
+";
+CM_ SG_ 302 ATCC_angularWheelFreqRR "RR Angular Wheel Frequency
+";
+CM_ SG_ 302 ATCC_angularWheelFreqRL "RL Angular Wheel Frequency
+";
+CM_ SG_ 301 ATCC_counterMsg301 "Counter Message 301
+";
+CM_ SG_ 301 ATCC_angularWheelFreqFR "FR Angular Wheel Frequency
+";
+CM_ SG_ 301 ATCC_angularWheelFreqFL "FL Angular Wheel Frequency
+";
+CM_ SG_ 300 ATCC_teensyTemp "Teensy Board Temp
+";
+CM_ SG_ 300 ATCC_counterMsg300 "Counter Message 300
+";
+CM_ SG_ 300 ATCC_boardTemp "Board Temp
+";
+CM_ SG_ 1984 LWS_ccw "Config signal for the SWA sensor: 3h sets the signal LWS_angle to 0 deg, 5h resets the calibration status of the angle
+";
+CM_ SG_ 688 LWS_trim "Consult truth table
+";
+CM_ SG_ 688 LWS_cal "Consult truth table
+";
+CM_ SG_ 688 LWS_ok "Consult truth table
+";
+CM_ SG_ 688 LWS_speed "Angular Speed
+";
+CM_ SG_ 688 LWS_angle "Steering Wheel Angle
+";
+CM_ SG_ 200 VCU_segmentHalf2Duty "Segment half 2 duty";
+CM_ SG_ 200 VCU_segmentHalf1Duty "Segment half 1 duty";
+CM_ SG_ 200 VCU_brakeLightCmd "Brake light command";
+CM_ SG_ 200 VCU_counterMsg200 "Counter Message 200
+
+";
+CM_ SG_ 192 VCU_torqueLimitCommand "Torque Limit - set to 0 to keep default
+";
+CM_ SG_ 192 VCU_torqueCommand "Torque Command in Torque Mode
+";
+CM_ SG_ 192 VCU_speedModeEnable "0 = No Change Mode, 1 = Change to Speed Mode from Torque Mode
+";
+CM_ SG_ 192 VCU_speedCommand "Speed Command when used in Speed Mode
+";
+CM_ SG_ 192 VCU_counterMsg192 "Counter Message 192
+";
+CM_ SG_ 192 VCU_inverterEnable "0 = Inverter OFF, 1 = Inverter ON
+";
+CM_ SG_ 192 VCU_inverterDischarge "0 = Discharge Disable, 1 = Discharge Enable
+";
+CM_ SG_ 192 VCU_directionCommand "0 = CW, 1 = CCW, viewed from the shaft end of the motor
+";
+CM_ SG_ 170 PM_vsmState "Different states for the vehicle state machine";
+CM_ SG_ 170 PM_startModeActive "If in Key Switch Mode 1, indicates status of Start input being applied. 0 = Not Active, 1 = Active
+";
+CM_ SG_ 170 PM_relayStatus6 "0 = OFF, 1 = ON";
+CM_ SG_ 170 PM_relayStatus5 "0 = OFF, 1 = ON";
+CM_ SG_ 170 PM_relayStatus4 "0 = OFF, 1 = ON";
+CM_ SG_ 170 PM_relayStatus3 "0 = OFF, 1 = ON";
+CM_ SG_ 170 PM_relayStatus2 "0 = OFF, 1 = ON";
+CM_ SG_ 170 PM_relayStatus1 "0 = OFF, 1 = ON";
+CM_ SG_ 170 PM_pwmFrequency "The inverter PWM frequency";
+CM_ SG_ 170 PM_maxSpeedLimiting "0 = Not Limiting, 1 = Torque Limiting due to Maximum Speed
+";
+CM_ SG_ 170 PM_lowSpeedLimiting "0 = Not Limiting, 1 = Current Limiting due to Low Motor Speed
+";
+CM_ SG_ 170 PM_inverterState "Different states for the inverter machine state";
+CM_ SG_ 170 PM_inverterRunMode "0 = Torque Mode, 1 = Speed Mode
+";
+CM_ SG_ 170 PM_inverterEnableState "0 = Inverter Disabled, 1 = Inverter Enabled
+";
+CM_ SG_ 170 PM_inverterEnableLockout "0 = Lockout Disabled, 1 = Lockout Enabled
+";
+CM_ SG_ 170 PM_inverterDischargeMode "0 = Disabled, 1 = Enabled, 2 = Speed Check, 3 = Active, 4 = Complete
+";
+CM_ SG_ 170 PM_inverterCommandMode "0 = CAN Mode, 1 = VSM Mode
+";
+CM_ SG_ 170 PM_directionCommand "1 = Forward, 0 = 'Reverse' if inverter enabled & 'Stopped' if inverter is disabled
+";
+CM_ SG_ 170 PM_counterMsg170 "Counter Message 170
+";
+CM_ SG_ 170 PM_bmsTorqueLimiting "0 = Not Limiting, 1 = Limiting
+";
+CM_ SG_ 170 PM_bmsActive "0 = BMS Not Active, 1 = BMS Active
+";
+BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "MultiplexExtEnabled" "No";
+BA_DEF_DEF_  "BusType" "CAN";
+
