@@ -38,6 +38,86 @@ VAL_TABLE_ contactorState 2 "Open" 1 "Close" 0 "Faulted" ;
 VAL_TABLE_ vehicleState 8 "Faulted" 7 "ReadyToMove" 6 "Standby" 5 "PrechargeComplete" 4 "PrechargeTimeout" 3 "Precharge" 2 "PrechargeReady" 1 "StartDelay" 0 "Off" ;
 
 
+BO_ 2553934727 STMM_1839F387: 8 STMM
+ SG_ STMM_seg8Checksum : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg8ThermIDLow : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg8ThermIDHigh : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg8ThermsEnabled : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg8ThermValAvg : 24|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg8ThermValHigh : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg8ThermValLow : 8|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg8ThermModNum : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2553934726 STMM_1839F386: 8 STMM
+ SG_ STMM_seg7Checksum : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg7ThermIDLow : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg7ThermIDHigh : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg7ThermsEnabled : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg7ThermValAvg : 24|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg7ThermValHigh : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg7ThermValLow : 8|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg7ThermModNum : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2553934725 STMM_1839F385: 8 STMM
+ SG_ STMM_seg6Checksum : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg6ThermIDLow : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg6ThermIDHigh : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg6ThermsEnabled : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg6ThermValAvg : 24|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg6ThermValHigh : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg6ThermValLow : 8|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg6ThermModNum : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2553934724 STMM_1839F384: 8 STMM
+ SG_ STMM_seg5Checksum : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg5ThermIDLow : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg5ThermIDHigh : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg5ThermsEnabled : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg5ThermValAvg : 24|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg5ThermValHigh : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg5ThermValLow : 8|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg5ThermModNum : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2553934723 STMM_1839F383: 8 STMM
+ SG_ STMM_seg4Checksum : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg4ThermIDLow : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg4ThermIDHigh : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg4ThermsEnabled : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg4ThermValAvg : 24|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg4ThermValHigh : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg4ThermValLow : 8|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg4ThermModNum : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2553934722 STMM_1839F382: 8 STMM
+ SG_ STMM_seg3Checksum : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg3ThermIDLow : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg3ThermIDHigh : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg3ThermsEnabled : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg3ThermValAvg : 24|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg3ThermValHigh : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg3ThermValLow : 8|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg3ThermModNum : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2553934721 STMM_1839F381: 8 STMM
+ SG_ STMM_seg2Checksum : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg2ThermIDLow : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg2ThermIDHigh : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg2ThermsEnabled : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg2ThermValAvg : 24|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg2ThermValHigh : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg2ThermValLow : 8|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg2ThermModNum : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2553934720 STMM_1839F380: 8 STMM
+ SG_ STMM_seg1Checksum : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg1ThermIDLow : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg1ThermIDHigh : 40|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg1ThermsEnabled : 32|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ STMM_seg1ThermValAvg : 24|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg1ThermValHigh : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg1ThermValLow : 8|8@1- (1,0) [-128|127] "degC" Vector__XXX
+ SG_ STMM_seg1ThermModNum : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
 BO_ 153 VCU_153: 8 VCU
  SG_ VCU_coolSwitch : 32|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ VCU_pwrDownSwitch : 24|1@1+ (1,0) [0|1] "" Vector__XXX
@@ -57,144 +137,8 @@ BO_ 152 VCU_152: 8 VCU
 BO_ 151 VCU_151: 8 VCU
  SG_ VCU_brakePressureR : 48|16@1- (0.1,0) [0|2000] "psi" Vector__XXX
  SG_ VCU_brakePressureF : 32|16@1- (0.1,0) [0|2000] "psi" Vector__XXX
- SG_ VCU_brakeBias : 16|16@1- (0.1,0) [-32768|32767] "%" Vector__XXX
+ SG_ VCU_brakeBias : 16|16@1- (0.1,0) [-3276.8|3276.7] "%" Vector__XXX
  SG_ VCU_counterMsg151 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
-BO_ 2565799815 STMM_18EEFF87: 8 STMM
- SG_ STMM_seg8Constant3 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg8Constant2 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg8Constant1 : 40|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg8ThermModuleNumber : 32|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg8BMSTargetAddress : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg8AddressClaim : 0|24@1+ (1,0) [0|16777215] "" Vector__XXX
-
-BO_ 2565799814 STMM_18EEFF86: 8 STMM
- SG_ STMM_seg7Constant3 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg7Constant2 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg7Constant1 : 40|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg7ThermModuleNumber : 32|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg7BMSTargetAddress : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg7AddressClaim : 0|24@1+ (1,0) [0|16777215] "" Vector__XXX
-
-BO_ 2565799813 STMM_18EEFF85: 8 STMM
- SG_ STMM_seg6Constant3 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg6Constant2 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg6Constant1 : 40|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg6ThermModuleNumber : 32|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg6BMSTargetAddress : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg6AddressClaim : 0|24@1+ (1,0) [0|16777215] "" Vector__XXX
-
-BO_ 2565799812 STMM_18EEFF84: 8 STMM
- SG_ STMM_seg5Constant3 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg5Constant2 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg5Constant1 : 40|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg5ThermModuleNumber : 32|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg5BMSTargetAddress : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg5AddressClaim : 0|24@1+ (1,0) [0|16777215] "" Vector__XXX
-
-BO_ 2565799811 STMM_18EEFF83: 8 STMM
- SG_ STMM_seg4Constant3 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg4Constant2 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg4Constant1 : 40|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg4ThermModuleNumber : 32|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg4BMSTargetAddress : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg4AddressClaim : 0|24@1+ (1,0) [0|16777215] "" Vector__XXX
-
-BO_ 2565799810 STMM_18EEFF82: 8 STMM
- SG_ STMM_seg3Constant3 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg3Constant2 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg3Constant1 : 40|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg3ThermModuleNumber : 32|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg3BMSTargetAddress : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg3AddressClaim : 0|24@1+ (1,0) [0|16777215] "" Vector__XXX
-
-BO_ 2565799809 STMM_18EEFF81: 8 STMM
- SG_ STMM_seg2Constant3 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg2Constant2 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg2Constant1 : 40|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg2ThermModuleNumber : 32|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg2BMSTargetAddress : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg2AddressClaim : 0|24@1+ (1,0) [0|16777215] "" Vector__XXX
-
-BO_ 2565799808 STMM_18EEFF80: 8 STMM
- SG_ STMM_seg1Constant3 : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg1Constant2 : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg1Constant1 : 40|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg1ThermModuleNumber : 32|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg1BMSTargetAddress : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg1AddressClaim : 0|24@1+ (1,0) [0|16777215] "" Vector__XXX
-
-BO_ 2553869191 STMM_1838F387: 8 STMM
- SG_ STMM_seg8ThermIDLow : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg8ThermIDHigh : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg8ThermValHigh : 40|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg8ThermValLow : 32|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg8ThermID : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg8ThermVal : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg8ThermGlobalID : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
-
-BO_ 2553869190 STMM_1838F386: 8 STMM
- SG_ STMM_seg7ThermIDLow : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg7ThermIDHigh : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg7ThermValHigh : 40|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg7ThermValLow : 32|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg7ThermID : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg7ThermVal : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg7ThermGlobalID : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
-
-BO_ 2553869189 STMM_1838F385: 8 STMM
- SG_ STMM_seg6ThermIDLow : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg6ThermIDHigh : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg6ThermValHigh : 40|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg6ThermValLow : 32|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg6ThermID : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg6ThermVal : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg6ThermGlobalID : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
-
-BO_ 2553869188 STMM_1838F384: 8 STMM
- SG_ STMM_seg5ThermIDLow : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg5ThermIDHigh : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg5ThermValHigh : 40|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg5ThermValLow : 32|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg5ThermID : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg5ThermVal : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg5ThermGlobalID : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
-
-BO_ 2553869187 STMM_1838F383: 8 STMM
- SG_ STMM_seg4ThermIDLow : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg4ThermIDHigh : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg4ThermValHigh : 40|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg4ThermValLow : 32|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg4ThermID : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg4ThermVal : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg4ThermGlobalID : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
-
-BO_ 2553869186 STMM_1838F382: 8 STMM
- SG_ STMM_seg3ThermIDLow : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg3ThermIDHigh : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg3ThermValHigh : 40|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg3ThermValLow : 32|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg3ThermID : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg3ThermVal : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg3ThermGlobalID : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
-
-BO_ 2553869185 STMM_1838F381: 8 STMM
- SG_ STMM_seg2ThermIDLow : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg2ThermIDHigh : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg2ThermValHigh : 40|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg2ThermValLow : 32|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg2ThermID : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg2ThermVal : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg2ThermGlobalID : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
-
-BO_ 2553869184 STMM_1838F380: 8 STMM
- SG_ STMM_seg1ThermIDLow : 56|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg1ThermIDHigh : 48|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg1ThermValHigh : 40|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg1ThermValLow : 32|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg1ThermID : 24|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ STMM_seg1ThermVal : 16|8@1- (1,0) [-128|127] "degC" Vector__XXX
- SG_ STMM_seg1ThermGlobalID : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
 
 BO_ 380 MM5_380: 8 MM5
  SG_ MM5_az : 32|16@1+ (-0.0001274,4.1745795) [-4.1745795|4.1745795] "g" Vector__XXX
@@ -606,6 +550,134 @@ BO_ 150 VCU_150: 8 VCU
 
 
 
+CM_ SG_ 2553934727 STMM_seg8Checksum "Checksum (sum of all bytes + 0x39 + length)
+";
+CM_ SG_ 2553934727 STMM_seg8ThermIDLow "The ID of the thermistor with the lowest value
+";
+CM_ SG_ 2553934727 STMM_seg8ThermIDHigh "The ID of the thermistor with the highest value
+";
+CM_ SG_ 2553934727 STMM_seg8ThermsEnabled "Number of thermistors enabled
+";
+CM_ SG_ 2553934727 STMM_seg8ThermValAvg "Average thermistor value
+";
+CM_ SG_ 2553934727 STMM_seg8ThermValHigh "Highest thermistor value
+";
+CM_ SG_ 2553934727 STMM_seg8ThermValLow "Lowest thermistor value
+";
+CM_ SG_ 2553934727 STMM_seg8ThermModNum "Thermistor module number
+";
+CM_ SG_ 2553934726 STMM_seg7Checksum "Checksum (sum of all bytes + 0x39 + length)
+";
+CM_ SG_ 2553934726 STMM_seg7ThermIDLow "The ID of the thermistor with the lowest value
+";
+CM_ SG_ 2553934726 STMM_seg7ThermIDHigh "The ID of the thermistor with the highest value
+";
+CM_ SG_ 2553934726 STMM_seg7ThermsEnabled "Number of thermistors enabled
+";
+CM_ SG_ 2553934726 STMM_seg7ThermValAvg "Average thermistor value
+";
+CM_ SG_ 2553934726 STMM_seg7ThermValHigh "Highest thermistor value
+";
+CM_ SG_ 2553934726 STMM_seg7ThermValLow "Lowest thermistor value
+";
+CM_ SG_ 2553934726 STMM_seg7ThermModNum "Thermistor module number
+";
+CM_ SG_ 2553934725 STMM_seg6Checksum "Checksum (sum of all bytes + 0x39 + length)
+";
+CM_ SG_ 2553934725 STMM_seg6ThermIDLow "The ID of the thermistor with the lowest value
+";
+CM_ SG_ 2553934725 STMM_seg6ThermIDHigh "The ID of the thermistor with the highest value
+";
+CM_ SG_ 2553934725 STMM_seg6ThermsEnabled "Number of thermistors enabled
+";
+CM_ SG_ 2553934725 STMM_seg6ThermValAvg "Average thermistor value
+";
+CM_ SG_ 2553934725 STMM_seg6ThermValHigh "Highest thermistor value
+";
+CM_ SG_ 2553934725 STMM_seg6ThermValLow "Lowest thermistor value
+";
+CM_ SG_ 2553934725 STMM_seg6ThermModNum "Thermistor module number
+";
+CM_ SG_ 2553934724 STMM_seg5Checksum "Checksum (sum of all bytes + 0x39 + length)
+";
+CM_ SG_ 2553934724 STMM_seg5ThermIDLow "The ID of the thermistor with the lowest value
+";
+CM_ SG_ 2553934724 STMM_seg5ThermIDHigh "The ID of the thermistor with the highest value
+";
+CM_ SG_ 2553934724 STMM_seg5ThermsEnabled "Number of thermistors enabled
+";
+CM_ SG_ 2553934724 STMM_seg5ThermValAvg "Average thermistor value
+";
+CM_ SG_ 2553934724 STMM_seg5ThermValHigh "Highest thermistor value
+";
+CM_ SG_ 2553934724 STMM_seg5ThermValLow "Lowest thermistor value
+";
+CM_ SG_ 2553934724 STMM_seg5ThermModNum "Thermistor module number
+";
+CM_ SG_ 2553934723 STMM_seg4Checksum "Checksum (sum of all bytes + 0x39 + length)
+";
+CM_ SG_ 2553934723 STMM_seg4ThermIDLow "The ID of the thermistor with the lowest value
+";
+CM_ SG_ 2553934723 STMM_seg4ThermIDHigh "The ID of the thermistor with the highest value
+";
+CM_ SG_ 2553934723 STMM_seg4ThermsEnabled "Number of thermistors enabled
+";
+CM_ SG_ 2553934723 STMM_seg4ThermValAvg "Average thermistor value
+";
+CM_ SG_ 2553934723 STMM_seg4ThermValHigh "Highest thermistor value
+";
+CM_ SG_ 2553934723 STMM_seg4ThermValLow "Lowest thermistor value
+";
+CM_ SG_ 2553934723 STMM_seg4ThermModNum "Thermistor module number
+";
+CM_ SG_ 2553934722 STMM_seg3Checksum "Checksum (sum of all bytes + 0x39 + length)
+";
+CM_ SG_ 2553934722 STMM_seg3ThermIDLow "The ID of the thermistor with the lowest value
+";
+CM_ SG_ 2553934722 STMM_seg3ThermIDHigh "The ID of the thermistor with the highest value
+";
+CM_ SG_ 2553934722 STMM_seg3ThermsEnabled "Number of thermistors enabled
+";
+CM_ SG_ 2553934722 STMM_seg3ThermValAvg "Average thermistor value
+";
+CM_ SG_ 2553934722 STMM_seg3ThermValHigh "Highest thermistor value
+";
+CM_ SG_ 2553934722 STMM_seg3ThermValLow "Lowest thermistor value
+";
+CM_ SG_ 2553934722 STMM_seg3ThermModNum "Thermistor module number
+";
+CM_ SG_ 2553934721 STMM_seg2Checksum "Checksum (sum of all bytes + 0x39 + length)
+";
+CM_ SG_ 2553934721 STMM_seg2ThermIDLow "The ID of the thermistor with the lowest value
+";
+CM_ SG_ 2553934721 STMM_seg2ThermIDHigh "The ID of the thermistor with the highest value
+";
+CM_ SG_ 2553934721 STMM_seg2ThermsEnabled "Number of thermistors enabled
+";
+CM_ SG_ 2553934721 STMM_seg2ThermValAvg "Average thermistor value
+";
+CM_ SG_ 2553934721 STMM_seg2ThermValHigh "Highest thermistor value
+";
+CM_ SG_ 2553934721 STMM_seg2ThermValLow "Lowest thermistor value
+";
+CM_ SG_ 2553934721 STMM_seg2ThermModNum "Thermistor module number
+";
+CM_ SG_ 2553934720 STMM_seg1Checksum "Checksum (sum of all bytes + 0x39 + length)
+";
+CM_ SG_ 2553934720 STMM_seg1ThermIDLow "The ID of the thermistor with the lowest value
+";
+CM_ SG_ 2553934720 STMM_seg1ThermIDHigh "The ID of the thermistor with the highest value
+";
+CM_ SG_ 2553934720 STMM_seg1ThermsEnabled "Number of thermistors enabled
+";
+CM_ SG_ 2553934720 STMM_seg1ThermValAvg "Average thermistor value
+";
+CM_ SG_ 2553934720 STMM_seg1ThermValHigh "Highest thermistor value
+";
+CM_ SG_ 2553934720 STMM_seg1ThermValLow "Lowest thermistor value
+";
+CM_ SG_ 2553934720 STMM_seg1ThermModNum "Thermistor module number
+";
 CM_ SG_ 153 VCU_coolSwitch "Cool switch signal";
 CM_ SG_ 153 VCU_pwrDownSwitch "Power down switch signal";
 CM_ SG_ 153 VCU_pwrUpSwitch "Power up switch signal";
@@ -622,206 +694,6 @@ CM_ SG_ 151 VCU_brakePressureR "Rear brake pressure sensor";
 CM_ SG_ 151 VCU_brakePressureF "Front brake pressure sensor";
 CM_ SG_ 151 VCU_brakeBias "Brake bias";
 CM_ SG_ 151 VCU_counterMsg151 "Counter Message 151";
-CM_ SG_ 2565799815 STMM_seg8Constant3 "Constant 3 (0x90)
-";
-CM_ SG_ 2565799815 STMM_seg8Constant2 "Constant 2 (0x1E)
-";
-CM_ SG_ 2565799815 STMM_seg8Constant1 "Constant 1 (0x40)
-";
-CM_ SG_ 2565799815 STMM_seg8ThermModuleNumber "Thermistor Module Number << 3 (Default = 0x00)
-";
-CM_ SG_ 2565799815 STMM_seg8BMSTargetAddress "BMS Target Address (0xF3 default)
-";
-CM_ SG_ 2565799815 STMM_seg8AddressClaim "Unique identifier for J1939 compatible address claim (Default value is: 0xF3 00 80)
-";
-CM_ SG_ 2565799814 STMM_seg7Constant3 "Constant 3 (0x90)
-";
-CM_ SG_ 2565799814 STMM_seg7Constant2 "Constant 2 (0x1E)
-";
-CM_ SG_ 2565799814 STMM_seg7Constant1 "Constant 1 (0x40)
-";
-CM_ SG_ 2565799814 STMM_seg7ThermModuleNumber "Thermistor Module Number << 3 (Default = 0x00)
-";
-CM_ SG_ 2565799814 STMM_seg7BMSTargetAddress "BMS Target Address (0xF3 default)
-";
-CM_ SG_ 2565799814 STMM_seg7AddressClaim "Unique identifier for J1939 compatible address claim (Default value is: 0xF3 00 80)
-";
-CM_ SG_ 2565799813 STMM_seg6Constant3 "Constant 3 (0x90)
-";
-CM_ SG_ 2565799813 STMM_seg6Constant2 "Constant 2 (0x1E)
-";
-CM_ SG_ 2565799813 STMM_seg6Constant1 "Constant 1 (0x40)
-";
-CM_ SG_ 2565799813 STMM_seg6ThermModuleNumber "Thermistor Module Number << 3 (Default = 0x00)
-";
-CM_ SG_ 2565799813 STMM_seg6BMSTargetAddress "BMS Target Address (0xF3 default)
-";
-CM_ SG_ 2565799813 STMM_seg6AddressClaim "Unique identifier for J1939 compatible address claim (Default value is: 0xF3 00 80)
-";
-CM_ SG_ 2565799812 STMM_seg5Constant3 "Constant 3 (0x90)
-";
-CM_ SG_ 2565799812 STMM_seg5Constant2 "Constant 2 (0x1E)
-";
-CM_ SG_ 2565799812 STMM_seg5Constant1 "Constant 1 (0x40)
-";
-CM_ SG_ 2565799812 STMM_seg5ThermModuleNumber "Thermistor Module Number << 3 (Default = 0x00)
-";
-CM_ SG_ 2565799812 STMM_seg5BMSTargetAddress "BMS Target Address (0xF3 default)
-";
-CM_ SG_ 2565799812 STMM_seg5AddressClaim "Unique identifier for J1939 compatible address claim (Default value is: 0xF3 00 80)
-";
-CM_ SG_ 2565799811 STMM_seg4Constant3 "Constant 3 (0x90)
-";
-CM_ SG_ 2565799811 STMM_seg4Constant2 "Constant 2 (0x1E)
-";
-CM_ SG_ 2565799811 STMM_seg4Constant1 "Constant 1 (0x40)
-";
-CM_ SG_ 2565799811 STMM_seg4ThermModuleNumber "Thermistor Module Number << 3 (Default = 0x00)
-";
-CM_ SG_ 2565799811 STMM_seg4BMSTargetAddress "BMS Target Address (0xF3 default)
-";
-CM_ SG_ 2565799811 STMM_seg4AddressClaim "Unique identifier for J1939 compatible address claim (Default value is: 0xF3 00 80)
-";
-CM_ SG_ 2565799810 STMM_seg3Constant3 "Constant 3 (0x90)
-";
-CM_ SG_ 2565799810 STMM_seg3Constant2 "Constant 2 (0x1E)
-";
-CM_ SG_ 2565799810 STMM_seg3Constant1 "Constant 1 (0x40)
-";
-CM_ SG_ 2565799810 STMM_seg3ThermModuleNumber "Thermistor Module Number << 3 (Default = 0x00)
-";
-CM_ SG_ 2565799810 STMM_seg3BMSTargetAddress "BMS Target Address (0xF3 default)
-";
-CM_ SG_ 2565799810 STMM_seg3AddressClaim "Unique identifier for J1939 compatible address claim (Default value is: 0xF3 00 80)
-";
-CM_ SG_ 2565799809 STMM_seg2Constant3 "Constant 3 (0x90)
-";
-CM_ SG_ 2565799809 STMM_seg2Constant2 "Constant 2 (0x1E)
-";
-CM_ SG_ 2565799809 STMM_seg2Constant1 "Constant 1 (0x40)
-";
-CM_ SG_ 2565799809 STMM_seg2ThermModuleNumber "Thermistor Module Number << 3 (Default = 0x00)
-";
-CM_ SG_ 2565799809 STMM_seg2BMSTargetAddress "BMS Target Address (0xF3 default)
-";
-CM_ SG_ 2565799809 STMM_seg2AddressClaim "Unique identifier for J1939 compatible address claim (Default value is: 0xF3 00 80)
-";
-CM_ SG_ 2565799808 STMM_seg1Constant3 "Constant 3 (0x90)
-";
-CM_ SG_ 2565799808 STMM_seg1Constant2 "Constant 2 (0x1E)
-";
-CM_ SG_ 2565799808 STMM_seg1Constant1 "Constant 1 (0x40)
-";
-CM_ SG_ 2565799808 STMM_seg1ThermModuleNumber "Thermistor Module Number << 3 (Default = 0x00)
-";
-CM_ SG_ 2565799808 STMM_seg1BMSTargetAddress "BMS Target Address (0xF3 default)
-";
-CM_ SG_ 2565799808 STMM_seg1AddressClaim "Unique identifier for J1939 compatible address claim (Default value is: 0xF3 00 80)
-";
-CM_ SG_ 2553869191 STMM_seg8ThermIDLow "Lowest thermistor ID on the module
-";
-CM_ SG_ 2553869191 STMM_seg8ThermIDHigh "Highest thermistor ID on the module
-";
-CM_ SG_ 2553869191 STMM_seg8ThermValHigh "Highest thermistor value
-";
-CM_ SG_ 2553869191 STMM_seg8ThermValLow "Lowest thermistor value
-";
-CM_ SG_ 2553869191 STMM_seg8ThermID "Thermistor ID relative to this thermistor module
-Thermistor ID relative to all configured thermistor modules
-";
-CM_ SG_ 2553869191 STMM_seg8ThermVal "Thermistor value
-";
-CM_ SG_ 2553869190 STMM_seg7ThermIDLow "Lowest thermistor ID on the module
-";
-CM_ SG_ 2553869190 STMM_seg7ThermIDHigh "Highest thermistor ID on the module
-";
-CM_ SG_ 2553869190 STMM_seg7ThermValHigh "Highest thermistor value
-";
-CM_ SG_ 2553869190 STMM_seg7ThermValLow "Lowest thermistor value
-";
-CM_ SG_ 2553869190 STMM_seg7ThermID "Thermistor ID relative to this thermistor module
-Thermistor ID relative to all configured thermistor modules
-";
-CM_ SG_ 2553869190 STMM_seg7ThermVal "Thermistor value
-";
-CM_ SG_ 2553869189 STMM_seg6ThermIDLow "Lowest thermistor ID on the module
-";
-CM_ SG_ 2553869189 STMM_seg6ThermIDHigh "Highest thermistor ID on the module
-";
-CM_ SG_ 2553869189 STMM_seg6ThermValHigh "Highest thermistor value
-";
-CM_ SG_ 2553869189 STMM_seg6ThermValLow "Lowest thermistor value
-";
-CM_ SG_ 2553869189 STMM_seg6ThermID "Thermistor ID relative to this thermistor module
-Thermistor ID relative to all configured thermistor modules
-";
-CM_ SG_ 2553869189 STMM_seg6ThermVal "Thermistor value
-";
-CM_ SG_ 2553869188 STMM_seg5ThermIDLow "Lowest thermistor ID on the module
-";
-CM_ SG_ 2553869188 STMM_seg5ThermIDHigh "Highest thermistor ID on the module
-";
-CM_ SG_ 2553869188 STMM_seg5ThermValHigh "Highest thermistor value
-";
-CM_ SG_ 2553869188 STMM_seg5ThermValLow "Lowest thermistor value
-";
-CM_ SG_ 2553869188 STMM_seg5ThermID "Thermistor ID relative to this thermistor module
-Thermistor ID relative to all configured thermistor modules
-";
-CM_ SG_ 2553869188 STMM_seg5ThermVal "Thermistor value
-";
-CM_ SG_ 2553869187 STMM_seg4ThermIDLow "Lowest thermistor ID on the module
-";
-CM_ SG_ 2553869187 STMM_seg4ThermIDHigh "Highest thermistor ID on the module
-";
-CM_ SG_ 2553869187 STMM_seg4ThermValHigh "Highest thermistor value
-";
-CM_ SG_ 2553869187 STMM_seg4ThermValLow "Lowest thermistor value
-";
-CM_ SG_ 2553869187 STMM_seg4ThermID "Thermistor ID relative to this thermistor module
-Thermistor ID relative to all configured thermistor modules
-";
-CM_ SG_ 2553869187 STMM_seg4ThermVal "Thermistor value
-";
-CM_ SG_ 2553869186 STMM_seg3ThermIDLow "Lowest thermistor ID on the module
-";
-CM_ SG_ 2553869186 STMM_seg3ThermIDHigh "Highest thermistor ID on the module
-";
-CM_ SG_ 2553869186 STMM_seg3ThermValHigh "Highest thermistor value
-";
-CM_ SG_ 2553869186 STMM_seg3ThermValLow "Lowest thermistor value
-";
-CM_ SG_ 2553869186 STMM_seg3ThermID "Thermistor ID relative to this thermistor module
-Thermistor ID relative to all configured thermistor modules
-";
-CM_ SG_ 2553869186 STMM_seg3ThermVal "Thermistor value
-";
-CM_ SG_ 2553869185 STMM_seg2ThermIDLow "Lowest thermistor ID on the module
-";
-CM_ SG_ 2553869185 STMM_seg2ThermIDHigh "Highest thermistor ID on the module
-";
-CM_ SG_ 2553869185 STMM_seg2ThermValHigh "Highest thermistor value
-";
-CM_ SG_ 2553869185 STMM_seg2ThermValLow "Lowest thermistor value
-";
-CM_ SG_ 2553869185 STMM_seg2ThermID "Thermistor ID relative to this thermistor module
-Thermistor ID relative to all configured thermistor modules
-";
-CM_ SG_ 2553869185 STMM_seg2ThermVal "Thermistor value
-";
-CM_ SG_ 2553869184 STMM_seg1ThermIDLow "Lowest thermistor ID on the module
-";
-CM_ SG_ 2553869184 STMM_seg1ThermIDHigh "Highest thermistor ID on the module
-";
-CM_ SG_ 2553869184 STMM_seg1ThermValHigh "Highest thermistor value
-";
-CM_ SG_ 2553869184 STMM_seg1ThermValLow "Lowest thermistor value
-";
-CM_ SG_ 2553869184 STMM_seg1ThermID "Thermistor ID relative to this thermistor module
-Thermistor ID relative to all configured thermistor modules
-";
-CM_ SG_ 2553869184 STMM_seg1ThermVal "Thermistor value
-";
 CM_ SG_ 380 MM5_az "Acceleration Z Axis
 ";
 CM_ SG_ 376 MM5_rollRate "Roll Rate
