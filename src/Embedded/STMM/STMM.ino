@@ -39,7 +39,7 @@ const int STMM = 1;   /* STMM Module Select
 #include "rainbow_pixels.hpp"
 
 const int GLO_NeoPixel_teensy_pin = 0;
-      int GLO_NeoPixel_brightness_percent = 100; // 0 - 100 %
+      int GLO_NeoPixel_brightness_percent = 25; // 0 - 100 %
 Adafruit_NeoPixel GLO_neopixel(1, GLO_NeoPixel_teensy_pin, NEO_GRB + NEO_KHZ800);
 
 //Cycle ID logic
@@ -81,40 +81,40 @@ void loop() {
       send_can_1(1);
       break;
 
-    case 2:
-      sample_ADCs_2();
-      send_can_2(2);
-      break;
+    // case 2:
+    //   sample_ADCs_2();
+    //   send_can_2(2);
+    //   break;
 
-    case 3:
-      sample_ADCs_3();
-      send_can_3(3);
-      break;
+    // case 3:
+    //   sample_ADCs_3();
+    //   send_can_3(3);
+    //   break;
 
-    case 4:
-      sample_ADCs_4();
-      send_can_4(4);
-      break;
+    // case 4:
+    //   sample_ADCs_4();
+    //   send_can_4(4);
+    //   break;
 
-    case 5:
-      sample_ADCs_5();
-      send_can_5(5);
-      break;
+    // case 5:
+    //   sample_ADCs_5();
+    //   send_can_5(5);
+    //   break;
 
-    case 6:
-      sample_ADCs_6();
-      send_can_6(6);
-      break;
+    // case 6:
+    //   sample_ADCs_6();
+    //   send_can_6(6);
+    //   break;
 
-    case 7:
-      sample_ADCs_7();
-      send_can_7(7);
-      break;
+    // case 7:
+    //   sample_ADCs_7();
+    //   send_can_7(7);
+    //   break;
 
-    case 8:
-      sample_ADCs_8();
-      send_can_8(8);
-      break;
+    // case 8:
+    //   sample_ADCs_8();
+    //   send_can_8(8);
+    //   break;
       
   }
 }

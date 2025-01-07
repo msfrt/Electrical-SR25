@@ -71,7 +71,19 @@ void send_STMM_1839F380(const int &seg) {
     int avg = static_cast<int>(get_avg_temp(module_temps));
     int min_id = get_min_id(sorted_module_temps);
     int max_id = get_max_id(sorted_module_temps);
-    int average = static_cast<int>(get_avg_temp(module_temps));
+
+    int counter0 = 0;
+    int counter1 = 1;
+    int counter2 = 2;
+    int counter3 = 3;
+    int counter4 = 4;
+    int counter5 = 5;
+    int counter6 = 6;
+    int counter7 = 7;
+    int counter8 = 8;
+    int counter9 = 9;
+    int counter10 = 10;
+    int counter11 = 11;
 
     // int teensy_id = counter;
     // int global_id = get_global_id(counter, module_temps);
@@ -79,8 +91,33 @@ void send_STMM_1839F380(const int &seg) {
     // Serial.println("global_id: ");
     // Serial.println(global_id);
 
-    // Serial.println("module_temps: ");
-    // Serial.println(get_module_temp(counter, module_temps));
+    Serial.println("module1: ");
+    Serial.println(get_module_temp(counter0, module_temps));
+    Serial.println("module2: ");
+    Serial.println(get_module_temp(counter1, module_temps));
+    Serial.println("module3: ");
+    Serial.println(get_module_temp(counter2, module_temps));
+    Serial.println("module4: ");
+    Serial.println(get_module_temp(counter3, module_temps));
+    Serial.println("module5: ");
+    Serial.println(get_module_temp(counter4, module_temps));
+    Serial.println("module6: ");
+    Serial.println(get_module_temp(counter5, module_temps));
+    Serial.println("module7: ");
+    Serial.println(get_module_temp(counter6, module_temps));
+    Serial.println("module8: ");
+    Serial.println(get_module_temp(counter7, module_temps));
+    Serial.println("module9: ");
+    Serial.println(get_module_temp(counter8, module_temps));
+    Serial.println("module10: ");
+    Serial.println(get_module_temp(counter9, module_temps));
+    Serial.println("module11: ");
+    Serial.println(get_module_temp(counter10, module_temps));
+    Serial.println("module12: ");
+    Serial.println(get_module_temp(counter11, module_temps));
+
+    // Serial.println("avg: ");
+    // Serial.println(avg);
 
     // Serial.println("min: ");
     // Serial.println(min);
@@ -94,7 +131,7 @@ void send_STMM_1839F380(const int &seg) {
     // Serial.println("max_id: ");
     // Serial.println(max_id);
     
-    // test message --- works
+    // // test message --- works
     // msg.buf[0] = 0x00; // thermistor module number
     // msg.buf[1] = 0x01; // lowest thermistor value
     // msg.buf[2] = 0x11; // highest thermistor value
@@ -113,6 +150,10 @@ void send_STMM_1839F380(const int &seg) {
     msg.buf[6] = min_id; // ID of the module with the lowest raw value
     msg.buf[7] = msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
                 msg.buf[4] + msg.buf[5] + msg.buf[6] + 0x39 + 0x08; // checksum
+
+    // Serial.println("buffer_stuff:");
+    // Serial.println(msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
+    //             msg.buf[4] + msg.buf[5] + msg.buf[6] + 0x39 + 0x08, HEX);
 
     cbus2.write(msg);
 }
