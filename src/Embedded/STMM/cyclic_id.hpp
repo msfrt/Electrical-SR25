@@ -29,9 +29,10 @@ vector<pair<int, float>> get_mod_temps(const int &seg){
     switch (seg){
     
         case 1:
-        mod_temps = {{0, seg_1_mod_0.avg()}, {1, seg_1_mod_1.avg()}, {2, seg_1_mod_2.avg()}, {3, seg_1_mod_3.avg()}, 
-                    {4, seg_1_mod_4.avg()}, {5, seg_1_mod_5.avg()}, {6, seg_1_mod_6.avg()}, {7, seg_1_mod_7.avg()}, 
-                    {8, seg_1_mod_8.avg()}, {9, seg_1_mod_9.avg()}, {10, seg_1_mod_10.avg()}, {11, seg_1_mod_11.avg()}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(seg_1_mod_0.avg())}, {1, voltage_to_ENEPAQ_cell_temp(seg_1_mod_1.avg())}, {2, voltage_to_ENEPAQ_cell_temp(seg_1_mod_2.avg())}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(seg_1_mod_3.avg())}, {4, voltage_to_ENEPAQ_cell_temp(seg_1_mod_4.avg())}, {5, voltage_to_ENEPAQ_cell_temp(seg_1_mod_5.avg())}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(seg_1_mod_6.avg())}, {7, voltage_to_ENEPAQ_cell_temp(seg_1_mod_7.avg())}, {8, voltage_to_ENEPAQ_cell_temp(seg_1_mod_8.avg())}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(seg_1_mod_9.avg())}, {10, voltage_to_ENEPAQ_cell_temp(seg_1_mod_10.avg())}, {11, voltage_to_ENEPAQ_cell_temp(seg_1_mod_11.avg())}};
         break;
         
         case 2:
