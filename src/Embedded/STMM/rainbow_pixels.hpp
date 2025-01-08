@@ -1,7 +1,8 @@
+#ifndef PIX_HPP
+#define PIX_HPP
+
 #include <Adafruit_NeoPixel.h>
 #include <EasyTimer.h>
-
-
 
 // RGB LEDs are siiiccckkkkkkk bro
 void rainbow_pixels(Adafruit_NeoPixel &pixels1){
@@ -89,3 +90,5 @@ void msu_pixels(Adafruit_NeoPixel &pixels1){
 
   } // end update timer
 }
+
+#endif
