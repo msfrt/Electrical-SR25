@@ -14,6 +14,23 @@ bool comparator(const pair<int, float> &a, const pair<int, float> &b){
     return a.second > b.second;
 }
 
+// clamps nonesense values to a definite value 
+int clamp(float val){
+    if (val > 55){
+        if (val > 127){
+            return 127;
+        }
+        return val;
+    } else if (val < 5){
+        if (val < -128){
+            return -128;
+        }
+        return val;
+    } else{
+        return val;
+    }
+}
+
 // this fuction returns the unsorted vector of vectors that is useful for incrementing the 
 // CURRENT module that is being sent over CAN
 vector<pair<int, float>> get_mod_temps(const int &seg){
@@ -24,7 +41,7 @@ vector<pair<int, float>> get_mod_temps(const int &seg){
 
     // some wack shit is up if the ID turns out to be negative, good for a default value 
     // until the temp values get updated again
-    vector<pair<int, float>>  mod_temps = 
+    vector<pair<int, float>> mod_temps = 
                     {{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0}};
     switch (seg){
     
@@ -36,45 +53,52 @@ vector<pair<int, float>> get_mod_temps(const int &seg){
         break;
         
         case 2:
-        mod_temps = {{80, seg_2_mod_0.avg()}, {81, seg_2_mod_1.avg()}, {82, seg_2_mod_2.avg()}, {83, seg_2_mod_3.avg()}, 
-                    {84, seg_2_mod_4.avg()}, {85, seg_2_mod_5.avg()}, {86, seg_2_mod_6.avg()}, {87, seg_2_mod_7.avg()}, 
-                    {88, seg_2_mod_8.avg()}, {89, seg_2_mod_9.avg()}, {90, seg_2_mod_10.avg()}, {91, seg_2_mod_11.avg()}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(seg_2_mod_0.avg())}, {1, voltage_to_ENEPAQ_cell_temp(seg_2_mod_1.avg())}, {2, voltage_to_ENEPAQ_cell_temp(seg_2_mod_2.avg())}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(seg_2_mod_3.avg())}, {4, voltage_to_ENEPAQ_cell_temp(seg_2_mod_4.avg())}, {5, voltage_to_ENEPAQ_cell_temp(seg_2_mod_5.avg())}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(seg_2_mod_6.avg())}, {7, voltage_to_ENEPAQ_cell_temp(seg_2_mod_7.avg())}, {8, voltage_to_ENEPAQ_cell_temp(seg_2_mod_8.avg())}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(seg_2_mod_9.avg())}, {10, voltage_to_ENEPAQ_cell_temp(seg_2_mod_10.avg())}, {11, voltage_to_ENEPAQ_cell_temp(seg_2_mod_11.avg())}};
         break;
 
         case 3:
-        mod_temps = {{160, seg_3_mod_0.avg()}, {161, seg_3_mod_1.avg()}, {162, seg_3_mod_2.avg()}, {163, seg_3_mod_3.avg()}, 
-                    {164, seg_3_mod_4.avg()}, {165, seg_3_mod_5.avg()}, {166, seg_3_mod_6.avg()}, {167, seg_3_mod_7.avg()}, 
-                    {168, seg_3_mod_8.avg()}, {169, seg_3_mod_9.avg()}, {170, seg_3_mod_10.avg()}, {171, seg_3_mod_11.avg()}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(seg_3_mod_0.avg())}, {1, voltage_to_ENEPAQ_cell_temp(seg_3_mod_1.avg())}, {2, voltage_to_ENEPAQ_cell_temp(seg_3_mod_2.avg())}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(seg_3_mod_3.avg())}, {4, voltage_to_ENEPAQ_cell_temp(seg_3_mod_4.avg())}, {5, voltage_to_ENEPAQ_cell_temp(seg_3_mod_5.avg())}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(seg_3_mod_6.avg())}, {7, voltage_to_ENEPAQ_cell_temp(seg_3_mod_7.avg())}, {8, voltage_to_ENEPAQ_cell_temp(seg_3_mod_8.avg())}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(seg_3_mod_9.avg())}, {10, voltage_to_ENEPAQ_cell_temp(seg_3_mod_10.avg())}, {11, voltage_to_ENEPAQ_cell_temp(seg_3_mod_11.avg())}};
         break;
 
         case 4:
-        mod_temps = {{240, seg_4_mod_0.avg()}, {241, seg_4_mod_1.avg()}, {242, seg_4_mod_2.avg()}, {243, seg_4_mod_3.avg()}, 
-                    {244, seg_4_mod_4.avg()}, {245, seg_4_mod_5.avg()}, {246, seg_4_mod_6.avg()}, {247, seg_4_mod_7.avg()}, 
-                    {248, seg_4_mod_8.avg()}, {249, seg_4_mod_9.avg()}, {250, seg_4_mod_10.avg()}, {251, seg_4_mod_11.avg()}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(seg_4_mod_0.avg())}, {1, voltage_to_ENEPAQ_cell_temp(seg_4_mod_1.avg())}, {2, voltage_to_ENEPAQ_cell_temp(seg_4_mod_2.avg())}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(seg_4_mod_3.avg())}, {4, voltage_to_ENEPAQ_cell_temp(seg_4_mod_4.avg())}, {5, voltage_to_ENEPAQ_cell_temp(seg_4_mod_5.avg())}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(seg_4_mod_6.avg())}, {7, voltage_to_ENEPAQ_cell_temp(seg_4_mod_7.avg())}, {8, voltage_to_ENEPAQ_cell_temp(seg_4_mod_8.avg())}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(seg_4_mod_9.avg())}, {10, voltage_to_ENEPAQ_cell_temp(seg_4_mod_10.avg())}, {11, voltage_to_ENEPAQ_cell_temp(seg_4_mod_11.avg())}};
         break;
 
         case 5:
-        mod_temps = {{320, seg_5_mod_0.avg()}, {321, seg_5_mod_1.avg()}, {322, seg_5_mod_2.avg()}, {323, seg_5_mod_3.avg()}, 
-                    {324, seg_5_mod_4.avg()}, {325, seg_5_mod_5.avg()}, {326, seg_5_mod_6.avg()}, {327, seg_5_mod_7.avg()}, 
-                    {328, seg_5_mod_8.avg()}, {329, seg_5_mod_9.avg()}, {330, seg_5_mod_10.avg()}, {331, seg_5_mod_11.avg()}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(seg_5_mod_0.avg())}, {1, voltage_to_ENEPAQ_cell_temp(seg_5_mod_1.avg())}, {2, voltage_to_ENEPAQ_cell_temp(seg_5_mod_2.avg())}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(seg_5_mod_3.avg())}, {4, voltage_to_ENEPAQ_cell_temp(seg_5_mod_4.avg())}, {5, voltage_to_ENEPAQ_cell_temp(seg_5_mod_5.avg())}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(seg_5_mod_6.avg())}, {7, voltage_to_ENEPAQ_cell_temp(seg_5_mod_7.avg())}, {8, voltage_to_ENEPAQ_cell_temp(seg_5_mod_8.avg())}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(seg_5_mod_9.avg())}, {10, voltage_to_ENEPAQ_cell_temp(seg_5_mod_10.avg())}, {11, voltage_to_ENEPAQ_cell_temp(seg_5_mod_11.avg())}};
         break;
 
         case 6:
-        mod_temps = {{400, seg_6_mod_0.avg()}, {401, seg_6_mod_1.avg()}, {402, seg_6_mod_2.avg()}, {403, seg_6_mod_3.avg()}, 
-                    {404, seg_6_mod_4.avg()}, {405, seg_6_mod_5.avg()}, {406, seg_6_mod_6.avg()}, {407, seg_6_mod_7.avg()}, 
-                    {408, seg_6_mod_8.avg()}, {409, seg_6_mod_9.avg()}, {410, seg_6_mod_10.avg()}, {411, seg_6_mod_11.avg()}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(seg_6_mod_0.avg())}, {1, voltage_to_ENEPAQ_cell_temp(seg_6_mod_1.avg())}, {2, voltage_to_ENEPAQ_cell_temp(seg_6_mod_2.avg())}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(seg_6_mod_3.avg())}, {4, voltage_to_ENEPAQ_cell_temp(seg_6_mod_4.avg())}, {5, voltage_to_ENEPAQ_cell_temp(seg_6_mod_5.avg())}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(seg_6_mod_6.avg())}, {7, voltage_to_ENEPAQ_cell_temp(seg_6_mod_7.avg())}, {8, voltage_to_ENEPAQ_cell_temp(seg_6_mod_8.avg())}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(seg_6_mod_9.avg())}, {10, voltage_to_ENEPAQ_cell_temp(seg_6_mod_10.avg())}, {11, voltage_to_ENEPAQ_cell_temp(seg_6_mod_11.avg())}};
         break;
 
         case 7:
-        mod_temps = {{480, seg_7_mod_0.avg()}, {481, seg_7_mod_1.avg()}, {482, seg_7_mod_2.avg()}, {483, seg_7_mod_3.avg()}, 
-                    {484, seg_7_mod_4.avg()}, {485, seg_7_mod_5.avg()}, {486, seg_7_mod_6.avg()}, {487, seg_7_mod_7.avg()}, 
-                    {488, seg_7_mod_8.avg()}, {489, seg_7_mod_9.avg()}, {490, seg_7_mod_10.avg()}, {491, seg_7_mod_11.avg()}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(seg_7_mod_0.avg())}, {1, voltage_to_ENEPAQ_cell_temp(seg_7_mod_1.avg())}, {2, voltage_to_ENEPAQ_cell_temp(seg_7_mod_2.avg())}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(seg_7_mod_3.avg())}, {4, voltage_to_ENEPAQ_cell_temp(seg_7_mod_4.avg())}, {5, voltage_to_ENEPAQ_cell_temp(seg_7_mod_5.avg())}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(seg_7_mod_6.avg())}, {7, voltage_to_ENEPAQ_cell_temp(seg_7_mod_7.avg())}, {8, voltage_to_ENEPAQ_cell_temp(seg_7_mod_8.avg())}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(seg_7_mod_9.avg())}, {10, voltage_to_ENEPAQ_cell_temp(seg_7_mod_10.avg())}, {11, voltage_to_ENEPAQ_cell_temp(seg_7_mod_11.avg())}};
         break;
 
         case 8:
-        mod_temps = {{560, seg_8_mod_0.avg()}, {561, seg_8_mod_1.avg()}, {562, seg_8_mod_2.avg()}, {563, seg_8_mod_3.avg()}, 
-                    {564, seg_8_mod_4.avg()}, {565, seg_8_mod_5.avg()}, {566, seg_8_mod_6.avg()}, {567, seg_8_mod_7.avg()}, 
-                    {568, seg_8_mod_8.avg()}, {569, seg_8_mod_9.avg()}, {570, seg_8_mod_10.avg()}, {571, seg_8_mod_11.avg()}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(seg_8_mod_0.avg())}, {1, voltage_to_ENEPAQ_cell_temp(seg_8_mod_1.avg())}, {2, voltage_to_ENEPAQ_cell_temp(seg_8_mod_2.avg())}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(seg_8_mod_3.avg())}, {4, voltage_to_ENEPAQ_cell_temp(seg_8_mod_4.avg())}, {5, voltage_to_ENEPAQ_cell_temp(seg_8_mod_5.avg())}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(seg_8_mod_6.avg())}, {7, voltage_to_ENEPAQ_cell_temp(seg_8_mod_7.avg())}, {8, voltage_to_ENEPAQ_cell_temp(seg_8_mod_8.avg())}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(seg_8_mod_9.avg())}, {10, voltage_to_ENEPAQ_cell_temp(seg_8_mod_10.avg())}, {11, voltage_to_ENEPAQ_cell_temp(seg_8_mod_11.avg())}};
         break;
     }
     
@@ -100,9 +124,9 @@ vector<pair<int, float>> sort_mod_temps(vector<pair<int, float>> &mod_temps){
 // dealing with the unsorted nested vectors
 
 // returns the global id of the module (good for incrementing through the unsorted list)
-int get_global_id(int &counter, vector<pair<int, float>> &mod_temps) {
-    return (mod_temps.at(counter)).first;
-}
+// int get_global_id(int &counter, vector<pair<int, float>> &mod_temps) {
+//     return (mod_temps.at(counter)).first;
+// }
 
 // returns the module temp (good for incrementing through the unsorted list)
 float get_module_temp(int &counter, vector<pair<int, float>> &mod_temps){

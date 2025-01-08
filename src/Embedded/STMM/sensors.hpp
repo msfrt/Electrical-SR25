@@ -15,110 +15,115 @@ ADCChip adc2(ADC2_CS);
 //Analog to Digital Convertor input signals
 //seg_1_mod_0 = Segment 1, Module 1
 
-ADCSensor seg_1_mod_0(1,0,1000);
+ADCSensor seg_1_mod_0(0,0,1000);
 ADCSensor seg_1_mod_1(1,0,1000);
-ADCSensor seg_1_mod_2(1,0,1000);
-ADCSensor seg_1_mod_3(1,0,1000);
-ADCSensor seg_1_mod_4(1,0,1000);
-ADCSensor seg_1_mod_5(1,0,1000);
-ADCSensor seg_1_mod_6(1,0,1000);
-ADCSensor seg_1_mod_7(1,0,1000);
-ADCSensor seg_1_mod_8(1,0,1000);
+ADCSensor seg_1_mod_2(2,0,1000);
+ADCSensor seg_1_mod_3(3,0,1000);
+ADCSensor seg_1_mod_4(4,0,1000);
+ADCSensor seg_1_mod_5(5,0,1000);
+ADCSensor seg_1_mod_6(6,0,1000);
+ADCSensor seg_1_mod_7(7,0,1000);
+ADCSensor seg_1_mod_8(0,0,1000);
 ADCSensor seg_1_mod_9(1,0,1000);
-ADCSensor seg_1_mod_10(1,0,1000);
-ADCSensor seg_1_mod_11(1,0,1000);
-ADCSensor seg_2_mod_0(1,0,1000);
+ADCSensor seg_1_mod_10(2,0,1000);
+ADCSensor seg_1_mod_11(3,0,1000);
+ADCSensor seg_2_mod_0(0,0,1000);
 ADCSensor seg_2_mod_1(1,0,1000);
-ADCSensor seg_2_mod_2(1,0,1000);
-ADCSensor seg_2_mod_3(1,0,1000);
-ADCSensor seg_2_mod_4(1,0,1000);
-ADCSensor seg_2_mod_5(1,0,1000);
-ADCSensor seg_2_mod_6(1,0,1000);
-ADCSensor seg_2_mod_7(1,0,1000);
-ADCSensor seg_2_mod_8(1,0,1000);
+ADCSensor seg_2_mod_2(2,0,1000);
+ADCSensor seg_2_mod_3(3,0,1000);
+ADCSensor seg_2_mod_4(4,0,1000);
+ADCSensor seg_2_mod_5(5,0,1000);
+ADCSensor seg_2_mod_6(6,0,1000);
+ADCSensor seg_2_mod_7(7,0,1000);
+ADCSensor seg_2_mod_8(0,0,1000);
 ADCSensor seg_2_mod_9(1,0,1000);
-ADCSensor seg_2_mod_10(1,0,1000);
-ADCSensor seg_2_mod_11(1,0,1000);
-ADCSensor seg_3_mod_0(1,0,1000);
+ADCSensor seg_2_mod_10(2,0,1000);
+ADCSensor seg_2_mod_11(3,0,1000);
+ADCSensor seg_3_mod_0(0,0,1000);
 ADCSensor seg_3_mod_1(1,0,1000);
-ADCSensor seg_3_mod_2(1,0,1000);
-ADCSensor seg_3_mod_3(1,0,1000);
-ADCSensor seg_3_mod_4(1,0,1000);
-ADCSensor seg_3_mod_5(1,0,1000);
-ADCSensor seg_3_mod_6(1,0,1000);
-ADCSensor seg_3_mod_7(1,0,1000);
-ADCSensor seg_3_mod_8(1,0,1000);
+ADCSensor seg_3_mod_2(2,0,1000);
+ADCSensor seg_3_mod_3(3,0,1000);
+ADCSensor seg_3_mod_4(4,0,1000);
+ADCSensor seg_3_mod_5(5,0,1000);
+ADCSensor seg_3_mod_6(6,0,1000);
+ADCSensor seg_3_mod_7(7,0,1000);
+ADCSensor seg_3_mod_8(0,0,1000);
 ADCSensor seg_3_mod_9(1,0,1000);
-ADCSensor seg_3_mod_10(1,0,1000);
-ADCSensor seg_3_mod_11(1,0,1000);
-ADCSensor seg_4_mod_0(1,0,1000);
+ADCSensor seg_3_mod_10(2,0,1000);
+ADCSensor seg_3_mod_11(3,0,1000);
+ADCSensor seg_4_mod_0(0,0,1000);
 ADCSensor seg_4_mod_1(1,0,1000);
-ADCSensor seg_4_mod_2(1,0,1000);
-ADCSensor seg_4_mod_3(1,0,1000);
-ADCSensor seg_4_mod_4(1,0,1000);
-ADCSensor seg_4_mod_5(1,0,1000);
-ADCSensor seg_4_mod_6(1,0,1000);
-ADCSensor seg_4_mod_7(1,0,1000);
-ADCSensor seg_4_mod_8(1,0,1000);
+ADCSensor seg_4_mod_2(2,0,1000);
+ADCSensor seg_4_mod_3(3,0,1000);
+ADCSensor seg_4_mod_4(4,0,1000);
+ADCSensor seg_4_mod_5(5,0,1000);
+ADCSensor seg_4_mod_6(6,0,1000);
+ADCSensor seg_4_mod_7(7,0,1000);
+ADCSensor seg_4_mod_8(0,0,1000);
 ADCSensor seg_4_mod_9(1,0,1000);
-ADCSensor seg_4_mod_10(1,0,1000);
-ADCSensor seg_4_mod_11(1,0,1000);
-ADCSensor seg_5_mod_0(1,0,1000);
+ADCSensor seg_4_mod_10(2,0,1000);
+ADCSensor seg_4_mod_11(3,0,1000);
+ADCSensor seg_5_mod_0(0,0,1000);
 ADCSensor seg_5_mod_1(1,0,1000);
-ADCSensor seg_5_mod_2(1,0,1000);
-ADCSensor seg_5_mod_3(1,0,1000);
-ADCSensor seg_5_mod_4(1,0,1000);
-ADCSensor seg_5_mod_5(1,0,1000);
-ADCSensor seg_5_mod_6(1,0,1000);
-ADCSensor seg_5_mod_7(1,0,1000);
-ADCSensor seg_5_mod_8(1,0,1000);
+ADCSensor seg_5_mod_2(2,0,1000);
+ADCSensor seg_5_mod_3(3,0,1000);
+ADCSensor seg_5_mod_4(4,0,1000);
+ADCSensor seg_5_mod_5(5,0,1000);
+ADCSensor seg_5_mod_6(6,0,1000);
+ADCSensor seg_5_mod_7(7,0,1000);
+ADCSensor seg_5_mod_8(0,0,1000);
 ADCSensor seg_5_mod_9(1,0,1000);
-ADCSensor seg_5_mod_10(1,0,1000);
-ADCSensor seg_5_mod_11(1,0,1000);
-ADCSensor seg_6_mod_0(1,0,1000);
+ADCSensor seg_5_mod_10(2,0,1000);
+ADCSensor seg_5_mod_11(3,0,1000);
+ADCSensor seg_6_mod_0(0,0,1000);
 ADCSensor seg_6_mod_1(1,0,1000);
-ADCSensor seg_6_mod_2(1,0,1000);
-ADCSensor seg_6_mod_3(1,0,1000);
-ADCSensor seg_6_mod_4(1,0,1000);
-ADCSensor seg_6_mod_5(1,0,1000);
-ADCSensor seg_6_mod_6(1,0,1000);
-ADCSensor seg_6_mod_7(1,0,1000);
-ADCSensor seg_6_mod_8(1,0,1000);
+ADCSensor seg_6_mod_2(2,0,1000);
+ADCSensor seg_6_mod_3(3,0,1000);
+ADCSensor seg_6_mod_4(4,0,1000);
+ADCSensor seg_6_mod_5(5,0,1000);
+ADCSensor seg_6_mod_6(6,0,1000);
+ADCSensor seg_6_mod_7(7,0,1000);
+ADCSensor seg_6_mod_8(0,0,1000);
 ADCSensor seg_6_mod_9(1,0,1000);
-ADCSensor seg_6_mod_10(1,0,1000);
-ADCSensor seg_6_mod_11(1,0,1000);
-ADCSensor seg_7_mod_0(1,0,1000);
+ADCSensor seg_6_mod_10(2,0,1000);
+ADCSensor seg_6_mod_11(3,0,1000);
+ADCSensor seg_7_mod_0(0,0,1000);
 ADCSensor seg_7_mod_1(1,0,1000);
-ADCSensor seg_7_mod_2(1,0,1000);
-ADCSensor seg_7_mod_3(1,0,1000);
-ADCSensor seg_7_mod_4(1,0,1000);
-ADCSensor seg_7_mod_5(1,0,1000);
-ADCSensor seg_7_mod_6(1,0,1000);
-ADCSensor seg_7_mod_7(1,0,1000);
-ADCSensor seg_7_mod_8(1,0,1000);
+ADCSensor seg_7_mod_2(2,0,1000);
+ADCSensor seg_7_mod_3(3,0,1000);
+ADCSensor seg_7_mod_4(4,0,1000);
+ADCSensor seg_7_mod_5(5,0,1000);
+ADCSensor seg_7_mod_6(6,0,1000);
+ADCSensor seg_7_mod_7(7,0,1000);
+ADCSensor seg_7_mod_8(0,0,1000);
 ADCSensor seg_7_mod_9(1,0,1000);
-ADCSensor seg_7_mod_10(1,0,1000);
-ADCSensor seg_7_mod_11(1,0,1000);
-ADCSensor seg_8_mod_0(1,0,1000);
+ADCSensor seg_7_mod_10(2,0,1000);
+ADCSensor seg_7_mod_11(3,0,1000);
+ADCSensor seg_8_mod_0(0,0,1000);
 ADCSensor seg_8_mod_1(1,0,1000);
-ADCSensor seg_8_mod_2(1,0,1000);
-ADCSensor seg_8_mod_3(1,0,1000);
-ADCSensor seg_8_mod_4(1,0,1000);
-ADCSensor seg_8_mod_5(1,0,1000);
-ADCSensor seg_8_mod_6(1,0,1000);
-ADCSensor seg_8_mod_7(1,0,1000);
-ADCSensor seg_8_mod_8(1,0,1000);
+ADCSensor seg_8_mod_2(2,0,1000);
+ADCSensor seg_8_mod_3(3,0,1000);
+ADCSensor seg_8_mod_4(4,0,1000);
+ADCSensor seg_8_mod_5(5,0,1000);
+ADCSensor seg_8_mod_6(6,0,1000);
+ADCSensor seg_8_mod_7(7,0,1000);
+ADCSensor seg_8_mod_8(0,0,1000);
 ADCSensor seg_8_mod_9(1,0,1000);
-ADCSensor seg_8_mod_10(1,0,1000);
-ADCSensor seg_8_mod_11(1,0,1000);
+ADCSensor seg_8_mod_10(2,0,1000);
+ADCSensor seg_8_mod_11(3,0,1000);
 
 float voltage_to_ENEPAQ_cell_temp(float v) {
-    return -740.85 * pow(v,5) + 
-            7056.8 * pow(v,4) +
-            -26800 * pow(v,3) +
-             50732 * pow(v,2) +
-            -47967 * pow(v,1) +
-            18213;
+    // return -740.85 * pow(v,5) + 
+    //         7056.8 * pow(v,4) +
+    //         -26800 * pow(v,3) +
+    //          50732 * pow(v,2) +
+    //         -47967 * pow(v,1) +
+    //         18213;
+    return  155.35203 * pow(v,4) -
+           1381.39248 * pow(v,3) +
+           4484.86765 * pow(v,2) -
+           6407.60322 * pow(v,1) +
+           3457.41389;
 }
 
 /* 
