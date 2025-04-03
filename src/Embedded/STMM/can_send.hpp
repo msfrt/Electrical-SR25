@@ -297,6 +297,13 @@ void send_STMM_300(const int &seg) {
     msg.buf[6] = STMM_segmentTemp102.can_value();
     msg.buf[7] = STMM_segmentTemp102.can_value() >> 8;
 
+    // Serial.println("Mod 0: ");
+    // Serial.println(STMM_segmentTemp100.value());
+    // Serial.println("Mod 1: ");
+    // Serial.println(STMM_segmentTemp101.value());
+    // Serial.println("Mod 2: ");
+    // Serial.println(STMM_segmentTemp102.value());
+
     // send the message
     cbus2.write(msg);
 }
@@ -321,6 +328,21 @@ void send_STMM_301(const int &seg) {
     msg.buf[6] = STMM_segmentTemp105.can_value();
     msg.buf[7] = STMM_segmentTemp105.can_value() >> 8;
 
+    
+    Serial.println("Mod 3 (CAN): ");
+    Serial.println(STMM_segmentTemp103.value());
+    Serial.println("Mod 4 (CAN): ");
+    Serial.println(STMM_segmentTemp104.value());
+    Serial.println("Mod 5 (CAN 2kHz): ");
+    Serial.println(STMM_segmentTemp105.value());
+
+    // Serial.println("Mod 3: ");
+    // Serial.println(STMM_segmentTemp103.value());
+    // Serial.println("Mod 4: ");
+    // Serial.println(STMM_segmentTemp104.value());
+    // Serial.println("Mod 5: ");
+    // Serial.println(STMM_segmentTemp105.value());
+
     cbus2.write(msg);
 }
 
@@ -344,6 +366,21 @@ void send_STMM_302(const int &seg) {
     msg.buf[6] = STMM_segmentTemp108.can_value();
     msg.buf[7] = STMM_segmentTemp108.can_value() >> 8;
 
+    
+    Serial.println("Mod 6 (CAN 20Hz): ");
+    Serial.println(STMM_segmentTemp106.value());
+    Serial.println("Mod 7 (CAN shielded): ");
+    Serial.println(STMM_segmentTemp107.value());
+    Serial.println("Mod 8 (CAN): ");
+    Serial.println(STMM_segmentTemp108.value());
+
+    // Serial.println("Mod 6: ");
+    // Serial.println(STMM_segmentTemp106.value());
+    // Serial.println("Mod 7: ");
+    // Serial.println(STMM_segmentTemp107.value());
+    // Serial.println("Mod 8: ");
+    // Serial.println(STMM_segmentTemp108.value());
+
     cbus2.write(msg);
 }
 
@@ -366,6 +403,13 @@ void send_STMM_303(const int &seg) {
     msg.buf[5] = STMM_segmentTemp110.can_value() >> 8;
     msg.buf[6] = STMM_segmentTemp111.can_value();
     msg.buf[7] = STMM_segmentTemp111.can_value() >> 8;
+
+    // Serial.println("Mod 9: ");
+    // Serial.println(STMM_segmentTemp109.value());
+    // Serial.println("Mod 10: ");
+    // Serial.println(STMM_segmentTemp110.value());
+    // Serial.println("Mod 11: ");
+    // Serial.println(STMM_segmentTemp111.value());
 
     cbus2.write(msg);
 }
@@ -665,6 +709,9 @@ void send_STMM_316(const int &seg) {
     msg.buf[5] = STMM_segmentTemp501.can_value() >> 8;
     msg.buf[6] = STMM_segmentTemp502.can_value();
     msg.buf[7] = STMM_segmentTemp502.can_value() >> 8;
+
+    // Serial.println("Mod 1 (CAN): ");
+    // Serial.println(STMM_segmentTemp500.value());
 
     cbus2.write(msg);
 }

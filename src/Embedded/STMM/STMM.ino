@@ -17,7 +17,7 @@ static CAN_message_t msg;
 #include "CAN/raptor_CAN1.hpp"
 #include "CAN/raptor_CAN2.hpp"
 
-const int STMM = 8;   /* STMM Module Select 
+const int STMM = 1;   /* STMM Module Select 
                       1 = seg1 
                       2 = seg2
                       3 = seg3

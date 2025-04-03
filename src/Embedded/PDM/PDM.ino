@@ -100,7 +100,8 @@ void setup() { //high 18 low 26
 
   //initialize the CAN Bus and set its baud rate to 1Mb
   can1.begin();
-  can1.setBaudRate(1000000);
+  // can1.setBaudRate(1000000);
+  can1.setBaudRate(500000);
   can2.begin();
   can2.setBaudRate(1000000);
   set_mailboxes();

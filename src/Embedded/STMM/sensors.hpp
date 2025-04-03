@@ -147,6 +147,7 @@ void sample_ADCs_1() {
         adc1.sample(seg_1_mod_0, seg_1_mod_1, seg_1_mod_2, seg_1_mod_3, seg_1_mod_4, seg_1_mod_5, seg_1_mod_6, seg_1_mod_7);
         adc2.sample(seg_1_mod_8, seg_1_mod_9, seg_1_mod_10, seg_1_mod_11);
     }
+    
 }
 
 void sample_ADCs_2() {
@@ -178,6 +179,9 @@ void sample_ADCs_5() {
     if(sample_timer_5.isup()) {
         adc1.sample(seg_5_mod_0, seg_5_mod_1, seg_5_mod_2, seg_5_mod_3, seg_5_mod_4, seg_5_mod_5, seg_5_mod_6, seg_5_mod_7);
         adc2.sample(seg_5_mod_8, seg_5_mod_9, seg_5_mod_10, seg_5_mod_11);
+
+        // Serial.println("Mod 1 (ADC): ");
+        // Serial.println(seg_5_mod_0.read_value());
     }
 }
 
