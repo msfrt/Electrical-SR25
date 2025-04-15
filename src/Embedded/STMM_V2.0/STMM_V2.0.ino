@@ -8,7 +8,7 @@
 
 // turn this into an Arduino library eventually
 // BMS libs
-#include "bms_control.hpp"
+#include "bms_controller.hpp"
 
 // cycle ID logic
 #include "cyclic_id.hpp"
@@ -36,9 +36,6 @@ const int STMM = 1;   /* STMM Module Select
                       8 = seg8
                       */
 
-// sensor definitions
-// #include "sensors.hpp"
-
 // outgoing can message definitions
 #include "can_send.hpp"
 
@@ -48,12 +45,6 @@ const int STMM = 1;   /* STMM Module Select
 const int GLO_NeoPixel_teensy_pin = 0;
       int GLO_NeoPixel_brightness_percent = 10; // 0 - 100 %
 Adafruit_NeoPixel GLO_neopixel(1, GLO_NeoPixel_teensy_pin, NEO_GRB + NEO_KHZ800);
-
-#define ENABLED 1
-#define DISABLED 0
-
-#define DATALOG_ENABLED 1
-#define DATALOG_DISABLED 0
 
 // cell data structure with a number of elements matching the number of ICs
 cell_asic bms_ic[TOTAL_IC];
@@ -88,52 +79,45 @@ void setup() {
 
 void loop() {
   
-  int8_t error = 0;
   rainbow_pixels(GLO_neopixel);
   
-  // read the registers -- happens whenever we want to send a CAN message
+  // read the registers -- happens every second
   // updates the cell_temp values on its own timer, every ~1sec since we don't need fast aquisition for temp
   static EasyTimer temp_acquisition(1); // 1 Hz (1s)
   if (temp_acquisition.isup()) {
     wakeup_sleep(TOTAL_IC);
     LTC6811_rdcfg(TOTAL_IC, bms_ic);
     
-    // below is the measurement loop, create a library to handle the sampling and stuff
-    ltc6811_adcv(ADC_CONVERSION_MODE,ADC_DCP,CELL_CH_TO_CONVERT);
-    ltc6811_pollAdc();
-    wakeup_idle();
-    error = ltc6811_rdcv(0, TOTAL_IC, bms_ic);
-    // check_error(error);
-
-
+    read_voltage(bms_ic, 1);
+    read_voltage(bms_ic, 2);
 
   }
 
   // CAN timers are asynchronous with temperature acquition timers
   switch (STMM) {
     case 1:
-      send_can_1();
+      send_can_1(1);
       break;
     case 2:
-      send_can_2();
+      send_can_2(2);
       break;
     case 3:
-      send_can_3();
+      send_can_3(3);
       break;
     case 4:
-      send_can_4();
+      send_can_4(4);
       break;
     case 5:
-      send_can_5();
+      send_can_5(5);
       break;
     case 6:
-      send_can_6();
+      send_can_6(6);
       break;
     case 7:
-      send_can_7();
+      send_can_7(7);
       break;
     case 8:
-      send_can_8();
+      send_can_8(8);
       break;
   }
   
