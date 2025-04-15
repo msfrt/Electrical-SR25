@@ -43,9 +43,6 @@ Copyright 2017 Linear Technology Corp. (LTC)
 #ifndef BMSHARDWARE_H
 #define BMSHARDWARE_H
 
-
-
-
 #include <stdint.h>
 
 

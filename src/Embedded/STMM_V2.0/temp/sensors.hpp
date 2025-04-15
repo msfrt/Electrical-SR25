@@ -15,19 +15,7 @@ ADCChip adc1(ADC1_CS);
 
 ADCSensor seg_1_mod_0(0,0,1000);
 
-float voltage_to_ENEPAQ_cell_temp(float v) {
-    // return -740.85 * pow(v,5) + 
-    //         7056.8 * pow(v,4) +
-    //         -26800 * pow(v,3) +
-    //          50732 * pow(v,2) +
-    //         -47967 * pow(v,1) +
-    //         18213;
-    return  155.35203 * pow(v,4) -
-           1381.39248 * pow(v,3) +
-           4484.86765 * pow(v,2) -
-           6407.60322 * pow(v,1) +
-           3457.41389;
-}
+
 
 /* 
 ADC Sampling: For every cycle(of frequency mentioned in timer initialization), sample data from the ADC

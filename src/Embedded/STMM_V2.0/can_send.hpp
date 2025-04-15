@@ -6,7 +6,7 @@
 #include <BoardTemp.h>
 #include "CAN/raptor_CAN1.hpp"
 #include "CAN/raptor_CAN2.hpp"
-#include "sensors.hpp"
+
 #include "cyclic_id.hpp"
 
 /*
@@ -28,7 +28,7 @@ void send_STMM_1839F380(const int &seg) {
     STMM_seg1ThermValLow = clamp(get_min_temp(sorted_module_temps));
     STMM_seg1ThermValHigh = clamp(get_max_temp(sorted_module_temps));
     STMM_seg1ThermValAvg = clamp(get_avg_temp(module_temps));
-    STMM_seg1ThermsEnabled = 0x0C;
+    STMM_seg1ThermsEnabled = 0x0A;
     STMM_seg1ThermIDHigh = get_max_id(sorted_module_temps);
     STMM_seg1ThermIDLow = get_min_id(sorted_module_temps);
     
@@ -46,7 +46,7 @@ void send_STMM_1839F380(const int &seg) {
     msg.buf[1] = STMM_seg1ThermValLow.can_value(); // lowest thermistor value
     msg.buf[2] = STMM_seg1ThermValHigh.can_value(); // highest thermistor value
     msg.buf[3] = STMM_seg1ThermValAvg.can_value(); // average thermistor value
-    msg.buf[4] = STMM_seg1ThermsEnabled.can_value(); // number of thermistors enabled (12)
+    msg.buf[4] = STMM_seg1ThermsEnabled.can_value(); // number of thermistors enabled (10)
     msg.buf[5] = STMM_seg1ThermIDHigh.can_value(); // ID of the module with the highest raw value
     msg.buf[6] = STMM_seg1ThermIDLow.can_value(); // ID of the module with the lowest raw value
     msg.buf[7] = msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
@@ -68,7 +68,7 @@ void send_STMM_1839F381(const int &seg) {
     STMM_seg2ThermValLow = clamp(get_min_temp(sorted_module_temps));
     STMM_seg2ThermValHigh = clamp(get_max_temp(sorted_module_temps));
     STMM_seg2ThermValAvg = clamp(get_avg_temp(module_temps));
-    STMM_seg2ThermsEnabled = 0x0C;
+    STMM_seg2ThermsEnabled = 0x0A;
     STMM_seg2ThermIDHigh = get_max_id(sorted_module_temps);
     STMM_seg2ThermIDLow = get_min_id(sorted_module_temps);
 
@@ -76,7 +76,7 @@ void send_STMM_1839F381(const int &seg) {
     msg.buf[1] = STMM_seg2ThermValLow.can_value(); // lowest thermistor value
     msg.buf[2] = STMM_seg2ThermValHigh.can_value(); // highest thermistor value
     msg.buf[3] = STMM_seg2ThermValAvg.can_value(); // average thermistor value
-    msg.buf[4] = STMM_seg2ThermsEnabled.can_value(); // number of thermistors enabled (12)
+    msg.buf[4] = STMM_seg2ThermsEnabled.can_value(); // number of thermistors enabled (10)
     msg.buf[5] = STMM_seg2ThermIDHigh.can_value(); // ID of the module with the highest raw value
     msg.buf[6] = STMM_seg2ThermIDLow.can_value(); // ID of the module with the lowest raw value
     msg.buf[7] = msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
@@ -98,7 +98,7 @@ void send_STMM_1839F382(const int &seg) {
     STMM_seg3ThermValLow = clamp(get_min_temp(sorted_module_temps));
     STMM_seg3ThermValHigh = clamp(get_max_temp(sorted_module_temps));
     STMM_seg3ThermValAvg = clamp(get_avg_temp(module_temps));
-    STMM_seg3ThermsEnabled = 0x0C;
+    STMM_seg3ThermsEnabled = 0x0A;
     STMM_seg3ThermIDHigh = get_max_id(sorted_module_temps);
     STMM_seg3ThermIDLow = get_min_id(sorted_module_temps);
 
@@ -106,7 +106,7 @@ void send_STMM_1839F382(const int &seg) {
     msg.buf[1] = STMM_seg3ThermValLow.can_value(); // lowest thermistor value
     msg.buf[2] = STMM_seg3ThermValHigh.can_value(); // highest thermistor value
     msg.buf[3] = STMM_seg3ThermValAvg.can_value(); // average thermistor value
-    msg.buf[4] = STMM_seg3ThermsEnabled.can_value(); // number of thermistors enabled (12)
+    msg.buf[4] = STMM_seg3ThermsEnabled.can_value(); // number of thermistors enabled (10)
     msg.buf[5] = STMM_seg3ThermIDHigh.can_value(); // ID of the module with the highest raw value
     msg.buf[6] = STMM_seg3ThermIDLow.can_value(); // ID of the module with the lowest raw value
     msg.buf[7] = msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
@@ -128,7 +128,7 @@ void send_STMM_1839F383(const int &seg) {
     STMM_seg4ThermValLow = clamp(get_min_temp(sorted_module_temps));
     STMM_seg4ThermValHigh = clamp(get_max_temp(sorted_module_temps));
     STMM_seg4ThermValAvg = clamp(get_avg_temp(module_temps));
-    STMM_seg4ThermsEnabled = 0x0C;
+    STMM_seg4ThermsEnabled = 0x0A;
     STMM_seg4ThermIDHigh = get_max_id(sorted_module_temps);
     STMM_seg4ThermIDLow = get_min_id(sorted_module_temps);
 
@@ -136,7 +136,7 @@ void send_STMM_1839F383(const int &seg) {
     msg.buf[1] = STMM_seg4ThermValLow.can_value(); // lowest thermistor value
     msg.buf[2] = STMM_seg4ThermValHigh.can_value(); // highest thermistor value
     msg.buf[3] = STMM_seg4ThermValAvg.can_value(); // average thermistor value
-    msg.buf[4] = STMM_seg4ThermsEnabled.can_value(); // number of thermistors enabled (12)
+    msg.buf[4] = STMM_seg4ThermsEnabled.can_value(); // number of thermistors enabled (10)
     msg.buf[5] = STMM_seg4ThermIDHigh.can_value(); // ID of the module with the highest raw value
     msg.buf[6] = STMM_seg4ThermIDLow.can_value(); // ID of the module with the lowest raw value
     msg.buf[7] = msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
@@ -158,7 +158,7 @@ void send_STMM_1839F384(const int &seg) {
     STMM_seg5ThermValLow = clamp(get_min_temp(sorted_module_temps));
     STMM_seg5ThermValHigh = clamp(get_max_temp(sorted_module_temps));
     STMM_seg5ThermValAvg = clamp(get_avg_temp(module_temps));
-    STMM_seg5ThermsEnabled = 0x0C;
+    STMM_seg5ThermsEnabled = 0x0A;
     STMM_seg5ThermIDHigh = get_max_id(sorted_module_temps);
     STMM_seg5ThermIDLow = get_min_id(sorted_module_temps);
 
@@ -166,7 +166,7 @@ void send_STMM_1839F384(const int &seg) {
     msg.buf[1] = STMM_seg5ThermValLow.can_value(); // lowest thermistor value
     msg.buf[2] = STMM_seg5ThermValHigh.can_value(); // highest thermistor value
     msg.buf[3] = STMM_seg5ThermValAvg.can_value(); // average thermistor value
-    msg.buf[4] = STMM_seg5ThermsEnabled.can_value(); // number of thermistors enabled (12)
+    msg.buf[4] = STMM_seg5ThermsEnabled.can_value(); // number of thermistors enabled (10)
     msg.buf[5] = STMM_seg5ThermIDHigh.can_value(); // ID of the module with the highest raw value
     msg.buf[6] = STMM_seg5ThermIDLow.can_value(); // ID of the module with the lowest raw value
     msg.buf[7] = msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
@@ -188,7 +188,7 @@ void send_STMM_1839F385(const int &seg) {
     STMM_seg6ThermValLow = clamp(get_min_temp(sorted_module_temps));
     STMM_seg6ThermValHigh = clamp(get_max_temp(sorted_module_temps));
     STMM_seg6ThermValAvg = clamp(get_avg_temp(module_temps));
-    STMM_seg6ThermsEnabled = 0x0C;
+    STMM_seg6ThermsEnabled = 0x0A;
     STMM_seg6ThermIDHigh = get_max_id(sorted_module_temps);
     STMM_seg6ThermIDLow = get_min_id(sorted_module_temps);
 
@@ -196,7 +196,7 @@ void send_STMM_1839F385(const int &seg) {
     msg.buf[1] = STMM_seg6ThermValLow.can_value(); // lowest thermistor value
     msg.buf[2] = STMM_seg6ThermValHigh.can_value(); // highest thermistor value
     msg.buf[3] = STMM_seg6ThermValAvg.can_value(); // average thermistor value
-    msg.buf[4] = STMM_seg6ThermsEnabled.can_value(); // number of thermistors enabled (12)
+    msg.buf[4] = STMM_seg6ThermsEnabled.can_value(); // number of thermistors enabled (10)
     msg.buf[5] = STMM_seg6ThermIDHigh.can_value(); // ID of the module with the highest raw value
     msg.buf[6] = STMM_seg6ThermIDLow.can_value(); // ID of the module with the lowest raw value
     msg.buf[7] = msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
@@ -218,7 +218,7 @@ void send_STMM_1839F386(const int &seg) {
     STMM_seg7ThermValLow = clamp(get_min_temp(sorted_module_temps));
     STMM_seg7ThermValHigh = clamp(get_max_temp(sorted_module_temps));
     STMM_seg7ThermValAvg = clamp(get_avg_temp(module_temps));
-    STMM_seg7ThermsEnabled = 0x0C;
+    STMM_seg7ThermsEnabled = 0x0A;
     STMM_seg7ThermIDHigh = get_max_id(sorted_module_temps);
     STMM_seg7ThermIDLow = get_min_id(sorted_module_temps);
 
@@ -226,7 +226,7 @@ void send_STMM_1839F386(const int &seg) {
     msg.buf[1] = STMM_seg7ThermValLow.can_value(); // lowest thermistor value
     msg.buf[2] = STMM_seg7ThermValHigh.can_value(); // highest thermistor value
     msg.buf[3] = STMM_seg7ThermValAvg.can_value(); // average thermistor value
-    msg.buf[4] = STMM_seg7ThermsEnabled.can_value(); // number of thermistors enabled (12)
+    msg.buf[4] = STMM_seg7ThermsEnabled.can_value(); // number of thermistors enabled (10)
     msg.buf[5] = STMM_seg7ThermIDHigh.can_value(); // ID of the module with the highest raw value
     msg.buf[6] = STMM_seg7ThermIDLow.can_value(); // ID of the module with the lowest raw value
     msg.buf[7] = msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
@@ -248,7 +248,7 @@ void send_STMM_1839F387(const int &seg) {
     STMM_seg8ThermValLow = clamp(get_min_temp(sorted_module_temps));
     STMM_seg8ThermValHigh = clamp(get_max_temp(sorted_module_temps));
     STMM_seg8ThermValAvg = clamp(get_avg_temp(module_temps));
-    STMM_seg8ThermsEnabled = 0x0C;
+    STMM_seg8ThermsEnabled = 0x0A;
     STMM_seg8ThermIDHigh = get_max_id(sorted_module_temps);
     STMM_seg8ThermIDLow = get_min_id(sorted_module_temps);
 
@@ -256,7 +256,7 @@ void send_STMM_1839F387(const int &seg) {
     msg.buf[1] = STMM_seg8ThermValLow.can_value(); // lowest thermistor value
     msg.buf[2] = STMM_seg8ThermValHigh.can_value(); // highest thermistor value
     msg.buf[3] = STMM_seg8ThermValAvg.can_value(); // average thermistor value
-    msg.buf[4] = STMM_seg8ThermsEnabled.can_value(); // number of thermistors enabled (12)
+    msg.buf[4] = STMM_seg8ThermsEnabled.can_value(); // number of thermistors enabled (10)
     msg.buf[5] = STMM_seg8ThermIDHigh.can_value(); // ID of the module with the highest raw value
     msg.buf[6] = STMM_seg8ThermIDLow.can_value(); // ID of the module with the lowest raw value
     msg.buf[7] = msg.buf[0] + msg.buf[1] + msg.buf[2] + msg.buf[3] +
@@ -328,21 +328,6 @@ void send_STMM_301(const int &seg) {
     msg.buf[6] = STMM_segmentTemp105.can_value();
     msg.buf[7] = STMM_segmentTemp105.can_value() >> 8;
 
-    
-    Serial.println("Mod 3 (CAN): ");
-    Serial.println(STMM_segmentTemp103.value());
-    Serial.println("Mod 4 (CAN): ");
-    Serial.println(STMM_segmentTemp104.value());
-    Serial.println("Mod 5 (CAN 2kHz): ");
-    Serial.println(STMM_segmentTemp105.value());
-
-    // Serial.println("Mod 3: ");
-    // Serial.println(STMM_segmentTemp103.value());
-    // Serial.println("Mod 4: ");
-    // Serial.println(STMM_segmentTemp104.value());
-    // Serial.println("Mod 5: ");
-    // Serial.println(STMM_segmentTemp105.value());
-
     cbus2.write(msg);
 }
 
@@ -366,21 +351,6 @@ void send_STMM_302(const int &seg) {
     msg.buf[6] = STMM_segmentTemp108.can_value();
     msg.buf[7] = STMM_segmentTemp108.can_value() >> 8;
 
-    
-    Serial.println("Mod 6 (CAN 20Hz): ");
-    Serial.println(STMM_segmentTemp106.value());
-    Serial.println("Mod 7 (CAN shielded): ");
-    Serial.println(STMM_segmentTemp107.value());
-    Serial.println("Mod 8 (CAN): ");
-    Serial.println(STMM_segmentTemp108.value());
-
-    // Serial.println("Mod 6: ");
-    // Serial.println(STMM_segmentTemp106.value());
-    // Serial.println("Mod 7: ");
-    // Serial.println(STMM_segmentTemp107.value());
-    // Serial.println("Mod 8: ");
-    // Serial.println(STMM_segmentTemp108.value());
-
     cbus2.write(msg);
 }
 
@@ -392,24 +362,15 @@ void send_STMM_303(const int &seg) {
     msg.len = 8;
 
     STMM_segmentTemp109 = get_mod_temps(seg).at(9).second;
-    STMM_segmentTemp110 = get_mod_temps(seg).at(10).second;
-    STMM_segmentTemp111 = get_mod_temps(seg).at(11).second;
 
     msg.buf[0] = ctr.value();
     msg.buf[1] = 0;
     msg.buf[2] = STMM_segmentTemp109.can_value();
     msg.buf[3] = STMM_segmentTemp109.can_value() >> 8;
-    msg.buf[4] = STMM_segmentTemp110.can_value();
-    msg.buf[5] = STMM_segmentTemp110.can_value() >> 8;
-    msg.buf[6] = STMM_segmentTemp111.can_value();
-    msg.buf[7] = STMM_segmentTemp111.can_value() >> 8;
-
-    // Serial.println("Mod 9: ");
-    // Serial.println(STMM_segmentTemp109.value());
-    // Serial.println("Mod 10: ");
-    // Serial.println(STMM_segmentTemp110.value());
-    // Serial.println("Mod 11: ");
-    // Serial.println(STMM_segmentTemp111.value());
+    msg.buf[4] = 0x00;
+    msg.buf[5] = 0x00;
+    msg.buf[6] = 0x00;
+    msg.buf[7] = 0x00;
 
     cbus2.write(msg);
 }
@@ -491,17 +452,15 @@ void send_STMM_307(const int &seg) {
     msg.len = 8;
 
     STMM_segmentTemp209 = get_mod_temps(seg).at(9).second;
-    STMM_segmentTemp210 = get_mod_temps(seg).at(10).second;
-    STMM_segmentTemp211 = get_mod_temps(seg).at(11).second;
 
     msg.buf[0] = ctr.value();
     msg.buf[1] = 0;
     msg.buf[2] = STMM_segmentTemp209.can_value();
     msg.buf[3] = STMM_segmentTemp209.can_value() >> 8;
-    msg.buf[4] = STMM_segmentTemp210.can_value();
-    msg.buf[5] = STMM_segmentTemp210.can_value() >> 8;
-    msg.buf[6] = STMM_segmentTemp211.can_value();
-    msg.buf[7] = STMM_segmentTemp211.can_value() >> 8;
+    msg.buf[4] = 0x00;
+    msg.buf[5] = 0x00;
+    msg.buf[6] = 0x00;
+    msg.buf[7] = 0x00;
 
     cbus2.write(msg);
 }
@@ -583,17 +542,15 @@ void send_STMM_311(const int &seg) {
     msg.len = 8;
 
     STMM_segmentTemp309 = get_mod_temps(seg).at(9).second;
-    STMM_segmentTemp310 = get_mod_temps(seg).at(10).second;
-    STMM_segmentTemp311 = get_mod_temps(seg).at(11).second;
 
     msg.buf[0] = ctr.value();
     msg.buf[1] = 0;
     msg.buf[2] = STMM_segmentTemp309.can_value();
     msg.buf[3] = STMM_segmentTemp309.can_value() >> 8;
-    msg.buf[4] = STMM_segmentTemp310.can_value();
-    msg.buf[5] = STMM_segmentTemp310.can_value() >> 8;
-    msg.buf[6] = STMM_segmentTemp311.can_value();
-    msg.buf[7] = STMM_segmentTemp311.can_value() >> 8;
+    msg.buf[4] = 0x00;
+    msg.buf[5] = 0x00;
+    msg.buf[6] = 0x00;
+    msg.buf[7] = 0x00;
 
     cbus2.write(msg);
 }
@@ -675,17 +632,15 @@ void send_STMM_315(const int &seg) {
     msg.len = 8;
 
     STMM_segmentTemp409 = get_mod_temps(seg).at(9).second;
-    STMM_segmentTemp410 = get_mod_temps(seg).at(10).second;
-    STMM_segmentTemp411 = get_mod_temps(seg).at(11).second;
 
     msg.buf[0] = ctr.value();
     msg.buf[1] = 0;
     msg.buf[2] = STMM_segmentTemp409.can_value();
     msg.buf[3] = STMM_segmentTemp409.can_value() >> 8;
-    msg.buf[4] = STMM_segmentTemp410.can_value();
-    msg.buf[5] = STMM_segmentTemp410.can_value() >> 8;
-    msg.buf[6] = STMM_segmentTemp411.can_value();
-    msg.buf[7] = STMM_segmentTemp411.can_value() >> 8;
+    msg.buf[4] = 0x00;
+    msg.buf[5] = 0x00;
+    msg.buf[6] = 0x00;
+    msg.buf[7] = 0x00;
 
     cbus2.write(msg);
 }
@@ -709,9 +664,6 @@ void send_STMM_316(const int &seg) {
     msg.buf[5] = STMM_segmentTemp501.can_value() >> 8;
     msg.buf[6] = STMM_segmentTemp502.can_value();
     msg.buf[7] = STMM_segmentTemp502.can_value() >> 8;
-
-    // Serial.println("Mod 1 (CAN): ");
-    // Serial.println(STMM_segmentTemp500.value());
 
     cbus2.write(msg);
 }
@@ -770,17 +722,15 @@ void send_STMM_319(const int &seg) {
     msg.len = 8;
 
     STMM_segmentTemp509 = get_mod_temps(seg).at(9).second;
-    STMM_segmentTemp510 = get_mod_temps(seg).at(10).second;
-    STMM_segmentTemp511 = get_mod_temps(seg).at(11).second;
 
     msg.buf[0] = ctr.value();
     msg.buf[1] = 0;
     msg.buf[2] = STMM_segmentTemp509.can_value();
     msg.buf[3] = STMM_segmentTemp509.can_value() >> 8;
-    msg.buf[4] = STMM_segmentTemp510.can_value();
-    msg.buf[5] = STMM_segmentTemp510.can_value() >> 8;
-    msg.buf[6] = STMM_segmentTemp511.can_value();
-    msg.buf[7] = STMM_segmentTemp511.can_value() >> 8;
+    msg.buf[4] = 0x00;
+    msg.buf[5] = 0x00;
+    msg.buf[6] = 0x00;
+    msg.buf[7] = 0x00;
 
     cbus2.write(msg);
 }
@@ -862,17 +812,15 @@ void send_STMM_323(const int &seg) {
     msg.len = 8;
 
     STMM_segmentTemp609 = get_mod_temps(seg).at(9).second;
-    STMM_segmentTemp610 = get_mod_temps(seg).at(10).second;
-    STMM_segmentTemp611 = get_mod_temps(seg).at(11).second;
 
     msg.buf[0] = ctr.value();
     msg.buf[1] = 0;
     msg.buf[2] = STMM_segmentTemp609.can_value();
     msg.buf[3] = STMM_segmentTemp609.can_value() >> 8;
-    msg.buf[4] = STMM_segmentTemp610.can_value();
-    msg.buf[5] = STMM_segmentTemp610.can_value() >> 8;
-    msg.buf[6] = STMM_segmentTemp611.can_value();
-    msg.buf[7] = STMM_segmentTemp611.can_value() >> 8;
+    msg.buf[4] = 0x00;
+    msg.buf[5] = 0x00;
+    msg.buf[6] = 0x00;
+    msg.buf[7] = 0x00;
 
     cbus2.write(msg);
 }
@@ -954,17 +902,15 @@ void send_STMM_327(const int &seg) {
     msg.len = 8;
 
     STMM_segmentTemp709 = get_mod_temps(seg).at(9).second;
-    STMM_segmentTemp710 = get_mod_temps(seg).at(10).second;
-    STMM_segmentTemp711 = get_mod_temps(seg).at(11).second;
 
     msg.buf[0] = ctr.value();
     msg.buf[1] = 0;
     msg.buf[2] = STMM_segmentTemp709.can_value();
     msg.buf[3] = STMM_segmentTemp709.can_value() >> 8;
-    msg.buf[4] = STMM_segmentTemp710.can_value();
-    msg.buf[5] = STMM_segmentTemp710.can_value() >> 8;
-    msg.buf[6] = STMM_segmentTemp711.can_value();
-    msg.buf[7] = STMM_segmentTemp711.can_value() >> 8;
+    msg.buf[4] = 0x00;
+    msg.buf[5] = 0x00;
+    msg.buf[6] = 0x00;
+    msg.buf[7] = 0x00;
 
     cbus2.write(msg);
 }
@@ -1046,17 +992,15 @@ void send_STMM_331(const int &seg) {
     msg.len = 8;
 
     STMM_segmentTemp809 = get_mod_temps(seg).at(9).second;
-    STMM_segmentTemp810 = get_mod_temps(seg).at(10).second;
-    STMM_segmentTemp811 = get_mod_temps(seg).at(11).second;
 
     msg.buf[0] = ctr.value();
     msg.buf[1] = 0;
     msg.buf[2] = STMM_segmentTemp809.can_value();
     msg.buf[3] = STMM_segmentTemp809.can_value() >> 8;
-    msg.buf[4] = STMM_segmentTemp810.can_value();
-    msg.buf[5] = STMM_segmentTemp810.can_value() >> 8;
-    msg.buf[6] = STMM_segmentTemp811.can_value();
-    msg.buf[7] = STMM_segmentTemp811.can_value() >> 8;
+    msg.buf[4] = 0x00;
+    msg.buf[5] = 0x00;
+    msg.buf[6] = 0x00;
+    msg.buf[7] = 0x00;
 
     cbus2.write(msg);
 }

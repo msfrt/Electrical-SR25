@@ -4,12 +4,6 @@
 #include <Arduino.h>
 #include <stdint.h>
 
-// #define PASSWORDS 3
-// extern const char* ssid[PASSWORDS];
-// extern const char* password[PASSWORDS];
-
-// #define LED 16  // On board LED
-
 // #define GPIO_BALTEMP 1  // balence temp
 // #define GPIO_HDD1 2     // Headder 1
 // #define GPIO_BACKBAL 3
