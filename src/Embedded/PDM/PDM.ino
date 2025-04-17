@@ -69,8 +69,64 @@ EasyTimer odometer_update_timer(2);
 EasyTimer debug(2);
 const bool GLO_debug = false;
 
+<<<<<<< HEAD
 // Global Fan Speed Signal (Controlled by CAN)
 int fan_signal = 3; // Default value
+=======
+void setup() { //high 18 low 26
+
+  analogReadResolution(GLO_read_resolution_bits);
+  
+
+  // begin OBD Neopixel
+  GLO_obd_neopixel.begin();
+  GLO_obd_neopixel.setBrightness(map(GLO_NeoPixel_brightness_percent, 0, 100, 0, 255));
+  GLO_obd_neopixel.setPixelColor(0, 255, 0, 0); // red
+  GLO_obd_neopixel.show();
+
+  // Initialize serial communication
+  Serial.begin(112500);
+
+  //initialize the CAN Bus and set its baud rate to 1Mb
+  can1.begin();
+  // can1.setBaudRate(1000000);
+  can1.setBaudRate(500000);
+  can2.begin();
+  can2.setBaudRate(1000000);
+  set_mailboxes();
+
+  // initialize the ADC sensors
+  initialize_ADCs();
+
+  // initialize SPI communication
+  SPI.begin();
+
+  // initialize the data circuit pin
+  pinMode(GLO_data_circuit_teensy_pin, OUTPUT);
+  // turn the data circuit on
+  digitalWrite(GLO_data_circuit_teensy_pin, HIGH);
+  // initialize brakelight pin
+  pinMode(GLO_brakelight_teensy_pin, OUTPUT);
+
+  // EEPROM
+  // eeprom.begin();
+
+  // write the eeprom variables that are not commented out in the write eeprom function in the EEPROM_sigs file
+  // initialize_eeprom_variables();
+
+  GLO_obd_neopixel.setPixelColor(0, 0, 255, 0); // green
+  GLO_obd_neopixel.show();
+
+  // board temp initialization
+  board_temp.begin();
+
+  // neat brakelight animation
+  brakelight_startup();
+
+  //initializes the fans off
+  //CMD_fanLeftOverride = 0;
+  //CMD_fanRightOverride = 0;
+>>>>>>> origin/dev
 
 // CAN Message Handler
 void canReceiveHandler(const CAN_message_t &msg) {
