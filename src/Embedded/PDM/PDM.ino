@@ -70,7 +70,7 @@ EasyTimer debug(2);
 const bool GLO_debug = false;
 
 // Global Fan Speed Signal (Controlled by CAN)
-int fan_signal = 75; // Default value
+int fan_signal = 3; // Default value
 
 // CAN Message Handler
 void canReceiveHandler(const CAN_message_t &msg) {
@@ -89,6 +89,9 @@ void odometer(float speed, int mileage) {
     Serial.println("Odometer update (placeholder function)");
 }
 
+const bool testMode = true;
+const int testNum = 2;
+
 void setup() {
     // Initialize everything
     analogReadResolution(GLO_read_resolution_bits);
@@ -103,7 +106,7 @@ void setup() {
 
 
     can1.begin();
-    can1.setBaudRate(1000000);
+    can1.setBaudRate(500000);
     can2.begin();
     can2.setBaudRate(1000000);
 
@@ -130,9 +133,23 @@ void setup() {
 }
 
 void loop() {
-    static int manualFanSpeed = 50;
+    static unsigned long t_start = millis();
+    float elapsed = (millis() - t_start) / 1000.0; // time in seconds
 
-    fan_signal = manualFanSpeed;
+    if (testMode) {
+      if (testNum == 1) {
+        // Create a sine wave oscillation between 0 and 100
+        // Adjust frequency (e.g. 0.1 Hz = one full cycle every 10 seconds)
+        float frequency = 0.06;
+        float amplitude = 50.0;
+        float offset = 50.0;
+
+        fan_signal = offset + amplitude * sin(2 * PI * frequency * elapsed);
+      } else if (testNum == 2) {
+        fan_signal = 5;
+      }
+    }
+
     updateFanSpeed(fan_signal);
 
     sample_ADCs();

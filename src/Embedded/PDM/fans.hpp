@@ -26,7 +26,7 @@ int fanr_min_pwm = 0;
 int fanr_max_pwm = 255;
 int fanr_ss_dur = 5000;
 int fanr_update_freq = 10;
-int fanr_pwm_freq_norm = 1;
+int fanr_pwm_freq_norm = 40;
 int fanr_pwm_freq_ss = 420;
 
 // **Declare StateSignal instances BEFORE using them**
@@ -60,7 +60,7 @@ int wp_min_pwm = 0;
 int wp_max_pwm = 255;
 int wp_ss_dur = 5000;
 int wp_update_freq = 10;
-int wp_pwm_freq_norm = 1;
+int wp_pwm_freq_norm = 40;
 int wp_pwm_freq_ss = 420;
 
 // **Declare StateSignal for Water Pump**
