@@ -194,8 +194,6 @@ void loop() {
 
     if (testMode) {
       if (testNum == 1) {
-        // Create a sine wave oscillation between 0 and 100
-        // Adjust frequency (e.g. 0.1 Hz = one full cycle every 10 seconds)
         float frequency = 0.06;
         float amplitude = 50.0;
         float offset = 50.0;
