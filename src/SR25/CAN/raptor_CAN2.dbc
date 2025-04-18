@@ -38,6 +38,40 @@ VAL_TABLE_ contactorState 2 "Open" 1 "Close" 0 "Faulted" ;
 VAL_TABLE_ vehicleState 8 "Faulted" 7 "ReadyToMove" 6 "Standby" 5 "PrechargeComplete" 4 "PrechargeTimeout" 3 "Precharge" 2 "PrechargeReady" 1 "StartDelay" 0 "Off" ;
 
 
+BO_ 159 VCU_159: 8 VCU
+ SG_ VCU_tireTempRRO : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_tireTempRRM : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_tireTempRRI : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_counterMsg159 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 158 VCU_158: 8 VCU
+ SG_ VCU_tireTempRLO : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_tireTempRLM : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_tireTempRLI : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_counterMsg158 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 157 VCU_157: 8 VCU
+ SG_ VCU_tireTempFRO : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_tireTempFRM : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_tireTempFRI : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_counterMsg157 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 156 VCU_156: 8 VCU
+ SG_ VCU_tireTempFLO : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_tireTempFLM : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_tireTempFLI : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_counterMsg156 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 155 VCU_155: 8 VCU
+ SG_ VCU_rotorTempRR : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_rotorTempRL : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_counterMsg155 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 154 VCU_154: 8 VCU
+ SG_ VCU_rotorTempFR : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_rotorTempFL : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ VCU_counterMsg154 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
 BO_ 2553934727 STMM_1839F387: 8 STMM
  SG_ STMM_seg8Checksum : 56|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ STMM_seg8ThermIDLow : 48|8@1+ (1,0) [0|255] "" Vector__XXX
@@ -550,6 +584,27 @@ BO_ 150 VCU_150: 8 VCU
 
 
 
+CM_ SG_ 159 VCU_tireTempRRO "RRO tire temperature";
+CM_ SG_ 159 VCU_tireTempRRM "RRM tire temperature";
+CM_ SG_ 159 VCU_tireTempRRI "RRI tire temperature";
+CM_ SG_ 159 VCU_counterMsg159 "Counter Message 159";
+CM_ SG_ 158 VCU_tireTempRLO "RLO tire temperature";
+CM_ SG_ 158 VCU_tireTempRLM "RLM tire temperature";
+CM_ SG_ 158 VCU_tireTempRLI "RLI tire temperature";
+CM_ SG_ 158 VCU_counterMsg158 "Counter Message 158";
+CM_ SG_ 157 VCU_tireTempFRO "FRO tire temperature";
+CM_ SG_ 157 VCU_tireTempFRM "FRM tire temperature";
+CM_ SG_ 157 VCU_tireTempFRI "FRI tire temperature";
+CM_ SG_ 157 VCU_counterMsg157 "Counter Message 157";
+CM_ SG_ 156 VCU_tireTempFLO "FLO tire temperature";
+CM_ SG_ 156 VCU_tireTempFLM "FLM tire temperature";
+CM_ SG_ 156 VCU_tireTempFLI "FLI tire temperature";
+CM_ SG_ 156 VCU_counterMsg156 "Counter Message 156";
+CM_ SG_ 155 VCU_rotorTempRR "RR rotor temperature";
+CM_ SG_ 155 VCU_rotorTempRL "RL rotor temperature";
+CM_ SG_ 155 VCU_counterMsg155 "Counter Message 155";
+CM_ SG_ 154 VCU_rotorTempFL "FL rotor temperature";
+CM_ SG_ 154 VCU_counterMsg154 "Counter Message 154";
 CM_ SG_ 2553934727 STMM_seg8Checksum "Checksum (sum of all bytes + 0x39 + length)
 ";
 CM_ SG_ 2553934727 STMM_seg8ThermIDLow "The ID of the thermistor with the lowest value
