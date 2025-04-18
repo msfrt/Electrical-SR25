@@ -213,10 +213,6 @@ void loop() {
 
     brakelight_run();
 
-    // **Fix: Pass 4 Parameters to set_pwm()**
-    //fan_left.set_pwm(0, 0, 2, fan_signal);
-    //fan_right.set_pwm(0, 0, 2, fan_signal);
-
     CMD_fanLeftOverride = fan_signal;
     CMD_fanRightOverride = fan_signal;
 
