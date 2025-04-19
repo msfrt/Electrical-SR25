@@ -69,10 +69,8 @@ EasyTimer odometer_update_timer(2);
 EasyTimer debug(2);
 const bool GLO_debug = false;
 
-<<<<<<< HEAD
 // Global Fan Speed Signal (Controlled by CAN)
 int fan_signal = 3; // Default value
-=======
 void setup() { //high 18 low 26
 
   analogReadResolution(GLO_read_resolution_bits);
@@ -126,15 +124,6 @@ void setup() { //high 18 low 26
   //initializes the fans off
   //CMD_fanLeftOverride = 0;
   //CMD_fanRightOverride = 0;
->>>>>>> origin/dev
-
-// CAN Message Handler
-void canReceiveHandler(const CAN_message_t &msg) {
-    if (msg.id == 0x200) {  // Replace with actual CAN ID for fan control
-        fan_signal = msg.buf[0];  // Extract fan speed value (0-100%)
-        fan_signal = constrain(fan_signal, 0, 100);
-    }
-}
 
 // placeholder function for undefined
 void engine_timer(int hours, int minutes) {
@@ -189,6 +178,8 @@ void setup() {
 }
 
 void loop() {
+
+    read_CAN()
     static unsigned long t_start = millis();
     float elapsed = (millis() - t_start) / 1000.0; // time in seconds
 
@@ -257,6 +248,18 @@ void set_mailboxes() {
     can1.setMB(MB18, RX, EXT);
     can1.setMB(MB19, RX, EXT);
 }
+
+int bitl = 16; // bit length of the signal
+bool signed = true; // if signal is signed or unsigned
+int fact = 1; // inverse of the factor in the dbc. (example: .01 in DBC means 100 here)
+int offset = 0; // offset like in the DBC (currently not enabled)
+int min = -5; // minimum value (used for external checks if applicable)
+int max = 100; // maximum value (used for external checks if applicable)
+int secondary = -1; // secondary value (returned from value() when signal is invalid))
+int timeout = 1000; // timeout delay in milliseconds (used for checks if applicable) (optional parameter, default is -1 for no timeout)
+unsigned int message_id = 0x49; // the id of the message that contains this signal (useful for CAN filtering purposes) (optional parameter, default is 0)
+
+StateSignal USER_fanOverride(bitl, signed, fact, offset, min, max, secondary, timeout, message_id);
 
 void read_CAN() {
     int count = 0;

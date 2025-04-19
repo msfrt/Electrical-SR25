@@ -37,10 +37,10 @@ StateSignal fan_right_override(16, true, 0, 0, 0, 100, 1);
 
 // pwm fans
 PWMDevice fan_left(fanl_pin, 12, 14, 10, 10000, fan_left_row_signal, fan_left_col_signal, fan_left_override,
-                   fanl_min_pwm, fanl_max_pwm, fanl_ss_dur, fanl_update_freq, fanl_pwm_freq_norm, fanl_pwm_freq_ss);
+                   fanl_min_pwm, fanl_max_pwm, fanl_ss_dur, fanl_update_freq, fanl_pwm_freq_norm, fanl_pwm_freq_ss); // // radiator fans
 
 PWMDevice fan_right(fanr_pin, 12, 14, 10, 10000, fan_right_row_signal, fan_right_col_signal, fan_right_override,
-                    fanr_min_pwm, fanr_max_pwm, fanr_ss_dur, fanr_update_freq, fanr_pwm_freq_norm, fanr_pwm_freq_ss);
+                    fanr_min_pwm, fanr_max_pwm, fanr_ss_dur, fanr_update_freq, fanr_pwm_freq_norm, fanr_pwm_freq_ss); // accumulator fans
 
 void updateFanSpeed(int canSignal) {
     fan_signal = constrain(canSignal, 0, 100); // Ensure valid range (0-100%)
