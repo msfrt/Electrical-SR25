@@ -225,7 +225,7 @@ void send_PDM_17(){
   can2.write(msg);
 }
 
-
+/*
 void send_PDM_18(){
   static StateCounter ctr;
   msg.id = 268;
@@ -246,8 +246,9 @@ void send_PDM_18(){
 
   can2.write(msg);
 }
+*/
 
-
+/*
 void send_PDM_19(){
   static StateCounter ctr;
   msg.id = 269;
@@ -268,8 +269,9 @@ void send_PDM_19(){
 
   can2.write(msg);
 }
+*/
 
-
+/*
 void send_PDM_20(){
   static StateCounter ctr;
   msg.id = 270;
@@ -290,7 +292,7 @@ void send_PDM_20(){
 
   can2.write(msg);
 }
-
+*/
 
 void send_PDM_21(){
   static StateCounter ctr;
@@ -344,7 +346,7 @@ void send_PDM_23(){
 
   PDM_boardTemp = board_temp.value();
   PDM_brakelightVoltAvg = brakelight_volt_sens.avg();
-  PDM_starterRelayVoltAvg = starter_volt_sens.avg();
+  //PDM_starterRelayVoltAvg = starter_volt_sens.avg();
 
   msg.buf[0] = ctr.value();
   msg.buf[1] = 0;
@@ -352,8 +354,8 @@ void send_PDM_23(){
   msg.buf[3] = PDM_boardTemp.can_value() >> 8;
   msg.buf[4] = PDM_brakelightVoltAvg.can_value();
   msg.buf[5] = PDM_brakelightVoltAvg.can_value() >> 8;
-  msg.buf[6] = PDM_starterRelayVoltAvg.can_value();
-  msg.buf[7] = PDM_starterRelayVoltAvg.can_value() >> 8;
+  msg.buf[6] = 0; //PDM_starterRelayVoltAvg.can_value();
+  msg.buf[7] = 0; //PDM_starterRelayVoltAvg.can_value() >> 8;
 
   can2.write(msg);
 }
@@ -476,17 +478,17 @@ void send_can2(){
 
   static EasyTimer PDM_18_timer(100); // 100Hz
   if (PDM_18_timer.isup()){
-    send_PDM_18();
+    //send_PDM_18();
   }
 
   static EasyTimer PDM_19_timer(100); // 100Hz
   if (PDM_19_timer.isup()){
-    send_PDM_19();
+    //send_PDM_19();
   }
 
   static EasyTimer PDM_20_timer(100); // 100Hz
   if (PDM_20_timer.isup()){
-    send_PDM_20();
+    //send_PDM_20();
   }
 
   static EasyTimer PDM_21_timer(100); // 100Hz
