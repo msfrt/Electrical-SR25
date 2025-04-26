@@ -125,18 +125,9 @@
 //   return log_bool;
 // }
 
-
-/*
 bool brakelight_run(){
 
-  // CMD override present
-  if (CMD_brakeLightOverride.value() >= 0 && CMD_brakeLightOverride.value() <= 100){
-
-    analogWrite(GLO_brakelight_teensy_pin, map(CMD_brakeLightOverride.value(), 0, 100, 0, GLO_max_analog_write_pwm));
-    return true;
-
-  // brake-pressure exceeds minimum activation pressure
-  } else if (VCU_brakelight){
+  if (VCU_brakeLightCmd.can_value() == 1){
     analogWrite(GLO_brakelight_teensy_pin, 255);
     return true;
 
@@ -149,9 +140,6 @@ bool brakelight_run(){
 
   return false;
 }
-*/
-
-
 
 void brakelight_startup(){
   float i = 0;

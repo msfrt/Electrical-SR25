@@ -7,7 +7,9 @@
 #include "CAN/CAN1.hpp"
 #include "CAN/CAN2.hpp"
 
-extern int fan_signal;
+extern int fan_signalL;
+extern int fan_signalR;
+extern int wp_signal;
 
 // **Left Fan Variables**
 int fanl_pin = 8;
@@ -42,14 +44,6 @@ PWMDevice fan_left(fanl_pin, 12, 14, 10, 10000, fan_left_row_signal, fan_left_co
 PWMDevice fan_right(fanr_pin, 12, 14, 10, 10000, fan_right_row_signal, fan_right_col_signal, fan_right_override,
                     fanr_min_pwm, fanr_max_pwm, fanr_ss_dur, fanr_update_freq, fanr_pwm_freq_norm, fanr_pwm_freq_ss);
 
-void updateFanSpeed(int canSignal) {
-    fan_signal = constrain(canSignal, 0, 100); // Ensure valid range (0-100%)
-
-    // Use override to set PWM directly
-    fan_left.set_pwm(0, 0, 2, fan_signal);
-    fan_right.set_pwm(0, 0, 2, fan_signal);
-}
-
 // **Water Pump Variables**
 int wp_pin = 6;
 int wp_min_pwm = 0;
@@ -67,5 +61,16 @@ StateSignal wp_override(16, true, 0, 0, 0, 100, 1);
 // water pump
 PWMDevice water_pump(wp_pin, 12, 14, 10, 10000, wp_row_signal, wp_col_signal, wp_override,
                      wp_min_pwm, wp_max_pwm, wp_ss_dur, wp_update_freq, wp_pwm_freq_norm, wp_pwm_freq_ss);
+
+void updateFanSpeed(int canFanL, int canFanR, int canWp) {
+    fan_signalL = constrain(canFanL, 0, 100); // Ensure valid range (0-100%)
+    fan_signalR = constrain(canFanR, 0, 100);
+    wp_signal = constrain(canWp, 0, 100);
+
+    // Use override to set PWM directly
+    fan_left.set_pwm(0, 0, 2, fan_signalL);
+    fan_right.set_pwm(0, 0, 2, fan_signalR);
+    water_pump.set_pwm(0,0,2,wp_signal);
+}
 
 #endif

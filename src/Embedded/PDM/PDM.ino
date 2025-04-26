@@ -69,8 +69,10 @@ EasyTimer odometer_update_timer(2);
 EasyTimer debug(2);
 const bool GLO_debug = false;
 
-// Global Fan Speed Signal (Controlled by CAN)
-int fan_signal = 3; // Default value
+// Global fan and wp Speed Signal (Controlled by CAN)
+int fan_signalL = 3; // Default value
+int fan_signalR = 3;
+int wp_signal = 3;
 void setup() { //high 18 low 26
 
   analogReadResolution(GLO_read_resolution_bits);
@@ -121,9 +123,7 @@ void setup() { //high 18 low 26
   // neat brakelight animation
   brakelight_startup();
 
-  //initializes the fans off
-  //CMD_fanLeftOverride = 0;
-  //CMD_fanRightOverride = 0;
+}
 
 // placeholder function for undefined
 void engine_timer(int hours, int minutes) {
@@ -137,65 +137,36 @@ void odometer(float speed, int mileage) {
 const bool testMode = true;
 const int testNum = 2;
 
-void setup() {
-    // Initialize everything
-    analogReadResolution(GLO_read_resolution_bits);
-    Serial.begin(115200);
-    SPI.begin();
-  
-    // begin OBD Neopixel
-    GLO_obd_neopixel.begin();
-    GLO_obd_neopixel.setBrightness(map(GLO_NeoPixel_brightness_percent, 0, 100, 0, 255));
-    GLO_obd_neopixel.setPixelColor(0, 255, 0, 0); // red
-    GLO_obd_neopixel.show();
-
-
-    can1.begin();
-    can1.setBaudRate(500000);
-    can2.begin();
-    can2.setBaudRate(1000000);
-
-    set_mailboxes();
-
-    can2.setMaxMB(16);
-    can2.enableFIFO();
-    can2.enableFIFOInterrupt();
-    can2.onReceive(FIFO, canReceiveHandler);
-
-    initialize_ADCs();
-    pinMode(GLO_data_circuit_teensy_pin, OUTPUT);
-    digitalWrite(GLO_data_circuit_teensy_pin, HIGH);
-    //pinMode(GLO_brakelight_teensy_pin, OUTPUT);
-
-    //board_temp.begin();
-    brakelight_startup();
-
-    GLO_obd_neopixel.setPixelColor(0, 0, 255, 0); // green
-    GLO_obd_neopixel.show();
-
-    CMD_fanLeftOverride = 0;
-    CMD_fanRightOverride = 0;
-}
-
 void loop() {
 
-    read_CAN()
+    // sensor sampling
+    sample_ADCs();
+    if (board_temp_sample_timer.isup()){
+      board_temp.sample();
+    }
+
+    read_CAN();
     static unsigned long t_start = millis();
     float elapsed = (millis() - t_start) / 1000.0; // time in seconds
 
     if (testMode) {
       if (testNum == 1) {
         float frequency = 0.06;
-        float amplitude = 50.0;
-        float offset = 50.0;
-
-        fan_signal = offset + amplitude * sin(2 * PI * frequency * elapsed);
+        float amplitude = 4.00;
+        float offset = 2;
+        Serial.println(PDM_fanRightDutyCycle.can_value());
+        PDM_fanRightDutyCycle.set_can_value(offset + amplitude * sin(2 * PI * frequency * elapsed));
+        fan_signalL = PDM_fanRightDutyCycle.can_value();
+        send_can2();
       } else if (testNum == 2) {
-        fan_signal = 5;
+        fan_signalL = VCU_radFanLDuty.can_value();
+        fan_signalR = VCU_radFanRDuty.can_value();
+        wp_signal = VCU_waterPumpDuty.can_value();
       }
     }
 
-    updateFanSpeed(fan_signal);
+    updateFanSpeed(fan_signalL, fan_signalR, wp_signal);
+    //send_can2();
 
     sample_ADCs();
     if (board_temp_sample_timer.isup()) {
@@ -204,13 +175,12 @@ void loop() {
 
     brakelight_run();
 
-    CMD_fanLeftOverride = fan_signal;
-    CMD_fanRightOverride = fan_signal;
+    fan_left_override = fan_signalL;
+    fan_right_override = fan_signalR;\
+    wp_override = wp_signal;
 
     fan_left.set_pwm(2);
     fan_right.set_pwm(2);
-
-    delay(1000); 
 }
 
 void set_mailboxes() {
@@ -228,49 +198,14 @@ void set_mailboxes() {
     can2.setMB(MB13, RX, EXT);
     can2.setMB(MB14, RX, EXT);
     can2.setMB(MB15, RX, EXT);
-
-    can1.setMaxMB(64);
-    can1.enableFIFO();
-    can1.setMB(MB4, RX, STD);
-    can1.setMB(MB5, RX, STD);
-    can1.setMB(MB6, RX, STD);
-    can1.setMB(MB7, RX, STD);
-    can1.setMB(MB8, RX, STD);
-    can1.setMB(MB9, RX, STD);
-    can1.setMB(MB10, RX, STD);
-    can1.setMB(MB11, RX, STD);
-    can1.setMB(MB12, RX, STD);
-    can1.setMB(MB13, RX, STD);
-    can1.setMB(MB14, RX, STD);
-    can1.setMB(MB15, RX, STD);
-    can1.setMB(MB16, RX, EXT);
-    can1.setMB(MB17, RX, EXT);
-    can1.setMB(MB18, RX, EXT);
-    can1.setMB(MB19, RX, EXT);
 }
-
-int bitl = 16; // bit length of the signal
-bool signed = true; // if signal is signed or unsigned
-int fact = 1; // inverse of the factor in the dbc. (example: .01 in DBC means 100 here)
-int offset = 0; // offset like in the DBC (currently not enabled)
-int min = -5; // minimum value (used for external checks if applicable)
-int max = 100; // maximum value (used for external checks if applicable)
-int secondary = -1; // secondary value (returned from value() when signal is invalid))
-int timeout = 1000; // timeout delay in milliseconds (used for checks if applicable) (optional parameter, default is -1 for no timeout)
-unsigned int message_id = 0x49; // the id of the message that contains this signal (useful for CAN filtering purposes) (optional parameter, default is 0)
-
-StateSignal USER_fanOverride(bitl, signed, fact, offset, min, max, secondary, timeout, message_id);
 
 void read_CAN() {
     int count = 0;
-    while (can1.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
-        decode_CAN1(rxmsg);
-        count++;
-    }
-
     count = 0;
+
     while (can2.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
-        decode_CAN2(rxmsg);
+        decode_raptor_CAN2(rxmsg);
         count++;
     }
 }

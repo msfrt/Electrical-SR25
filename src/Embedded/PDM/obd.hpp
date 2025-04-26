@@ -22,7 +22,7 @@ void obd_leds();
 // this is where you should put your diagnostic checks. Each check should be enclosed in their own timer.
 void obd_main(){
 
-
+  /*
   // user override time-outs
   if (OBDTIMER_user_override_timout_check_timer.isup()){
     CMD_waterPumpOverride.timeout_check();
@@ -30,6 +30,7 @@ void obd_main(){
     CMD_fanRightOverride.timeout_check();
     CMD_brakeLightOverride.timeout_check();
   }
+  */
   
   obd_leds();
 
@@ -58,8 +59,7 @@ void obd_leds(){
 
 
   // if the user is overriding a pwm control, blink purple
-  } else if (CMD_waterPumpOverride.value() >= 1 || CMD_fanLeftOverride.value() >= 1 ||
-             CMD_fanRightOverride.value() >= 1 || CMD_brakeLightOverride.value() >= 1){
+  } else if (false){
     static EasyTimer user_override_blink(4);
     if (user_override_blink.isup()){
       if (leds_on){

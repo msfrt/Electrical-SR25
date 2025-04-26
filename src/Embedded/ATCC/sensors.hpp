@@ -2,6 +2,7 @@
 #define SENSORS_ATCC_HPP
 
 #include <ReadADC.h>
+#include <EasyTimer.h>
 
 // ADC CS teensy pins
 #define ADC1_CS 10
@@ -93,7 +94,7 @@ void initialize_ADCs()
 
 
 
-void sample_ADCs_F()
+void sample_ADCs()
 {
 
   // 1,000 Hz
