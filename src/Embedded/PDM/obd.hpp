@@ -4,8 +4,8 @@
 #include <EasyTimer.h>
 #include <Adafruit_NeoPixel.h>
 #include "rainbow_pixels.hpp"
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 
 // user-override timeout check timer
 EasyTimer OBDTIMER_user_override_timout_check_timer(2); // 2Hz

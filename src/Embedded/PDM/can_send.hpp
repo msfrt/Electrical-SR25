@@ -4,8 +4,8 @@
 #include <FlexCAN_T4.h>
 #include <EasyTimer.h>
 #include <BoardTemp.h>
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 
 
 // external definitions

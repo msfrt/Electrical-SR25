@@ -55,8 +55,8 @@ EasyTimer odometer_update_timer(2);
 #include "fans.hpp"
 
 // CAN Message Definitions
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 #include "can_send.hpp"
 
 // Miscellaneous Functions
@@ -162,6 +162,7 @@ void loop() {
         fan_signalL = VCU_radFanLDuty.can_value();
         fan_signalR = VCU_radFanRDuty.can_value();
         wp_signal = VCU_waterPumpDuty.can_value();
+        Serial.println(VCU_radFanLDuty.can_value());
       }
     }
 
@@ -176,7 +177,7 @@ void loop() {
     brakelight_run();
 
     fan_left_override = fan_signalL;
-    fan_right_override = fan_signalR;\
+    fan_right_override = fan_signalR;
     wp_override = wp_signal;
 
     fan_left.set_pwm(2);
@@ -203,6 +204,11 @@ void set_mailboxes() {
 void read_CAN() {
     int count = 0;
     count = 0;
+
+    while (can1.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
+        decode_raptor_CAN1(rxmsg);
+        count++;
+    }
 
     while (can2.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
         decode_raptor_CAN2(rxmsg);

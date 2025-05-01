@@ -1,5 +1,11 @@
+#include <EasyTimer.h>
+#include <PWMControl.h>
+#include <ReadADC.h>
 #include <StateCAN.h>
 #include <FlexCAN_T4.h>
+#include <SPI.h>
+#include <Adafruit_NeoPixel.h>
+#include <FreqMeasureMulti.h>
 
 #include "CAN/CAN1.hpp"
 #include "CAN/CAN2.hpp"
@@ -26,46 +32,50 @@ void readWheelSpeed () {
 
   if (freq1.available()) {
     sum1 = sum1 + freq1.read();
+    Serial.println(freq1.read());
     count1 = count1 + 1;
   }
   if (freq2.available()) {
     sum2 = sum2 + freq2.read();
+    Serial.println(freq2.read());
     count2 = count2 + 1;
   }
   if (freq3.available()) {
     sum3 = sum3 + freq3.read();
+    Serial.println(freq3.read());
     count3 = count3 + 1;
   }
   if (freq4.available()) {
     sum4 = sum4 + freq4.read();
+    Serial.println(freq4.read());
     count4 = count4 + 1;
   }
   // print results every half second
   if (timeout > 500) {
     if (count1 > 0) {
-      //Serial.print(freq1.countToFrequency(sum1 / count1));
+      Serial.print(freq1.countToFrequency(sum1 / count1));
     } else {
-      //Serial.print("(no pulses)");
+      Serial.print("(no pulses)");
     }
-    //Serial.print(",  ");
+    Serial.print(",  ");
     if (count2 > 0) {
-      //Serial.print(freq2.countToFrequency(sum2 / count2));
+      Serial.print(freq2.countToFrequency(sum2 / count2));
     } else {
-      //Serial.print("(no pulses)");
+      Serial.print("(no pulses)");
     }
-    //Serial.print(",  ");
+    Serial.print(",  ");
     if (count3 > 0) {
-      //Serial.print(freq3.countToFrequency(sum3 / count3));
+      Serial.print(freq3.countToFrequency(sum3 / count3));
     } else {
-      //Serial.print("(no pulses)");
+      Serial.print("(no pulses)");
     }
-    //Serial.print(",  ");
+    Serial.print(",  ");
     if (count4 > 0) {
-      //Serial.print(freq4.countToFrequency(sum4 / count4));
+      Serial.print(freq4.countToFrequency(sum4 / count4));
     } else {
-      //Serial.print("(no pulses)");
+      Serial.print("(no pulses)");
     }
-    //Serial.println();
+    Serial.println();
     sum1 = 0;
     sum2 = 0;
     sum3 = 0;

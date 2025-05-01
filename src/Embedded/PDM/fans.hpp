@@ -4,8 +4,8 @@
 #include <PWMControl.h>
 #include <StateCAN.h>
 
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 
 extern int fan_signalL;
 extern int fan_signalR;

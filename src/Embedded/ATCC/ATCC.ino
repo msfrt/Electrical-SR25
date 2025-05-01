@@ -72,9 +72,9 @@ void setup() {
 void loop() {
 
   msu_pixels(GLO_neopixel);
+
+  sample_ADCs();
   
   readWheelSpeed();
-
-  Serial.println(ATCC_angularWheelFreqRR.can_value());
 
 }
