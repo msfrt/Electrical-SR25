@@ -32,22 +32,22 @@ void readWheelSpeed () {
 
   if (freq1.available()) {
     sum1 = sum1 + freq1.read();
-    Serial.println(freq1.read());
+    Serial.println("freq1.read()");
     count1 = count1 + 1;
   }
   if (freq2.available()) {
     sum2 = sum2 + freq2.read();
-    Serial.println(freq2.read());
+    Serial.println("freq2.read()");
     count2 = count2 + 1;
   }
   if (freq3.available()) {
     sum3 = sum3 + freq3.read();
-    Serial.println(freq3.read());
+    Serial.println("freq3.read()");
     count3 = count3 + 1;
   }
   if (freq4.available()) {
     sum4 = sum4 + freq4.read();
-    Serial.println(freq4.read());
+    Serial.println("freq4.read()");
     count4 = count4 + 1;
   }
   // print results every half second
