@@ -5,6 +5,19 @@
 #include <StateCAN.h>
 #include <FlexCAN_T4.h>
 #include <SPI.h>
+// #include "LTC6811_daisy.h"
+
+#include <Arduino.h>
+#include <SPI.h>
+#include <stdint.h>
+
+#include "LTC6811.h"
+#include "LTC681x.h"
+#include "LT_SPI.h"
+#include "Linduino.h"
+// #include "index.h"
+
+#include "bms_hardware.h"
 
 // turn this into an Arduino library eventually
 // BMS libs
@@ -21,9 +34,12 @@ FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> cbus2;
 static CAN_message_t msg;
 #define CAN2_BAUDRATE 1000000
 
+// cell data structure with a number of elements matching the number of ICs
+static cell_asic bms_ic[TOTAL_IC];
+
 // signal definitions
-// #include "CAN/raptor_CAN1.hpp"
-// #include "CAN/raptor_CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 
 const int STMM = 1;   /* STMM Module Select 
                       1 = seg1 
@@ -46,9 +62,6 @@ const int GLO_NeoPixel_teensy_pin = 0;
       int GLO_NeoPixel_brightness_percent = 10; // 0 - 100 %
 Adafruit_NeoPixel GLO_neopixel(1, GLO_NeoPixel_teensy_pin, NEO_GRB + NEO_KHZ800);
 
-// cell data structure with a number of elements matching the number of ICs
-cell_asic bms_ic[TOTAL_IC];
-
 void setup() {
 
   // begin Neopixel
@@ -59,20 +72,21 @@ void setup() {
 
   // Initialize serial communication
   Serial.begin(112500);
-
-  // initialize SPI communication
-  SPI.begin();
-
+  
   //initialize the CAN Bus and set its baud rate to 1Mb
   cbus2.begin();
   cbus2.setBaudRate(CAN2_BAUDRATE);
 
+  // initialize SPI communication
   // make a nice wrapper for the LTC6811 at some point
-  LTC6811_init_cfg(TOTAL_IC, bms_ic);
+  
+  // sets up the CS pin n' stuff
+  spi_enable();
+
+  LTC681x_init_cfg(TOTAL_IC, bms_ic);
   LTC6811_reset_crc_count(TOTAL_IC, bms_ic);
   LTC6811_init_reg_limits(TOTAL_IC, bms_ic);
   bms_ic->isospi_reverse = false;
-  
   wakeup_sleep(TOTAL_IC);
   LTC6811_wrcfg(TOTAL_IC, bms_ic);
 }
@@ -81,17 +95,7 @@ void loop() {
   
   rainbow_pixels(GLO_neopixel);
   
-  // read the registers -- happens every second
-  // updates the cell_temp values on its own timer, every ~1sec since we don't need fast aquisition for temp
-  static EasyTimer temp_acquisition(1); // 1 Hz (1s)
-  if (temp_acquisition.isup()) {
-    wakeup_sleep(TOTAL_IC);
-    LTC6811_rdcfg(TOTAL_IC, bms_ic);
-    
-    read_voltage(bms_ic, 1);
-    read_voltage(bms_ic, 2);
-
-  }
+  measurement_loop(bms_ic);
 
   // CAN timers are asynchronous with temperature acquition timers
   switch (STMM) {

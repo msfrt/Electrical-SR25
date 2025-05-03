@@ -79,36 +79,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <Arduino.h>
 #include <stdint.h>
 #include <SPI.h>
-// #include "bms_hardware.h"
+#include "Linduino.h"
 #include "LT_SPI.h"
-
-// Macros
-//! Set "pin" low
-//! @param pin pin to be driven LOW
-#define output_low(pin)   digitalWrite(pin, LOW)
-//! Set "pin" high
-//! @param pin pin to be driven HIGH
-#define output_high(pin)  digitalWrite(pin, HIGH)
-//! Return the state of pin "pin"
-//! @param pin pin to be read (HIGH or LOW).
-//! @return the state of pin "pin"
-#define input(pin)        digitalRead(pin)
-
-//! @name ENDIAN DEPENDENT BYTE INDEXES
-//! @{
-//! Arduino/Linduino is a Little Endian Device, where the least significant byte is stored in the first byte of larger data types.
-#ifdef BIG_ENDIAN
-#define LSB 1 //!< Location of Least Signficant Byte when Word is accessed as Byte Array
-#define MSB 0 //!< Location of Most Signficant Byte when Word is accessed as Byte Array
-#define LSW 1 //!< Location of Least Signficant Word when Long Word is accessed as Byte Array
-#define MSW 0 //!< Location of most Signficant Word when Long Word is accessed as Byte Array
-#else
-#define LSB 0 //!< Location of Least Signficant Byte when Word is accessed as Byte Array
-#define MSB 1 //!< Location of Most Signficant Byte when Word is accessed as Byte Array
-#define LSW 0 //!< Location of Least Signficant Word when Long Word is accessed as Byte Array
-#define MSW 1 //!< Location of most Signficant Word when Long Word is accessed as Byte Array
-#endif
-//! @}
 
 // Reads and sends a byte
 // Return 0 if successful, 1 if failed
@@ -162,20 +134,10 @@ void spi_transfer_block(uint8_t cs_pin, uint8_t *tx, uint8_t *rx, uint8_t length
   output_high(cs_pin);                //! 3) Pull CS high
 }
 
-// // Connect SPI pins to QuikEval connector through the Linduino MUX. This will disconnect I2C.
-// void quikeval_SPI_connect()
-// {
-//   pinMode(QUIKEVAL_CS, OUTPUT);
-//   output_high(QUIKEVAL_CS); //! 1) Pull Chip Select High
 
-//   //! 2) Enable Main SPI
-//   pinMode(QUIKEVAL_MUX_MODE_PIN, OUTPUT);
-//   digitalWrite(QUIKEVAL_MUX_MODE_PIN, LOW);
-// }
-
-// // Configure the SPI port for 4MHz SCK.
-// // This function or spi_enable() must be called
-// // before using the other SPI routines.
+// Configure the SPI port for 4MHz SCK.
+// This function or spi_enable() must be called
+// before using the other SPI routines.
 // void quikeval_SPI_init(void)  // Initializes SPI
 // {
 //   spi_enable(SPI_CLOCK_DIV16);  //! 1) Configure the spi port for 4MHz SCK
@@ -185,13 +147,23 @@ void spi_transfer_block(uint8_t cs_pin, uint8_t *tx, uint8_t *rx, uint8_t length
 // Must be called before using the other SPI routines.
 // Alternatively, call quikeval_SPI_connect(), which automatically
 // calls this function.
-void spi_enable(uint8_t spi_clock_divider) // Configures SCK frequency. Use constant defined in header file.
+void spi_enable() // Configures SCK frequency. Use constant defined in header file.
 {
   //pinMode(SCK, OUTPUT);             //! 1) Setup SCK as output
   //pinMode(MOSI, OUTPUT);            //! 2) Setup MOSI as output
   //pinMode(QUIKEVAL_CS, OUTPUT);     //! 3) Setup CS as output
+  
+  // configures SPI CS
+  pinMode(10, OUTPUT);
+  digitalWrite(10,HIGH);
   SPI.begin();
-  SPI.setClockDivider(spi_clock_divider);
+  
+  // pinMode(18, OUTPUT);
+  // digitalWrite(18,HIGH);
+  
+  // SPI.beginTransaction(SPISettings(500000,MSBFIRST,SPI_MODE0));
+
+  //SPI.setClockDivider(spi_clock_divider);
 }
 
 // Disable the SPI hardware port
@@ -203,12 +175,7 @@ void spi_disable()
 // Write a data byte using the SPI hardware
 void spi_write(int8_t  data)  // Byte to be written to SPI port
 {
-#if defined(ARDUINO_ARCH_AVR)
-  SPDR = data;                  //! 1) Start the SPI transfer
-  while (!(SPSR & _BV(SPIF)));  //! 2) Wait until transfer complete
-#else
   SPI.transfer(data);
-#endif
 
 }
 
@@ -216,14 +183,7 @@ void spi_write(int8_t  data)  // Byte to be written to SPI port
 // Returns the data byte read
 int8_t spi_read(int8_t  data) //!The data byte to be written
 {
-#if defined(ARDUINO_ARCH_AVR)
-  SPDR = data;                  //! 1) Start the SPI transfer
-  while (!(SPSR & _BV(SPIF)));  //! 2) Wait until transfer complete
-  return SPDR;                  //! 3) Return the data read
-#else
   return SPI.transfer(data);
-#endif
-
 
 }
 

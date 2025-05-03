@@ -44,9 +44,9 @@ Copyright 2017 Linear Technology Corp. (LTC)
 #define BMSHARDWARE_H
 
 #include <stdint.h>
+#include <SPI.h>
 
-
-void cs_low(uint8_t pin);//name conflicts with linduino
+void cs_low(uint8_t pin); //name conflicts with linduino
 
 void cs_high(uint8_t pin);
 
@@ -55,7 +55,6 @@ void delay_u(uint16_t micro);
 void delay_m(uint16_t milli);
 
 void set_spi_freq();
-
 
 /*
 Writes an array of bytes out of the SPI port
@@ -75,4 +74,5 @@ void spi_write_read(uint8_t tx_Data[],//array of data to be written on SPI port
                    );
 
 uint8_t spi_read_byte(uint8_t tx_dat);//name conflicts with linduino also needs to take a byte as a parameter
+
 #endif

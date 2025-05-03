@@ -55,64 +55,66 @@ vector<pair<int, float>> get_mod_temps(const int &seg){
 
     // some wack shit is up if the ID turns out to be negative, good for a default value 
     // until the temp values get updated again
+    // vector<pair<int, float>> mod_temps = 
+    //                 {{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0}};
     vector<pair<int, float>> mod_temps = 
-                    {{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0}};
+                        {{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0},{-1,0}};
     switch (seg){
     
         case 1:
-        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(segment_temp_0)}, {1, voltage_to_ENEPAQ_cell_temp(segment_temp_1)}, {2, voltage_to_ENEPAQ_cell_temp(segment_temp_2)}, 
-                    {3, voltage_to_ENEPAQ_cell_temp(segment_temp_3)}, {4, voltage_to_ENEPAQ_cell_temp(segment_temp_4)}, {5, voltage_to_ENEPAQ_cell_temp(segment_temp_5)}, 
-                    {6, voltage_to_ENEPAQ_cell_temp(segment_temp_6)}, {7, voltage_to_ENEPAQ_cell_temp(segment_temp_7)}, {8, voltage_to_ENEPAQ_cell_temp(segment_temp_8)}, 
-                    {9, voltage_to_ENEPAQ_cell_temp(segment_temp_9)}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_0)}, {1, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_1)}, {2, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_2)}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_3)}, {4, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_4)}, {5, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_5)}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_6)}, {7, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_7)}, {8, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_8)}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_9)}};
         break;
         
         case 2:
-        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(segment_temp_0)}, {1, voltage_to_ENEPAQ_cell_temp(segment_temp_1)}, {2, voltage_to_ENEPAQ_cell_temp(segment_temp_2)}, 
-                    {3, voltage_to_ENEPAQ_cell_temp(segment_temp_3)}, {4, voltage_to_ENEPAQ_cell_temp(segment_temp_4)}, {5, voltage_to_ENEPAQ_cell_temp(segment_temp_5)}, 
-                    {6, voltage_to_ENEPAQ_cell_temp(segment_temp_6)}, {7, voltage_to_ENEPAQ_cell_temp(segment_temp_7)}, {8, voltage_to_ENEPAQ_cell_temp(segment_temp_8)}, 
-                    {9, voltage_to_ENEPAQ_cell_temp(segment_temp_9)}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_0)}, {1, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_1)}, {2, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_2)}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_3)}, {4, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_4)}, {5, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_5)}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_6)}, {7, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_7)}, {8, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_8)}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_9)}};
         break;
 
         case 3:
-        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(segment_temp_0)}, {1, voltage_to_ENEPAQ_cell_temp(segment_temp_1)}, {2, voltage_to_ENEPAQ_cell_temp(segment_temp_2)}, 
-                    {3, voltage_to_ENEPAQ_cell_temp(segment_temp_3)}, {4, voltage_to_ENEPAQ_cell_temp(segment_temp_4)}, {5, voltage_to_ENEPAQ_cell_temp(segment_temp_5)}, 
-                    {6, voltage_to_ENEPAQ_cell_temp(segment_temp_6)}, {7, voltage_to_ENEPAQ_cell_temp(segment_temp_7)}, {8, voltage_to_ENEPAQ_cell_temp(segment_temp_8)}, 
-                    {9, voltage_to_ENEPAQ_cell_temp(segment_temp_9)}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_0)}, {1, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_1)}, {2, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_2)}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_3)}, {4, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_4)}, {5, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_5)}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_6)}, {7, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_7)}, {8, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_8)}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_9)}};
         break;
 
         case 4:
-        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(segment_temp_0)}, {1, voltage_to_ENEPAQ_cell_temp(segment_temp_1)}, {2, voltage_to_ENEPAQ_cell_temp(segment_temp_2)}, 
-                    {3, voltage_to_ENEPAQ_cell_temp(segment_temp_3)}, {4, voltage_to_ENEPAQ_cell_temp(segment_temp_4)}, {5, voltage_to_ENEPAQ_cell_temp(segment_temp_5)}, 
-                    {6, voltage_to_ENEPAQ_cell_temp(segment_temp_6)}, {7, voltage_to_ENEPAQ_cell_temp(segment_temp_7)}, {8, voltage_to_ENEPAQ_cell_temp(segment_temp_8)}, 
-                    {9, voltage_to_ENEPAQ_cell_temp(segment_temp_9)}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_0)}, {1, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_1)}, {2, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_2)}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_3)}, {4, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_4)}, {5, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_5)}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_6)}, {7, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_7)}, {8, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_8)}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_9)}};
         break;
 
         case 5:
-        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(segment_temp_0)}, {1, voltage_to_ENEPAQ_cell_temp(segment_temp_1)}, {2, voltage_to_ENEPAQ_cell_temp(segment_temp_2)}, 
-                    {3, voltage_to_ENEPAQ_cell_temp(segment_temp_3)}, {4, voltage_to_ENEPAQ_cell_temp(segment_temp_4)}, {5, voltage_to_ENEPAQ_cell_temp(segment_temp_5)}, 
-                    {6, voltage_to_ENEPAQ_cell_temp(segment_temp_6)}, {7, voltage_to_ENEPAQ_cell_temp(segment_temp_7)}, {8, voltage_to_ENEPAQ_cell_temp(segment_temp_8)}, 
-                    {9, voltage_to_ENEPAQ_cell_temp(segment_temp_9)}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_0)}, {1, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_1)}, {2, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_2)}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_3)}, {4, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_4)}, {5, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_5)}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_6)}, {7, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_7)}, {8, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_8)}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_9)}};
         break;
 
         case 6:
-        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(segment_temp_0)}, {1, voltage_to_ENEPAQ_cell_temp(segment_temp_1)}, {2, voltage_to_ENEPAQ_cell_temp(segment_temp_2)}, 
-                    {3, voltage_to_ENEPAQ_cell_temp(segment_temp_3)}, {4, voltage_to_ENEPAQ_cell_temp(segment_temp_4)}, {5, voltage_to_ENEPAQ_cell_temp(segment_temp_5)}, 
-                    {6, voltage_to_ENEPAQ_cell_temp(segment_temp_6)}, {7, voltage_to_ENEPAQ_cell_temp(segment_temp_7)}, {8, voltage_to_ENEPAQ_cell_temp(segment_temp_8)}, 
-                    {9, voltage_to_ENEPAQ_cell_temp(segment_temp_9)}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_0)}, {1, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_1)}, {2, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_2)}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_3)}, {4, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_4)}, {5, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_5)}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_6)}, {7, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_7)}, {8, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_8)}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_9)}};
         break;
 
         case 7:
-        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(segment_temp_0)}, {1, voltage_to_ENEPAQ_cell_temp(segment_temp_1)}, {2, voltage_to_ENEPAQ_cell_temp(segment_temp_2)}, 
-                    {3, voltage_to_ENEPAQ_cell_temp(segment_temp_3)}, {4, voltage_to_ENEPAQ_cell_temp(segment_temp_4)}, {5, voltage_to_ENEPAQ_cell_temp(segment_temp_5)}, 
-                    {6, voltage_to_ENEPAQ_cell_temp(segment_temp_6)}, {7, voltage_to_ENEPAQ_cell_temp(segment_temp_7)}, {8, voltage_to_ENEPAQ_cell_temp(segment_temp_8)}, 
-                    {9, voltage_to_ENEPAQ_cell_temp(segment_temp_9)}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_0)}, {1, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_1)}, {2, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_2)}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_3)}, {4, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_4)}, {5, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_5)}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_6)}, {7, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_7)}, {8, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_8)}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_9)}};
         break;
 
         case 8:
-        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(segment_temp_0)}, {1, voltage_to_ENEPAQ_cell_temp(segment_temp_1)}, {2, voltage_to_ENEPAQ_cell_temp(segment_temp_2)}, 
-                    {3, voltage_to_ENEPAQ_cell_temp(segment_temp_3)}, {4, voltage_to_ENEPAQ_cell_temp(segment_temp_4)}, {5, voltage_to_ENEPAQ_cell_temp(segment_temp_5)}, 
-                    {6, voltage_to_ENEPAQ_cell_temp(segment_temp_6)}, {7, voltage_to_ENEPAQ_cell_temp(segment_temp_7)}, {8, voltage_to_ENEPAQ_cell_temp(segment_temp_8)}, 
-                    {9, voltage_to_ENEPAQ_cell_temp(segment_temp_9)}};
+        mod_temps = {{0, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_0)}, {1, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_1)}, {2, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_2)}, 
+                    {3, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_3)}, {4, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_4)}, {5, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_5)}, 
+                    {6, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_6)}, {7, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_7)}, {8, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_8)}, 
+                    {9, voltage_to_ENEPAQ_cell_temp(module_temp_voltage_9)}};
         break;
     }
     
@@ -160,7 +162,8 @@ float get_avg_temp(vector<pair<int, float>> &mod_temps){
 
 // returns the min temp in a sorted nested vector
 float get_min_temp(vector<pair<int, float>> &sorted_mod_temps){
-    return (sorted_mod_temps.at(11)).second;
+    // return (sorted_mod_temps.at(11)).second;
+    return (sorted_mod_temps.at(9)).second;
 }
 
 // returns the max temp in a sorted nested vector
@@ -171,7 +174,8 @@ float get_max_temp(vector<pair<int, float>> &sorted_mod_temps){
 // returns the min temp local id in a sorted nested vector
 int get_min_id(vector<pair<int, float>> &sorted_mod_temps){
     // converts the global ID to a local one
-    return (sorted_mod_temps.at(11)).first % 80;
+    // return (sorted_mod_temps.at(11)).first % 80;
+    return (sorted_mod_temps.at(9)).first % 80;
 }
 
 // returns the max temp local id in a sorted nested vector

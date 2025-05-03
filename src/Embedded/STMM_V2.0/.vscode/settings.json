@@ -5,6 +5,7 @@
         "utility": "cpp",
         "xutility": "cpp",
         "vector": "cpp",
-        "optional": "cpp"
+        "optional": "cpp",
+        "initializer_list": "cpp"
     }
 }

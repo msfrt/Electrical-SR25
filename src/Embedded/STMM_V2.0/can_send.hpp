@@ -297,10 +297,10 @@ void send_STMM_300(const int &seg) {
     msg.buf[6] = STMM_segmentTemp102.can_value();
     msg.buf[7] = STMM_segmentTemp102.can_value() >> 8;
 
-    // Serial.println("Mod 0: ");
-    // Serial.println(STMM_segmentTemp100.value());
-    // Serial.println("Mod 1: ");
-    // Serial.println(STMM_segmentTemp101.value());
+    Serial.println("Mod 0: ");
+    Serial.println(STMM_segmentTemp100.value());
+    Serial.println("Mod 1: ");
+    Serial.println(STMM_segmentTemp101.value());
     // Serial.println("Mod 2: ");
     // Serial.println(STMM_segmentTemp102.value());
 

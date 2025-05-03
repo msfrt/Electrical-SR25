@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // //! @name SPI CLOCK DIVIDER CONSTANTS
 // //! @{
 // #define SPI_CLOCK_DIV4    0x00  // 4 Mhz
-// #define SPI_CLOCK_DIV16   0x01  // 1 Mhz
+#define SPI_CLOCK_DIV16   0x01  // 1 Mhz
 // #define SPI_CLOCK_DIV64   0x02  // 250 khz
 // #define SPI_CLOCK_DIV128  0x03  // 125 khz
 // #define SPI_CLOCK_DIV2    0x04  // 8 Mhz
@@ -98,12 +98,19 @@ void spi_transfer_block(uint8_t cs_pin,     //!< Chip select pin
                         uint8_t length      //!< Length of array
                        );
 
+//! Connect SPI pins to QuikEval connector through the Linduino MUX. This will disconnect I2C.
+// void quikeval_SPI_connect();
+
+//! Configure the SPI port for 4Mhz SCK.
+//! This function or spi_enable() must be called
+//! before using the other SPI routines.
+// void quikeval_SPI_init();
+
 //! Setup the processor for hardware SPI communication.
 //! Must be called before using the other SPI routines.
 //! Alternatively, call quikeval_SPI_connect(), which automatically
 //! calls this function.
-void spi_enable(uint8_t spi_clock_divider   //!< Configures SCK frequency. Use constant defined in header file.
-               );
+void spi_enable();   //!< Configures SCK frequency. Use constant defined in header file.
 
 //! Disable the SPI hardware port
 void spi_disable();

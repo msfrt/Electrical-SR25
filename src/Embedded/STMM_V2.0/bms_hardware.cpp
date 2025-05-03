@@ -43,37 +43,9 @@ Copyright 2017 Linear Technology Corp. (LTC)
 #include <Arduino.h>
 #include <stdint.h>
 #include "bms_hardware.h"
-// #include "Linduino.h"
+#include "Linduino.h"
 #include "LT_SPI.h"
 #include <SPI.h>
-
-// Macros
-//! Set "pin" low
-//! @param pin pin to be driven LOW
-#define output_low(pin)   digitalWrite(pin, LOW)
-//! Set "pin" high
-//! @param pin pin to be driven HIGH
-#define output_high(pin)  digitalWrite(pin, HIGH)
-//! Return the state of pin "pin"
-//! @param pin pin to be read (HIGH or LOW).
-//! @return the state of pin "pin"
-#define input(pin)        digitalRead(pin)
-
-//! @name ENDIAN DEPENDENT BYTE INDEXES
-//! @{
-//! Arduino/Linduino is a Little Endian Device, where the least significant byte is stored in the first byte of larger data types.
-#ifdef BIG_ENDIAN
-#define LSB 1 //!< Location of Least Signficant Byte when Word is accessed as Byte Array
-#define MSB 0 //!< Location of Most Signficant Byte when Word is accessed as Byte Array
-#define LSW 1 //!< Location of Least Signficant Word when Long Word is accessed as Byte Array
-#define MSW 0 //!< Location of most Signficant Word when Long Word is accessed as Byte Array
-#else
-#define LSB 0 //!< Location of Least Signficant Byte when Word is accessed as Byte Array
-#define MSB 1 //!< Location of Most Signficant Byte when Word is accessed as Byte Array
-#define LSW 0 //!< Location of Least Signficant Word when Long Word is accessed as Byte Array
-#define MSW 1 //!< Location of most Signficant Word when Long Word is accessed as Byte Array
-#endif
-//! @}
 
 void cs_low(uint8_t pin)
 {
@@ -102,10 +74,12 @@ void spi_write_array(uint8_t len, // Option: Number of bytes to be written on th
                      uint8_t data[] //Array of bytes to be written on the SPI port
                     )
 {
+	digitalWrite(10, LOW);
   for (uint8_t i = 0; i < len; i++)
   {
     SPI.transfer((int8_t)data[i]);
   }
+  
 }
 
 /*
@@ -119,6 +93,7 @@ void spi_write_read(uint8_t tx_Data[],//array of data to be written on SPI port
                     uint8_t rx_len //Option: number of bytes to be read from the SPI port
                    )
 {
+	digitalWrite(18, LOW);
   for (uint8_t i = 0; i < tx_len; i++)
   {
     SPI.transfer(tx_Data[i]);
@@ -131,7 +106,6 @@ void spi_write_read(uint8_t tx_Data[],//array of data to be written on SPI port
   }
 
 }
-
 
 uint8_t spi_read_byte(uint8_t tx_dat)
 {
