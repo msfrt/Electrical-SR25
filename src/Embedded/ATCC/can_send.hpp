@@ -62,7 +62,7 @@ void send_ATCC_302(){
   msg.len = 8;
 
   ATCC_angularWheelFreqRL = ATCC_angularWheelFreqFL.value();
-  ATCC_angularWheelFreqRR = 8; //ATCC_angularWheelFreqFR.value();
+  ATCC_angularWheelFreqRR = ATCC_angularWheelFreqFR.value();
 
   msg.buf[0] = ctr.value();
   msg.buf[1] = 0;
