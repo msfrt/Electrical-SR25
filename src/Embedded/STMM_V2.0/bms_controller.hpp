@@ -136,8 +136,20 @@ void measurement_loop(cell_asic *bms_ic){
         module_temp_voltage_6 = bms_ic[0].cells.c_codes[7]*0.0001; // module 7
         module_temp_voltage_8 = bms_ic[0].cells.c_codes[9]*0.0001; // module 9
         
-        Serial.println("Module 1 TEMP: ");
-        Serial.println(bms_ic[0].cells.c_codes[0]*0.0001);
+        // Serial.println("Module 1 TEMP: ");
+        // Serial.println(bms_ic[0].cells.c_codes[0]*0.0001);
+
+        // Serial.println("Module 3 TEMP: ");
+        // Serial.println(bms_ic[0].cells.c_codes[2]*0.0001);
+
+        // Serial.println("Module 5 TEMP: ");
+        // Serial.println(bms_ic[0].cells.c_codes[4]*0.0001);
+
+        // Serial.println("Module 7 TEMP: ");
+        // Serial.println(bms_ic[0].cells.c_codes[7]*0.0001);
+
+        // Serial.println("Module 9 TEMP: ");
+        // Serial.println(bms_ic[0].cells.c_codes[9]*0.0001);
 
         step = 1; // change state
         break;
@@ -158,8 +170,20 @@ void measurement_loop(cell_asic *bms_ic){
         module_temp_voltage_7 = bms_ic[0].cells.c_codes[8]*0.0001; // module 8
         module_temp_voltage_9 = bms_ic[0].cells.c_codes[10]*0.0001; // module 10
 
-        Serial.println("Module 2 TEMP: ");
-        Serial.println(bms_ic[0].cells.c_codes[1]*0.0001);
+        // Serial.println("Module 2 TEMP: ");
+        // Serial.println(bms_ic[0].cells.c_codes[1]*0.0001);
+
+        // Serial.println("Module 4 TEMP: ");
+        // Serial.println(bms_ic[0].cells.c_codes[3]*0.0001);
+
+        // Serial.println("Module 6 TEMP: ");
+        // Serial.println(bms_ic[0].cells.c_codes[6]*0.0001);
+
+        // Serial.println("Module 8 TEMP: ");
+        // Serial.println(bms_ic[0].cells.c_codes[8]*0.0001);
+
+        // Serial.println("Module 10 TEMP: ");
+        // Serial.println(bms_ic[0].cells.c_codes[10]*0.0001);
 
         step = 0; // change state
         break;
