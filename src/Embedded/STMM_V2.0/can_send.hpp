@@ -271,6 +271,27 @@ void send_STMM_1839F387(const int &seg) {
 ////////////////////////////////////////////////////////////////////////////////////////
 */
 
+void send_STMM_299(bool &step){
+    static StateCounter ctr;
+
+    msg.id = 299;
+    msg.flags.extended = 0;
+    msg.len = 8;
+
+    STMM_segmentSync = step;
+
+    msg.buf[0] = ctr.value();
+    msg.buf[1] = 0;
+    msg.buf[2] = STMM_segmentSync.can_value();
+    msg.buf[3] = 0x00;
+    msg.buf[4] = 0x00;
+    msg.buf[5] = 0x00;
+    msg.buf[6] = 0x00;
+    msg.buf[7] = 0x00;
+
+    cbus2.write(msg);
+}
+
 void send_STMM_300(const int &seg) {
     // static definition - only defined once (like a global variable, but is local to this function only)
     static StateCounter ctr;
@@ -297,12 +318,12 @@ void send_STMM_300(const int &seg) {
     msg.buf[6] = STMM_segmentTemp102.can_value();
     msg.buf[7] = STMM_segmentTemp102.can_value() >> 8;
 
-    Serial.println("Mod 0: ");
-    Serial.println(STMM_segmentTemp100.value());
-    Serial.println("Mod 1: ");
-    Serial.println(STMM_segmentTemp101.value());
-    Serial.println("Mod 2: ");
-    Serial.println(STMM_segmentTemp102.value());
+    // Serial.println("Mod 0: ");
+    // Serial.println(STMM_segmentTemp100.value());
+    // Serial.println("Mod 1: ");
+    // Serial.println(STMM_segmentTemp101.value());
+    // Serial.println("Mod 2: ");
+    // Serial.println(STMM_segmentTemp102.value());
 
     // send the message
     cbus2.write(msg);
@@ -328,12 +349,12 @@ void send_STMM_301(const int &seg) {
     msg.buf[6] = STMM_segmentTemp105.can_value();
     msg.buf[7] = STMM_segmentTemp105.can_value() >> 8;
 
-    Serial.println("Mod 3: ");
-    Serial.println(STMM_segmentTemp103.value());
-    Serial.println("Mod 4: ");
-    Serial.println(STMM_segmentTemp104.value());
-    Serial.println("Mod 5: ");
-    Serial.println(STMM_segmentTemp105.value());
+    // Serial.println("Mod 3: ");
+    // Serial.println(STMM_segmentTemp103.value());
+    // Serial.println("Mod 4: ");
+    // Serial.println(STMM_segmentTemp104.value());
+    // Serial.println("Mod 5: ");
+    // Serial.println(STMM_segmentTemp105.value());
 
     cbus2.write(msg);
 }
@@ -358,12 +379,12 @@ void send_STMM_302(const int &seg) {
     msg.buf[6] = STMM_segmentTemp108.can_value();
     msg.buf[7] = STMM_segmentTemp108.can_value() >> 8;
 
-    Serial.println("Mod 6: ");
-    Serial.println(STMM_segmentTemp106.value());
-    Serial.println("Mod 7: ");
-    Serial.println(STMM_segmentTemp107.value());
-    Serial.println("Mod 8: ");
-    Serial.println(STMM_segmentTemp108.value());
+    // Serial.println("Mod 6: ");
+    // Serial.println(STMM_segmentTemp106.value());
+    // Serial.println("Mod 7: ");
+    // Serial.println(STMM_segmentTemp107.value());
+    // Serial.println("Mod 8: ");
+    // Serial.println(STMM_segmentTemp108.value());
 
     cbus2.write(msg);
 }
@@ -386,8 +407,8 @@ void send_STMM_303(const int &seg) {
     msg.buf[6] = 0x00;
     msg.buf[7] = 0x00;
 
-    Serial.println("Mod 9: ");
-    Serial.println(STMM_segmentTemp109.value());
+    // Serial.println("Mod 9: ");
+    // Serial.println(STMM_segmentTemp109.value());
 
     cbus2.write(msg);
 }
@@ -1027,6 +1048,13 @@ void send_STMM_331(const int &seg) {
 / SEND IT! /
 ////////////
 */
+
+void send_step(bool &step) {
+    static EasyTimer STMM_299_timer(100); // 100 Hz (10ms)
+    if(STMM_299_timer.isup()) {
+        send_STMM_299(step);
+    }
+}
 
 void send_can_1(const int &seg) {
     static EasyTimer STMM_1839F380_timer(10); // 10 Hz (100ms)

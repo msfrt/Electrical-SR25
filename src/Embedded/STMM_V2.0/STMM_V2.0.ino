@@ -31,8 +31,19 @@
 // bus and message definition
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> cbus2;
 // CHECK TO SEE WHICH HARDWARE, PHYSICAL, CANBUS WE ARE USING
-static CAN_message_t msg;
-#define CAN2_BAUDRATE 1000000
+static CAN_message_t msg; // tx msg
+static CAN_message_t rxmsg; // rx msg
+#define cbus2_BAUDRATE 1000000
+
+// each bus has a total of 64 mailboxes
+#define NUM_RX_STD_MAILBOXES 60
+#define NUM_RX_EXT_MAILBOXES 2
+#define NUM_TX_MAILBOXES 2
+// limit the number of messages each bus can read for each loop cycle.
+// Typically, only one message is recieved in the time that the loop can run,
+// but a buildup can occur, and this limit can poll the bus to read messages
+// while not getting stuck in an infinite loop
+#define MAX_CAN_FRAME_READ_PER_CYCLE 5
 
 // cell data structure with a number of elements matching the number of ICs
 static cell_asic bms_ic[TOTAL_IC];
@@ -41,7 +52,7 @@ static cell_asic bms_ic[TOTAL_IC];
 #include "CAN/raptor_CAN1.hpp"
 #include "CAN/raptor_CAN2.hpp"
 
-const int STMM = 1;   /* STMM Module Select 
+const int STMM = 4;   /* STMM Module Select 
                       1 = seg1 
                       2 = seg2
                       3 = seg3
@@ -75,7 +86,9 @@ void setup() {
   
   //initialize the CAN Bus and set its baud rate to 1Mb
   cbus2.begin();
-  cbus2.setBaudRate(CAN2_BAUDRATE);
+  cbus2.setBaudRate(cbus2_BAUDRATE);
+  set_mailboxes();
+  STMM_segmentSync.set_timeout_delay(10);
 
   // initialize SPI communication
   // make a nice wrapper for the LTC6811 at some point
@@ -95,34 +108,95 @@ void loop() {
   
   rainbow_pixels(GLO_neopixel);
   
-  measurement_loop(bms_ic);
+  measurement_loop(bms_ic, STMM);
 
   // CAN timers are asynchronous with temperature acquition timers
   switch (STMM) {
     case 1:
       send_can_1(1);
+      send_step(step);
       break;
     case 2:
       send_can_2(2);
+      readCan();
+      // Serial.println("Seg 2 Step");
+      // Serial.println(step);
+      // Serial.println("Sync CAN");
+      // Serial.println(STMM_segmentSync.value());
       break;
     case 3:
       send_can_3(3);
+      readCan();
       break;
     case 4:
       send_can_4(4);
+      readCan();
       break;
     case 5:
       send_can_5(5);
+      readCan();
       break;
     case 6:
       send_can_6(6);
+      readCan();
       break;
     case 7:
       send_can_7(7);
+      readCan();
       break;
     case 8:
       send_can_8(8);
+      readCan();
       break;
   }
   
+}
+
+void set_mailboxes() {
+  // to view mailbox status, you can use the member function mailboxStatus().
+  // Don't put it in a fast loop, though, because you may actually affect how
+  // the chips moves things around
+
+  // use all mailboxes of course
+  cbus2.setMaxMB(64);
+
+  for (int i = 0; i < NUM_RX_STD_MAILBOXES; i++) {
+    cbus2.setMB((FLEXCAN_MAILBOX)i, RX, STD);
+  }
+  for (int i = NUM_RX_STD_MAILBOXES;
+       i < (NUM_RX_STD_MAILBOXES + NUM_RX_EXT_MAILBOXES); i++) {
+    cbus2.setMB((FLEXCAN_MAILBOX)i, RX, EXT);
+  }
+  for (int i = (NUM_RX_STD_MAILBOXES + NUM_RX_EXT_MAILBOXES);
+       i < (NUM_RX_STD_MAILBOXES + NUM_RX_EXT_MAILBOXES + NUM_TX_MAILBOXES);
+       i++) {
+    cbus2.setMB((FLEXCAN_MAILBOX)i, TX, STD);
+  }
+
+  cbus2.setMBFilter(REJECT_ALL);
+  cbus2.setMBFilter(MB0, STMM_segmentSync.get_msg_id());
+  cbus2.setMBFilter(MB1, 0);
+  cbus2.setMBFilter(MB2, 0);
+  cbus2.setMBFilter(MB3, 0);
+  cbus2.setMBFilter(MB4, 0);
+  cbus2.setMBFilter(MB5, 0);
+  cbus2.setMBFilter(MB6, 0);
+  cbus2.setMBFilter(MB7, 0);
+  cbus2.setMBFilter(MB8, 0);
+  cbus2.setMBFilter(MB9, 0);
+  cbus2.setMBFilter(MB10, 0);
+  cbus2.setMBFilter(MB11, 0);
+  cbus2.setMBFilter(MB12, 0);
+  cbus2.setMBFilter(MB13, 0);
+  cbus2.setMBFilter(MB14, 0);
+}
+
+void readCan() {
+  int count = 0;
+
+  count = 0;
+  while (cbus2.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
+    decode_raptor_CAN2(rxmsg);
+    count++;
+  }
 }

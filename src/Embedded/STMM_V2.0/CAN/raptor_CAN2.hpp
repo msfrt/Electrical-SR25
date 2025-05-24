@@ -319,6 +319,10 @@ StateSignal STMM_segmentTemp100(16, true, 10, 0.0, -5, 120, 0.0, -1, 300);
 StateSignal STMM_segmentTemp101(16, true, 10, 0.0, -5, 120, 0.0, -1, 300);
 StateSignal STMM_segmentTemp102(16, true, 10, 0.0, -5, 120, 0.0, -1, 300);
 
+// Message: STMM_299 [0x12b]
+StateSignal STMM_counterMsg299(4, false, 1, 0.0, 0, 15, 0.0, -1, 299);
+StateSignal STMM_segmentSync(8, false, 1, 0.0, 0, 1, 0.0, -1, 299);
+
 // Message: DD_250 [0xfa]
 StateSignal DD_counterMsg250(4, false, 1, 0.0, 0, 15, 0.0, -1, 250);
 StateSignal DD_boardTemp(16, true, 10, 0.0, 0, 150, 0.0, -1, 250);
@@ -1162,6 +1166,17 @@ void read_STMM_300(const CAN_message_t &imsg) {
 }
 
 /*
+ * Decode a CAN frame for the message STMM_300
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_299(const CAN_message_t &imsg) {
+
+	STMM_counterMsg299.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentSync.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+
+}
+
+/*
  * Decode a CAN frame for the message DD_250
  * \param imsg A reference to the incoming CAN message frame
  */
@@ -1617,321 +1632,325 @@ void decode_raptor_CAN2(const CAN_message_t &imsg) {
 
 	switch (imsg.id) {
 
-		case 406451079:
-			read_STMM_1839F387(imsg);
-			break;
-
-		case 406451078:
-			read_STMM_1839F386(imsg);
-			break;
-
-		case 406451077:
-			read_STMM_1839F385(imsg);
-			break;
-
-		case 406451076:
-			read_STMM_1839F384(imsg);
-			break;
-
-		case 406451075:
-			read_STMM_1839F383(imsg);
-			break;
-
-		case 406451074:
-			read_STMM_1839F382(imsg);
-			break;
-
-		case 406451073:
-			read_STMM_1839F381(imsg);
-			break;
-
-		case 406451072:
-			read_STMM_1839F380(imsg);
-			break;
-
-		case 153:
-			read_VCU_153(imsg);
-			break;
-
-		case 152:
-			read_VCU_152(imsg);
-			break;
-
-		case 151:
-			read_VCU_151(imsg);
-			break;
-
-		case 380:
-			read_MM5_380(imsg);
-			break;
-
-		case 376:
-			read_MM5_376(imsg);
-			break;
-
-		case 372:
-			read_MM5_372(imsg);
-			break;
-
-		case 331:
-			read_STMM_331(imsg);
-			break;
-
-		case 330:
-			read_STMM_330(imsg);
-			break;
-
-		case 329:
-			read_STMM_329(imsg);
-			break;
-
-		case 328:
-			read_STMM_328(imsg);
-			break;
-
-		case 327:
-			read_STMM_327(imsg);
-			break;
-
-		case 326:
-			read_STMM_326(imsg);
-			break;
+		// case 406451079:
+		// 	read_STMM_1839F387(imsg);
+		// 	break;
+
+		// case 406451078:
+		// 	read_STMM_1839F386(imsg);
+		// 	break;
+
+		// case 406451077:
+		// 	read_STMM_1839F385(imsg);
+		// 	break;
+
+		// case 406451076:
+		// 	read_STMM_1839F384(imsg);
+		// 	break;
+
+		// case 406451075:
+		// 	read_STMM_1839F383(imsg);
+		// 	break;
+
+		// case 406451074:
+		// 	read_STMM_1839F382(imsg);
+		// 	break;
+
+		// case 406451073:
+		// 	read_STMM_1839F381(imsg);
+		// 	break;
+
+		// case 406451072:
+		// 	read_STMM_1839F380(imsg);
+		// 	break;
+
+		// case 153:
+		// 	read_VCU_153(imsg);
+		// 	break;
+
+		// case 152:
+		// 	read_VCU_152(imsg);
+		// 	break;
+
+		// case 151:
+		// 	read_VCU_151(imsg);
+		// 	break;
+
+		// case 380:
+		// 	read_MM5_380(imsg);
+		// 	break;
+
+		// case 376:
+		// 	read_MM5_376(imsg);
+		// 	break;
+
+		// case 372:
+		// 	read_MM5_372(imsg);
+		// 	break;
+
+		// case 331:
+		// 	read_STMM_331(imsg);
+		// 	break;
+
+		// case 330:
+		// 	read_STMM_330(imsg);
+		// 	break;
+
+		// case 329:
+		// 	read_STMM_329(imsg);
+		// 	break;
+
+		// case 328:
+		// 	read_STMM_328(imsg);
+		// 	break;
+
+		// case 327:
+		// 	read_STMM_327(imsg);
+		// 	break;
+
+		// case 326:
+		// 	read_STMM_326(imsg);
+		// 	break;
+
+		// case 325:
+		// 	read_STMM_325(imsg);
+		// 	break;
+
+		// case 324:
+		// 	read_STMM_324(imsg);
+		// 	break;
 
-		case 325:
-			read_STMM_325(imsg);
-			break;
-
-		case 324:
-			read_STMM_324(imsg);
-			break;
+		// case 323:
+		// 	read_STMM_323(imsg);
+		// 	break;
 
-		case 323:
-			read_STMM_323(imsg);
-			break;
+		// case 322:
+		// 	read_STMM_322(imsg);
+		// 	break;
 
-		case 322:
-			read_STMM_322(imsg);
-			break;
+		// case 321:
+		// 	read_STMM_321(imsg);
+		// 	break;
 
-		case 321:
-			read_STMM_321(imsg);
-			break;
+		// case 320:
+		// 	read_STMM_320(imsg);
+		// 	break;
 
-		case 320:
-			read_STMM_320(imsg);
-			break;
+		// case 319:
+		// 	read_STMM_319(imsg);
+		// 	break;
 
-		case 319:
-			read_STMM_319(imsg);
-			break;
+		// case 318:
+		// 	read_STMM_318(imsg);
+		// 	break;
 
-		case 318:
-			read_STMM_318(imsg);
-			break;
+		// case 317:
+		// 	read_STMM_317(imsg);
+		// 	break;
 
-		case 317:
-			read_STMM_317(imsg);
-			break;
+		// case 316:
+		// 	read_STMM_316(imsg);
+		// 	break;
 
-		case 316:
-			read_STMM_316(imsg);
-			break;
+		// case 315:
+		// 	read_STMM_315(imsg);
+		// 	break;
 
-		case 315:
-			read_STMM_315(imsg);
-			break;
+		// case 314:
+		// 	read_STMM_314(imsg);
+		// 	break;
 
-		case 314:
-			read_STMM_314(imsg);
-			break;
+		// case 313:
+		// 	read_STMM_313(imsg);
+		// 	break;
 
-		case 313:
-			read_STMM_313(imsg);
-			break;
+		// case 312:
+		// 	read_STMM_312(imsg);
+		// 	break;
 
-		case 312:
-			read_STMM_312(imsg);
-			break;
+		// case 311:
+		// 	read_STMM_311(imsg);
+		// 	break;
 
-		case 311:
-			read_STMM_311(imsg);
-			break;
+		// case 310:
+		// 	read_STMM_310(imsg);
+		// 	break;
 
-		case 310:
-			read_STMM_310(imsg);
-			break;
+		// case 309:
+		// 	read_STMM_309(imsg);
+		// 	break;
 
-		case 309:
-			read_STMM_309(imsg);
-			break;
+		// case 308:
+		// 	read_STMM_308(imsg);
+		// 	break;
 
-		case 308:
-			read_STMM_308(imsg);
-			break;
+		// case 307:
+		// 	read_STMM_307(imsg);
+		// 	break;
 
-		case 307:
-			read_STMM_307(imsg);
-			break;
+		// case 306:
+		// 	read_STMM_306(imsg);
+		// 	break;
 
-		case 306:
-			read_STMM_306(imsg);
-			break;
+		// case 305:
+		// 	read_STMM_305(imsg);
+		// 	break;
 
-		case 305:
-			read_STMM_305(imsg);
-			break;
+		// case 304:
+		// 	read_STMM_304(imsg);
+		// 	break;
 
-		case 304:
-			read_STMM_304(imsg);
-			break;
+		// case 303:
+		// 	read_STMM_303(imsg);
+		// 	break;
 
-		case 303:
-			read_STMM_303(imsg);
-			break;
+		// case 302:
+		// 	read_STMM_302(imsg);
+		// 	break;
 
-		case 302:
-			read_STMM_302(imsg);
-			break;
+		// case 301:
+		// 	read_STMM_301(imsg);
+		// 	break;
 
-		case 301:
-			read_STMM_301(imsg);
-			break;
+		// case 300:
+		// 	read_STMM_300(imsg);
+		// 	break;
 
-		case 300:
-			read_STMM_300(imsg);
+		case 299:
+			read_STMM_299(imsg);
 			break;
 
-		case 250:
-			read_DD_250(imsg);
-			break;
+		// case 250:
+		// 	read_DD_250(imsg);
+		// 	break;
 
-		case 414:
-			read_PDM_414(imsg);
-			break;
+		// case 414:
+		// 	read_PDM_414(imsg);
+		// 	break;
 
-		case 413:
-			read_PDM_413(imsg);
-			break;
+		// case 413:
+		// 	read_PDM_413(imsg);
+		// 	break;
 
-		case 412:
-			read_PDM_412(imsg);
-			break;
+		// case 412:
+		// 	read_PDM_412(imsg);
+		// 	break;
 
-		case 411:
-			read_PDM_411(imsg);
-			break;
+		// case 411:
+		// 	read_PDM_411(imsg);
+		// 	break;
 
-		case 410:
-			read_PDM_410(imsg);
-			break;
+		// case 410:
+		// 	read_PDM_410(imsg);
+		// 	break;
 
-		case 409:
-			read_PDM_409(imsg);
-			break;
+		// case 409:
+		// 	read_PDM_409(imsg);
+		// 	break;
 
-		case 408:
-			read_PDM_408(imsg);
-			break;
+		// case 408:
+		// 	read_PDM_408(imsg);
+		// 	break;
 
-		case 407:
-			read_PDM_407(imsg);
-			break;
+		// case 407:
+		// 	read_PDM_407(imsg);
+		// 	break;
 
-		case 406:
-			read_PDM_406(imsg);
-			break;
+		// case 406:
+		// 	read_PDM_406(imsg);
+		// 	break;
 
-		case 405:
-			read_PDM_405(imsg);
-			break;
+		// case 405:
+		// 	read_PDM_405(imsg);
+		// 	break;
 
-		case 404:
-			read_PDM_404(imsg);
-			break;
+		// case 404:
+		// 	read_PDM_404(imsg);
+		// 	break;
 
-		case 403:
-			read_PDM_403(imsg);
-			break;
+		// case 403:
+		// 	read_PDM_403(imsg);
+		// 	break;
 
-		case 402:
-			read_PDM_402(imsg);
-			break;
+		// case 402:
+		// 	read_PDM_402(imsg);
+		// 	break;
 
-		case 401:
-			read_PDM_401(imsg);
-			break;
+		// case 401:
+		// 	read_PDM_401(imsg);
+		// 	break;
 
-		case 400:
-			read_PDM_400(imsg);
-			break;
+		// case 400:
+		// 	read_PDM_400(imsg);
+		// 	break;
 
-		case 215:
-			read_BMS_215(imsg);
-			break;
+		// case 215:
+		// 	read_BMS_215(imsg);
+		// 	break;
 
-		case 214:
-			read_BMS_214(imsg);
-			break;
+		// case 214:
+		// 	read_BMS_214(imsg);
+		// 	break;
 
-		case 213:
-			read_BMS_213(imsg);
-			break;
+		// case 213:
+		// 	read_BMS_213(imsg);
+		// 	break;
 
-		case 212:
-			read_BMS_212(imsg);
-			break;
+		// case 212:
+		// 	read_BMS_212(imsg);
+		// 	break;
 
-		case 211:
-			read_BMS_211(imsg);
-			break;
+		// case 211:
+		// 	read_BMS_211(imsg);
+		// 	break;
 
-		case 210:
-			read_BMS_210(imsg);
-			break;
+		// case 210:
+		// 	read_BMS_210(imsg);
+		// 	break;
 
-		case 209:
-			read_BMS_209(imsg);
-			break;
+		// case 209:
+		// 	read_BMS_209(imsg);
+		// 	break;
 
-		case 208:
-			read_BMS_208(imsg);
-			break;
+		// case 208:
+		// 	read_BMS_208(imsg);
+		// 	break;
 
-		case 207:
-			read_BMS_207(imsg);
-			break;
+		// case 207:
+		// 	read_BMS_207(imsg);
+		// 	break;
 
-		case 206:
-			read_BMS_206(imsg);
-			break;
+		// case 206:
+		// 	read_BMS_206(imsg);
+		// 	break;
 
-		case 205:
-			read_BMS_205(imsg);
-			break;
+		// case 205:
+		// 	read_BMS_205(imsg);
+		// 	break;
 
-		case 204:
-			read_BMS_204(imsg);
-			break;
+		// case 204:
+		// 	read_BMS_204(imsg);
+		// 	break;
 
-		case 203:
-			read_BMS_203(imsg);
-			break;
+		// case 203:
+		// 	read_BMS_203(imsg);
+		// 	break;
 
-		case 202:
-			read_BMS_202(imsg);
-			break;
+		// case 202:
+		// 	read_BMS_202(imsg);
+		// 	break;
 
-		case 201:
-			read_BMS_201(imsg);
-			break;
+		// case 201:
+		// 	read_BMS_201(imsg);
+		// 	break;
 
-		case 200:
-			read_BMS_200(imsg);
-			break;
+		// case 200:
+		// 	read_BMS_200(imsg);
+		// 	break;
 
-		case 150:
-			read_VCU_150(imsg);
-			break;
+		// case 150:
+		// 	read_VCU_150(imsg);
+		// 	break;
 
 	}
 }
