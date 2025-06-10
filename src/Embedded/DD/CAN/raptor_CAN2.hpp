@@ -14,6 +14,40 @@
 #include <FlexCAN_T4.h>
 #include <StateCAN.h>
 
+// Message: VCU_159 [0x9f]
+StateSignal VCU_counterMsg159(4, false, 1, 0.0, 0, 15, 0.0, -1, 159);
+StateSignal VCU_tireTempRRI(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 159);
+StateSignal VCU_tireTempRRM(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 159);
+StateSignal VCU_tireTempRRO(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 159);
+
+// Message: VCU_158 [0x9e]
+StateSignal VCU_counterMsg158(4, false, 1, 0.0, 0, 15, 0.0, -1, 158);
+StateSignal VCU_tireTempRLI(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 158);
+StateSignal VCU_tireTempRLM(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 158);
+StateSignal VCU_tireTempRLO(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 158);
+
+// Message: VCU_157 [0x9d]
+StateSignal VCU_counterMsg157(4, false, 1, 0.0, 0, 15, 0.0, -1, 157);
+StateSignal VCU_tireTempFRI(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 157);
+StateSignal VCU_tireTempFRM(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 157);
+StateSignal VCU_tireTempFRO(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 157);
+
+// Message: VCU_156 [0x9c]
+StateSignal VCU_counterMsg156(4, false, 1, 0.0, 0, 15, 0.0, -1, 156);
+StateSignal VCU_tireTempFLI(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 156);
+StateSignal VCU_tireTempFLM(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 156);
+StateSignal VCU_tireTempFLO(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 156);
+
+// Message: VCU_155 [0x9b]
+StateSignal VCU_counterMsg155(4, false, 1, 0.0, 0, 15, 0.0, -1, 155);
+StateSignal VCU_rotorTempRL(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 155);
+StateSignal VCU_rotorTempRR(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 155);
+
+// Message: VCU_154 [0x9a]
+StateSignal VCU_counterMsg154(4, false, 1, 0.0, 0, 15, 0.0, -1, 154);
+StateSignal VCU_rotorTempFL(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 154);
+StateSignal VCU_rotorTempFR(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 154);
+
 // Message: STMM_1839F387 [0x1839f387]
 StateSignal STMM_seg8ThermModNum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451079);
 StateSignal STMM_seg8ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451079);
@@ -533,6 +567,82 @@ StateSignal VCU_throttlePosition2(16, true, 10, 0.0, 0, 100, 0.0, -1, 150);
 
 ************************************************************************************/
 
+
+/*
+ * Decode a CAN frame for the message VCU_159
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_VCU_159(const CAN_message_t &imsg) {
+
+	VCU_counterMsg159.set_can_value(((imsg.buf[0] & 0b00001111)));
+	VCU_tireTempRRI.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	VCU_tireTempRRM.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	VCU_tireTempRRO.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message VCU_158
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_VCU_158(const CAN_message_t &imsg) {
+
+	VCU_counterMsg158.set_can_value(((imsg.buf[0] & 0b00001111)));
+	VCU_tireTempRLI.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	VCU_tireTempRLM.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	VCU_tireTempRLO.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message VCU_157
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_VCU_157(const CAN_message_t &imsg) {
+
+	VCU_counterMsg157.set_can_value(((imsg.buf[0] & 0b00001111)));
+	VCU_tireTempFRI.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	VCU_tireTempFRM.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	VCU_tireTempFRO.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message VCU_156
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_VCU_156(const CAN_message_t &imsg) {
+
+	VCU_counterMsg156.set_can_value(((imsg.buf[0] & 0b00001111)));
+	VCU_tireTempFLI.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	VCU_tireTempFLM.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	VCU_tireTempFLO.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message VCU_155
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_VCU_155(const CAN_message_t &imsg) {
+
+	VCU_counterMsg155.set_can_value(((imsg.buf[0] & 0b00001111)));
+	VCU_rotorTempRL.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	VCU_rotorTempRR.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message VCU_154
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_VCU_154(const CAN_message_t &imsg) {
+
+	VCU_counterMsg154.set_can_value(((imsg.buf[0] & 0b00001111)));
+	VCU_rotorTempFL.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	VCU_rotorTempFR.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+
+}
 
 /*
  * Decode a CAN frame for the message STMM_1839F387
@@ -1616,6 +1726,30 @@ void read_VCU_150(const CAN_message_t &imsg) {
 void decode_raptor_CAN2(const CAN_message_t &imsg) {
 
 	switch (imsg.id) {
+
+		case 159:
+			read_VCU_159(imsg);
+			break;
+
+		case 158:
+			read_VCU_158(imsg);
+			break;
+
+		case 157:
+			read_VCU_157(imsg);
+			break;
+
+		case 156:
+			read_VCU_156(imsg);
+			break;
+
+		case 155:
+			read_VCU_155(imsg);
+			break;
+
+		case 154:
+			read_VCU_154(imsg);
+			break;
 
 		case 406451079:
 			read_STMM_1839F387(imsg);

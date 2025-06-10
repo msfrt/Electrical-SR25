@@ -69,10 +69,9 @@ EasyTimer odometer_update_timer(2);
 EasyTimer debug(2);
 const bool GLO_debug = false;
 
-<<<<<<< HEAD
 // Global Fan Speed Signal (Controlled by CAN)
 int fan_signal = 3; // Default value
-=======
+
 void setup() { //high 18 low 26
 
   analogReadResolution(GLO_read_resolution_bits);

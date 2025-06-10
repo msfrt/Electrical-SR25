@@ -97,35 +97,35 @@ class ScreensController {
 ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
     : display_left_(left), display_right_(right) {
   /* gear screen */
-  speed_screen_ = new ScreenNumber(display_left_, M400_gear, "GEAR:");
+  speed_screen_ = new ScreenNumber(display_left_, C50_gpsSpeed, "MPH:");
 
   /* Info screen 1 */
   info_screen_1_left_ = new ScreenInfo(display_left_);
-  info_screen_1_left_->SetSignal(1, &VCU_tireTempFLO, "FLO:", "%4.1f"); //Was originally &M400_groundSpeed
-  info_screen_1_left_->SetSignal(2, &VCU_tireTempFRO, "FRO:", "%4.1f");
-  info_screen_1_left_->SetSignal(3, &VCU_tireTempRLO, "RLO:", "%4.1f");
-  info_screen_1_left_->SetSignal(4, &VCU_tireTempRRO, "RRO:", "%4.1f");
+  info_screen_1_left_->SetSignal(1, &VCU_tireTempFLO, "FL:", "%4.1f"); //Was originally &M400_groundSpeed
+  info_screen_1_left_->SetSignal(2, &VCU_tireTempFRO, "FR:", "%4.1f");
+  info_screen_1_left_->SetSignal(3, &VCU_tireTempRLO, "RL:", "%4.1f");
+  info_screen_1_left_->SetSignal(4, &VCU_tireTempRRO, "RR:", "%4.1f");
 
   info_screen_1_right_ = new ScreenInfo(display_right_);
   info_screen_1_right_->SetSignal(1, &BMS_packVolt, "PACK:", "%4.1f");
   info_screen_1_right_->SetSignal(2, &PDM_pdmVoltMin, "BAT:", "%4.1f");
-  info_screen_1_right_->SetSignal(3, &VCU_brakeBias, "BIAS:", "%3.0f");
+  info_screen_1_right_->SetSignal(3, &VCU_brakeBias, "BIAS:", "%3.0f%");
   info_screen_1_right_->SetSignal(4, &BMS_highestTemp, "BMST:", "%3.0f");
 
   /* Info screen 2 */
   info_screen_2_left_ = new ScreenInfo(display_left_);
-  info_screen_2_left_->SetSignal(1, &ATCCF_rotorTempFL, "FL:", "%5.1f");
-  info_screen_2_left_->SetSignal(2, &ATCCF_rotorTempFR, "FR:", "%5.1f");
-  info_screen_2_left_->SetSignal(3, &ATCCR_rotorTempRL, "RL:", "%5.1f");
-  info_screen_2_left_->SetSignal(4, &ATCCR_rotorTempRR, "RR:", "%5.1f");
+  info_screen_2_left_->SetSignal(1, 0, "FL:", "%5.1f");
+  info_screen_2_left_->SetSignal(2, 0, "FR:", "%5.1f");
+  info_screen_2_left_->SetSignal(3, 0, "RL:", "%5.1f");
+  info_screen_2_left_->SetSignal(4, 0, "RR:", "%5.1f");
   // info_screen_2_left_->SetSignal(4, &ATCCR_shiftingPressure, "SFT:", "%3.1f");
 
   /* Info screen 3 */
   info_screen_3_left_ = new ScreenInfo(display_left_);
-  info_screen_3_left_->SetSignal(1, &M400_engineTemp, "ENGT:", "%4.0f");
-  info_screen_3_left_->SetSignal(2, &M400_fuelPressure, "FUEL:", "%4.1f");
-  info_screen_3_left_->SetSignal(3, &M400_inletAirTemp, "INT:", "%5.0f");
-  info_screen_3_left_->SetSignal(4, &M400_lambda1, "LAMB:", "%3.2f");
+  info_screen_3_left_->SetSignal(1, 0, "ENGT:", "%4.0f");
+  info_screen_3_left_->SetSignal(2, 0, "FUEL:", "%4.1f");
+  info_screen_3_left_->SetSignal(3, 0, "INT:", "%5.0f");
+  info_screen_3_left_->SetSignal(4, 0, "LAMB:", "%3.2f");
   
   // keep the same screen on the right side
   info_screen_2_right_ = info_screen_1_right_;
@@ -237,7 +237,7 @@ void ScreensController::Update(unsigned long &elapsed) {
       }
 
       // if the state is complete, set a new state
-      if(M400_groundSpeedLeft.value() > 2 && millis() - state_start_time_ > obd_display_duration_) {
+      if(C50_gpsSpeed.value() > 2 && millis() - state_start_time_ > obd_display_duration_) {
         SetState(state_prev_);
       } else if(millis() - state_start_time_ > msg_display_duration_) {
         SetState(state_prev_);
