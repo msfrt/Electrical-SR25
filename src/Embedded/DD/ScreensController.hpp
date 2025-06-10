@@ -84,7 +84,7 @@ class ScreensController {
 
   ScreenMessage *message_screen_ = nullptr;
 
-  ScreenNumber *gear_screen_ = nullptr;
+  ScreenNumber *speed_screen_ = nullptr;
 
   ScreenLapTime *lap_time_screen_ = nullptr;
 };
@@ -97,20 +97,20 @@ class ScreensController {
 ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
     : display_left_(left), display_right_(right) {
   /* gear screen */
-  gear_screen_ = new ScreenNumber(display_left_, M400_gear, "GEAR:");
+  speed_screen_ = new ScreenNumber(display_left_, M400_gear, "GEAR:");
 
   /* Info screen 1 */
   info_screen_1_left_ = new ScreenInfo(display_left_);
-  info_screen_1_left_->SetSignal(1, &M400_groundSpeedLeft, "WHL:", "%4.1f"); //Was originally &M400_groundSpeed
-  info_screen_1_left_->SetSignal(2, &PDM_pdmVoltAvg, "BAT:", "%4.1f");
-  info_screen_1_left_->SetSignal(3, &ATCCF_brakeBias, "BIAS:", "%2.0f%%");
-  info_screen_1_left_->SetSignal(4, &PDM_fanLeftDutyCycle, "FANS:", "%3.0f");
+  info_screen_1_left_->SetSignal(1, &VCU_tireTempFLO, "FLO:", "%4.1f"); //Was originally &M400_groundSpeed
+  info_screen_1_left_->SetSignal(2, &VCU_tireTempFRO, "FRO:", "%4.1f");
+  info_screen_1_left_->SetSignal(3, &VCU_tireTempRLO, "RLO:", "%4.1f");
+  info_screen_1_left_->SetSignal(4, &VCU_tireTempRRO, "RRO:", "%4.1f");
 
   info_screen_1_right_ = new ScreenInfo(display_right_);
-  info_screen_1_right_->SetSignal(1, &M400_rpm, "RPM:", "%5.1f", 1000);
-  info_screen_1_right_->SetSignal(2, &M400_oilPressure, "OILP:", "%4.1f");
-  info_screen_1_right_->SetSignal(3, &M400_oilTemp, "OILT:", "%4.0f");
-  info_screen_1_right_->SetSignal(4, &C50_tcSet, "TCSET:", "%3.0f");
+  info_screen_1_right_->SetSignal(1, &BMS_packVolt, "PACK:", "%4.1f");
+  info_screen_1_right_->SetSignal(2, &PDM_pdmVoltMin, "BAT:", "%4.1f");
+  info_screen_1_right_->SetSignal(3, &VCU_brakeBias, "BIAS:", "%3.0f");
+  info_screen_1_right_->SetSignal(4, &BMS_highestTemp, "BMST:", "%3.0f");
 
   /* Info screen 2 */
   info_screen_2_left_ = new ScreenInfo(display_left_);
@@ -145,7 +145,7 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
  */
 ScreensController::~ScreensController() {
   /* gear */
-  delete gear_screen_;
+  delete speed_screen_;
 
   /* Screen 1 */
   delete info_screen_1_left_;
@@ -194,7 +194,7 @@ void ScreensController::Update(unsigned long &elapsed) {
     //     }
     //     break;
     case GearInfo:
-      gear_screen_->Update(elapsed);
+      speed_screen_->Update(elapsed);
       info_screen_1_right_->Update(elapsed);
       break;
 
@@ -332,7 +332,7 @@ void ScreensController::SetState(ScreenStates state) {
     //     startup_screen_right_->Initialize();
     //     break;
     case GearInfo:
-      gear_screen_->Initialize();
+      speed_screen_->Initialize();
       info_screen_1_right_->Initialize();
       break;
     case InfoScreen1:

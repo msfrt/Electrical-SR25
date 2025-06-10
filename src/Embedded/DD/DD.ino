@@ -16,8 +16,8 @@ using std::string;
 #define READ_RESOLUTION_BITS 12
 
 // can bus decleration
-FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
-FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> can2;
+FlexCAN_T4<raptor_CAN1, RX_SIZE_256, TX_SIZE_16> can1;
+FlexCAN_T4<raptor_CAN2, RX_SIZE_256, TX_SIZE_16> can2;
 static CAN_message_t rxmsg;
 // each bus has a total of 64 mailboxes
 #define NUM_RX_STD_MAILBOXES 60
@@ -140,7 +140,7 @@ void setup() {
 
   // initilize CAN busses
   can1.begin();
-  can1.setBaudRate(1000000);
+  can1.setBaudRate(500000);
   can2.begin();
   can2.setBaudRate(1000000);
   set_mailboxes();
@@ -361,15 +361,15 @@ void set_mailboxes() {
   // we have no interest in. it also reserves a slot for messages as they are
   // recieved.
   can1.setMBFilter(REJECT_ALL);
-  can1.setMBFilter(MB0, VCU_laptrigger.get_msg_id());
-  can1.setMBFilter(MB1, C50_tcSet.get_msg_id());
-  can1.setMBFilter(MB2, M400_groundSpeed.get_msg_id());
-  can1.setMBFilter(MB3, M400_rpm.get_msg_id());
-  can1.setMBFilter(MB4, M400_oilPressure.get_msg_id());
-  can1.setMBFilter(MB5, M400_oilTemp.get_msg_id());
-  can1.setMBFilter(MB6, CMD_driverMessageChar0.get_msg_id());
-  can1.setMBFilter(MB7, CMD_driverNotificationLightR.get_msg_id());
-  can1.setMBFilter(MB8, 0);
+  can1.setMBFilter(MB0, C50_gpsSpeed.get_msg_id());
+  can1.setMBFilter(MB1, PM_motorSpeed.get_msg_id());
+  can1.setMBFilter(MB2, PM_motorTemp.get_msg_id());
+  can1.setMBFilter(MB3, PM_outputVolt.get_msg_id());
+  can1.setMBFilter(MB4, PM_commandedTorque.get_msg_id());
+  can1.setMBFilter(MB5, VCU_tireTempFLO.get_msg_id());
+  can1.setMBFilter(MB6, VCU_tireTempFRO.get_msg_id());
+  can1.setMBFilter(MB7, VCU_tireTempRLO.get_msg_id());
+  can1.setMBFilter(MB8, VCU_tireTempRRO.get_msg_id());
   can1.setMBFilter(MB9, 0);
   can1.setMBFilter(MB10, 0);
   can1.setMBFilter(MB11, 0);
@@ -378,15 +378,15 @@ void set_mailboxes() {
   can1.setMBFilter(MB14, 0);
 
   can2.setMBFilter(REJECT_ALL);
-  can2.setMBFilter(MB0, PDM_pdmVoltAvg.get_msg_id());
-  can2.setMBFilter(MB1, ATCCF_brakeBias.get_msg_id());
-  can2.setMBFilter(MB2, ATCCF_rotorTempFL.get_msg_id());  // includes FR
-  can2.setMBFilter(MB3, ATCCR_rotorTempRL.get_msg_id());  // includes RR
-  can2.setMBFilter(MB4, PDM_coolingOverrideActive.get_msg_id());
+  can2.setMBFilter(MB0, BMS_packVolt.get_msg_id());
+  can2.setMBFilter(MB1, BMS_packCurr.get_msg_id());
+  can2.setMBFilter(MB2, BMS_packSOC.get_msg_id());  // includes FR
+  can2.setMBFilter(MB3, BMS_highestTemp.get_msg_id());  // includes RR
+  can2.setMBFilter(MB4, PDM_fanRightDutyCycle.get_msg_id());
   can2.setMBFilter(MB5, PDM_fanLeftDutyCycle.get_msg_id());
-  can2.setMBFilter(MB6, 0);
-  can2.setMBFilter(MB7, 0);
-  can2.setMBFilter(MB8, 0);
+  can2.setMBFilter(MB6, PDM_pdmVoltMin.get_msg_id());
+  can2.setMBFilter(MB7, VCU_throttlePosition.get_msg_id());
+  can2.setMBFilter(MB8, VCU_brakeBias.get_msg_id());
   can2.setMBFilter(MB9, 0);
   can2.setMBFilter(MB10, 0);
   can2.setMBFilter(MB11, 0);
@@ -402,13 +402,13 @@ void set_mailboxes() {
 void readCan() {
   int count = 0;
   while (can1.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
-    decode_CAN1(rxmsg);
+    decode_raptor_CAN1(rxmsg);
     count++;
   }
 
   count = 0;
   while (can2.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
-    decode_CAN2(rxmsg);
+    decode_raptor_CAN2(rxmsg);
     count++;
   }
 }
