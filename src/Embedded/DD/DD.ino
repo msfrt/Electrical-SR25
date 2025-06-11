@@ -99,8 +99,8 @@ const unsigned long buttonDebounceDelay =
           // double-presses
 
 // CAN message and read definitions
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 #include "LightSensor.hpp"
 const int lightSensorPin = 20;
 
@@ -140,7 +140,7 @@ void setup() {
 
   // initilize CAN busses
   can1.begin();
-  can1.setBaudRate(1000000);
+  can1.setBaudRate(500000);
   can2.begin();
   can2.setBaudRate(1000000);
   set_mailboxes();
@@ -270,6 +270,7 @@ void loop() {
     pixelsRight.setBrightness(map(pixelBrightnessPercent, 0, 100, 0, 255));
   }
 
+  /*
   // if there is a new message to display to the driver, assemble and display it
   if (CMD_driverMessageChar0.is_updated()) {
     char displayStringChars[] = "\0\0\0\0\0\0\0\0\0";
@@ -285,19 +286,20 @@ void loop() {
     screensController.OnMessage(displayString);
   }
 
-  /*
-
   ----------------------------------
   ONLY FOR TESTING OBD FUNCTIONALITY
   ----------------------------------
 
   */
   
+  /*
   if (M400_groundSpeedLeft.value() > 3) {
     String displayString = "SOC LOW";
     screensController.OnMessage(displayString);
   }
+  */
 
+  /*
   // notification light message recieved
   if (CMD_driverNotificationLightR.is_updated()) {
     int R = CMD_driverNotificationLightR.value();
@@ -305,12 +307,15 @@ void loop() {
     int B = CMD_driverNotificationLightB.value();
     lightsController.OnNotificationRecieved(R, G, B);
   }
+  */
 
+  /*
   // the laptrigger was set
   if (VCU_laptrigger.is_updated() &&
       static_cast<int>(VCU_laptrigger.value()) == 100) {
     screensController.OnNewLap();
   }
+  */
 
   screensController.Update(elapsed);
   lightsController.Update(elapsed);
@@ -324,12 +329,12 @@ void loop() {
 
 void test_callback1(const CAN_message_t &imsg) {
   // Serial.println("Recieved 1");
-  decode_CAN1(imsg);
+  decode_raptor_CAN1(imsg);
 }
 
 void test_callback2(const CAN_message_t &imsg) {
   // Serial.println("Recieved 2");
-  decode_CAN1(imsg);
+  decode_raptor_CAN1(imsg);
 }
 
 void set_mailboxes() {
@@ -361,14 +366,14 @@ void set_mailboxes() {
   // we have no interest in. it also reserves a slot for messages as they are
   // recieved.
   can1.setMBFilter(REJECT_ALL);
-  can1.setMBFilter(MB0, VCU_laptrigger.get_msg_id());
-  can1.setMBFilter(MB1, C50_tcSet.get_msg_id());
-  can1.setMBFilter(MB2, M400_groundSpeed.get_msg_id());
-  can1.setMBFilter(MB3, M400_rpm.get_msg_id());
-  can1.setMBFilter(MB4, M400_oilPressure.get_msg_id());
-  can1.setMBFilter(MB5, M400_oilTemp.get_msg_id());
-  can1.setMBFilter(MB6, CMD_driverMessageChar0.get_msg_id());
-  can1.setMBFilter(MB7, CMD_driverNotificationLightR.get_msg_id());
+  can1.setMBFilter(MB0, C50_gpsSpeed.get_msg_id());
+  can1.setMBFilter(MB1, PM_motorSpeed.get_msg_id());
+  can1.setMBFilter(MB2, PM_motorTemp.get_msg_id());
+  can1.setMBFilter(MB3, PM_outputVolt.get_msg_id());
+  can1.setMBFilter(MB4, PM_commandedTorque.get_msg_id());
+  can1.setMBFilter(MB5, 0);
+  can1.setMBFilter(MB6, 0);
+  can1.setMBFilter(MB7, 0);
   can1.setMBFilter(MB8, 0);
   can1.setMBFilter(MB9, 0);
   can1.setMBFilter(MB10, 0);
@@ -378,19 +383,19 @@ void set_mailboxes() {
   can1.setMBFilter(MB14, 0);
 
   can2.setMBFilter(REJECT_ALL);
-  can2.setMBFilter(MB0, PDM_pdmVoltAvg.get_msg_id());
-  can2.setMBFilter(MB1, ATCCF_brakeBias.get_msg_id());
-  can2.setMBFilter(MB2, ATCCF_rotorTempFL.get_msg_id());  // includes FR
-  can2.setMBFilter(MB3, ATCCR_rotorTempRL.get_msg_id());  // includes RR
-  can2.setMBFilter(MB4, PDM_coolingOverrideActive.get_msg_id());
+  can2.setMBFilter(MB0, BMS_packVolt.get_msg_id());
+  can2.setMBFilter(MB1, BMS_packCurr.get_msg_id());
+  can2.setMBFilter(MB2, BMS_packSOC.get_msg_id());  // includes FR
+  can2.setMBFilter(MB3, BMS_highestTemp.get_msg_id());  // includes RR
+  can2.setMBFilter(MB4, PDM_fanRightDutyCycle.get_msg_id());
   can2.setMBFilter(MB5, PDM_fanLeftDutyCycle.get_msg_id());
-  can2.setMBFilter(MB6, 0);
-  can2.setMBFilter(MB7, 0);
-  can2.setMBFilter(MB8, 0);
-  can2.setMBFilter(MB9, 0);
-  can2.setMBFilter(MB10, 0);
-  can2.setMBFilter(MB11, 0);
-  can2.setMBFilter(MB12, 0);
+  can2.setMBFilter(MB6, PDM_pdmVoltMin.get_msg_id());
+  can2.setMBFilter(MB7, VCU_throttlePosition.get_msg_id());
+  can2.setMBFilter(MB8, VCU_brakeBias.get_msg_id());
+  can2.setMBFilter(MB9, VCU_tireTempFLO.get_msg_id());
+  can2.setMBFilter(MB10, VCU_tireTempFRO.get_msg_id());
+  can2.setMBFilter(MB11, VCU_tireTempRLO.get_msg_id());
+  can2.setMBFilter(MB12, VCU_tireTempRRO.get_msg_id());
   can2.setMBFilter(MB13, 0);
   can2.setMBFilter(MB14, 0);
 }
@@ -402,13 +407,13 @@ void set_mailboxes() {
 void readCan() {
   int count = 0;
   while (can1.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
-    decode_CAN1(rxmsg);
+    decode_raptor_CAN1(rxmsg);
     count++;
   }
 
   count = 0;
   while (can2.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
-    decode_CAN2(rxmsg);
+    decode_raptor_CAN2(rxmsg);
     count++;
   }
 }

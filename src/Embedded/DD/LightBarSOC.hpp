@@ -6,8 +6,8 @@
 #include <FlexCAN_T4.h>
 #include <StateCAN.h>
 
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 #include "LightBar.hpp"
 #include "arduino.h"
 

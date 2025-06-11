@@ -1,8 +1,8 @@
 #ifndef LightBarCONTROLLER_HPP
 #define LightBarCONTROLLER_HPP
 
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 #include "LightBarBlink.hpp"
 #include "LightBarBlinkSinusoidal.hpp"
 #include "LightBarSOC.hpp"
@@ -130,7 +130,7 @@ LightBarController::LightBarController(Adafruit_NeoPixel &left,
                       max_rpm, downshift_rpm);
    */
   
-  StateSignal & soc_signal = M400_groundSpeedLeft; // REPLACE WITH CAN SIGNAL
+  StateSignal & soc_signal = PDM_pdmVoltAvg; // REPLACE WITH CAN SIGNAL
 
   soc = new LightBarSOC(top_leds_, 0, top_leds_.numPixels(), soc_signal, 0, 1);
 
@@ -143,11 +143,11 @@ LightBarController::LightBarController(Adafruit_NeoPixel &left,
   cooling_light_right_->SetColor(0, 255, 255);  // aqua!
 
   tc_bar_left_ = new LightBarBlink(left_leds_, 1, 3);
-  tc_bar_left_->AttachSignal(&M400_tcPowerReduction, 1);
+  tc_bar_left_->AttachSignal(&PDM_pdmVoltAvg, 1);
   tc_bar_left_->SetColor(150, 0, 255);
 
   tc_bar_right_ = new LightBarBlink(right_leds_, 1, 3);
-  tc_bar_right_->AttachSignal(&M400_tcPowerReduction, 1);
+  tc_bar_right_->AttachSignal(&PDM_pdmVoltAvg, 1);
   tc_bar_right_->SetColor(150, 0, 255);
 
   /* Notification bars */
