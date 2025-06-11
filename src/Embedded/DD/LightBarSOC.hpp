@@ -47,9 +47,9 @@ LightBarSOC::LightBarSOC(Adafruit_NeoPixel &lights, int first_index, int num_led
               StateSignal & soc_signal, int min_soc, int max_soc) 
               
         : LightBar(lights, first_index, num_leds),
-        soc_signal_(soc_signal),
         min_(min_soc),
-        max_(max_soc) {
+        max_(max_soc),
+        soc_signal_(soc_signal) {
     
         }
 
