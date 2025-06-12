@@ -135,7 +135,7 @@ void odometer(float speed, int mileage) {
 }
 
 const bool testMode = true;
-const int testNum = 2;
+const int testNum = 1;
 
 void loop() {
 
@@ -146,16 +146,13 @@ void loop() {
     }
 
     read_CAN();
-    static unsigned long t_start = millis();
-    float elapsed = (millis() - t_start) / 1000.0; // time in seconds
+    //static unsigned long t_start = millis();
+    //float elapsed = (millis() - t_start) / 1000.0; // time in seconds
 
     if (testMode) {
       if (testNum == 1) {
-        float frequency = 0.06;
-        float amplitude = 4.00;
-        float offset = 2;
         Serial.println(PDM_fanRightDutyCycle.can_value());
-        PDM_fanRightDutyCycle.set_can_value(offset + amplitude * sin(2 * PI * frequency * elapsed));
+        PDM_fanRightDutyCycle.set_can_value(100);
         fan_signalL = PDM_fanRightDutyCycle.can_value();
         send_can2();
       } else if (testNum == 2) {
