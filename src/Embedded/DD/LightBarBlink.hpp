@@ -27,9 +27,9 @@ class LightBarBlink : public LightBar {
   int min_ = 0;  ///< The minimum bound for the bar to start flashing
 
   ///< colors!
-  int r_ = 255;
-  int g_ = 255;
-  int b_ = 255;
+  int r_ = 0;
+  int g_ = 0;
+  int b_ = 0;
 
  public:
   /** Constructor */
@@ -94,7 +94,7 @@ void LightBarBlink::Initialize() { LightBar::Initialize(); }
 void LightBarBlink::Update(unsigned long &elapsed) {
   // if there is no signal set OR the signal's threshold has been reached, blink
   if (!signal_ || signal_->value() >= min_) {
-    state_ = Blinking;
+    state_ = Off;//Blinking;
   } else {
     state_ = Off;
   }
@@ -110,9 +110,11 @@ void LightBarBlink::Update(unsigned long &elapsed) {
           Clear();
         } else {
           lights_on_ = true;
+          /*
           for (int led = GetFirstLEDIndex(); led <= GetLastLEDIndex(); led++) {
             lights_.setPixelColor(led, r_, g_, b_);
           }
+          */
         }
       }
       break;

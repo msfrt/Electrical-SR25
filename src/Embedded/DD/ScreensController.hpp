@@ -107,8 +107,8 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
   info_screen_1_left_->SetSignal(4, &VCU_tireTempRRO, "RR:", "%4.1f");
 
   info_screen_1_right_ = new ScreenInfo(display_right_);
-  info_screen_1_right_->SetSignal(1, &BMS_packVolt, "HV:", "%4.1f");
-  info_screen_1_right_->SetSignal(2, &PDM_pdmVoltMin, "LV:", "%4.1f");
+  info_screen_1_right_->SetSignal(1, &PDM_fanLeftDutyCycle, "PDML:", "%4.1f");
+  info_screen_1_right_->SetSignal(2, &PDM_fanRightDutyCycle, "PDMR:", "%4.1f");
   info_screen_1_right_->SetSignal(3, &VCU_radFanLDuty, "FANL:", "%3.0f%");
   info_screen_1_right_->SetSignal(4, &VCU_radFanRDuty, "FANR:", "%3.0f%");
 
