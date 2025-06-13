@@ -389,7 +389,7 @@ void set_mailboxes() {
   can2.setMBFilter(MB3, BMS_highestTemp.get_msg_id());  // includes RR
   can2.setMBFilter(MB4, PDM_fanRightDutyCycle.get_msg_id());
   can2.setMBFilter(MB5, PDM_fanLeftDutyCycle.get_msg_id());
-  can2.setMBFilter(MB6, PDM_pdmVoltMin.get_msg_id());
+  can2.setMBFilter(MB6, PDM_pdmVoltAvg.get_msg_id());
   can2.setMBFilter(MB7, VCU_throttlePosition.get_msg_id());
   can2.setMBFilter(MB8, VCU_brakeBias.get_msg_id());
   can2.setMBFilter(MB9, VCU_tireTempFLO.get_msg_id());

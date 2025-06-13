@@ -115,6 +115,7 @@ void LightBarBlink::Update(unsigned long &elapsed) {
             lights_.setPixelColor(led, r_, g_, b_);
           }
           */
+          
         }
       }
       break;

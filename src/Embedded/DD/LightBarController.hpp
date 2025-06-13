@@ -130,9 +130,9 @@ LightBarController::LightBarController(Adafruit_NeoPixel &left,
                       max_rpm, downshift_rpm);
    */
   
-  StateSignal & soc_signal = BMS_packVolt; // REPLACE WITH CAN SIGNAL
+  StateSignal & soc_signal = PDM_pdmVoltAvg; // REPLACE WITH CAN SIGNAL
 
-  soc = new LightBarSOC(top_leds_, 0, top_leds_.numPixels(), soc_signal, 220, 360);
+  soc = new LightBarSOC(top_leds_, 0, top_leds_.numPixels(), soc_signal, 6, 15);
 
   cooling_light_left_ = new LightBarBlinkSinusoidal(left_leds_, 0, 1);
   cooling_light_left_->AttachSignal(&PDM_fanLeftDutyCycle, 1);
