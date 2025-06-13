@@ -125,21 +125,35 @@
 //   return log_bool;
 // }
 
-bool brakelight_run(){
+bool brakelight_run() {
+  static unsigned long last_toggle_time = 0;
+  static bool light_on = false;
 
-  if (VCU_brakeLightCmd.can_value() == 1){
-    analogWrite(GLO_brakelight_teensy_pin, 255);
+  if (VCU_brakeLightCmd.can_value() == 1) {
+    unsigned long current_time = millis();
+    if (current_time - last_toggle_time >= 100) {
+      last_toggle_time = current_time;
+      light_on = !light_on;
+      analogWrite(GLO_brakelight_teensy_pin, light_on ? 255 : 0);
+    }
     return true;
-
-  // turn that shit off :)
   } else {
+    unsigned long current_time = millis();
+    if (current_time - last_toggle_time >= 100) {
+      last_toggle_time = current_time;
+      light_on = !light_on;
+      analogWrite(GLO_brakelight_teensy_pin, light_on ? 255 : 0);
+    }
+    /*
+    // turn off the brakelight
     analogWrite(GLO_brakelight_teensy_pin, 0);
+    light_on = false;
+    last_toggle_time = millis();
+    */
     return false;
-    
   }
-
-  return false;
 }
+
 
 void brakelight_startup(){
   float i = 0;

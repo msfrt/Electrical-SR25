@@ -135,20 +135,38 @@ void odometer(float speed, int mileage) {
 }
 
 const bool testMode = true;
-const int testNum = 1;
+const int testNum = 2;
+
+int lastCounter = -1;     
+float lastT = 0.0;
+bool vcu_timeout = false;
+bool has_received_vcu_msg = true;
 
 void loop() {
-
-    // sensor sampling
+    // Read sensors and CAN
     sample_ADCs();
-    if (board_temp_sample_timer.isup()){
-      board_temp.sample();
+    if (board_temp_sample_timer.isup()) board_temp.sample();
+    read_CAN();
+
+    // Track VCU counter freshness
+    static unsigned long t_start = millis();
+    float elapsed = (millis() - t_start) / 1000.0;
+    if (VCU_counterMsg201.is_valid() && VCU_counterMsg201.can_value() != lastCounter) {
+      lastT = elapsed;
+      lastCounter = VCU_counterMsg201.can_value();
+      has_received_vcu_msg = true;
     }
 
-    read_CAN();
-    //static unsigned long t_start = millis();
-    //float elapsed = (millis() - t_start) / 1000.0; // time in seconds
+    if ((elapsed - lastT) > 300) {
+      vcu_timeout = true;
+      Serial.println("timeout");
+    }
 
+    if (vcu_timeout == true) {
+      Serial.println("timeout");
+    }
+
+    // Use either CAN value or fallback (e.g. 0) if timeout
     if (testMode) {
       if (testNum == 1) {
         Serial.println(PDM_fanRightDutyCycle.can_value());
@@ -156,21 +174,16 @@ void loop() {
         fan_signalL = PDM_fanRightDutyCycle.can_value();
         send_can2();
       } else if (testNum == 2) {
-        fan_signalL = VCU_radFanLDuty.can_value();
-        fan_signalR = VCU_radFanRDuty.can_value();
-        wp_signal = VCU_waterPumpDuty.can_value();
-        Serial.println(VCU_radFanLDuty.can_value());
+        fan_signalL = vcu_timeout ? 0 : VCU_radFanLDuty.can_value();
+        fan_signalR = vcu_timeout ? 0 : VCU_radFanRDuty.can_value();
+        wp_signal   = vcu_timeout ? 0 : VCU_waterPumpDuty.can_value();
+        send_can2();
       }
     }
 
     updateFanSpeed(fan_signalL, fan_signalR, wp_signal);
-    //send_can2();
-
     sample_ADCs();
-    if (board_temp_sample_timer.isup()) {
-        board_temp.sample();
-    }
-
+    if (board_temp_sample_timer.isup()) board_temp.sample();
     brakelight_run();
 
     fan_left_override = fan_signalL;
@@ -180,6 +193,7 @@ void loop() {
     fan_left.set_pwm(2);
     fan_right.set_pwm(2);
 }
+
 
 void set_mailboxes() {
     can2.setMaxMB(64);
