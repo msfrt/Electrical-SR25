@@ -137,36 +137,41 @@ void odometer(float speed, int mileage) {
 const bool testMode = true;
 const int testNum = 2;
 
-int lastCounter = -1;     
+int lastCounter = VCU_counterMsg201.can_value();     
 float lastT = 0.0;
 bool vcu_timeout = false;
-bool has_received_vcu_msg = true;
+bool has_received_vcu_msg = false;
+float elapsed = 0;
 
 void loop() {
     // Read sensors and CAN
+    
     sample_ADCs();
     if (board_temp_sample_timer.isup()) board_temp.sample();
     read_CAN();
 
-    // Track VCU counter freshness
-    static unsigned long t_start = millis();
-    float elapsed = (millis() - t_start) / 1000.0;
-    if (VCU_counterMsg201.is_valid() && VCU_counterMsg201.can_value() != lastCounter) {
-      lastT = elapsed;
+    elapsed = (millis() - lastT);
+    if (has_received_vcu_msg == false) {
+      elapsed = 0;
+    }
+    if (VCU_counterMsg201.can_value() != lastCounter) {
+      lastT = millis();
       lastCounter = VCU_counterMsg201.can_value();
       has_received_vcu_msg = true;
     }
 
-    if ((elapsed - lastT) > 300) {
+    if (elapsed > 300 && has_received_vcu_msg == true) {
       vcu_timeout = true;
       Serial.println("timeout");
     }
+    Serial.println(elapsed);
 
     if (vcu_timeout == true) {
       Serial.println("timeout");
     }
 
-    // Use either CAN value or fallback (e.g. 0) if timeout
+
+
     if (testMode) {
       if (testNum == 1) {
         Serial.println(PDM_fanRightDutyCycle.can_value());
@@ -226,3 +231,4 @@ void read_CAN() {
         count++;
     }
 }
+
