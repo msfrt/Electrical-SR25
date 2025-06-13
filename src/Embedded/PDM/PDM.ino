@@ -121,7 +121,7 @@ void setup() { //high 18 low 26
   board_temp.begin();
 
   // neat brakelight animation
-  brakelight_startup();
+  brakelight_start();
 
 }
 
@@ -164,7 +164,6 @@ void loop() {
       vcu_timeout = true;
       Serial.println("timeout");
     }
-    Serial.println(elapsed);
 
     if (vcu_timeout == true) {
       Serial.println("timeout");

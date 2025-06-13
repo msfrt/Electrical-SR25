@@ -1,6 +1,9 @@
 #ifndef MISC_FUNCTIONS_HPP
 #define MISC_FUNCTIONS_HPP
 
+#include "brakelight_startup.hpp" 
+static MorseStartup startup_sequence;
+
 // template <class T1, class T2>
 // void engine_timer(EEPROM_Value<T1> &hours, EEPROM_Value<T2> &minutes){
 //   static unsigned int last_minute_millis = 0;
@@ -125,6 +128,8 @@
 //   return log_bool;
 // }
 
+static bool has_called_startup = false;
+
 bool brakelight_run() {
   static unsigned long last_toggle_time = 0;
   static bool light_on = false;
@@ -138,37 +143,21 @@ bool brakelight_run() {
     }
     return true;
   } else {
-    unsigned long current_time = millis();
-    if (current_time - last_toggle_time >= 100) {
-      last_toggle_time = current_time;
-      light_on = !light_on;
-      analogWrite(GLO_brakelight_teensy_pin, light_on ? 255 : 0);
+    if (!has_called_startup) {
+      const int morse_message[] = {0, 0, 0, 1, 1, 1, 0, 0, 0}; // SOS
+      startup_sequence.begin(morse_message, sizeof(morse_message)/sizeof(morse_message[0]));
+      has_called_startup = true;
     }
-    /*
-    // turn off the brakelight
-    analogWrite(GLO_brakelight_teensy_pin, 0);
-    light_on = false;
-    last_toggle_time = millis();
-    */
-    return false;
+
+    startup_sequence.update(); // non-blocking update
+
+    return startup_sequence.is_active();  // false = LED off
   }
 }
 
 
-void brakelight_startup(){
-  float i = 0;
-  while (i < 3.14159){
 
-    i += 0.01;
-    delay(10);
-
-    float write_val = sin(i) * 1000;  // returns a value between 0 & 1000
-    int pwm = map(write_val, 0, 1000, 0, 220);
-
-    // write to the LED
-    analogWrite(GLO_brakelight_teensy_pin, pwm);
-
-  }
+void brakelight_start(){
 
   analogWrite(GLO_brakelight_teensy_pin, 0);
 
