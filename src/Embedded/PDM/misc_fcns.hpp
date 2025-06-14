@@ -144,7 +144,7 @@ bool brakelight_run() {
     return true;
   } else {
     if (!has_called_startup) {
-      const int morse_message[] = {0, 0, 0, 1, 1, 1, 0, 0, 0}; // SOS
+      const int morse_message[] = {1,1, 0,0,0, 0,0,1}; // SOS
       startup_sequence.begin(morse_message, sizeof(morse_message)/sizeof(morse_message[0]));
       has_called_startup = true;
     }
