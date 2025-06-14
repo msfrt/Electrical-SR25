@@ -22,7 +22,7 @@ FreqMeasureMulti freq4;
 #define freq_pin1 4
 #define freq_pin2 5
 #define freq_pin3 6
-#define freq_pin4 22
+#define freq_pin4 7
 
 float sum1=0, sum2=0, sum3=0, sum4=0;
 int count1=0, count2=0, count3=0, count4=0;

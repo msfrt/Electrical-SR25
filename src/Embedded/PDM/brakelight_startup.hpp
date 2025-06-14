@@ -5,7 +5,7 @@
 
 // Durations in milliseconds
 const int dash = 200;
-const int dot = 100;
+const int dot = 35;
 const int gap = 100;  // Gap between signals
 
 struct MorseStartup {
