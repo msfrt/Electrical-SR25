@@ -22,7 +22,7 @@ class ScreensController {
   /// the different states that the screens can be in. Please note that states
   /// should include transitionary states, such as ScreenBegin before Screen or
   /// whatever
-  enum ScreenStates { /*StartupLeft, StartupRight,*/ GearInfo,
+  enum ScreenStates { /*StartupLeft, StartupRight,*/ speedInfo,
                       InfoScreen1,
                       InfoScreen2,
                       InfoScreen3,
@@ -84,7 +84,7 @@ class ScreensController {
 
   ScreenMessage *message_screen_ = nullptr;
 
-  ScreenNumber *gear_screen_ = nullptr;
+  ScreenNumber *speed_screen_ = nullptr;
 
   ScreenLapTime *lap_time_screen_ = nullptr;
 };
@@ -96,8 +96,8 @@ class ScreensController {
  */
 ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
     : display_left_(left), display_right_(right) {
-  /* gear screen */
-  gear_screen_ = new ScreenNumber(display_left_, PDM_pdmVoltAvg, "HV:");
+  /* speed screen */
+  speed_screen_ = new ScreenNumber(display_left_, C50_gpsSpeed, "SPD:");
 
   /* Info screen 1 */
   info_screen_1_left_ = new ScreenInfo(display_left_);
@@ -108,24 +108,24 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
 
   info_screen_1_right_ = new ScreenInfo(display_right_);
   info_screen_1_right_->SetSignal(1, &BMS_packVolt, "HV:", "%4.1f");
-  info_screen_1_right_->SetSignal(2, &PDM_pdmVoltAvg, "LV:", "%2.1f");
+  info_screen_1_right_->SetSignal(2, &PDM_pdmVoltAvg, "LV:", "%3.1f");
   info_screen_1_right_->SetSignal(3, &VCU_radFanLDuty, "FANL:", "%3.0f%");
   info_screen_1_right_->SetSignal(4, &VCU_radFanRDuty, "FANR:", "%3.0f%");
 
   /* Info screen 2 */
   info_screen_2_left_ = new ScreenInfo(display_left_);
-  info_screen_2_left_->SetSignal(1, &VCU_tireTempFLO, "FL:", "%4.1f");
-  info_screen_2_left_->SetSignal(2, &VCU_tireTempFRO, "FR:", "%4.1f");
-  info_screen_2_left_->SetSignal(3, &VCU_tireTempRLO, "RL:", "%4.1f");
-  info_screen_2_left_->SetSignal(4, &VCU_tireTempRRO, "RR:", "%4.1f");
+  info_screen_2_left_->SetSignal(1, &VCU_brakePressureF, "BPF:", "%4.1f");
+  info_screen_2_left_->SetSignal(2, &VCU_brakePressureR, "BPR:", "%4.1f");
+  info_screen_2_left_->SetSignal(3, &VCU_throttlePosition, "TPS:", "%3.1f%");
+  info_screen_2_left_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f");
   // info_screen_2_left_->SetSignal(4, &ATCCR_shiftingPressure, "SFT:", "%3.1f");
 
   /* Info screen 3 */
   info_screen_3_left_ = new ScreenInfo(display_left_);
-  info_screen_2_left_->SetSignal(1, &VCU_tireTempFLO, "FL:", "%4.1f");
-  info_screen_2_left_->SetSignal(2, &VCU_tireTempFRO, "FR:", "%4.1f");
-  info_screen_2_left_->SetSignal(3, &VCU_tireTempRLO, "RL:", "%4.1f");
-  info_screen_2_left_->SetSignal(4, &VCU_tireTempRRO, "RR:", "%4.1f");
+  info_screen_2_left_->SetSignal(1, &PM_motorSpeed, "RPM:", "%4.0f");
+  info_screen_2_left_->SetSignal(2, &PM_motorTemp, "MT:", "%4.1f");
+  info_screen_2_left_->SetSignal(3, &PM_outputVolt, "OUTV:", "%4.1f");
+  info_screen_2_left_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f");
   
   // keep the same screen on the right side
   info_screen_2_right_ = info_screen_1_right_;
@@ -144,8 +144,8 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
  * Destructs all dynamically allocated things
  */
 ScreensController::~ScreensController() {
-  /* gear */
-  delete gear_screen_;
+  /* speed */
+  delete speed_screen_;
 
   /* Screen 1 */
   delete info_screen_1_left_;
@@ -193,8 +193,8 @@ void ScreensController::Update(unsigned long &elapsed) {
     //         SetState(InfoScreen1);
     //     }
     //     break;
-    case GearInfo:
-      gear_screen_->Update(elapsed);
+    case speedInfo:
+      speed_screen_->Update(elapsed);
       info_screen_1_right_->Update(elapsed);
       break;
 
@@ -219,7 +219,7 @@ void ScreensController::Update(unsigned long &elapsed) {
       // update the last state's right screen, too!
       switch (state_prev_) {
         case InfoScreen1:  // fall through
-        case GearInfo:
+        case speedInfo:
           info_screen_1_right_->Update(elapsed);
           break;
         case InfoScreen2:
@@ -252,7 +252,7 @@ void ScreensController::Update(unsigned long &elapsed) {
       // update the last state's right screen, too!
       switch (state_prev_) {
         case InfoScreen1:  // fall through
-        case GearInfo:
+        case speedInfo:
           info_screen_1_right_->Update(elapsed);
           break;
         case InfoScreen2:
@@ -295,7 +295,7 @@ void ScreensController::SetState(ScreenStates state) {
     //     break;
     // case StartupRight:
     //     break;
-    case GearInfo:
+    case speedInfo:
       break;
     case InfoScreen1:
       break;
@@ -333,8 +333,8 @@ void ScreensController::SetState(ScreenStates state) {
     // case StartupRight:
     //     startup_screen_right_->Initialize();
     //     break;
-    case GearInfo:
-      gear_screen_->Initialize();
+    case speedInfo:
+      speed_screen_->Initialize();
       info_screen_1_right_->Initialize();
       break;
     case InfoScreen1:
@@ -373,7 +373,7 @@ void ScreensController::OnButtonPressUp() {
     // case StartupRight:
     //     SetState(InfoScreen1);
     //     break;
-    case GearInfo:
+    case speedInfo:
       SetState(InfoScreen1);
       break;
     case InfoScreen1:
@@ -383,7 +383,7 @@ void ScreensController::OnButtonPressUp() {
       SetState(InfoScreen3);
       break;
     case InfoScreen3:
-      SetState(GearInfo);
+      SetState(speedInfo);
       break;
     case Notification:  // fal through
     case LapTime:
@@ -402,11 +402,11 @@ void ScreensController::OnButtonPressDown() {
     // case StartupRight:
     //     SetState(InfoScreen1);
     //     break;
-    case GearInfo:
+    case speedInfo:
       SetState(InfoScreen3);
       break;
     case InfoScreen1:
-      SetState(GearInfo);
+      SetState(speedInfo);
       break;
     case InfoScreen2:
       SetState(InfoScreen1);
