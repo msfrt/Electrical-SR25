@@ -68,24 +68,24 @@ void LightBarSOC::Update(unsigned long & elapsed) {
         count += 1;
     }
     
-    float value = soc_signal_.value() / 5;
+    float value = (BMS_packVolt.can_value() - 2200.0) / (3360.0 - 2200.0);
     int no_of_leds = value * GetLastLEDIndex();
     for (int led = GetFirstLEDIndex(); led <= GetLastLEDIndex(); led++) {
         if(value >= 0.80) {
             //green
             if(led <= no_of_leds) {
-                lights_.setPixelColor(led, 0, 255, 0);
+                lights_.setPixelColor(led, 0, 50, 0);
             }
         } else if(value < 0.80 && value >= 0.21) {
             //orange
             if(led <= no_of_leds) {
-                lights_.setPixelColor(led, 255, 165, 0);
+                lights_.setPixelColor(led, 50, 25, 0);
             }
             
         } else {
             //red
             if(led <= no_of_leds) {
-                lights_.setPixelColor(led, 255, 0, 0);
+                lights_.setPixelColor(led, 50, 0, 0);
             }
         }
     }

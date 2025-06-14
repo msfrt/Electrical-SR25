@@ -97,35 +97,35 @@ class ScreensController {
 ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
     : display_left_(left), display_right_(right) {
   /* gear screen */
-  gear_screen_ = new ScreenNumber(display_left_, PDM_pdmVoltAvg, "GEAR:");
+  gear_screen_ = new ScreenNumber(display_left_, PDM_pdmVoltAvg, "HV:");
 
   /* Info screen 1 */
   info_screen_1_left_ = new ScreenInfo(display_left_);
-  info_screen_1_left_->SetSignal(1, &VCU_tireTempFLO, "FL:", "%4.1f"); //Was originally &M400_groundSpeed
-  info_screen_1_left_->SetSignal(2, &VCU_tireTempFRO, "FR:", "%4.1f");
-  info_screen_1_left_->SetSignal(3, &VCU_tireTempRLO, "RL:", "%4.1f");
-  info_screen_1_left_->SetSignal(4, &VCU_tireTempRRO, "RR:", "%4.1f");
+  info_screen_1_left_->SetSignal(1, &C50_gpsSpeed, "SPD:", "%3.1f");
+  info_screen_1_left_->SetSignal(2, &VCU_brakeBias, "BIAS:", "%3.0f%");
+  info_screen_1_left_->SetSignal(3, &BMS_highestTemp, "BMST:", "%3.0f");
+  info_screen_1_left_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f");
 
   info_screen_1_right_ = new ScreenInfo(display_right_);
-  info_screen_1_right_->SetSignal(1, &BMS_packVolt, "HV:", "%3.0f");
-  info_screen_1_right_->SetSignal(2, &PDM_pdmVoltAvg, "LV:", "%3.0f");
+  info_screen_1_right_->SetSignal(1, &BMS_packVolt, "HV:", "%4.1f");
+  info_screen_1_right_->SetSignal(2, &PDM_pdmVoltAvg, "LV:", "%2.1f");
   info_screen_1_right_->SetSignal(3, &VCU_radFanLDuty, "FANL:", "%3.0f%");
   info_screen_1_right_->SetSignal(4, &VCU_radFanRDuty, "FANR:", "%3.0f%");
 
   /* Info screen 2 */
   info_screen_2_left_ = new ScreenInfo(display_left_);
-  info_screen_2_left_->SetSignal(1, 0, "FL:", "%5.1f");
-  info_screen_2_left_->SetSignal(2, 0, "FR:", "%5.1f");
-  info_screen_2_left_->SetSignal(3, 0, "RL:", "%5.1f");
-  info_screen_2_left_->SetSignal(4, 0, "RR:", "%5.1f");
+  info_screen_2_left_->SetSignal(1, &VCU_tireTempFLO, "FL:", "%4.1f");
+  info_screen_2_left_->SetSignal(2, &VCU_tireTempFRO, "FR:", "%4.1f");
+  info_screen_2_left_->SetSignal(3, &VCU_tireTempRLO, "RL:", "%4.1f");
+  info_screen_2_left_->SetSignal(4, &VCU_tireTempRRO, "RR:", "%4.1f");
   // info_screen_2_left_->SetSignal(4, &ATCCR_shiftingPressure, "SFT:", "%3.1f");
 
   /* Info screen 3 */
   info_screen_3_left_ = new ScreenInfo(display_left_);
-  info_screen_3_left_->SetSignal(1, 0, "ENGT:", "%4.0f");
-  info_screen_3_left_->SetSignal(2, 0, "FUEL:", "%4.1f");
-  info_screen_3_left_->SetSignal(3, 0, "INT:", "%5.0f");
-  info_screen_3_left_->SetSignal(4, 0, "LAMB:", "%3.2f");
+  info_screen_2_left_->SetSignal(1, &VCU_tireTempFLO, "FL:", "%4.1f");
+  info_screen_2_left_->SetSignal(2, &VCU_tireTempFRO, "FR:", "%4.1f");
+  info_screen_2_left_->SetSignal(3, &VCU_tireTempRLO, "RL:", "%4.1f");
+  info_screen_2_left_->SetSignal(4, &VCU_tireTempRRO, "RR:", "%4.1f");
   
   // keep the same screen on the right side
   info_screen_2_right_ = info_screen_1_right_;

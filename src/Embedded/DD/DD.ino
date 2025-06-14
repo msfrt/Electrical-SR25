@@ -385,8 +385,8 @@ void set_mailboxes() {
   can2.setMBFilter(REJECT_ALL);
   can2.setMBFilter(MB0, BMS_packVolt.get_msg_id());
   can2.setMBFilter(MB1, BMS_packCurr.get_msg_id());
-  can2.setMBFilter(MB2, BMS_packSOC.get_msg_id());  // includes FR
-  can2.setMBFilter(MB3, BMS_highestTemp.get_msg_id());  // includes RR
+  can2.setMBFilter(MB2, BMS_packSOC.get_msg_id());
+  can2.setMBFilter(MB3, BMS_highestTemp.get_msg_id()); 
   can2.setMBFilter(MB4, PDM_fanRightDutyCycle.get_msg_id());
   can2.setMBFilter(MB5, PDM_fanLeftDutyCycle.get_msg_id());
   can2.setMBFilter(MB6, PDM_pdmVoltAvg.get_msg_id());
