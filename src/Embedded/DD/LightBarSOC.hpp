@@ -68,7 +68,7 @@ void LightBarSOC::Update(unsigned long & elapsed) {
         count += 1;
     }
     
-    float value = (BMS_packVolt.can_value() - 2200.0) / (3360.0 - 2200.0);
+    float value = (PM_motorSpeed.can_value() - 0.0) / (5600 - 0.0);
     int no_of_leds = value * GetLastLEDIndex();
     for (int led = GetFirstLEDIndex(); led <= GetLastLEDIndex(); led++) {
         if(value >= 0.80) {
@@ -81,7 +81,6 @@ void LightBarSOC::Update(unsigned long & elapsed) {
             if(led <= no_of_leds) {
                 lights_.setPixelColor(led, 50, 25, 0);
             }
-            
         } else {
             //red
             if(led <= no_of_leds) {
