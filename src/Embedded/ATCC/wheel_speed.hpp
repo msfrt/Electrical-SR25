@@ -7,8 +7,8 @@
 #include <Adafruit_NeoPixel.h>
 #include <FreqMeasureMulti.h>
 
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 #include "can_send.hpp"
 
 // ATCC Module Select - 0 front, 1 back
@@ -19,10 +19,10 @@ FreqMeasureMulti freq2;
 FreqMeasureMulti freq3;
 FreqMeasureMulti freq4;
 
-#define freq_pin1 4
-#define freq_pin2 5
-#define freq_pin3 6
-#define freq_pin4 7
+#define freq_pin1 3
+#define freq_pin2 4
+#define freq_pin3 5
+#define freq_pin4 6
 
 float sum1=0, sum2=0, sum3=0, sum4=0;
 int count1=0, count2=0, count3=0, count4=0;

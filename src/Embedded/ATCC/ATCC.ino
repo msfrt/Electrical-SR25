@@ -12,8 +12,8 @@ FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 #define CAN1_BAUDRATE 500000
 
 // signal definitions
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 
 // sensor definitions
 #include "sensors.hpp"
