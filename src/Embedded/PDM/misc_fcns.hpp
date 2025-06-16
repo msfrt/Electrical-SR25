@@ -128,29 +128,32 @@ static MorseStartup startup_sequence;
 //   return log_bool;
 // }
 
-//static bool has_called_startup = false;
+bool has_called_startup = false;
 
 bool brakelight_run() {
 
-  /*
   if (VCU_brakeLightCmd.can_value() == 1) {
-    Serial.println("brakelight on");
-    if (millis() % 100 > 49) {
-      analogWrite(GLO_brakelight_teensy_pin, 255);
-    } else {
-      analogWrite(GLO_brakelight_teensy_pin, 0);
-    }
-    
     analogWrite(GLO_brakelight_teensy_pin, 255);
     return true;
   } else {
-    analogWrite(GLO_brakelight_teensy_pin, 0);
-    return false;
+    if (!has_called_startup) {
+      const int morse_message[] = {1,1, 0,0,0, 0,0,1}; // SOS
+      startup_sequence.begin(morse_message, sizeof(morse_message)/sizeof(morse_message[0]));
+      has_called_startup = true;
+    }
+
+    if (millis() > 5000) {
+      analogWrite(GLO_brakelight_teensy_pin, 0);
+      Serial.println("brakelight off");
+    }
+
+    startup_sequence.update(); // non-blocking update
+
+    return startup_sequence.is_active();  // false = LED off
   }
-  */
-  analogWrite(GLO_brakelight_teensy_pin, 255);
-  return true;
 }
+
+
 
 void brakelight_start(){
 
