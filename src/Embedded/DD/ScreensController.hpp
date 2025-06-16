@@ -107,10 +107,12 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
   info_screen_1_left_->SetSignal(3, &BMS_highestTemp, "BMST:", "%3.0f");
   info_screen_1_left_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f");
   */
-  info_screen_1_left_->SetSignal(1, &ATCC_angularWheelFreqFL, "FFL:", "%4.0f");
-  info_screen_1_left_->SetSignal(2, &ATCC_angularWheelFreqFL, "FFR:", "%4.0f%");
-  info_screen_1_left_->SetSignal(3, &ATCC_angularWheelFreqFL, "FRL:", "%4.0f");
-  info_screen_1_left_->SetSignal(4, &ATCC_angularWheelFreqFL, "FRR:", "%4.0f");
+  /* Info screen 3 */
+  info_screen_1_left_ = new ScreenInfo(display_left_);
+  info_screen_1_left_->SetSignal(1, &PM_motorSpeed, "RPM:", "%4.0f");
+  info_screen_1_left_->SetSignal(2, &PM_motorTemp, "MT:", "%4.1f");
+  info_screen_1_left_->SetSignal(3, &PM_outputVolt, "OUTV:", "%4.1f");
+  info_screen_1_left_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f");
 
   info_screen_1_right_ = new ScreenInfo(display_right_);
   info_screen_1_right_->SetSignal(1, &BMS_packVolt, "HV:", "%4.1f");
@@ -128,10 +130,10 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
 
   /* Info screen 3 */
   info_screen_3_left_ = new ScreenInfo(display_left_);
-  info_screen_2_left_->SetSignal(1, &PM_motorSpeed, "RPM:", "%4.0f");
-  info_screen_2_left_->SetSignal(2, &PM_motorTemp, "MT:", "%4.1f");
-  info_screen_2_left_->SetSignal(3, &PM_outputVolt, "OUTV:", "%4.1f");
-  info_screen_2_left_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f");
+  info_screen_3_left_->SetSignal(1, &PM_motorSpeed, "RPM:", "%4.0f");
+  info_screen_3_left_->SetSignal(2, &PM_motorTemp, "MT:", "%4.1f");
+  info_screen_3_left_->SetSignal(3, &PM_outputVolt, "OUTV:", "%4.1f");
+  info_screen_3_left_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f");
   
   // keep the same screen on the right side
   info_screen_2_right_ = info_screen_1_right_;
