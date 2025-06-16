@@ -132,24 +132,25 @@ static MorseStartup startup_sequence;
 
 bool brakelight_run() {
 
+  /*
   if (VCU_brakeLightCmd.can_value() == 1) {
-    /*
     Serial.println("brakelight on");
     if (millis() % 100 > 49) {
       analogWrite(GLO_brakelight_teensy_pin, 255);
     } else {
       analogWrite(GLO_brakelight_teensy_pin, 0);
     }
-    */
+    
     analogWrite(GLO_brakelight_teensy_pin, 255);
     return true;
   } else {
     analogWrite(GLO_brakelight_teensy_pin, 0);
     return false;
   }
+  */
+  analogWrite(GLO_brakelight_teensy_pin, 255);
+  return true;
 }
-
-
 
 void brakelight_start(){
 
