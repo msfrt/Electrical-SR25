@@ -70,7 +70,7 @@ void updateFanSpeed(int canFanL, int canFanR, int canWp) {
     // Use override to set PWM directly
     fan_left.set_pwm(0, 0, 2, fan_signalL);
     fan_right.set_pwm(0, 0, 2, fan_signalR);
-    water_pump.set_pwm(0,0,2,wp_signal);
+    water_pump.set_pwm(0,0,2, wp_signal);
 }
 
 #endif

@@ -178,9 +178,9 @@ void loop() {
         fan_signalL = PDM_fanRightDutyCycle.can_value();
         send_can2();
       } else if (testNum == 2) {
-        fan_signalL = vcu_timeout ? 0 : VCU_radFanLDuty.can_value();
-        fan_signalR = vcu_timeout ? 0 : VCU_radFanRDuty.can_value();
-        wp_signal   = vcu_timeout ? 0 : VCU_waterPumpDuty.can_value();
+        fan_signalL = vcu_timeout ? 0 : VCU_radFanLDuty.can_value() / 10.0;
+        fan_signalR = vcu_timeout ? 0 : VCU_radFanRDuty.can_value() / 10.0;
+        wp_signal   = vcu_timeout ? 0 : VCU_waterPumpDuty.can_value() / 10.0;
         send_can2();
       }
     }
