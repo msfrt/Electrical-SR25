@@ -68,7 +68,7 @@ void LightBarSOC::Update(unsigned long & elapsed) {
         count += 1;
     }
     
-    float value = (PM_commandedTorque.can_value() - 0.0) / (2500 - 0.0);
+    float value = (PM_commandedTorque.can_value() - 0.0) / (1500 - 0.0);
     int no_of_leds = value * GetLastLEDIndex();
     for (int led = GetFirstLEDIndex(); led <= GetLastLEDIndex(); led++) {
         if(value >= 0.80) {

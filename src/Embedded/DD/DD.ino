@@ -369,7 +369,7 @@ void set_mailboxes() {
   can1.setMBFilter(MB0, C50_gpsSpeed.get_msg_id());
   can1.setMBFilter(MB1, PM_motorSpeed.get_msg_id());
   can1.setMBFilter(MB2, PM_motorTemp.get_msg_id());
-  can1.setMBFilter(MB3, PM_outputVolt.get_msg_id());
+  can1.setMBFilter(MB3, PM_dcBusVolt.get_msg_id());
   can1.setMBFilter(MB4, PM_commandedTorque.get_msg_id());
   can1.setMBFilter(MB5, VCU_radFanLDuty.get_msg_id());
   can1.setMBFilter(MB6, VCU_radFanRDuty.get_msg_id());
