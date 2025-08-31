@@ -38,6 +38,10 @@ VAL_TABLE_ contactorState 2 "Open" 1 "Close" 0 "Faulted" ;
 VAL_TABLE_ vehicleState 8 "Faulted" 7 "ReadyToMove" 6 "Standby" 5 "PrechargeComplete" 4 "PrechargeTimeout" 3 "Precharge" 2 "PrechargeReady" 1 "StartDelay" 0 "Off" ;
 
 
+BO_ 160 VCU_160: 8 VCU
+ SG_ VCU_driveSpeed : 16|16@1- (0.1,0) [-32768|32767] "mph" Vector__XXX
+ SG_ VCU_counterMsg160 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
 BO_ 159 VCU_159: 8 VCU
  SG_ VCU_tireTempRRO : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
  SG_ VCU_tireTempRRM : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
@@ -584,6 +588,8 @@ BO_ 150 VCU_150: 8 VCU
 
 
 
+CM_ SG_ 160 VCU_driveSpeed "Drive axle speed";
+CM_ SG_ 160 VCU_counterMsg160 "Counter Message 160";
 CM_ SG_ 159 VCU_tireTempRRO "RRO tire temperature";
 CM_ SG_ 159 VCU_tireTempRRM "RRM tire temperature";
 CM_ SG_ 159 VCU_tireTempRRI "RRI tire temperature";
