@@ -373,7 +373,7 @@ void set_mailboxes() {
   can1.setMBFilter(MB4, PM_commandedTorque.get_msg_id());
   can1.setMBFilter(MB5, VCU_radFanLDuty.get_msg_id());
   can1.setMBFilter(MB6, VCU_radFanRDuty.get_msg_id());
-  can1.setMBFilter(MB7, PM_powerOnTimer.get_msg_id());
+  can1.setMBFilter(MB7, VCU_driveSpeed.get_msg_id());
   can1.setMBFilter(MB8, ATCC_angularWheelFreqFL.get_msg_id());
   can1.setMBFilter(MB9, ATCC_angularWheelFreqFR.get_msg_id());
   can1.setMBFilter(MB10, ATCC_angularWheelFreqRL.get_msg_id());

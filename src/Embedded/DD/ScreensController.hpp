@@ -109,7 +109,7 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
   */
   /* Info screen 3 */
   info_screen_1_left_ = new ScreenInfo(display_left_);
-  info_screen_1_left_->SetSignal(1, &PM_motorSpeed, "RPM:", "%4.0f");
+  info_screen_1_left_->SetSignal(1, &VCU_driveSpeed, "RPM:", "%4.0f");
   info_screen_1_left_->SetSignal(2, &PM_motorTemp, "MT:", "%4.1f");
   info_screen_1_left_->SetSignal(3, &PM_outputVolt, "OUTV:", "%4.1f");
   info_screen_1_left_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f");
@@ -118,7 +118,7 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
   info_screen_1_right_->SetSignal(1, &PM_dcBusVolt, "HV:", "%4.1f");
   info_screen_1_right_->SetSignal(2, &PDM_pdmVoltAvg, "LV:", "%3.1f");
   info_screen_1_right_->SetSignal(3, &VCU_radFanLDuty, "FANL:", "%3.0f%");
-  info_screen_1_right_->SetSignal(4, &VCU_radFanRDuty, "FANR:", "%3.0f%");
+  info_screen_1_right_->SetSignal(4, &PM_motorSpeed, "MPH:", "%3.1f%");
 
   /* Info screen 2 */
   info_screen_2_left_ = new ScreenInfo(display_left_);
