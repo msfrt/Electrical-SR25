@@ -373,11 +373,11 @@ void set_mailboxes() {
   can1.setMBFilter(MB4, PM_commandedTorque.get_msg_id());
   can1.setMBFilter(MB5, VCU_radFanLDuty.get_msg_id());
   can1.setMBFilter(MB6, VCU_radFanRDuty.get_msg_id());
-  can1.setMBFilter(MB7, VCU_driveSpeed.get_msg_id());
-  can1.setMBFilter(MB8, ATCC_angularWheelFreqFL.get_msg_id());
+  can1.setMBFilter(MB7, ATCC_angularWheelFreqRR.get_msg_id());
+  can1.setMBFilter(MB8, PM_moduleBTemp.get_msg_id());
   can1.setMBFilter(MB9, ATCC_angularWheelFreqFR.get_msg_id());
   can1.setMBFilter(MB10, ATCC_angularWheelFreqRL.get_msg_id());
-  can1.setMBFilter(MB11, ATCC_angularWheelFreqRR.get_msg_id());
+  can1.setMBFilter(MB11, 0);
   can1.setMBFilter(MB12, 0);
   can1.setMBFilter(MB13, 0);
   can1.setMBFilter(MB14, 0);
@@ -390,9 +390,9 @@ void set_mailboxes() {
   can2.setMBFilter(MB4, PDM_fanRightDutyCycle.get_msg_id());
   can2.setMBFilter(MB5, PDM_fanLeftDutyCycle.get_msg_id());
   can2.setMBFilter(MB6, PDM_pdmVoltAvg.get_msg_id());
-  can2.setMBFilter(MB7, VCU_throttlePosition.get_msg_id());
+  can2.setMBFilter(MB7, STMM_seg4ThermValAvg.get_msg_id());
   can2.setMBFilter(MB8, VCU_brakeBias.get_msg_id());
-  can2.setMBFilter(MB9, BMS_highestTemp.get_msg_id());
+  can2.setMBFilter(MB9, VCU_driveSpeed.get_msg_id());
   can2.setMBFilter(MB10, BMS_maxCellVolt.get_msg_id());
   can2.setMBFilter(MB11, BMS_minCellVolt.get_msg_id());
   can2.setMBFilter(MB12, 0);

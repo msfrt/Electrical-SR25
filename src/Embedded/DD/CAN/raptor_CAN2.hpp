@@ -14,6 +14,10 @@
 #include <FlexCAN_T4.h>
 #include <StateCAN.h>
 
+// Message: VCU_160 [0xa0]
+StateSignal VCU_counterMsg160(4, false, 1, 0.0, 0, 15, 0.0, -1, 160);
+StateSignal VCU_driveSpeed(16, true, 10, 0.0, -32768, 32767, 0.0, -1, 160);
+
 // Message: VCU_159 [0x9f]
 StateSignal VCU_counterMsg159(4, false, 1, 0.0, 0, 15, 0.0, -1, 159);
 StateSignal VCU_tireTempRRI(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 159);
@@ -567,6 +571,17 @@ StateSignal VCU_throttlePosition2(16, true, 10, 0.0, 0, 100, 0.0, -1, 150);
 
 ************************************************************************************/
 
+
+/*
+ * Decode a CAN frame for the message VCU_160
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_VCU_160(const CAN_message_t &imsg) {
+
+	VCU_counterMsg160.set_can_value(((imsg.buf[0] & 0b00001111)));
+	VCU_driveSpeed.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+
+}
 
 /*
  * Decode a CAN frame for the message VCU_159
@@ -1726,6 +1741,10 @@ void read_VCU_150(const CAN_message_t &imsg) {
 void decode_raptor_CAN2(const CAN_message_t &imsg) {
 
 	switch (imsg.id) {
+
+		case 160:
+			read_VCU_160(imsg);
+			break;
 
 		case 159:
 			read_VCU_159(imsg);
