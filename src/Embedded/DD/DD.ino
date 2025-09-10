@@ -390,7 +390,7 @@ void set_mailboxes() {
   can2.setMBFilter(MB4, PDM_fanRightDutyCycle.get_msg_id());
   can2.setMBFilter(MB5, PDM_fanLeftDutyCycle.get_msg_id());
   can2.setMBFilter(MB6, PDM_pdmVoltAvg.get_msg_id());
-  can2.setMBFilter(MB7, STMM_seg4ThermValAvg.get_msg_id());
+  can2.setMBFilter(MB7, STMM_seg3ThermValAvg.get_msg_id());
   can2.setMBFilter(MB8, VCU_brakeBias.get_msg_id());
   can2.setMBFilter(MB9, VCU_driveSpeed.get_msg_id());
   can2.setMBFilter(MB10, BMS_maxCellVolt.get_msg_id());
