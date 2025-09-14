@@ -1,8 +1,8 @@
 #ifndef LightBarCONTROLLER_HPP
 #define LightBarCONTROLLER_HPP
 
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 #include "LightBarBlink.hpp"
 #include "LightBarBlinkSinusoidal.hpp"
 #include "LightBarSOC.hpp"
@@ -130,25 +130,25 @@ LightBarController::LightBarController(Adafruit_NeoPixel &left,
                       max_rpm, downshift_rpm);
    */
   
-  StateSignal & soc_signal = M400_groundSpeedLeft; // REPLACE WITH CAN SIGNAL
+  StateSignal & soc_signal = PM_commandedTorque; // CAN Signal for top display
 
-  soc = new LightBarSOC(top_leds_, 0, top_leds_.numPixels(), soc_signal, 0, 1);
+  soc = new LightBarSOC(top_leds_, 0, top_leds_.numPixels(), soc_signal, 0, 240);
 
   cooling_light_left_ = new LightBarBlinkSinusoidal(left_leds_, 0, 1);
-  cooling_light_left_->AttachSignal(&PDM_coolingOverrideActive, 1);
-  cooling_light_left_->SetColor(0, 255, 255);  // aqua!
+  cooling_light_left_->AttachSignal(&PDM_fanLeftDutyCycle, 1);
+  cooling_light_left_->SetColor(0, 30, 30);  // aqua!
 
   cooling_light_right_ = new LightBarBlinkSinusoidal(right_leds_, 0, 1);
-  cooling_light_right_->AttachSignal(&PDM_coolingOverrideActive, 1);
-  cooling_light_right_->SetColor(0, 255, 255);  // aqua!
+  cooling_light_right_->AttachSignal(&PDM_fanRightDutyCycle, 1);
+  cooling_light_right_->SetColor(0, 30, 30);  // aqua!
 
   tc_bar_left_ = new LightBarBlink(left_leds_, 1, 3);
-  tc_bar_left_->AttachSignal(&M400_tcPowerReduction, 1);
-  tc_bar_left_->SetColor(150, 0, 255);
+  tc_bar_left_->AttachSignal(&PDM_pdmVoltAvg, 1);
+  tc_bar_left_->SetColor(25, 0, 50);
 
   tc_bar_right_ = new LightBarBlink(right_leds_, 1, 3);
-  tc_bar_right_->AttachSignal(&M400_tcPowerReduction, 1);
-  tc_bar_right_->SetColor(150, 0, 255);
+  tc_bar_right_->AttachSignal(&PDM_pdmVoltAvg, 1);
+  tc_bar_right_->SetColor(25, 0, 50);
 
   /* Notification bars */
   notification_bar_left_ =

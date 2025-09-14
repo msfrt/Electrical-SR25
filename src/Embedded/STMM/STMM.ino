@@ -7,15 +7,14 @@
 
 #include <Adafruit_NeoPixel.h>
 
-// bus and message_t definition
+// bus and message definition
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> cbus2;
 // CHECK TO SEE WHICH HARDWARE, PHYSICAL, CANBUS WE ARE USING
 static CAN_message_t msg;
 #define CAN2_BAUDRATE 1000000
 
 // signal definitions
-// #include "CAN/CAN1.hpp"
-// #include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
 #include "CAN/raptor_CAN2.hpp"
 
 const int STMM = 1;   /* STMM Module Select 
@@ -39,7 +38,7 @@ const int STMM = 1;   /* STMM Module Select
 #include "rainbow_pixels.hpp"
 
 const int GLO_NeoPixel_teensy_pin = 0;
-      int GLO_NeoPixel_brightness_percent = 25; // 0 - 100 %
+      int GLO_NeoPixel_brightness_percent = 10; // 0 - 100 %
 Adafruit_NeoPixel GLO_neopixel(1, GLO_NeoPixel_teensy_pin, NEO_GRB + NEO_KHZ800);
 
 //Cycle ID logic
@@ -70,7 +69,7 @@ void setup() {
 
 void loop() {
 
-  msu_pixels(GLO_neopixel);
+  rainbow_pixels(GLO_neopixel);
 
   // segment #
   // 8 STMMs, each in charge of sending different messages
@@ -78,43 +77,43 @@ void loop() {
   {
     case 1:
       sample_ADCs_1();
-      send_can_1(1);
+      send_can_1(STMM);
       break;
 
-    // case 2:
-    //   sample_ADCs_2();
-    //   send_can_2(2);
-    //   break;
+    case 2:
+      sample_ADCs_2();
+      send_can_2(STMM);
+      break;
 
-    // case 3:
-    //   sample_ADCs_3();
-    //   send_can_3(3);
-    //   break;
+    case 3:
+      sample_ADCs_3();
+      send_can_3(STMM);
+      break;
 
-    // case 4:
-    //   sample_ADCs_4();
-    //   send_can_4(4);
-    //   break;
+    case 4:
+      sample_ADCs_4();
+      send_can_4(STMM);
+      break;
 
-    // case 5:
-    //   sample_ADCs_5();
-    //   send_can_5(5);
-    //   break;
+    case 5:
+      sample_ADCs_5();
+      send_can_5(STMM);
+      break;
 
-    // case 6:
-    //   sample_ADCs_6();
-    //   send_can_6(6);
-    //   break;
+    case 6:
+      sample_ADCs_6();
+      send_can_6(STMM);
+      break;
 
-    // case 7:
-    //   sample_ADCs_7();
-    //   send_can_7(7);
-    //   break;
+    case 7:
+      sample_ADCs_7();
+      send_can_7(STMM);
+      break;
 
-    // case 8:
-    //   sample_ADCs_8();
-    //   send_can_8(8);
-    //   break;
+    case 8:
+      sample_ADCs_8();
+      send_can_8(STMM);
+      break;
       
   }
 }

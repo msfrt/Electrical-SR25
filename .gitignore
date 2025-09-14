@@ -25,3 +25,5 @@ src/Embedded/bootloaderTest/FlasherX/FXUtil.cpp
 src/Embedded/bootloaderTest/FlasherX/FXUtil.h
 
 src/Embedded/bootloaderTest/FlasherX/README.md
+
+src/Embedded/STMM/.vscode/

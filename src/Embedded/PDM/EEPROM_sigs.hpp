@@ -10,7 +10,7 @@ EEPROM_Value<int> eeprom_mileage(0x0028);
 
 void initialize_eeprom_variables(){
 
-  // eeprom_mileage = 298;
+  // eeprom_mile[-age = 298;
   // eeprom.write(eeprom_mileage);
   //
   // eeprom_engine_minutes = 9;

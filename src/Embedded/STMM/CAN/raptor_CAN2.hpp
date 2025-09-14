@@ -14,141 +14,107 @@
 #include <FlexCAN_T4.h>
 #include <StateCAN.h>
 
-// Message: STMM_18EEFF87 [0x18eeff87]
-StateSignal STMM_seg8AddressClaim(24, false, 1, 0.0, 0, 16777215, 0.0, -1, 418316167);
-StateSignal STMM_seg8BMSTargetAddress(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316167);
-StateSignal STMM_seg8ThermModuleNumber(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316167);
-StateSignal STMM_seg8Constant1(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316167);
-StateSignal STMM_seg8Constant2(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316167);
-StateSignal STMM_seg8Constant3(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316167);
+// Message: STMM_1839F387 [0x1839f387]
+StateSignal STMM_seg8ThermModNum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451079);
+StateSignal STMM_seg8ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451079);
+StateSignal STMM_seg8ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451079);
+StateSignal STMM_seg8ThermValAvg(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451079);
+StateSignal STMM_seg8ThermsEnabled(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451079);
+StateSignal STMM_seg8ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451079);
+StateSignal STMM_seg8ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451079);
+StateSignal STMM_seg8Checksum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451079);
 
-// Message: STMM_18EEFF86 [0x18eeff86]
-StateSignal STMM_seg7AddressClaim(24, false, 1, 0.0, 0, 16777215, 0.0, -1, 418316166);
-StateSignal STMM_seg7BMSTargetAddress(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316166);
-StateSignal STMM_seg7ThermModuleNumber(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316166);
-StateSignal STMM_seg7Constant1(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316166);
-StateSignal STMM_seg7Constant2(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316166);
-StateSignal STMM_seg7Constant3(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316166);
+// Message: STMM_1839F386 [0x1839f386]
+StateSignal STMM_seg7ThermModNum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451078);
+StateSignal STMM_seg7ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451078);
+StateSignal STMM_seg7ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451078);
+StateSignal STMM_seg7ThermValAvg(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451078);
+StateSignal STMM_seg7ThermsEnabled(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451078);
+StateSignal STMM_seg7ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451078);
+StateSignal STMM_seg7ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451078);
+StateSignal STMM_seg7Checksum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451078);
 
-// Message: STMM_18EEFF85 [0x18eeff85]
-StateSignal STMM_seg6AddressClaim(24, false, 1, 0.0, 0, 16777215, 0.0, -1, 418316165);
-StateSignal STMM_seg6BMSTargetAddress(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316165);
-StateSignal STMM_seg6ThermModuleNumber(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316165);
-StateSignal STMM_seg6Constant1(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316165);
-StateSignal STMM_seg6Constant2(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316165);
-StateSignal STMM_seg6Constant3(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316165);
+// Message: STMM_1839F385 [0x1839f385]
+StateSignal STMM_seg6ThermModNum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451077);
+StateSignal STMM_seg6ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451077);
+StateSignal STMM_seg6ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451077);
+StateSignal STMM_seg6ThermValAvg(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451077);
+StateSignal STMM_seg6ThermsEnabled(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451077);
+StateSignal STMM_seg6ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451077);
+StateSignal STMM_seg6ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451077);
+StateSignal STMM_seg6Checksum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451077);
 
-// Message: STMM_18EEFF84 [0x18eeff84]
-StateSignal STMM_seg5AddressClaim(24, false, 1, 0.0, 0, 16777215, 0.0, -1, 418316164);
-StateSignal STMM_seg5BMSTargetAddress(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316164);
-StateSignal STMM_seg5ThermModuleNumber(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316164);
-StateSignal STMM_seg5Constant1(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316164);
-StateSignal STMM_seg5Constant2(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316164);
-StateSignal STMM_seg5Constant3(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316164);
+// Message: STMM_1839F384 [0x1839f384]
+StateSignal STMM_seg5ThermModNum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451076);
+StateSignal STMM_seg5ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451076);
+StateSignal STMM_seg5ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451076);
+StateSignal STMM_seg5ThermValAvg(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451076);
+StateSignal STMM_seg5ThermsEnabled(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451076);
+StateSignal STMM_seg5ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451076);
+StateSignal STMM_seg5ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451076);
+StateSignal STMM_seg5Checksum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451076);
 
-// Message: STMM_18EEFF83 [0x18eeff83]
-StateSignal STMM_seg4AddressClaim(24, false, 1, 0.0, 0, 16777215, 0.0, -1, 418316163);
-StateSignal STMM_seg4BMSTargetAddress(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316163);
-StateSignal STMM_seg4ThermModuleNumber(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316163);
-StateSignal STMM_seg4Constant1(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316163);
-StateSignal STMM_seg4Constant2(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316163);
-StateSignal STMM_seg4Constant3(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316163);
+// Message: STMM_1839F383 [0x1839f383]
+StateSignal STMM_seg4ThermModNum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451075);
+StateSignal STMM_seg4ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451075);
+StateSignal STMM_seg4ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451075);
+StateSignal STMM_seg4ThermValAvg(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451075);
+StateSignal STMM_seg4ThermsEnabled(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451075);
+StateSignal STMM_seg4ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451075);
+StateSignal STMM_seg4ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451075);
+StateSignal STMM_seg4Checksum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451075);
 
-// Message: STMM_18EEFF82 [0x18eeff82]
-StateSignal STMM_seg3AddressClaim(24, false, 1, 0.0, 0, 16777215, 0.0, -1, 418316162);
-StateSignal STMM_seg3BMSTargetAddress(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316162);
-StateSignal STMM_seg3ThermModuleNumber(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316162);
-StateSignal STMM_seg3Constant1(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316162);
-StateSignal STMM_seg3Constant2(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316162);
-StateSignal STMM_seg3Constant3(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316162);
+// Message: STMM_1839F382 [0x1839f382]
+StateSignal STMM_seg3ThermModNum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451074);
+StateSignal STMM_seg3ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451074);
+StateSignal STMM_seg3ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451074);
+StateSignal STMM_seg3ThermValAvg(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451074);
+StateSignal STMM_seg3ThermsEnabled(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451074);
+StateSignal STMM_seg3ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451074);
+StateSignal STMM_seg3ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451074);
+StateSignal STMM_seg3Checksum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451074);
 
-// Message: STMM_18EEFF81 [0x18eeff81]
-StateSignal STMM_seg2AddressClaim(24, false, 1, 0.0, 0, 16777215, 0.0, -1, 418316161);
-StateSignal STMM_seg2BMSTargetAddress(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316161);
-StateSignal STMM_seg2ThermModuleNumber(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316161);
-StateSignal STMM_seg2Constant1(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316161);
-StateSignal STMM_seg2Constant2(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316161);
-StateSignal STMM_seg2Constant3(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316161);
+// Message: STMM_1839F381 [0x1839f381]
+StateSignal STMM_seg2ThermModNum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451073);
+StateSignal STMM_seg2ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451073);
+StateSignal STMM_seg2ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451073);
+StateSignal STMM_seg2ThermValAvg(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451073);
+StateSignal STMM_seg2ThermsEnabled(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451073);
+StateSignal STMM_seg2ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451073);
+StateSignal STMM_seg2ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451073);
+StateSignal STMM_seg2Checksum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451073);
 
-// Message: STMM_18EEFF80 [0x18eeff80]
-StateSignal STMM_seg1AddressClaim(24, false, 1, 0.0, 0, 16777215, 0.0, -1, 418316160);
-StateSignal STMM_seg1BMSTargetAddress(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316160);
-StateSignal STMM_seg1ThermModuleNumber(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316160);
-StateSignal STMM_seg1Constant1(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316160);
-StateSignal STMM_seg1Constant2(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316160);
-StateSignal STMM_seg1Constant3(8, false, 1, 0.0, 0, 255, 0.0, -1, 418316160);
+// Message: STMM_1839F380 [0x1839f380]
+StateSignal STMM_seg1ThermModNum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451072);
+StateSignal STMM_seg1ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451072);
+StateSignal STMM_seg1ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451072);
+StateSignal STMM_seg1ThermValAvg(8, true, 1, 0.0, -128, 127, 0.0, -1, 406451072);
+StateSignal STMM_seg1ThermsEnabled(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451072);
+StateSignal STMM_seg1ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451072);
+StateSignal STMM_seg1ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451072);
+StateSignal STMM_seg1Checksum(8, false, 1, 0.0, 0, 255, 0.0, -1, 406451072);
 
-// Message: STMM_1838F387 [0x1838f387]
-StateSignal STMM_seg8ThermGlobalID(16, false, 1, 0.0, 0, 65535, 0.0, -1, 406385543);
-StateSignal STMM_seg8ThermVal(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385543);
-StateSignal STMM_seg8ThermID(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385543);
-StateSignal STMM_seg8ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385543);
-StateSignal STMM_seg8ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385543);
-StateSignal STMM_seg8ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385543);
-StateSignal STMM_seg8ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385543);
+// Message: VCU_153 [0x99]
+StateSignal VCU_counterMsg153(4, false, 1, 0.0, 0, 15, 0.0, -1, 153);
+StateSignal VCU_startSwitch(1, false, 1, 0.0, 0, 1, 0.0, -1, 153);
+StateSignal VCU_pwrUpSwitch(1, false, 1, 0.0, 0, 1, 0.0, -1, 153);
+StateSignal VCU_pwrDownSwitch(1, false, 1, 0.0, 0, 1, 0.0, -1, 153);
+StateSignal VCU_coolSwitch(1, false, 1, 0.0, 0, 1, 0.0, -1, 153);
 
-// Message: STMM_1838F386 [0x1838f386]
-StateSignal STMM_seg7ThermGlobalID(16, false, 1, 0.0, 0, 65535, 0.0, -1, 406385542);
-StateSignal STMM_seg7ThermVal(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385542);
-StateSignal STMM_seg7ThermID(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385542);
-StateSignal STMM_seg7ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385542);
-StateSignal STMM_seg7ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385542);
-StateSignal STMM_seg7ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385542);
-StateSignal STMM_seg7ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385542);
+// Message: VCU_152 [0x98]
+StateSignal VCU_counterMsg152(4, false, 1, 0.0, 0, 15, 0.0, -1, 152);
+StateSignal VCU_vehicleState(8, false, 1, 0.0, 0, 255, 0.0, -1, 152);
+StateSignal VCU_dischargeContactorState(8, false, 1, 0.0, 0, 255, 0.0, -1, 152);
+StateSignal VCU_prechargeContactorState(8, false, 1, 0.0, 0, 255, 0.0, -1, 152);
+StateSignal VCU_mainPlusContactorState(8, false, 1, 0.0, 0, 255, 0.0, -1, 152);
+StateSignal VCU_mainMinusContactorState(8, false, 1, 0.0, 0, 255, 0.0, -1, 152);
+StateSignal VCU_rtmSound(1, false, 1, 0.0, 0, 1, 0.0, -1, 152);
 
-// Message: STMM_1838F385 [0x1838f385]
-StateSignal STMM_seg6ThermGlobalID(16, false, 1, 0.0, 0, 65535, 0.0, -1, 406385541);
-StateSignal STMM_seg6ThermVal(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385541);
-StateSignal STMM_seg6ThermID(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385541);
-StateSignal STMM_seg6ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385541);
-StateSignal STMM_seg6ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385541);
-StateSignal STMM_seg6ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385541);
-StateSignal STMM_seg6ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385541);
-
-// Message: STMM_1838F384 [0x1838f384]
-StateSignal STMM_seg5ThermGlobalID(16, false, 1, 0.0, 0, 65535, 0.0, -1, 406385540);
-StateSignal STMM_seg5ThermVal(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385540);
-StateSignal STMM_seg5ThermID(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385540);
-StateSignal STMM_seg5ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385540);
-StateSignal STMM_seg5ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385540);
-StateSignal STMM_seg5ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385540);
-StateSignal STMM_seg5ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385540);
-
-// Message: STMM_1838F383 [0x1838f383]
-StateSignal STMM_seg4ThermGlobalID(16, false, 1, 0.0, 0, 65535, 0.0, -1, 406385539);
-StateSignal STMM_seg4ThermVal(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385539);
-StateSignal STMM_seg4ThermID(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385539);
-StateSignal STMM_seg4ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385539);
-StateSignal STMM_seg4ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385539);
-StateSignal STMM_seg4ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385539);
-StateSignal STMM_seg4ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385539);
-
-// Message: STMM_1838F382 [0x1838f382]
-StateSignal STMM_seg3ThermGlobalID(16, false, 1, 0.0, 0, 65535, 0.0, -1, 406385538);
-StateSignal STMM_seg3ThermVal(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385538);
-StateSignal STMM_seg3ThermID(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385538);
-StateSignal STMM_seg3ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385538);
-StateSignal STMM_seg3ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385538);
-StateSignal STMM_seg3ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385538);
-StateSignal STMM_seg3ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385538);
-
-// Message: STMM_1838F381 [0x1838f381]
-StateSignal STMM_seg2ThermGlobalID(16, false, 1, 0.0, 0, 65535, 0.0, -1, 406385537);
-StateSignal STMM_seg2ThermVal(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385537);
-StateSignal STMM_seg2ThermID(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385537);
-StateSignal STMM_seg2ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385537);
-StateSignal STMM_seg2ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385537);
-StateSignal STMM_seg2ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385537);
-StateSignal STMM_seg2ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385537);
-
-// Message: STMM_1838F380 [0x1838f380]
-StateSignal STMM_seg1ThermGlobalID(16, false, 1, 0.0, 0, 65535, 0.0, -1, 406385536);
-StateSignal STMM_seg1ThermVal(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385536);
-StateSignal STMM_seg1ThermID(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385536);
-StateSignal STMM_seg1ThermValLow(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385536);
-StateSignal STMM_seg1ThermValHigh(8, true, 1, 0.0, -128, 127, 0.0, -1, 406385536);
-StateSignal STMM_seg1ThermIDHigh(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385536);
-StateSignal STMM_seg1ThermIDLow(8, false, 1, 0.0, 0, 255, 0.0, -1, 406385536);
+// Message: VCU_151 [0x97]
+StateSignal VCU_counterMsg151(4, false, 1, 0.0, 0, 15, 0.0, -1, 151);
+StateSignal VCU_brakeBias(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 151);
+StateSignal VCU_brakePressureF(16, true, 10, 0.0, 0, 2000, 0.0, -1, 151);
+StateSignal VCU_brakePressureR(16, true, 10, 0.0, 0, 2000, 0.0, -1, 151);
 
 // Message: MM5_380 [0x17c]
 StateSignal MM5_az(16, false, -7849, 4.1745795, -4, 4, 0.0, -1, 380);
@@ -552,80 +518,11 @@ StateSignal BMS_packCurr(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 200);
 StateSignal BMS_packVolt(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 200);
 StateSignal BMS_packSOC(8, true, 2, 0.0, 0, 100, 0.0, -1, 200);
 
-// Message: VCU_161 [0xa1]
-StateSignal VCU_counterMsg161(4, false, 1, 0.0, 0, 15, 0.0, -1, 161);
-StateSignal VCU_wheelLockupFL(1, false, 1, 0.0, 0, 1, 0.0, -1, 161);
-StateSignal VCU_wheelLockupFR(1, false, 1, 0.0, 0, 1, 0.0, -1, 161);
-StateSignal VCU_wheelLockupRL(1, false, 1, 0.0, 0, 1, 0.0, -1, 161);
-StateSignal VCU_wheelLockupRR(1, false, 1, 0.0, 0, 1, 0.0, -1, 161);
-
-// Message: VCU_160 [0xa0]
-StateSignal VCU_counterMsg160(4, false, 1, 0.0, 0, 15, 0.0, -1, 160);
-StateSignal VCU_tcTorqueReduction(16, true, 10, 0.0, 0, 75, 0.0, -1, 160);
-StateSignal VCU_tcSlipAimError(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 160);
-StateSignal VCU_tcSlipAimValue(16, true, 10, 0.0, -3276, 3276, 0.0, -1, 160);
-
-// Message: VCU_159 [0x9f]
-StateSignal VCU_counterMsg159(4, false, 1, 0.0, 0, 15, 0.0, -1, 159);
-StateSignal VCU_brakePressureF(16, true, 10, 0.0, 0, 2000, 0.0, -1, 159);
-StateSignal VCU_brakePressureR(16, true, 10, 0.0, 0, 2000, 0.0, -1, 159);
-StateSignal VCU_brakeBias(16, true, 10, 0.0, 0, 100, 0.0, -1, 159);
-
-// Message: VCU_158 [0x9e]
-StateSignal VCU_counterMsg158(4, false, 1, 0.0, 0, 15, 0.0, -1, 158);
-StateSignal VCU_suspensionTravelFL(16, true, 1000, 0.0, -4, 4, 0.0, -1, 158);
-StateSignal VCU_suspensionTravelFR(16, true, 1000, 0.0, -4, 4, 0.0, -1, 158);
-
-// Message: VCU_162 [0xa2]
-StateSignal VCU_counterMsg162(4, false, 1, 0.0, 0, 15, 0.0, -1, 162);
-StateSignal VCU_flowRateMotorIn(16, true, 10, 0.0, 0, 20, 0.0, -1, 162);
-StateSignal VCU_flowRateInverterIn(16, true, 10, 0.0, 0, 20, 0.0, -1, 162);
-StateSignal VCU_flowRateInverterOut(16, true, 10, 0.0, 0, 20, 0.0, -1, 162);
-
-// Message: VCU_157 [0x9d]
-StateSignal VCU_counterMsg157(4, false, 1, 0.0, 0, 15, 0.0, -1, 157);
-StateSignal VCU_tireTempRRI(16, true, 10, 0.0, 0, 100, 0.0, -1, 157);
-StateSignal VCU_tireTempRRM(16, true, 10, 0.0, 0, 100, 0.0, -1, 157);
-StateSignal VCU_tireTempRRO(16, true, 10, 0.0, 0, 100, 0.0, -1, 157);
-
-// Message: VCU_156 [0x9c]
-StateSignal VCU_counterMsg156(4, false, 1, 0.0, 0, 15, 0.0, -1, 156);
-StateSignal VCU_tireTempRLI(16, true, 10, 0.0, 0, 100, 0.0, -1, 156);
-StateSignal VCU_tireTempRLM(16, true, 10, 0.0, 0, 100, 0.0, -1, 156);
-StateSignal VCU_tireTempRLO(16, true, 10, 0.0, 0, 100, 0.0, -1, 156);
-
-// Message: VCU_155 [0x9b]
-StateSignal VCU_counterMsg155(4, false, 1, 0.0, 0, 15, 0.0, -1, 155);
-StateSignal VCU_rotorTempRL(16, true, 10, 0.0, 0, 1000, 0.0, -1, 155);
-StateSignal VCU_rotorTempRR(16, true, 10, 0.0, 0, 1000, 0.0, -1, 155);
-
-// Message: VCU_154 [0x9a]
-StateSignal VCU_counterMsg154(4, false, 1, 0.0, 0, 15, 0.0, -1, 154);
-StateSignal VCU_suspensionTravelRL(16, true, 1000, 0.0, -4, 4, 0.0, -1, 154);
-StateSignal VCU_suspensionTravelRR(16, true, 1000, 0.0, -4, 4, 0.0, -1, 154);
-
-// Message: VCU_153 [0x99]
-StateSignal VCU_counterMsg153(4, false, 1, 0.0, 0, 15, 0.0, -1, 153);
-StateSignal VCU_tireTempFRI(16, true, 10, 0.0, 0, 100, 0.0, -1, 153);
-StateSignal VCU_tireTempFRM(16, true, 10, 0.0, 0, 100, 0.0, -1, 153);
-StateSignal VCU_tireTempFRO(16, true, 10, 0.0, 0, 100, 0.0, -1, 153);
-
-// Message: VCU_152 [0x98]
-StateSignal VCU_counterMsg152(4, false, 1, 0.0, 0, 15, 0.0, -1, 152);
-StateSignal VCU_tireTempFLI(16, true, 10, 0.0, 0, 100, 0.0, -1, 152);
-StateSignal VCU_tireTempFLM(16, true, 10, 0.0, 0, 100, 0.0, -1, 152);
-StateSignal VCU_tireTempFLO(16, true, 10, 0.0, 0, 100, 0.0, -1, 152);
-
-// Message: VCU_151 [0x97]
-StateSignal VCU_counterMsg151(4, false, 1, 0.0, 0, 15, 0.0, -1, 151);
-StateSignal VCU_rotorTempFL(16, true, 10, 0.0, 0, 1000, 0.0, -1, 151);
-StateSignal VCU_rotorTempFR(16, true, 10, 0.0, 0, 1000, 0.0, -1, 151);
-
 // Message: VCU_150 [0x96]
 StateSignal VCU_counterMsg150(4, false, 1, 0.0, 0, 15, 0.0, -1, 150);
 StateSignal VCU_throttlePosition(16, true, 10, 0.0, 0, 100, 0.0, -1, 150);
-StateSignal VCU_brakePosition(16, true, 10, 0.0, 0, 100, 0.0, -1, 150);
-StateSignal VCU_tcSet(8, false, 1, 0.0, 0, 11, 0.0, -1, 150);
+StateSignal VCU_throttlePosition1(16, true, 10, 0.0, 0, 100, 0.0, -1, 150);
+StateSignal VCU_throttlePosition2(16, true, 10, 0.0, 0, 100, 0.0, -1, 150);
 
 
 
@@ -638,250 +535,181 @@ StateSignal VCU_tcSet(8, false, 1, 0.0, 0, 11, 0.0, -1, 150);
 
 
 /*
- * Decode a CAN frame for the message STMM_18EEFF87
+ * Decode a CAN frame for the message STMM_1839F387
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_18EEFF87(const CAN_message_t &imsg) {
+void read_STMM_1839F387(const CAN_message_t &imsg) {
 
-	STMM_seg8AddressClaim.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8) | (imsg.buf[2] << 16));
-	STMM_seg8BMSTargetAddress.set_can_value((imsg.buf[3]));
-	STMM_seg8ThermModuleNumber.set_can_value((imsg.buf[4]));
-	STMM_seg8Constant1.set_can_value((imsg.buf[5]));
-	STMM_seg8Constant2.set_can_value((imsg.buf[6]));
-	STMM_seg8Constant3.set_can_value((imsg.buf[7]));
+	STMM_seg8ThermModNum.set_can_value((imsg.buf[0]));
+	STMM_seg8ThermValLow.set_can_value((imsg.buf[1]));
+	STMM_seg8ThermValHigh.set_can_value((imsg.buf[2]));
+	STMM_seg8ThermValAvg.set_can_value((imsg.buf[3]));
+	STMM_seg8ThermsEnabled.set_can_value((imsg.buf[4]));
+	STMM_seg8ThermIDHigh.set_can_value((imsg.buf[5]));
+	STMM_seg8ThermIDLow.set_can_value((imsg.buf[6]));
+	STMM_seg8Checksum.set_can_value((imsg.buf[7]));
 
 }
 
 /*
- * Decode a CAN frame for the message STMM_18EEFF86
+ * Decode a CAN frame for the message STMM_1839F386
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_18EEFF86(const CAN_message_t &imsg) {
+void read_STMM_1839F386(const CAN_message_t &imsg) {
 
-	STMM_seg7AddressClaim.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8) | (imsg.buf[2] << 16));
-	STMM_seg7BMSTargetAddress.set_can_value((imsg.buf[3]));
-	STMM_seg7ThermModuleNumber.set_can_value((imsg.buf[4]));
-	STMM_seg7Constant1.set_can_value((imsg.buf[5]));
-	STMM_seg7Constant2.set_can_value((imsg.buf[6]));
-	STMM_seg7Constant3.set_can_value((imsg.buf[7]));
+	STMM_seg7ThermModNum.set_can_value((imsg.buf[0]));
+	STMM_seg7ThermValLow.set_can_value((imsg.buf[1]));
+	STMM_seg7ThermValHigh.set_can_value((imsg.buf[2]));
+	STMM_seg7ThermValAvg.set_can_value((imsg.buf[3]));
+	STMM_seg7ThermsEnabled.set_can_value((imsg.buf[4]));
+	STMM_seg7ThermIDHigh.set_can_value((imsg.buf[5]));
+	STMM_seg7ThermIDLow.set_can_value((imsg.buf[6]));
+	STMM_seg7Checksum.set_can_value((imsg.buf[7]));
 
 }
 
 /*
- * Decode a CAN frame for the message STMM_18EEFF85
+ * Decode a CAN frame for the message STMM_1839F385
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_18EEFF85(const CAN_message_t &imsg) {
+void read_STMM_1839F385(const CAN_message_t &imsg) {
 
-	STMM_seg6AddressClaim.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8) | (imsg.buf[2] << 16));
-	STMM_seg6BMSTargetAddress.set_can_value((imsg.buf[3]));
-	STMM_seg6ThermModuleNumber.set_can_value((imsg.buf[4]));
-	STMM_seg6Constant1.set_can_value((imsg.buf[5]));
-	STMM_seg6Constant2.set_can_value((imsg.buf[6]));
-	STMM_seg6Constant3.set_can_value((imsg.buf[7]));
+	STMM_seg6ThermModNum.set_can_value((imsg.buf[0]));
+	STMM_seg6ThermValLow.set_can_value((imsg.buf[1]));
+	STMM_seg6ThermValHigh.set_can_value((imsg.buf[2]));
+	STMM_seg6ThermValAvg.set_can_value((imsg.buf[3]));
+	STMM_seg6ThermsEnabled.set_can_value((imsg.buf[4]));
+	STMM_seg6ThermIDHigh.set_can_value((imsg.buf[5]));
+	STMM_seg6ThermIDLow.set_can_value((imsg.buf[6]));
+	STMM_seg6Checksum.set_can_value((imsg.buf[7]));
 
 }
 
 /*
- * Decode a CAN frame for the message STMM_18EEFF84
+ * Decode a CAN frame for the message STMM_1839F384
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_18EEFF84(const CAN_message_t &imsg) {
+void read_STMM_1839F384(const CAN_message_t &imsg) {
 
-	STMM_seg5AddressClaim.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8) | (imsg.buf[2] << 16));
-	STMM_seg5BMSTargetAddress.set_can_value((imsg.buf[3]));
-	STMM_seg5ThermModuleNumber.set_can_value((imsg.buf[4]));
-	STMM_seg5Constant1.set_can_value((imsg.buf[5]));
-	STMM_seg5Constant2.set_can_value((imsg.buf[6]));
-	STMM_seg5Constant3.set_can_value((imsg.buf[7]));
+	STMM_seg5ThermModNum.set_can_value((imsg.buf[0]));
+	STMM_seg5ThermValLow.set_can_value((imsg.buf[1]));
+	STMM_seg5ThermValHigh.set_can_value((imsg.buf[2]));
+	STMM_seg5ThermValAvg.set_can_value((imsg.buf[3]));
+	STMM_seg5ThermsEnabled.set_can_value((imsg.buf[4]));
+	STMM_seg5ThermIDHigh.set_can_value((imsg.buf[5]));
+	STMM_seg5ThermIDLow.set_can_value((imsg.buf[6]));
+	STMM_seg5Checksum.set_can_value((imsg.buf[7]));
 
 }
 
 /*
- * Decode a CAN frame for the message STMM_18EEFF83
+ * Decode a CAN frame for the message STMM_1839F383
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_18EEFF83(const CAN_message_t &imsg) {
+void read_STMM_1839F383(const CAN_message_t &imsg) {
 
-	STMM_seg4AddressClaim.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8) | (imsg.buf[2] << 16));
-	STMM_seg4BMSTargetAddress.set_can_value((imsg.buf[3]));
-	STMM_seg4ThermModuleNumber.set_can_value((imsg.buf[4]));
-	STMM_seg4Constant1.set_can_value((imsg.buf[5]));
-	STMM_seg4Constant2.set_can_value((imsg.buf[6]));
-	STMM_seg4Constant3.set_can_value((imsg.buf[7]));
+	STMM_seg4ThermModNum.set_can_value((imsg.buf[0]));
+	STMM_seg4ThermValLow.set_can_value((imsg.buf[1]));
+	STMM_seg4ThermValHigh.set_can_value((imsg.buf[2]));
+	STMM_seg4ThermValAvg.set_can_value((imsg.buf[3]));
+	STMM_seg4ThermsEnabled.set_can_value((imsg.buf[4]));
+	STMM_seg4ThermIDHigh.set_can_value((imsg.buf[5]));
+	STMM_seg4ThermIDLow.set_can_value((imsg.buf[6]));
+	STMM_seg4Checksum.set_can_value((imsg.buf[7]));
 
 }
 
 /*
- * Decode a CAN frame for the message STMM_18EEFF82
+ * Decode a CAN frame for the message STMM_1839F382
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_18EEFF82(const CAN_message_t &imsg) {
+void read_STMM_1839F382(const CAN_message_t &imsg) {
 
-	STMM_seg3AddressClaim.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8) | (imsg.buf[2] << 16));
-	STMM_seg3BMSTargetAddress.set_can_value((imsg.buf[3]));
-	STMM_seg3ThermModuleNumber.set_can_value((imsg.buf[4]));
-	STMM_seg3Constant1.set_can_value((imsg.buf[5]));
-	STMM_seg3Constant2.set_can_value((imsg.buf[6]));
-	STMM_seg3Constant3.set_can_value((imsg.buf[7]));
+	STMM_seg3ThermModNum.set_can_value((imsg.buf[0]));
+	STMM_seg3ThermValLow.set_can_value((imsg.buf[1]));
+	STMM_seg3ThermValHigh.set_can_value((imsg.buf[2]));
+	STMM_seg3ThermValAvg.set_can_value((imsg.buf[3]));
+	STMM_seg3ThermsEnabled.set_can_value((imsg.buf[4]));
+	STMM_seg3ThermIDHigh.set_can_value((imsg.buf[5]));
+	STMM_seg3ThermIDLow.set_can_value((imsg.buf[6]));
+	STMM_seg3Checksum.set_can_value((imsg.buf[7]));
 
 }
 
 /*
- * Decode a CAN frame for the message STMM_18EEFF81
+ * Decode a CAN frame for the message STMM_1839F381
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_18EEFF81(const CAN_message_t &imsg) {
+void read_STMM_1839F381(const CAN_message_t &imsg) {
 
-	STMM_seg2AddressClaim.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8) | (imsg.buf[2] << 16));
-	STMM_seg2BMSTargetAddress.set_can_value((imsg.buf[3]));
-	STMM_seg2ThermModuleNumber.set_can_value((imsg.buf[4]));
-	STMM_seg2Constant1.set_can_value((imsg.buf[5]));
-	STMM_seg2Constant2.set_can_value((imsg.buf[6]));
-	STMM_seg2Constant3.set_can_value((imsg.buf[7]));
+	STMM_seg2ThermModNum.set_can_value((imsg.buf[0]));
+	STMM_seg2ThermValLow.set_can_value((imsg.buf[1]));
+	STMM_seg2ThermValHigh.set_can_value((imsg.buf[2]));
+	STMM_seg2ThermValAvg.set_can_value((imsg.buf[3]));
+	STMM_seg2ThermsEnabled.set_can_value((imsg.buf[4]));
+	STMM_seg2ThermIDHigh.set_can_value((imsg.buf[5]));
+	STMM_seg2ThermIDLow.set_can_value((imsg.buf[6]));
+	STMM_seg2Checksum.set_can_value((imsg.buf[7]));
 
 }
 
 /*
- * Decode a CAN frame for the message STMM_18EEFF80
+ * Decode a CAN frame for the message STMM_1839F380
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_18EEFF80(const CAN_message_t &imsg) {
+void read_STMM_1839F380(const CAN_message_t &imsg) {
 
-	STMM_seg1AddressClaim.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8) | (imsg.buf[2] << 16));
-	STMM_seg1BMSTargetAddress.set_can_value((imsg.buf[3]));
-	STMM_seg1ThermModuleNumber.set_can_value((imsg.buf[4]));
-	STMM_seg1Constant1.set_can_value((imsg.buf[5]));
-	STMM_seg1Constant2.set_can_value((imsg.buf[6]));
-	STMM_seg1Constant3.set_can_value((imsg.buf[7]));
+	STMM_seg1ThermModNum.set_can_value((imsg.buf[0]));
+	STMM_seg1ThermValLow.set_can_value((imsg.buf[1]));
+	STMM_seg1ThermValHigh.set_can_value((imsg.buf[2]));
+	STMM_seg1ThermValAvg.set_can_value((imsg.buf[3]));
+	STMM_seg1ThermsEnabled.set_can_value((imsg.buf[4]));
+	STMM_seg1ThermIDHigh.set_can_value((imsg.buf[5]));
+	STMM_seg1ThermIDLow.set_can_value((imsg.buf[6]));
+	STMM_seg1Checksum.set_can_value((imsg.buf[7]));
 
 }
 
 /*
- * Decode a CAN frame for the message STMM_1838F387
+ * Decode a CAN frame for the message VCU_153
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_1838F387(const CAN_message_t &imsg) {
+void read_VCU_153(const CAN_message_t &imsg) {
 
-	STMM_seg8ThermGlobalID.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8));
-	STMM_seg8ThermVal.set_can_value((imsg.buf[2]));
-	STMM_seg8ThermID.set_can_value((imsg.buf[3]));
-	STMM_seg8ThermValLow.set_can_value((imsg.buf[4]));
-	STMM_seg8ThermValHigh.set_can_value((imsg.buf[5]));
-	STMM_seg8ThermIDHigh.set_can_value((imsg.buf[6]));
-	STMM_seg8ThermIDLow.set_can_value((imsg.buf[7]));
+	VCU_counterMsg153.set_can_value(((imsg.buf[0] & 0b00001111)));
+	VCU_startSwitch.set_can_value(((imsg.buf[1] & 0b00000001)));
+	VCU_pwrUpSwitch.set_can_value(((imsg.buf[2] & 0b00000001)));
+	VCU_pwrDownSwitch.set_can_value(((imsg.buf[3] & 0b00000001)));
+	VCU_coolSwitch.set_can_value(((imsg.buf[4] & 0b00000001)));
 
 }
 
 /*
- * Decode a CAN frame for the message STMM_1838F386
+ * Decode a CAN frame for the message VCU_152
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_1838F386(const CAN_message_t &imsg) {
+void read_VCU_152(const CAN_message_t &imsg) {
 
-	STMM_seg7ThermGlobalID.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8));
-	STMM_seg7ThermVal.set_can_value((imsg.buf[2]));
-	STMM_seg7ThermID.set_can_value((imsg.buf[3]));
-	STMM_seg7ThermValLow.set_can_value((imsg.buf[4]));
-	STMM_seg7ThermValHigh.set_can_value((imsg.buf[5]));
-	STMM_seg7ThermIDHigh.set_can_value((imsg.buf[6]));
-	STMM_seg7ThermIDLow.set_can_value((imsg.buf[7]));
+	VCU_counterMsg152.set_can_value(((imsg.buf[0] & 0b00001111)));
+	VCU_vehicleState.set_can_value((imsg.buf[1]));
+	VCU_dischargeContactorState.set_can_value((imsg.buf[2]));
+	VCU_prechargeContactorState.set_can_value((imsg.buf[3]));
+	VCU_mainPlusContactorState.set_can_value((imsg.buf[4]));
+	VCU_mainMinusContactorState.set_can_value((imsg.buf[5]));
+	VCU_rtmSound.set_can_value(((imsg.buf[6] & 0b00000001)));
 
 }
 
 /*
- * Decode a CAN frame for the message STMM_1838F385
+ * Decode a CAN frame for the message VCU_151
  * \param imsg A reference to the incoming CAN message frame
  */
-void read_STMM_1838F385(const CAN_message_t &imsg) {
+void read_VCU_151(const CAN_message_t &imsg) {
 
-	STMM_seg6ThermGlobalID.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8));
-	STMM_seg6ThermVal.set_can_value((imsg.buf[2]));
-	STMM_seg6ThermID.set_can_value((imsg.buf[3]));
-	STMM_seg6ThermValLow.set_can_value((imsg.buf[4]));
-	STMM_seg6ThermValHigh.set_can_value((imsg.buf[5]));
-	STMM_seg6ThermIDHigh.set_can_value((imsg.buf[6]));
-	STMM_seg6ThermIDLow.set_can_value((imsg.buf[7]));
-
-}
-
-/*
- * Decode a CAN frame for the message STMM_1838F384
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_STMM_1838F384(const CAN_message_t &imsg) {
-
-	STMM_seg5ThermGlobalID.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8));
-	STMM_seg5ThermVal.set_can_value((imsg.buf[2]));
-	STMM_seg5ThermID.set_can_value((imsg.buf[3]));
-	STMM_seg5ThermValLow.set_can_value((imsg.buf[4]));
-	STMM_seg5ThermValHigh.set_can_value((imsg.buf[5]));
-	STMM_seg5ThermIDHigh.set_can_value((imsg.buf[6]));
-	STMM_seg5ThermIDLow.set_can_value((imsg.buf[7]));
-
-}
-
-/*
- * Decode a CAN frame for the message STMM_1838F383
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_STMM_1838F383(const CAN_message_t &imsg) {
-
-	STMM_seg4ThermGlobalID.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8));
-	STMM_seg4ThermVal.set_can_value((imsg.buf[2]));
-	STMM_seg4ThermID.set_can_value((imsg.buf[3]));
-	STMM_seg4ThermValLow.set_can_value((imsg.buf[4]));
-	STMM_seg4ThermValHigh.set_can_value((imsg.buf[5]));
-	STMM_seg4ThermIDHigh.set_can_value((imsg.buf[6]));
-	STMM_seg4ThermIDLow.set_can_value((imsg.buf[7]));
-
-}
-
-/*
- * Decode a CAN frame for the message STMM_1838F382
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_STMM_1838F382(const CAN_message_t &imsg) {
-
-	STMM_seg3ThermGlobalID.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8));
-	STMM_seg3ThermVal.set_can_value((imsg.buf[2]));
-	STMM_seg3ThermID.set_can_value((imsg.buf[3]));
-	STMM_seg3ThermValLow.set_can_value((imsg.buf[4]));
-	STMM_seg3ThermValHigh.set_can_value((imsg.buf[5]));
-	STMM_seg3ThermIDHigh.set_can_value((imsg.buf[6]));
-	STMM_seg3ThermIDLow.set_can_value((imsg.buf[7]));
-
-}
-
-/*
- * Decode a CAN frame for the message STMM_1838F381
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_STMM_1838F381(const CAN_message_t &imsg) {
-
-	STMM_seg2ThermGlobalID.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8));
-	STMM_seg2ThermVal.set_can_value((imsg.buf[2]));
-	STMM_seg2ThermID.set_can_value((imsg.buf[3]));
-	STMM_seg2ThermValLow.set_can_value((imsg.buf[4]));
-	STMM_seg2ThermValHigh.set_can_value((imsg.buf[5]));
-	STMM_seg2ThermIDHigh.set_can_value((imsg.buf[6]));
-	STMM_seg2ThermIDLow.set_can_value((imsg.buf[7]));
-
-}
-
-/*
- * Decode a CAN frame for the message STMM_1838F380
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_STMM_1838F380(const CAN_message_t &imsg) {
-
-	STMM_seg1ThermGlobalID.set_can_value((imsg.buf[0]) | (imsg.buf[1] << 8));
-	STMM_seg1ThermVal.set_can_value((imsg.buf[2]));
-	STMM_seg1ThermID.set_can_value((imsg.buf[3]));
-	STMM_seg1ThermValLow.set_can_value((imsg.buf[4]));
-	STMM_seg1ThermValHigh.set_can_value((imsg.buf[5]));
-	STMM_seg1ThermIDHigh.set_can_value((imsg.buf[6]));
-	STMM_seg1ThermIDLow.set_can_value((imsg.buf[7]));
+	VCU_counterMsg151.set_can_value(((imsg.buf[0] & 0b00001111)));
+	VCU_brakeBias.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	VCU_brakePressureF.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	VCU_brakePressureR.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
 
 }
 
@@ -1757,159 +1585,6 @@ void read_BMS_200(const CAN_message_t &imsg) {
 }
 
 /*
- * Decode a CAN frame for the message VCU_161
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_161(const CAN_message_t &imsg) {
-
-	VCU_counterMsg161.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_wheelLockupFL.set_can_value((((imsg.buf[0] & 0b00010000)) >> 4));
-	VCU_wheelLockupFR.set_can_value((((imsg.buf[0] & 0b00100000)) >> 5));
-	VCU_wheelLockupRL.set_can_value((((imsg.buf[0] & 0b01000000)) >> 6));
-	VCU_wheelLockupRR.set_can_value((((imsg.buf[0] & 0b10000000)) >> 7));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_160
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_160(const CAN_message_t &imsg) {
-
-	VCU_counterMsg160.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_tcTorqueReduction.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_tcSlipAimError.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-	VCU_tcSlipAimValue.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_159
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_159(const CAN_message_t &imsg) {
-
-	VCU_counterMsg159.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_brakePressureF.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_brakePressureR.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-	VCU_brakeBias.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_158
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_158(const CAN_message_t &imsg) {
-
-	VCU_counterMsg158.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_suspensionTravelFL.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_suspensionTravelFR.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_162
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_162(const CAN_message_t &imsg) {
-
-	VCU_counterMsg162.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_flowRateMotorIn.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_flowRateInverterIn.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-	VCU_flowRateInverterOut.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_157
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_157(const CAN_message_t &imsg) {
-
-	VCU_counterMsg157.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_tireTempRRI.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_tireTempRRM.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-	VCU_tireTempRRO.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_156
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_156(const CAN_message_t &imsg) {
-
-	VCU_counterMsg156.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_tireTempRLI.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_tireTempRLM.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-	VCU_tireTempRLO.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_155
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_155(const CAN_message_t &imsg) {
-
-	VCU_counterMsg155.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_rotorTempRL.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_rotorTempRR.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_154
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_154(const CAN_message_t &imsg) {
-
-	VCU_counterMsg154.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_suspensionTravelRL.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_suspensionTravelRR.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_153
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_153(const CAN_message_t &imsg) {
-
-	VCU_counterMsg153.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_tireTempFRI.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_tireTempFRM.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-	VCU_tireTempFRO.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_152
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_152(const CAN_message_t &imsg) {
-
-	VCU_counterMsg152.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_tireTempFLI.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_tireTempFLM.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-	VCU_tireTempFLO.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
-
-}
-
-/*
- * Decode a CAN frame for the message VCU_151
- * \param imsg A reference to the incoming CAN message frame
- */
-void read_VCU_151(const CAN_message_t &imsg) {
-
-	VCU_counterMsg151.set_can_value(((imsg.buf[0] & 0b00001111)));
-	VCU_rotorTempFL.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_rotorTempFR.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-
-}
-
-/*
  * Decode a CAN frame for the message VCU_150
  * \param imsg A reference to the incoming CAN message frame
  */
@@ -1917,8 +1592,8 @@ void read_VCU_150(const CAN_message_t &imsg) {
 
 	VCU_counterMsg150.set_can_value(((imsg.buf[0] & 0b00001111)));
 	VCU_throttlePosition.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
-	VCU_brakePosition.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
-	VCU_tcSet.set_can_value((imsg.buf[6]));
+	VCU_throttlePosition1.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	VCU_throttlePosition2.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
 
 }
 
@@ -1942,68 +1617,48 @@ void decode_raptor_CAN2(const CAN_message_t &imsg) {
 
 	switch (imsg.id) {
 
-		case 418316167:
-			read_STMM_18EEFF87(imsg);
+		case 406451079:
+			read_STMM_1839F387(imsg);
 			break;
 
-		case 418316166:
-			read_STMM_18EEFF86(imsg);
+		case 406451078:
+			read_STMM_1839F386(imsg);
 			break;
 
-		case 418316165:
-			read_STMM_18EEFF85(imsg);
+		case 406451077:
+			read_STMM_1839F385(imsg);
 			break;
 
-		case 418316164:
-			read_STMM_18EEFF84(imsg);
+		case 406451076:
+			read_STMM_1839F384(imsg);
 			break;
 
-		case 418316163:
-			read_STMM_18EEFF83(imsg);
+		case 406451075:
+			read_STMM_1839F383(imsg);
 			break;
 
-		case 418316162:
-			read_STMM_18EEFF82(imsg);
+		case 406451074:
+			read_STMM_1839F382(imsg);
 			break;
 
-		case 418316161:
-			read_STMM_18EEFF81(imsg);
+		case 406451073:
+			read_STMM_1839F381(imsg);
 			break;
 
-		case 418316160:
-			read_STMM_18EEFF80(imsg);
+		case 406451072:
+			read_STMM_1839F380(imsg);
 			break;
 
-		case 406385543:
-			read_STMM_1838F387(imsg);
+		case 153:
+			read_VCU_153(imsg);
 			break;
 
-		case 406385542:
-			read_STMM_1838F386(imsg);
+		case 152:
+			read_VCU_152(imsg);
 			break;
 
-		case 406385541:
-			read_STMM_1838F385(imsg);
-			break;
-
-		case 406385540:
-			read_STMM_1838F384(imsg);
-			break;
-
-		case 406385539:
-			read_STMM_1838F383(imsg);
-			break;
-
-		case 406385538:
-			read_STMM_1838F382(imsg);
-			break;
-
-		case 406385537:
-			read_STMM_1838F381(imsg);
-			break;
-
-		case 406385536:
-			read_STMM_1838F380(imsg);
+		case 151:
+			read_VCU_151(imsg);
 			break;
 
 		case 380:
@@ -2272,54 +1927,6 @@ void decode_raptor_CAN2(const CAN_message_t &imsg) {
 
 		case 200:
 			read_BMS_200(imsg);
-			break;
-
-		case 161:
-			read_VCU_161(imsg);
-			break;
-
-		case 160:
-			read_VCU_160(imsg);
-			break;
-
-		case 159:
-			read_VCU_159(imsg);
-			break;
-
-		case 158:
-			read_VCU_158(imsg);
-			break;
-
-		case 162:
-			read_VCU_162(imsg);
-			break;
-
-		case 157:
-			read_VCU_157(imsg);
-			break;
-
-		case 156:
-			read_VCU_156(imsg);
-			break;
-
-		case 155:
-			read_VCU_155(imsg);
-			break;
-
-		case 154:
-			read_VCU_154(imsg);
-			break;
-
-		case 153:
-			read_VCU_153(imsg);
-			break;
-
-		case 152:
-			read_VCU_152(imsg);
-			break;
-
-		case 151:
-			read_VCU_151(imsg);
 			break;
 
 		case 150:

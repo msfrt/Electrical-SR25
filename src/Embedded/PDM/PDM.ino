@@ -1,3 +1,5 @@
+#include <PWMControl.h>
+
 // Dave Yonkers, 2022
 
 #include <EasyTimer.h>
@@ -10,38 +12,28 @@
 #include <BoardTemp.h>
 #include <EepromHelper.h>
 
-
-// can bus decleration
+// CAN Bus Declaration
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> can1;
 FlexCAN_T4<CAN2, RX_SIZE_256, TX_SIZE_16> can2;
 static CAN_message_t rxmsg;
-// each bus has a total of 64 mailboxes
+
 #define NUM_RX_STD_MAILBOXES 32
 #define NUM_RX_EXT_MAILBOXES 2
 #define NUM_TX_MAILBOXES 30
-// limit the number of messages each bus can read for each loop cycle.
-// Typically, only one message is recieved in the time that the loop can run,
-// but a buildup can occur, and this limit can poll the bus to read messages
-// while not getting stuck in an infinite loop
-#define MAX_CAN_FRAME_READ_PER_CYCLE 5
+#define MAX_CAN_FRAME_READ_PER_CYCLE 5  // Limit per loop iteration
 
-
-// global variable definition
-const int GLO_read_resolution_bits = 12; // bits for Teensy-based read resolution
-const int GLO_max_analog_write_pwm = 255; // maximum PWN value
-
+// Global Variable Definitions
+const int GLO_read_resolution_bits = 12;
+const int GLO_max_analog_write_pwm = 255;
 
 const int GLO_brakelight_teensy_pin = 4;
 const int VCU_brakelight = 0;
-
 const int GLO_data_circuit_teensy_pin = 5;
-
 const int GLO_NeoPixel_teensy_pin = 2;
-      int GLO_NeoPixel_brightness_percent = 10; // 0 - 100 %
 
+int GLO_NeoPixel_brightness_percent = 10;
 Adafruit_NeoPixel GLO_obd_neopixel(1, GLO_NeoPixel_teensy_pin, NEO_GRB + NEO_KHZ800);
 
-//BoardTemp(int pin, int read_bits, int temp_cal, int mv_cal);
 BoardTempDiode board_temp(21, GLO_read_resolution_bits, 28.1, 594);
 EasyTimer board_temp_sample_timer(50);
 
@@ -49,41 +41,38 @@ EasyTimer board_temp_sample_timer(50);
 const int eeprom_cs_pin = 9;
 EEPROM_25LC128 eeprom(eeprom_cs_pin);
 
-// engine time clock update frequency. (can be quite low, but don't set too low, as we want this to still be accurate)
-// the actual time checking happens in the timer function.
+// Timer Definitions
 EasyTimer engine_time_update_timer(1);
-
-// odemeter update frequency. Should probably keep this pretty low, because if it updates too fast, the calculations
-// will be so small that mileage may actually never be incremented because of poor floating-point math
 EasyTimer odometer_update_timer(2);
 
-// eeprom-saved signals
+// EEPROM Signals
 #include "EEPROM_sigs.hpp"
 
-// useful sensor sampling definitions can be found here
+// Sensor Sampling Definitions
 #include "sensors.hpp"
 
-// this file contains all of the control tables & declarations for fans and water pump
+// Fan & Water Pump Control
 #include "fans.hpp"
 
-// signal definitions are inside
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
-
-// CAN message definitions are inside
+// CAN Message Definitions
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 #include "can_send.hpp"
 
-// odds and ends functions
+// Miscellaneous Functions
 #include "misc_fcns.hpp"
 
-// on-board diagnostics
+// On-Board Diagnostics
 #include "obd.hpp"
 
-
-// timer that you can use to print things out for debugging
+// Debugging Timer
 EasyTimer debug(2);
 const bool GLO_debug = false;
 
+// Global fan and wp Speed Signal (Controlled by CAN)
+int fan_signalL = 3; // Default value
+int fan_signalR = 3;
+int wp_signal = 3;
 void setup() { //high 18 low 26
 
   analogReadResolution(GLO_read_resolution_bits);
@@ -100,7 +89,8 @@ void setup() { //high 18 low 26
 
   //initialize the CAN Bus and set its baud rate to 1Mb
   can1.begin();
-  can1.setBaudRate(1000000);
+  // can1.setBaudRate(1000000);
+  can1.setBaudRate(500000);
   can2.begin();
   can2.setBaudRate(1000000);
   set_mailboxes();
@@ -131,162 +121,113 @@ void setup() { //high 18 low 26
   board_temp.begin();
 
   // neat brakelight animation
-  brakelight_startup();
-
-  //initializes the fans off
-  //CMD_fanLeftOverride = 0;
-  //CMD_fanRightOverride = 0;
+  brakelight_start();
 
 }
 
+// placeholder function for undefined
+void engine_timer(int hours, int minutes) {
+    Serial.println("Engine timer update (placeholder function)");
+}
+
+void odometer(float speed, int mileage) {
+    Serial.println("Odometer update (placeholder function)");
+}
+
+const bool testMode = true;
+const int testNum = 2;
+
+int lastCounter = VCU_counterMsg201.can_value();     
+float lastT = 0.0;
+bool vcu_timeout = false;
+bool has_received_vcu_msg = false;
+float elapsed = 0;
 
 void loop() {
-
-  // sensor sampling
-  sample_ADCs();
-  if (board_temp_sample_timer.isup()){
-    board_temp.sample();
-  }
-
-  // read both can buses
-  read_CAN();
-
-  // run the brakelight
-  brakelight_run();
-  
-  fan_left.set_pwm();
-  fan_right.set_pwm();
-  water_pump.set_pwm();
-
-  // engine timer update
-  // if (engine_time_update_timer.isup()){
-  //   engine_timer(eeprom_engine_hours, eeprom_engine_minutes);
-  // }
-
-  // odometer update
-  // if (odometer_update_timer.isup())
-  //   odometer(M400_groundSpeed, eeprom_mileage);
-
-  // send all of the things
-  send_can1();
-  send_can2();
-
-  if (GLO_debug && debug.isup()){
-    Serial.println();
-    // Serial.println(eeprom_engine_hours.value());
-    // Serial.println(eeprom_engine_minutes.value());
-    Serial.print("FanR duty cycle %: "); Serial.println(PDM_fanRightDutyCycle.value());
-  }
+    // Read sensors and CAN
     
+    sample_ADCs();
+    if (board_temp_sample_timer.isup()) board_temp.sample();
+    read_CAN();
+
+    elapsed = (millis() - lastT);
+    if (has_received_vcu_msg == false) {
+      elapsed = 0;
+    }
+    if (VCU_counterMsg201.can_value() != lastCounter) {
+      lastT = millis();
+      lastCounter = VCU_counterMsg201.can_value();
+      has_received_vcu_msg = true;
+    }
+
+    if (elapsed > 300 && has_received_vcu_msg == true) {
+      vcu_timeout = true;
+      Serial.println("timeout");
+    }
+
+    if (vcu_timeout == true) {
+      Serial.println("timeout");
+    }
+
+
+
+    if (testMode) {
+      if (testNum == 1) {
+        Serial.println(PDM_fanRightDutyCycle.can_value());
+        PDM_fanRightDutyCycle.set_can_value(100);
+        fan_signalL = PDM_fanRightDutyCycle.can_value();
+        send_can2();
+      } else if (testNum == 2) {
+        fan_signalL = vcu_timeout ? 0 : VCU_radFanLDuty.can_value() / 10.0;
+        fan_signalR = vcu_timeout ? 0 : VCU_radFanRDuty.can_value() / 10.0;
+        wp_signal   = vcu_timeout ? 0 : VCU_waterPumpDuty.can_value() / 10.0;
+        send_can2();
+      }
+    }
+
+    updateFanSpeed(fan_signalL, fan_signalR, wp_signal);
+    sample_ADCs();
+    if (board_temp_sample_timer.isup()) board_temp.sample();
+    brakelight_run();
+
+    fan_left_override = fan_signalL;
+    fan_right_override = fan_signalR;
+    wp_override = wp_signal;
+
+    fan_left.set_pwm(2);
+    fan_right.set_pwm(2);
 }
 
 
-
-void set_mailboxes(){
-
-  // to view mailbox status, you can use the member function mailboxStatus(). Don't put it in a fast loop, though,
-  // because you may actually affect how the chips moves things around
-
-  // CAN 2 - sends a bunch of stuff
-  can2.setMaxMB(64); // change from default 16 mailboxes to 64 (maximum)
-  can2.enableFIFO(); // first in-first out prevents overwriting unsent messages depending on the queue
-  can2.setMB(MB4,RX,STD);  // change the first 12 mailboxes to recieve standard frames. 4 for extended. the first four
-  can2.setMB(MB5,RX,STD);  // already do by default. the rest of the mailboxes (48) are TX mailboxes by default, which
-  can2.setMB(MB6,RX,STD);  // is necessary because we send more data than the bus can handle in short periods of time
-  can2.setMB(MB7,RX,STD);
-  can2.setMB(MB8,RX,STD);
-  can2.setMB(MB9,RX,STD);
-  can2.setMB(MB10,RX,STD);
-  can2.setMB(MB11,RX,STD);
-  can2.setMB(MB12,RX,EXT);  // perhaps there is an issue and something is sending extended frames for whatever reason
-  can2.setMB(MB13,RX,EXT);  // we have a lot of mailboxes anyways, so these four can be set to extended
-  can2.setMB(MB14,RX,EXT);
-  can2.setMB(MB15,RX,EXT);
-  // can2.setMB(MB16,TX);
-  // can2.setMB(MB17, TX);
-  // can2.setMB(MB18, TX);
-  // can2.setMB(MB19, TX);
-  // can2.setMB(MB20, TX);
-  // can2.setMB(MB21, TX);
-  // can2.setMB(MB22, TX);
-  // can2.setMB(MB23, TX);
-  // can2.setMB(MB24, TX);
-  // can2.setMB(MB25, TX);
-  // can2.setMB(MB26, TX);
-  // can2.setMB(MB27, TX);
-  // can2.setMB(MB28, TX);
-  // can2.setMB(MB29, TX);
-  // can2.setMB(MB30, TX);
-  // can2.setMB(MB31, TX);
-  // can2.setMB(MB32, TX);
-  // can2.setMB(MB33, TX);
-  // can2.setMB(MB34, TX);
-  // can2.setMB(MB35, TX);
-  // can2.setMB(MB36, TX);
-  // can2.setMB(MB37, TX);
-  // can2.setMB(MB38, TX);
-  // can2.setMB(MB39, TX);
-  // can2.setMB(MB40, TX);
-  // can2.setMB(MB41, TX);
-  // can2.setMB(MB42, TX);
-  // can2.setMB(MB43, TX);
-  // can2.setMB(MB44, TX);
-  // can2.setMB(MB45, TX);
-  // can2.setMB(MB46, TX);
-  // can2.setMB(MB47, TX);
-  // can2.setMB(MB48, TX);
-  // can2.setMB(MB49, TX);
-  // can2.setMB(MB50, TX);
-  // can2.setMB(MB51, TX);
-  // can2.setMB(MB52, TX);
-  // can2.setMB(MB53, TX);
-  // can2.setMB(MB54, TX);
-  // can2.setMB(MB55, TX);
-  // can2.setMB(MB56, TX);
-  // can2.setMB(MB57, TX);
-  // can2.setMB(MB58, TX);
-  // can2.setMB(MB59, TX);
-  // can2.setMB(MB60, TX);
-  // can2.setMB(MB61, TX);
-  // can2.setMB(MB62, TX);
-  // can2.setMB(MB63, TX);
-
-
-  can1.setMaxMB(64);
-  can1.enableFIFO();
-  can1.setMB(MB4,RX,STD);  // first 16 mailboxes as rx, 4 rx extended. this is pretty overkill, but hey, here they are
-  can1.setMB(MB5,RX,STD);
-  can1.setMB(MB6,RX,STD);
-  can1.setMB(MB7,RX,STD);
-  can1.setMB(MB8,RX,STD);
-  can1.setMB(MB9,RX,STD);
-  can1.setMB(MB10,RX,STD);
-  can1.setMB(MB11,RX,STD);
-  can1.setMB(MB12,RX,STD);
-  can1.setMB(MB13,RX,STD);
-  can1.setMB(MB14,RX,STD);
-  can1.setMB(MB15,RX,STD);
-  can1.setMB(MB16,RX,EXT);
-  can1.setMB(MB17,RX,EXT);
-  can1.setMB(MB18,RX,EXT);
-  can1.setMB(MB19,RX,EXT);
+void set_mailboxes() {
+    can2.setMaxMB(64);
+    can2.enableFIFO();
+    can2.setMB(MB4, RX, STD);
+    can2.setMB(MB5, RX, STD);
+    can2.setMB(MB6, RX, STD);
+    can2.setMB(MB7, RX, STD);
+    can2.setMB(MB8, RX, STD);
+    can2.setMB(MB9, RX, STD);
+    can2.setMB(MB10, RX, STD);
+    can2.setMB(MB11, RX, STD);
+    can2.setMB(MB12, RX, EXT);
+    can2.setMB(MB13, RX, EXT);
+    can2.setMB(MB14, RX, EXT);
+    can2.setMB(MB15, RX, EXT);
 }
 
-
-/**
- *  Reads a CAN message if available and then sends it to thr
- *  proper decoding funciton
- **/
 void read_CAN() {
-  int count = 0;
-  while (can1.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
-    decode_CAN1(rxmsg);
-    count++;
-  }
+    int count = 0;
+    count = 0;
 
-  count = 0;
-  while (can2.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
-    decode_CAN2(rxmsg);
-    count++;
-  }
+    while (can1.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
+        decode_raptor_CAN1(rxmsg);
+        count++;
+    }
+
+    while (can2.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
+        decode_raptor_CAN2(rxmsg);
+        count++;
+    }
 }
+
