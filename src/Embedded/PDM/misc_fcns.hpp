@@ -1,6 +1,9 @@
 #ifndef MISC_FUNCTIONS_HPP
 #define MISC_FUNCTIONS_HPP
 
+#include "brakelight_startup.hpp" 
+static MorseStartup startup_sequence;
+
 // template <class T1, class T2>
 // void engine_timer(EEPROM_Value<T1> &hours, EEPROM_Value<T2> &minutes){
 //   static unsigned int last_minute_millis = 0;
@@ -125,48 +128,34 @@
 //   return log_bool;
 // }
 
+bool has_called_startup = false;
 
+bool brakelight_run() {
 
-bool brakelight_run(){
-
-  // CMD override present
-  if (CMD_brakeLightOverride.value() >= 0 && CMD_brakeLightOverride.value() <= 100){
-
-    analogWrite(GLO_brakelight_teensy_pin, map(CMD_brakeLightOverride.value(), 0, 100, 0, GLO_max_analog_write_pwm));
-    return true;
-
-  // brake-pressure exceeds minimum activation pressure
-  } else if (VCU_brakelight){
+  if (VCU_brakeLightCmd.can_value() == 1) {
     analogWrite(GLO_brakelight_teensy_pin, 255);
     return true;
-
-  // turn that shit off :)
   } else {
-    analogWrite(GLO_brakelight_teensy_pin, 0);
-    return false;
-    
-  }
+    if (!has_called_startup) {
+      const int morse_message[] = {1,1, 0,0,0, 0,0,1}; // SOS
+      startup_sequence.begin(morse_message, sizeof(morse_message)/sizeof(morse_message[0]));
+      has_called_startup = true;
+    }
 
-  return false;
+    if (millis() > 5000) {
+      analogWrite(GLO_brakelight_teensy_pin, 0);
+      Serial.println("brakelight off");
+    }
+
+    startup_sequence.update(); // non-blocking update
+
+    return startup_sequence.is_active();  // false = LED off
+  }
 }
 
 
 
-
-void brakelight_startup(){
-  float i = 0;
-  while (i < 3.14159){
-
-    i += 0.01;
-    delay(10);
-
-    float write_val = sin(i) * 1000;  // returns a value between 0 & 1000
-    int pwm = map(write_val, 0, 1000, 0, 220);
-
-    // write to the LED
-    analogWrite(GLO_brakelight_teensy_pin, pwm);
-
-  }
+void brakelight_start(){
 
   analogWrite(GLO_brakelight_teensy_pin, 0);
 

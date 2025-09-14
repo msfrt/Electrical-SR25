@@ -55,8 +55,8 @@ EasyTimer odometer_update_timer(2);
 #include "fans.hpp"
 
 // CAN Message Definitions
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 #include "can_send.hpp"
 
 // Miscellaneous Functions
@@ -69,10 +69,10 @@ EasyTimer odometer_update_timer(2);
 EasyTimer debug(2);
 const bool GLO_debug = false;
 
-<<<<<<< HEAD
-// Global Fan Speed Signal (Controlled by CAN)
-int fan_signal = 3; // Default value
-=======
+// Global fan and wp Speed Signal (Controlled by CAN)
+int fan_signalL = 3; // Default value
+int fan_signalR = 3;
+int wp_signal = 3;
 void setup() { //high 18 low 26
 
   analogReadResolution(GLO_read_resolution_bits);
@@ -121,19 +121,8 @@ void setup() { //high 18 low 26
   board_temp.begin();
 
   // neat brakelight animation
-  brakelight_startup();
+  brakelight_start();
 
-  //initializes the fans off
-  //CMD_fanLeftOverride = 0;
-  //CMD_fanRightOverride = 0;
->>>>>>> origin/dev
-
-// CAN Message Handler
-void canReceiveHandler(const CAN_message_t &msg) {
-    if (msg.id == 0x200) {  // Replace with actual CAN ID for fan control
-        fan_signal = msg.buf[0];  // Extract fan speed value (0-100%)
-        fan_signal = constrain(fan_signal, 0, 100);
-    }
 }
 
 // placeholder function for undefined
@@ -148,83 +137,67 @@ void odometer(float speed, int mileage) {
 const bool testMode = true;
 const int testNum = 2;
 
-void setup() {
-    // Initialize everything
-    analogReadResolution(GLO_read_resolution_bits);
-    Serial.begin(115200);
-    SPI.begin();
-  
-    // begin OBD Neopixel
-    GLO_obd_neopixel.begin();
-    GLO_obd_neopixel.setBrightness(map(GLO_NeoPixel_brightness_percent, 0, 100, 0, 255));
-    GLO_obd_neopixel.setPixelColor(0, 255, 0, 0); // red
-    GLO_obd_neopixel.show();
-
-
-    can1.begin();
-    can1.setBaudRate(500000);
-    can2.begin();
-    can2.setBaudRate(1000000);
-
-    set_mailboxes();
-
-    can2.setMaxMB(16);
-    can2.enableFIFO();
-    can2.enableFIFOInterrupt();
-    can2.onReceive(FIFO, canReceiveHandler);
-
-    initialize_ADCs();
-    pinMode(GLO_data_circuit_teensy_pin, OUTPUT);
-    digitalWrite(GLO_data_circuit_teensy_pin, HIGH);
-    //pinMode(GLO_brakelight_teensy_pin, OUTPUT);
-
-    //board_temp.begin();
-    brakelight_startup();
-
-    GLO_obd_neopixel.setPixelColor(0, 0, 255, 0); // green
-    GLO_obd_neopixel.show();
-
-    CMD_fanLeftOverride = 0;
-    CMD_fanRightOverride = 0;
-}
+int lastCounter = VCU_counterMsg201.can_value();     
+float lastT = 0.0;
+bool vcu_timeout = false;
+bool has_received_vcu_msg = false;
+float elapsed = 0;
 
 void loop() {
-    static unsigned long t_start = millis();
-    float elapsed = (millis() - t_start) / 1000.0; // time in seconds
+    // Read sensors and CAN
+    
+    sample_ADCs();
+    if (board_temp_sample_timer.isup()) board_temp.sample();
+    read_CAN();
+
+    elapsed = (millis() - lastT);
+    if (has_received_vcu_msg == false) {
+      elapsed = 0;
+    }
+    if (VCU_counterMsg201.can_value() != lastCounter) {
+      lastT = millis();
+      lastCounter = VCU_counterMsg201.can_value();
+      has_received_vcu_msg = true;
+    }
+
+    if (elapsed > 300 && has_received_vcu_msg == true) {
+      vcu_timeout = true;
+      Serial.println("timeout");
+    }
+
+    if (vcu_timeout == true) {
+      Serial.println("timeout");
+    }
+
+
 
     if (testMode) {
       if (testNum == 1) {
-        float frequency = 0.06;
-        float amplitude = 50.0;
-        float offset = 50.0;
-
-        fan_signal = offset + amplitude * sin(2 * PI * frequency * elapsed);
+        Serial.println(PDM_fanRightDutyCycle.can_value());
+        PDM_fanRightDutyCycle.set_can_value(100);
+        fan_signalL = PDM_fanRightDutyCycle.can_value();
+        send_can2();
       } else if (testNum == 2) {
-        fan_signal = 5;
+        fan_signalL = vcu_timeout ? 0 : VCU_radFanLDuty.can_value() / 10.0;
+        fan_signalR = vcu_timeout ? 0 : VCU_radFanRDuty.can_value() / 10.0;
+        wp_signal   = vcu_timeout ? 0 : VCU_waterPumpDuty.can_value() / 10.0;
+        send_can2();
       }
     }
 
-    updateFanSpeed(fan_signal);
-
+    updateFanSpeed(fan_signalL, fan_signalR, wp_signal);
     sample_ADCs();
-    if (board_temp_sample_timer.isup()) {
-        board_temp.sample();
-    }
-
+    if (board_temp_sample_timer.isup()) board_temp.sample();
     brakelight_run();
 
-    // **Fix: Pass 4 Parameters to set_pwm()**
-    //fan_left.set_pwm(0, 0, 2, fan_signal);
-    //fan_right.set_pwm(0, 0, 2, fan_signal);
-
-    CMD_fanLeftOverride = fan_signal;
-    CMD_fanRightOverride = fan_signal;
+    fan_left_override = fan_signalL;
+    fan_right_override = fan_signalR;
+    wp_override = wp_signal;
 
     fan_left.set_pwm(2);
     fan_right.set_pwm(2);
-
-    delay(1000); 
 }
+
 
 void set_mailboxes() {
     can2.setMaxMB(64);
@@ -241,37 +214,20 @@ void set_mailboxes() {
     can2.setMB(MB13, RX, EXT);
     can2.setMB(MB14, RX, EXT);
     can2.setMB(MB15, RX, EXT);
-
-    can1.setMaxMB(64);
-    can1.enableFIFO();
-    can1.setMB(MB4, RX, STD);
-    can1.setMB(MB5, RX, STD);
-    can1.setMB(MB6, RX, STD);
-    can1.setMB(MB7, RX, STD);
-    can1.setMB(MB8, RX, STD);
-    can1.setMB(MB9, RX, STD);
-    can1.setMB(MB10, RX, STD);
-    can1.setMB(MB11, RX, STD);
-    can1.setMB(MB12, RX, STD);
-    can1.setMB(MB13, RX, STD);
-    can1.setMB(MB14, RX, STD);
-    can1.setMB(MB15, RX, STD);
-    can1.setMB(MB16, RX, EXT);
-    can1.setMB(MB17, RX, EXT);
-    can1.setMB(MB18, RX, EXT);
-    can1.setMB(MB19, RX, EXT);
 }
 
 void read_CAN() {
     int count = 0;
+    count = 0;
+
     while (can1.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
-        decode_CAN1(rxmsg);
+        decode_raptor_CAN1(rxmsg);
         count++;
     }
 
-    count = 0;
     while (can2.read(rxmsg) && count < MAX_CAN_FRAME_READ_PER_CYCLE) {
-        decode_CAN2(rxmsg);
+        decode_raptor_CAN2(rxmsg);
         count++;
     }
 }
+
