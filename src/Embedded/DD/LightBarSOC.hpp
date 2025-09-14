@@ -6,8 +6,8 @@
 #include <FlexCAN_T4.h>
 #include <StateCAN.h>
 
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 #include "LightBar.hpp"
 #include "arduino.h"
 
@@ -47,9 +47,9 @@ LightBarSOC::LightBarSOC(Adafruit_NeoPixel &lights, int first_index, int num_led
               StateSignal & soc_signal, int min_soc, int max_soc) 
               
         : LightBar(lights, first_index, num_leds),
-        soc_signal_(soc_signal),
         min_(min_soc),
-        max_(max_soc) {
+        max_(max_soc),
+        soc_signal_(soc_signal) {
     
         }
 
@@ -68,24 +68,23 @@ void LightBarSOC::Update(unsigned long & elapsed) {
         count += 1;
     }
     
-    float value = soc_signal_.value() / 5;
+    float value = (PM_commandedTorque.can_value() - 0.0) / (1500 - 0.0);
     int no_of_leds = value * GetLastLEDIndex();
     for (int led = GetFirstLEDIndex(); led <= GetLastLEDIndex(); led++) {
         if(value >= 0.80) {
             //green
             if(led <= no_of_leds) {
-                lights_.setPixelColor(led, 0, 255, 0);
+                lights_.setPixelColor(led, 0, 50, 0);
             }
         } else if(value < 0.80 && value >= 0.21) {
             //orange
             if(led <= no_of_leds) {
-                lights_.setPixelColor(led, 255, 165, 0);
+                lights_.setPixelColor(led, 50, 25, 0);
             }
-            
         } else {
             //red
             if(led <= no_of_leds) {
-                lights_.setPixelColor(led, 255, 0, 0);
+                lights_.setPixelColor(led, 50, 0, 0);
             }
         }
     }

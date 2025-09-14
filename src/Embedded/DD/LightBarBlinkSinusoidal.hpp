@@ -4,8 +4,8 @@
 #include <Adafruit_NeoPixel.h>
 #include <EasyTimer.h>
 
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 #include "LightBar.hpp"
 #include "LightBarBlink.hpp"
 #include "arduino.h"

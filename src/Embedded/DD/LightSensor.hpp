@@ -12,13 +12,13 @@ int LightSensor(const int &pin, const int analog_read_bits) {
   static unsigned long running_sample_count = 0;
   static unsigned long sample_count_max =
       500;  // number of samples before calculating a value
-  static unsigned long uC_millivoltage = 3300;
+  static unsigned long uC_millivoltage = 3000;
   static float mvoltage = 0.0;
   static int last_calcd_value = 100;
 
   // light parameters
-  static float daytime_mVoltage = 3200.0;
-  static float nighttime_mVoltage = 2575.0;
+  static float daytime_mVoltage = 2900;
+  static float nighttime_mVoltage = 2600;
 
   running_total += analogRead(pin);
   running_sample_count++;
