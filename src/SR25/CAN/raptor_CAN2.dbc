@@ -38,6 +38,202 @@ VAL_TABLE_ contactorState 2 "Open" 1 "Close" 0 "Faulted" ;
 VAL_TABLE_ vehicleState 8 "Faulted" 7 "ReadyToMove" 6 "Standby" 5 "PrechargeComplete" 4 "PrechargeTimeout" 3 "Precharge" 2 "PrechargeReady" 1 "StartDelay" 0 "Off" ;
 
 
+BO_ 363 STMM_363: 8 STMM
+ SG_ STMM_segmentVolt811 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt810 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt809 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg363 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 362 STMM_362: 8 STMM
+ SG_ STMM_segmentVolt808 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt807 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt806 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg362 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 361 STMM_361: 8 STMM
+ SG_ STMM_segmentVolt805 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt804 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt803 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg361 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 360 STMM_360: 8 STMM
+ SG_ STMM_segmentVolt802 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt801 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt800 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg360 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 359 STMM_359: 8 STMM
+ SG_ STMM_segmentVolt711 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt710 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt709 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg359 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 358 STMM_358: 8 STMM
+ SG_ STMM_segmentVolt708 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt707 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt706 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg358 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 357 STMM_357: 8 STMM
+ SG_ STMM_segmentVolt705 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt704 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt703 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg357 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 356 STMM_356: 8 STMM
+ SG_ STMM_segmentVolt702 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt701 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt700 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg356 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 355 STMM_355: 8 STMM
+ SG_ STMM_segmentVolt611 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt610 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt609 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg355 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 354 STMM_354: 8 STMM
+ SG_ STMM_segmentVolt608 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt607 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt606 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg354 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 353 STMM_353: 8 STMM
+ SG_ STMM_segmentVolt605 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt604 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt603 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg353 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 352 STMM_352: 8 STMM
+ SG_ STMM_segmentVolt602 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt601 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt600 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg352 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 351 STMM_351: 8 STMM
+ SG_ STMM_segmentVolt511 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt510 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt509 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg351 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 350 STMM_350: 8 STMM
+ SG_ STMM_segmentVolt508 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt507 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt506 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg350 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 349 STMM_349: 8 STMM
+ SG_ STMM_segmentVolt505 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt504 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt503 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg349 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 348 STMM_348: 8 STMM
+ SG_ STMM_segmentVolt502 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt501 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt500 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg348 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 347 STMM_347: 8 STMM
+ SG_ STMM_segmentVolt411 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt410 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt409 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg347 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 346 STMM_346: 8 STMM
+ SG_ STMM_segmentVolt408 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt407 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt406 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg346 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 345 STMM_345: 8 STMM
+ SG_ STMM_segmentVolt405 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt404 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt403 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg345 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 344 STMM_344: 8 STMM
+ SG_ STMM_segmentVolt402 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt401 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt400 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg344 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 343 STMM_343: 8 STMM
+ SG_ STMM_segmentVolt311 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt310 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt309 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg343 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 342 STMM_342: 8 STMM
+ SG_ STMM_segmentVolt308 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt307 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt306 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg342 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 341 STMM_341: 8 STMM
+ SG_ STMM_segmentVolt305 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt304 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt303 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg341 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 340 STMM_340: 8 STMM
+ SG_ STMM_segmentVolt302 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt301 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt300 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg340 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 339 STMM_339: 8 STMM
+ SG_ STMM_segmentVolt211 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt210 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt209 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg339 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 338 STMM_338: 8 STMM
+ SG_ STMM_segmentVolt208 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt207 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt206 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg338 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 337 STMM_337: 8 STMM
+ SG_ STMM_segmentVolt205 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt204 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt203 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg337 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 336 STMM_336: 8 STMM
+ SG_ STMM_segmentVolt202 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt201 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt200 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg336 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 335 STMM_335: 8 STMM
+ SG_ STMM_segmentVolt111 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt110 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt109 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg335 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 334 STMM_334: 8 STMM
+ SG_ STMM_segmentVolt108 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt107 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt106 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg334 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 333 STMM_333: 8 STMM
+ SG_ STMM_segmentVolt105 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt104 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt103 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg333 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 332 STMM_332: 8 STMM
+ SG_ STMM_segmentVolt102 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt101 : 32|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_segmentVolt100 : 16|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
+ SG_ STMM_counterMsg332 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 299 STMM_299: 8 STMM
+ SG_ STMM_counterMsg299 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ STMM_segmentSync : 16|8@1+ (1,0) [0|1] "" Vector__XXX
+
 BO_ 160 VCU_160: 8 VCU
  SG_ VCU_driveSpeed : 16|16@1- (0.1,0) [-32768|32767] "mph" Vector__XXX
  SG_ VCU_counterMsg160 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
@@ -588,6 +784,136 @@ BO_ 150 VCU_150: 8 VCU
 
 
 
+CM_ SG_ 363 STMM_segmentVolt811 "Segment 8 module 11";
+CM_ SG_ 363 STMM_segmentVolt810 "Segment 8 module 10";
+CM_ SG_ 363 STMM_segmentVolt809 "Segment 8 module 9";
+CM_ SG_ 363 STMM_counterMsg363 "Counter Message 363";
+CM_ SG_ 362 STMM_segmentVolt808 "Segment 8 module 8";
+CM_ SG_ 362 STMM_segmentVolt807 "Segment 8 module 7";
+CM_ SG_ 362 STMM_segmentVolt806 "Segment 8 module 6";
+CM_ SG_ 362 STMM_counterMsg362 "Counter Message 362";
+CM_ SG_ 361 STMM_segmentVolt805 "Segment 8 module 5";
+CM_ SG_ 361 STMM_segmentVolt804 "Segment 8 module 4";
+CM_ SG_ 361 STMM_segmentVolt803 "Segment 8 module 3";
+CM_ SG_ 361 STMM_counterMsg361 "Counter Message 361";
+CM_ SG_ 360 STMM_segmentVolt802 "Segment 8 module 2";
+CM_ SG_ 360 STMM_segmentVolt801 "Segment 8 module 1";
+CM_ SG_ 360 STMM_segmentVolt800 "Segment 8 module 0";
+CM_ SG_ 360 STMM_counterMsg360 "Counter Message 360";
+CM_ SG_ 359 STMM_segmentVolt711 "Segment 7 module 11";
+CM_ SG_ 359 STMM_segmentVolt710 "Segment 7 module 10";
+CM_ SG_ 359 STMM_segmentVolt709 "Segment 7 module 9";
+CM_ SG_ 359 STMM_counterMsg359 "Counter Message 359";
+CM_ SG_ 358 STMM_segmentVolt708 "Segment 7 module 8";
+CM_ SG_ 358 STMM_segmentVolt707 "Segment 7 module 7";
+CM_ SG_ 358 STMM_segmentVolt706 "Segment 7 module 6";
+CM_ SG_ 358 STMM_counterMsg358 "Counter Message 358";
+CM_ SG_ 357 STMM_segmentVolt705 "Segment 7 module 5";
+CM_ SG_ 357 STMM_segmentVolt704 "Segment 7 module 4";
+CM_ SG_ 357 STMM_segmentVolt703 "Segment 7 module 3";
+CM_ SG_ 357 STMM_counterMsg357 "Counter Message 357";
+CM_ SG_ 356 STMM_segmentVolt702 "Segment 7 module 2";
+CM_ SG_ 356 STMM_segmentVolt701 "Segment 7 module 1";
+CM_ SG_ 356 STMM_segmentVolt700 "Segment 7 module 0";
+CM_ SG_ 356 STMM_counterMsg356 "Counter Message 356";
+CM_ SG_ 355 STMM_segmentVolt611 "Segment 6 module 11";
+CM_ SG_ 355 STMM_segmentVolt610 "Segment 6 module 10";
+CM_ SG_ 355 STMM_segmentVolt609 "Segment 6 module 9";
+CM_ SG_ 355 STMM_counterMsg355 "Counter Message 355";
+CM_ SG_ 354 STMM_segmentVolt608 "Segment 6 module 8";
+CM_ SG_ 354 STMM_segmentVolt607 "Segment 6 module 7";
+CM_ SG_ 354 STMM_segmentVolt606 "Segment 6 module 6";
+CM_ SG_ 354 STMM_counterMsg354 "Counter Message 354";
+CM_ SG_ 353 STMM_segmentVolt605 "Segment 6 module 5";
+CM_ SG_ 353 STMM_segmentVolt604 "Segment 6 module 4";
+CM_ SG_ 353 STMM_segmentVolt603 "Segment 6 module 3";
+CM_ SG_ 353 STMM_counterMsg353 "Counter Message 353";
+CM_ SG_ 352 STMM_segmentVolt602 "Segment 6 module 2";
+CM_ SG_ 352 STMM_segmentVolt601 "Segment 6 module 1";
+CM_ SG_ 352 STMM_segmentVolt600 "Segment 6 module 0";
+CM_ SG_ 352 STMM_counterMsg352 "Counter Message 352";
+CM_ SG_ 351 STMM_segmentVolt511 "Segment 5 module 11";
+CM_ SG_ 351 STMM_segmentVolt510 "Segment 5 module 10";
+CM_ SG_ 351 STMM_segmentVolt509 "Segment 5 module 9";
+CM_ SG_ 351 STMM_counterMsg351 "Counter Message 351";
+CM_ SG_ 350 STMM_segmentVolt508 "Segment 5 module 8";
+CM_ SG_ 350 STMM_segmentVolt507 "Segment 5 module 7";
+CM_ SG_ 350 STMM_segmentVolt506 "Segment 5 module 6";
+CM_ SG_ 350 STMM_counterMsg350 "Counter Message 350";
+CM_ SG_ 349 STMM_segmentVolt505 "Segment 5 module 5";
+CM_ SG_ 349 STMM_segmentVolt504 "Segment 5 module 4";
+CM_ SG_ 349 STMM_segmentVolt503 "Segment 5 module 3";
+CM_ SG_ 349 STMM_counterMsg349 "Counter Message 349";
+CM_ SG_ 348 STMM_segmentVolt502 "Segment 5 module 2";
+CM_ SG_ 348 STMM_segmentVolt501 "Segment 5 module 1";
+CM_ SG_ 348 STMM_segmentVolt500 "Segment 5 module 0";
+CM_ SG_ 348 STMM_counterMsg348 "Counter Message 348";
+CM_ SG_ 347 STMM_segmentVolt411 "Segment 4 module 11";
+CM_ SG_ 347 STMM_segmentVolt410 "Segment 4 module 10";
+CM_ SG_ 347 STMM_segmentVolt409 "Segment 4 module 9";
+CM_ SG_ 347 STMM_counterMsg347 "Counter Message 347";
+CM_ SG_ 346 STMM_segmentVolt408 "Segment 4 module 8";
+CM_ SG_ 346 STMM_segmentVolt407 "Segment 4 module 7";
+CM_ SG_ 346 STMM_segmentVolt406 "Segment 4 module 6";
+CM_ SG_ 346 STMM_counterMsg346 "Counter Message 346";
+CM_ SG_ 345 STMM_segmentVolt405 "Segment 4 module 5";
+CM_ SG_ 345 STMM_segmentVolt404 "Segment 4 module 4";
+CM_ SG_ 345 STMM_segmentVolt403 "Segment 4 module 3";
+CM_ SG_ 345 STMM_counterMsg345 "Counter Message 345";
+CM_ SG_ 344 STMM_segmentVolt402 "Segment 4 module 2";
+CM_ SG_ 344 STMM_segmentVolt401 "Segment 4 module 1";
+CM_ SG_ 344 STMM_segmentVolt400 "Segment 4 module 0";
+CM_ SG_ 344 STMM_counterMsg344 "Counter Message 344";
+CM_ SG_ 343 STMM_segmentVolt311 "Segment 3 module 11";
+CM_ SG_ 343 STMM_segmentVolt310 "Segment 3 module 10";
+CM_ SG_ 343 STMM_segmentVolt309 "Segment 3 module 9";
+CM_ SG_ 343 STMM_counterMsg343 "Counter Message 343";
+CM_ SG_ 342 STMM_segmentVolt308 "Segment 3 module 8";
+CM_ SG_ 342 STMM_segmentVolt307 "Segment 3 module 7";
+CM_ SG_ 342 STMM_segmentVolt306 "Segment 3 module 6";
+CM_ SG_ 342 STMM_counterMsg342 "Counter Message 342";
+CM_ SG_ 341 STMM_segmentVolt305 "Segment 3 module 5";
+CM_ SG_ 341 STMM_segmentVolt304 "Segment 3 module 4";
+CM_ SG_ 341 STMM_segmentVolt303 "Segment 3 module 3";
+CM_ SG_ 341 STMM_counterMsg341 "Counter Message 341";
+CM_ SG_ 340 STMM_segmentVolt302 "Segment 3 module 2";
+CM_ SG_ 340 STMM_segmentVolt301 "Segment 3 module 1";
+CM_ SG_ 340 STMM_segmentVolt300 "Segment 3 module 0";
+CM_ SG_ 340 STMM_counterMsg340 "Counter Message 340";
+CM_ SG_ 339 STMM_segmentVolt211 "Segment 2 module 11";
+CM_ SG_ 339 STMM_segmentVolt210 "Segment 2 module 10";
+CM_ SG_ 339 STMM_segmentVolt209 "Segment 2 module 9";
+CM_ SG_ 339 STMM_counterMsg339 "Counter Message 339";
+CM_ SG_ 338 STMM_segmentVolt208 "Segment 2 module 8";
+CM_ SG_ 338 STMM_segmentVolt207 "Segment 2 module 7";
+CM_ SG_ 338 STMM_segmentVolt206 "Segment 2 module 6";
+CM_ SG_ 338 STMM_counterMsg338 "Counter Message 338";
+CM_ SG_ 337 STMM_segmentVolt205 "Segment 2 module 5";
+CM_ SG_ 337 STMM_segmentVolt204 "Segment 2 module 4";
+CM_ SG_ 337 STMM_segmentVolt203 "Segment 2 module 3";
+CM_ SG_ 337 STMM_counterMsg337 "Counter Message 337";
+CM_ SG_ 336 STMM_segmentVolt202 "Segment 2 module 2";
+CM_ SG_ 336 STMM_segmentVolt201 "Segment 2 module 1";
+CM_ SG_ 336 STMM_segmentVolt200 "Segment 2 module 0";
+CM_ SG_ 336 STMM_counterMsg336 "Counter Message 336";
+CM_ SG_ 335 STMM_segmentVolt111 "Segment 1 module 11";
+CM_ SG_ 335 STMM_segmentVolt110 "Segment 1 module 10";
+CM_ SG_ 335 STMM_segmentVolt109 "Segment 1 module 9";
+CM_ SG_ 335 STMM_counterMsg335 "Counter Message 335";
+CM_ SG_ 334 STMM_segmentVolt108 "Segment 1 module 8";
+CM_ SG_ 334 STMM_segmentVolt107 "Segment 1 module 7";
+CM_ SG_ 334 STMM_segmentVolt106 "Segment 1 module 6";
+CM_ SG_ 334 STMM_counterMsg334 "Counter Message 334";
+CM_ SG_ 333 STMM_segmentVolt105 "Segment 1 module 5";
+CM_ SG_ 333 STMM_segmentVolt104 "Segment 1 module 4";
+CM_ SG_ 333 STMM_segmentVolt103 "Segment 1 module 3";
+CM_ SG_ 333 STMM_counterMsg333 "Counter Message 333";
+CM_ SG_ 332 STMM_segmentVolt102 "Segment 1 module 2";
+CM_ SG_ 332 STMM_segmentVolt101 "Segment 1 module 1";
+CM_ SG_ 332 STMM_segmentVolt100 "Segment 1 module 0";
+CM_ SG_ 332 STMM_counterMsg332 "Counter Message 332";
+CM_ SG_ 299 STMM_counterMsg299 "Counter Message 299";
+CM_ SG_ 299 STMM_segmentSync "Segment sync trigger";
 CM_ SG_ 160 VCU_driveSpeed "Drive axle speed";
 CM_ SG_ 160 VCU_counterMsg160 "Counter Message 160";
 CM_ SG_ 159 VCU_tireTempRRO "RRO tire temperature";

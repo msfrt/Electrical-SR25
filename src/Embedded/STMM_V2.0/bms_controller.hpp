@@ -49,6 +49,17 @@ float module_temp_voltage_7;
 float module_temp_voltage_8;
 float module_temp_voltage_9;
 
+float module_voltage_0;
+float module_voltage_1;
+float module_voltage_2;
+float module_voltage_3;
+float module_voltage_4;
+float module_voltage_5;
+float module_voltage_6;
+float module_voltage_7;
+float module_voltage_8;
+float module_voltage_9;
+
 // const int STMM = 2;
 
 // state variable
@@ -130,6 +141,12 @@ void measurement_loop(cell_asic *bms_ic, const int &STMM){
           // Serial.println("Module 1 VOLTAGE: ");
           // Serial.println(bms_ic[0].cells.c_codes[0]*0.0001);
 
+          module_voltage_0 = bms_ic[0].cells.c_codes[0]*0.0001; // module 1
+          module_voltage_2 = bms_ic[0].cells.c_codes[2]*0.0001; // module 3
+          module_voltage_4 = bms_ic[0].cells.c_codes[4]*0.0001; // module 5
+          module_voltage_6 = bms_ic[0].cells.c_codes[7]*0.0001; // module 7
+          module_voltage_8 = bms_ic[0].cells.c_codes[9]*0.0001; // module 9
+
           discharge_cycle_a(bms_ic);
           delay_m(10); // capacitor discharge delay
           measure_voltage(bms_ic); // measures all cell channels
@@ -163,6 +180,12 @@ void measurement_loop(cell_asic *bms_ic, const int &STMM){
           measure_voltage(bms_ic);
           // Serial.println("Module 2 VOLTAGE: ");
           // Serial.println(bms_ic[0].cells.c_codes[1]*0.0001);
+
+          module_voltage_1 = bms_ic[0].cells.c_codes[1]*0.0001; // module 2
+          module_voltage_3 = bms_ic[0].cells.c_codes[3]*0.0001; // module 4
+          module_voltage_5 = bms_ic[0].cells.c_codes[6]*0.0001; // module 6
+          module_voltage_7 = bms_ic[0].cells.c_codes[8]*0.0001; // module 8
+          module_voltage_9 = bms_ic[0].cells.c_codes[10]*0.0001; // module 10
 
           discharge_cycle_b(bms_ic);
           delay_m(10); // capacitor discharge delay
@@ -198,8 +221,15 @@ void measurement_loop(cell_asic *bms_ic, const int &STMM){
       if (STMM_segmentSync.value() == 0x00 && STMM_segmentSync.timeout_check()){
         
         measure_voltage(bms_ic);
-        // Serial.println("Module 1 VOLTAGE: ");
+        
+        // Serial.println("Module 1p2 VOLTAGE: ");
         // Serial.println(bms_ic[0].cells.c_codes[0]*0.0001);
+
+        module_voltage_0 = bms_ic[0].cells.c_codes[0]*0.0001; // module 1
+        module_voltage_2 = bms_ic[0].cells.c_codes[2]*0.0001; // module 3
+        module_voltage_4 = bms_ic[0].cells.c_codes[4]*0.0001; // module 5
+        module_voltage_6 = bms_ic[0].cells.c_codes[7]*0.0001; // module 7
+        module_voltage_8 = bms_ic[0].cells.c_codes[9]*0.0001; // module 9
 
         discharge_cycle_a(bms_ic);
         delay_m(10); // capacitor discharge delay
@@ -218,6 +248,15 @@ void measurement_loop(cell_asic *bms_ic, const int &STMM){
         measure_voltage(bms_ic);
         // Serial.println("Module 2 VOLTAGE: ");
         // Serial.println(bms_ic[0].cells.c_codes[1]*0.0001);
+
+        // Serial.println("Module 1p2 VOLTAGE again: ");
+        // Serial.println(bms_ic[0].cells.c_codes[0]*0.0001);
+
+        module_voltage_1 = bms_ic[0].cells.c_codes[1]*0.0001; // module 2
+        module_voltage_3 = bms_ic[0].cells.c_codes[3]*0.0001; // module 4
+        module_voltage_5 = bms_ic[0].cells.c_codes[6]*0.0001; // module 6
+        module_voltage_7 = bms_ic[0].cells.c_codes[8]*0.0001; // module 8
+        module_voltage_9 = bms_ic[0].cells.c_codes[10]*0.0001; // module 10
 
         discharge_cycle_b(bms_ic);
         delay_m(10); // capacitor discharge delay

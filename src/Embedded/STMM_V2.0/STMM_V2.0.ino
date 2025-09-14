@@ -52,7 +52,7 @@ static cell_asic bms_ic[TOTAL_IC];
 #include "CAN/raptor_CAN1.hpp"
 #include "CAN/raptor_CAN2.hpp"
 
-const int STMM = 4;   /* STMM Module Select 
+const int STMM = 8;   /* STMM Module Select 
                       1 = seg1 
                       2 = seg2
                       3 = seg3
