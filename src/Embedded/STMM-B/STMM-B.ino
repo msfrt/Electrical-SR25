@@ -19,6 +19,7 @@
 
 #include "bms_controller.hpp"
 
+#include "sensors.hpp"
 
 // bus and message definition1
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> cbus1;
@@ -54,7 +55,13 @@ static cell_asic bms_ic[TOTAL_IC];
 // rainbow RGB
 #include "rainbow_pixels.hpp"
 
-const int GLO_NeoPixel_teensy_pin = 0;
+// output pin that drives the shutdown circuit relay
+const int BMS_status_pin = 20;
+
+// default balancing state
+int balancing = 0;
+
+const int GLO_NeoPixel_teensy_pin = 7;
       int GLO_NeoPixel_brightness_percent = 10; // 0 - 100 %
 Adafruit_NeoPixel GLO_neopixel(1, GLO_NeoPixel_teensy_pin, NEO_GRB + NEO_KHZ800);
 
@@ -66,6 +73,11 @@ void setup() {
   GLO_neopixel.setBrightness(map(GLO_NeoPixel_brightness_percent, 0, 100, 0, 255));
   GLO_neopixel.setPixelColor(0, 255, 0, 0); // red
   GLO_neopixel.show();
+
+  // initialize BMS status pin
+  pinMode(BMS_status_pin, OUTPUT);
+  // initialize the BMS status pin low before passing status checks
+  digitalWrite(BMS_status_pin, LOW);
 
   // Initialize serial communication
   Serial.begin(112500);
@@ -98,12 +110,42 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   rainbow_pixels(GLO_neopixel);
-  
-  measurement_loop(bms_ic);
 
   sample_ADCs();
   readCan();
 
+  // find a good trigger that comes from the Elcon
+  if (XXX.value() == 0x00 && XXX.timeout_check()){
+    balancing = 1;
+  } else {
+    balancing = 0;
+  }
+
+  switch(balancing):
+    case 0: // normal monitoring state
+      
+      static EasyTimer measurement_timer(10); // measure voltages every 100ms
+      if (measurement_timer.isup()) {
+        measurement_loop(bms_ic);
+      }
+
+      send_step();
+      send_can_2();
+
+      break;
+    
+    case 1: // charging state
+      
+      static EasyTimer balancing_timer(10); // balances every 100ms
+      if (balancing_timer.isup()) {
+        balancing_loop(bms_ic);
+      }
+
+      send_step();
+      send_can_1();
+
+      break;
+    
 }
 
 void set_mailboxes() {
