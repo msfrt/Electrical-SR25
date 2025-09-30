@@ -167,22 +167,30 @@ void balancing_loop(cell_asic *bms_ic){
       // Serial.println("Module 1 VOLTAGE: ");
       // Serial.println(bms_ic[0].cells.c_codes[0]*0.0001);
 
-      module_voltage_0 = bms_ic[0].cells.c_codes[0]*0.0001; // module 1
-      module_voltage_2 = bms_ic[0].cells.c_codes[2]*0.0001; // module 3
-      module_voltage_4 = bms_ic[0].cells.c_codes[4]*0.0001; // module 5
-      module_voltage_6 = bms_ic[0].cells.c_codes[6]*0.0001; // module 7
-      module_voltage_8 = bms_ic[0].cells.c_codes[8]*0.0001; // module 9
+      // module_voltage_0 = bms_ic[0].cells.c_codes[0]*0.0001; // module 1
+      // module_voltage_2 = bms_ic[0].cells.c_codes[2]*0.0001; // module 3
+      // module_voltage_4 = bms_ic[0].cells.c_codes[4]*0.0001; // module 5
+      // module_voltage_6 = bms_ic[0].cells.c_codes[6]*0.0001; // module 7
+      // module_voltage_8 = bms_ic[0].cells.c_codes[8]*0.0001; // module 9
+
+      // only update the odd module voltages
+      for (int seg; seg < TOTAL_IC; seg++){
+        for (int cell; cell < CELLS_PER_SEG - 1; cell++)
+          if (cell % 2){
+            get_mod_volts(seg).at(cell).second = bms_ic[seg].cells.c_codes[cell]*0.0001;
+          }  
+      }
 
       discharge_cycle_a(bms_ic);
-      delay_m(10); // capacitor discharge delay
+      // delay_m(10); // capacitor discharge delay
       
-      measure_voltage(bms_ic); // measures all cell channels
+      // measure_voltage(bms_ic); // measures all cell channels
 
-      module_balancing_voltage_0 = bms_ic[0].cells.c_codes[0]*0.0001; // module 1
-      module_balancing_voltage_2 = bms_ic[0].cells.c_codes[2]*0.0001; // module 3
-      module_balancing_voltage_4 = bms_ic[0].cells.c_codes[4]*0.0001; // module 5
-      module_balancing_voltage_6 = bms_ic[0].cells.c_codes[6]*0.0001; // module 7
-      module_balancing_voltage_8 = bms_ic[0].cells.c_codes[8]*0.0001; // module 9
+      // module_balancing_voltage_0 = bms_ic[0].cells.c_codes[0]*0.0001; // module 1
+      // module_balancing_voltage_2 = bms_ic[0].cells.c_codes[2]*0.0001; // module 3
+      // module_balancing_voltage_4 = bms_ic[0].cells.c_codes[4]*0.0001; // module 5
+      // module_balancing_voltage_6 = bms_ic[0].cells.c_codes[6]*0.0001; // module 7
+      // module_balancing_voltage_8 = bms_ic[0].cells.c_codes[8]*0.0001; // module 9
       
       step = 1;
       break;
@@ -198,6 +206,14 @@ void balancing_loop(cell_asic *bms_ic){
       module_voltage_5 = bms_ic[0].cells.c_codes[5]*0.0001; // module 6
       module_voltage_7 = bms_ic[0].cells.c_codes[7]*0.0001; // module 8
       module_voltage_9 = bms_ic[0].cells.c_codes[9]*0.0001; // module 10
+
+      // only update the odd module voltages
+      for (int seg; seg < TOTAL_IC; seg++){
+        for (int cell; cell < CELLS_PER_SEG - 1; cell++)
+          if (cell % 2 + 1){
+            get_mod_volts(seg).at(cell).second = bms_ic[seg].cells.c_codes[cell]*0.0001;
+          }  
+      }
 
       discharge_cycle_b(bms_ic);
       delay_m(10); // capacitor discharge delay
