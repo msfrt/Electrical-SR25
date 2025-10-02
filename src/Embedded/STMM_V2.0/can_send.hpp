@@ -21,11 +21,11 @@ void send_STMM_1806E5F4(const int &seg){
     msg.id = 403105268;
     msg.flags.extended = 1;
     msg.len = 8;
-
-    msg.buf[0] = int8_t(336); // max accumulator voltage (V)
-    msg.buf[1] = 0x00;
-    msg.buf[2] = int8_t(10); // accumulator charging current limit (CCL) (A)
-    msg.buf[3] = 0x00;
+    
+    msg.buf[0] = 0x0D; // max accumulator voltage (V)
+    msg.buf[1] = 0x20;
+    msg.buf[2] = 0x00; // accumulator charging current limit (CCL) (A)
+    msg.buf[3] = 0x64;
     msg.buf[4] = 0x00;
     msg.buf[5] = 0x00;
     msg.buf[6] = 0x00;
