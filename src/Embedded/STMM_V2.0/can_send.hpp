@@ -15,6 +15,25 @@
 ///////////////////////////////////////////////////////////////////
 */
 
+// charging message, use elcon dbc
+void send_STMM_1806E5F4(const int &seg){
+    
+    msg.id = 403105268;
+    msg.flags.extended = 1;
+    msg.len = 8;
+
+    msg.buf[0] = int8_t(336); // max accumulator voltage (V)
+    msg.buf[1] = 0x00;
+    msg.buf[2] = int8_t(10); // accumulator charging current limit (CCL) (A)
+    msg.buf[3] = 0x00;
+    msg.buf[4] = 0x00;
+    msg.buf[5] = 0x00;
+    msg.buf[6] = 0x00;
+    msg.buf[7] = 0x00;
+
+    cbus2.write(msg);
+}
+
 void send_STMM_1839F380(const int &seg) {
 
     msg.id = 406451072;
@@ -2170,6 +2189,13 @@ void send_can_8(const int &seg) {
     static EasyTimer STMM_363_timer(1);
     if(STMM_363_timer.isup()) {
         send_STMM_363(seg);
+    }
+}
+
+void send_can_charger(const int &seg) {
+    static EasyTimer STMM_1806E5F4_timer(2); // 2 Hz (500ms)
+    if(STMM_1806E5F4_timer.isup()) {
+        send_STMM_1806E5F4(seg);
     }
 }
 

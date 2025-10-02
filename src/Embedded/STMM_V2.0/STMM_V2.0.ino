@@ -33,7 +33,7 @@ FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> cbus2;
 // CHECK TO SEE WHICH HARDWARE, PHYSICAL, CANBUS WE ARE USING
 static CAN_message_t msg; // tx msg
 static CAN_message_t rxmsg; // rx msg
-#define cbus2_BAUDRATE 1000000
+#define cbus2_BAUDRATE 250000
 
 // each bus has a total of 64 mailboxes
 #define NUM_RX_STD_MAILBOXES 60
@@ -52,7 +52,7 @@ static cell_asic bms_ic[TOTAL_IC];
 #include "CAN/raptor_CAN1.hpp"
 #include "CAN/raptor_CAN2.hpp"
 
-const int STMM = 8;   /* STMM Module Select 
+const int STMM = 9;   /* STMM Module Select 
                       1 = seg1 
                       2 = seg2
                       3 = seg3
@@ -147,6 +147,9 @@ void loop() {
     case 8:
       send_can_8(8);
       readCan();
+      break;
+    case 9:
+      send_can_charger(9);
       break;
   }
   
