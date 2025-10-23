@@ -360,6 +360,7 @@ BO_ 153 VCU_153: 8 VCU
  SG_ VCU_counterMsg153 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
 BO_ 152 VCU_152: 8 VCU
+ SG_ VCU_ShifterState : 56|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ VCU_rtmSound : 48|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ VCU_mainMinusContactorState : 40|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ VCU_mainPlusContactorState : 32|8@1+ (1,0) [0|255] "" Vector__XXX
@@ -1070,6 +1071,7 @@ CM_ SG_ 153 VCU_pwrDownSwitch "Power down switch signal";
 CM_ SG_ 153 VCU_pwrUpSwitch "Power up switch signal";
 CM_ SG_ 153 VCU_startSwitch "Start switch signal";
 CM_ SG_ 153 VCU_counterMsg153 "Counter Message 153";
+CM_ SG_ 152 VCU_ShifterState "Torque-Shifter State";
 CM_ SG_ 152 VCU_rtmSound "Ready To Move sound";
 CM_ SG_ 152 VCU_mainMinusContactorState "Main- contactor state";
 CM_ SG_ 152 VCU_mainPlusContactorState "Main+ contactor state";
