@@ -14,6 +14,202 @@
 #include <FlexCAN_T4.h>
 #include <StateCAN.h>
 
+// Message: STMM_363 [0x16b]
+StateSignal STMM_counterMsg363(4, false, 1, 0.0, 0, 15, 0.0, -1, 363);
+StateSignal STMM_segmentVolt809(16, true, 1000, 0.0, -32, 32, 0.0, -1, 363);
+StateSignal STMM_segmentVolt810(16, true, 1000, 0.0, -32, 32, 0.0, -1, 363);
+StateSignal STMM_segmentVolt811(16, true, 1000, 0.0, -32, 32, 0.0, -1, 363);
+
+// Message: STMM_362 [0x16a]
+StateSignal STMM_counterMsg362(4, false, 1, 0.0, 0, 15, 0.0, -1, 362);
+StateSignal STMM_segmentVolt806(16, true, 1000, 0.0, -32, 32, 0.0, -1, 362);
+StateSignal STMM_segmentVolt807(16, true, 1000, 0.0, -32, 32, 0.0, -1, 362);
+StateSignal STMM_segmentVolt808(16, true, 1000, 0.0, -32, 32, 0.0, -1, 362);
+
+// Message: STMM_361 [0x169]
+StateSignal STMM_counterMsg361(4, false, 1, 0.0, 0, 15, 0.0, -1, 361);
+StateSignal STMM_segmentVolt803(16, true, 1000, 0.0, -32, 32, 0.0, -1, 361);
+StateSignal STMM_segmentVolt804(16, true, 1000, 0.0, -32, 32, 0.0, -1, 361);
+StateSignal STMM_segmentVolt805(16, true, 1000, 0.0, -32, 32, 0.0, -1, 361);
+
+// Message: STMM_360 [0x168]
+StateSignal STMM_counterMsg360(4, false, 1, 0.0, 0, 15, 0.0, -1, 360);
+StateSignal STMM_segmentVolt800(16, true, 1000, 0.0, -32, 32, 0.0, -1, 360);
+StateSignal STMM_segmentVolt801(16, true, 1000, 0.0, -32, 32, 0.0, -1, 360);
+StateSignal STMM_segmentVolt802(16, true, 1000, 0.0, -32, 32, 0.0, -1, 360);
+
+// Message: STMM_359 [0x167]
+StateSignal STMM_counterMsg359(4, false, 1, 0.0, 0, 15, 0.0, -1, 359);
+StateSignal STMM_segmentVolt709(16, true, 1000, 0.0, -32, 32, 0.0, -1, 359);
+StateSignal STMM_segmentVolt710(16, true, 1000, 0.0, -32, 32, 0.0, -1, 359);
+StateSignal STMM_segmentVolt711(16, true, 1000, 0.0, -32, 32, 0.0, -1, 359);
+
+// Message: STMM_358 [0x166]
+StateSignal STMM_counterMsg358(4, false, 1, 0.0, 0, 15, 0.0, -1, 358);
+StateSignal STMM_segmentVolt706(16, true, 1000, 0.0, -32, 32, 0.0, -1, 358);
+StateSignal STMM_segmentVolt707(16, true, 1000, 0.0, -32, 32, 0.0, -1, 358);
+StateSignal STMM_segmentVolt708(16, true, 1000, 0.0, -32, 32, 0.0, -1, 358);
+
+// Message: STMM_357 [0x165]
+StateSignal STMM_counterMsg357(4, false, 1, 0.0, 0, 15, 0.0, -1, 357);
+StateSignal STMM_segmentVolt703(16, true, 1000, 0.0, -32, 32, 0.0, -1, 357);
+StateSignal STMM_segmentVolt704(16, true, 1000, 0.0, -32, 32, 0.0, -1, 357);
+StateSignal STMM_segmentVolt705(16, true, 1000, 0.0, -32, 32, 0.0, -1, 357);
+
+// Message: STMM_356 [0x164]
+StateSignal STMM_counterMsg356(4, false, 1, 0.0, 0, 15, 0.0, -1, 356);
+StateSignal STMM_segmentVolt700(16, true, 1000, 0.0, -32, 32, 0.0, -1, 356);
+StateSignal STMM_segmentVolt701(16, true, 1000, 0.0, -32, 32, 0.0, -1, 356);
+StateSignal STMM_segmentVolt702(16, true, 1000, 0.0, -32, 32, 0.0, -1, 356);
+
+// Message: STMM_355 [0x163]
+StateSignal STMM_counterMsg355(4, false, 1, 0.0, 0, 15, 0.0, -1, 355);
+StateSignal STMM_segmentVolt609(16, true, 1000, 0.0, -32, 32, 0.0, -1, 355);
+StateSignal STMM_segmentVolt610(16, true, 1000, 0.0, -32, 32, 0.0, -1, 355);
+StateSignal STMM_segmentVolt611(16, true, 1000, 0.0, -32, 32, 0.0, -1, 355);
+
+// Message: STMM_354 [0x162]
+StateSignal STMM_counterMsg354(4, false, 1, 0.0, 0, 15, 0.0, -1, 354);
+StateSignal STMM_segmentVolt606(16, true, 1000, 0.0, -32, 32, 0.0, -1, 354);
+StateSignal STMM_segmentVolt607(16, true, 1000, 0.0, -32, 32, 0.0, -1, 354);
+StateSignal STMM_segmentVolt608(16, true, 1000, 0.0, -32, 32, 0.0, -1, 354);
+
+// Message: STMM_353 [0x161]
+StateSignal STMM_counterMsg353(4, false, 1, 0.0, 0, 15, 0.0, -1, 353);
+StateSignal STMM_segmentVolt603(16, true, 1000, 0.0, -32, 32, 0.0, -1, 353);
+StateSignal STMM_segmentVolt604(16, true, 1000, 0.0, -32, 32, 0.0, -1, 353);
+StateSignal STMM_segmentVolt605(16, true, 1000, 0.0, -32, 32, 0.0, -1, 353);
+
+// Message: STMM_352 [0x160]
+StateSignal STMM_counterMsg352(4, false, 1, 0.0, 0, 15, 0.0, -1, 352);
+StateSignal STMM_segmentVolt600(16, true, 1000, 0.0, -32, 32, 0.0, -1, 352);
+StateSignal STMM_segmentVolt601(16, true, 1000, 0.0, -32, 32, 0.0, -1, 352);
+StateSignal STMM_segmentVolt602(16, true, 1000, 0.0, -32, 32, 0.0, -1, 352);
+
+// Message: STMM_351 [0x15f]
+StateSignal STMM_counterMsg351(4, false, 1, 0.0, 0, 15, 0.0, -1, 351);
+StateSignal STMM_segmentVolt509(16, true, 1000, 0.0, -32, 32, 0.0, -1, 351);
+StateSignal STMM_segmentVolt510(16, true, 1000, 0.0, -32, 32, 0.0, -1, 351);
+StateSignal STMM_segmentVolt511(16, true, 1000, 0.0, -32, 32, 0.0, -1, 351);
+
+// Message: STMM_350 [0x15e]
+StateSignal STMM_counterMsg350(4, false, 1, 0.0, 0, 15, 0.0, -1, 350);
+StateSignal STMM_segmentVolt506(16, true, 1000, 0.0, -32, 32, 0.0, -1, 350);
+StateSignal STMM_segmentVolt507(16, true, 1000, 0.0, -32, 32, 0.0, -1, 350);
+StateSignal STMM_segmentVolt508(16, true, 1000, 0.0, -32, 32, 0.0, -1, 350);
+
+// Message: STMM_349 [0x15d]
+StateSignal STMM_counterMsg349(4, false, 1, 0.0, 0, 15, 0.0, -1, 349);
+StateSignal STMM_segmentVolt503(16, true, 1000, 0.0, -32, 32, 0.0, -1, 349);
+StateSignal STMM_segmentVolt504(16, true, 1000, 0.0, -32, 32, 0.0, -1, 349);
+StateSignal STMM_segmentVolt505(16, true, 1000, 0.0, -32, 32, 0.0, -1, 349);
+
+// Message: STMM_348 [0x15c]
+StateSignal STMM_counterMsg348(4, false, 1, 0.0, 0, 15, 0.0, -1, 348);
+StateSignal STMM_segmentVolt500(16, true, 1000, 0.0, -32, 32, 0.0, -1, 348);
+StateSignal STMM_segmentVolt501(16, true, 1000, 0.0, -32, 32, 0.0, -1, 348);
+StateSignal STMM_segmentVolt502(16, true, 1000, 0.0, -32, 32, 0.0, -1, 348);
+
+// Message: STMM_347 [0x15b]
+StateSignal STMM_counterMsg347(4, false, 1, 0.0, 0, 15, 0.0, -1, 347);
+StateSignal STMM_segmentVolt409(16, true, 1000, 0.0, -32, 32, 0.0, -1, 347);
+StateSignal STMM_segmentVolt410(16, true, 1000, 0.0, -32, 32, 0.0, -1, 347);
+StateSignal STMM_segmentVolt411(16, true, 1000, 0.0, -32, 32, 0.0, -1, 347);
+
+// Message: STMM_346 [0x15a]
+StateSignal STMM_counterMsg346(4, false, 1, 0.0, 0, 15, 0.0, -1, 346);
+StateSignal STMM_segmentVolt406(16, true, 1000, 0.0, -32, 32, 0.0, -1, 346);
+StateSignal STMM_segmentVolt407(16, true, 1000, 0.0, -32, 32, 0.0, -1, 346);
+StateSignal STMM_segmentVolt408(16, true, 1000, 0.0, -32, 32, 0.0, -1, 346);
+
+// Message: STMM_345 [0x159]
+StateSignal STMM_counterMsg345(4, false, 1, 0.0, 0, 15, 0.0, -1, 345);
+StateSignal STMM_segmentVolt403(16, true, 1000, 0.0, -32, 32, 0.0, -1, 345);
+StateSignal STMM_segmentVolt404(16, true, 1000, 0.0, -32, 32, 0.0, -1, 345);
+StateSignal STMM_segmentVolt405(16, true, 1000, 0.0, -32, 32, 0.0, -1, 345);
+
+// Message: STMM_344 [0x158]
+StateSignal STMM_counterMsg344(4, false, 1, 0.0, 0, 15, 0.0, -1, 344);
+StateSignal STMM_segmentVolt400(16, true, 1000, 0.0, -32, 32, 0.0, -1, 344);
+StateSignal STMM_segmentVolt401(16, true, 1000, 0.0, -32, 32, 0.0, -1, 344);
+StateSignal STMM_segmentVolt402(16, true, 1000, 0.0, -32, 32, 0.0, -1, 344);
+
+// Message: STMM_343 [0x157]
+StateSignal STMM_counterMsg343(4, false, 1, 0.0, 0, 15, 0.0, -1, 343);
+StateSignal STMM_segmentVolt309(16, true, 1000, 0.0, -32, 32, 0.0, -1, 343);
+StateSignal STMM_segmentVolt310(16, true, 1000, 0.0, -32, 32, 0.0, -1, 343);
+StateSignal STMM_segmentVolt311(16, true, 1000, 0.0, -32, 32, 0.0, -1, 343);
+
+// Message: STMM_342 [0x156]
+StateSignal STMM_counterMsg342(4, false, 1, 0.0, 0, 15, 0.0, -1, 342);
+StateSignal STMM_segmentVolt306(16, true, 1000, 0.0, -32, 32, 0.0, -1, 342);
+StateSignal STMM_segmentVolt307(16, true, 1000, 0.0, -32, 32, 0.0, -1, 342);
+StateSignal STMM_segmentVolt308(16, true, 1000, 0.0, -32, 32, 0.0, -1, 342);
+
+// Message: STMM_341 [0x155]
+StateSignal STMM_counterMsg341(4, false, 1, 0.0, 0, 15, 0.0, -1, 341);
+StateSignal STMM_segmentVolt303(16, true, 1000, 0.0, -32, 32, 0.0, -1, 341);
+StateSignal STMM_segmentVolt304(16, true, 1000, 0.0, -32, 32, 0.0, -1, 341);
+StateSignal STMM_segmentVolt305(16, true, 1000, 0.0, -32, 32, 0.0, -1, 341);
+
+// Message: STMM_340 [0x154]
+StateSignal STMM_counterMsg340(4, false, 1, 0.0, 0, 15, 0.0, -1, 340);
+StateSignal STMM_segmentVolt300(16, true, 1000, 0.0, -32, 32, 0.0, -1, 340);
+StateSignal STMM_segmentVolt301(16, true, 1000, 0.0, -32, 32, 0.0, -1, 340);
+StateSignal STMM_segmentVolt302(16, true, 1000, 0.0, -32, 32, 0.0, -1, 340);
+
+// Message: STMM_339 [0x153]
+StateSignal STMM_counterMsg339(4, false, 1, 0.0, 0, 15, 0.0, -1, 339);
+StateSignal STMM_segmentVolt209(16, true, 1000, 0.0, -32, 32, 0.0, -1, 339);
+StateSignal STMM_segmentVolt210(16, true, 1000, 0.0, -32, 32, 0.0, -1, 339);
+StateSignal STMM_segmentVolt211(16, true, 1000, 0.0, -32, 32, 0.0, -1, 339);
+
+// Message: STMM_338 [0x152]
+StateSignal STMM_counterMsg338(4, false, 1, 0.0, 0, 15, 0.0, -1, 338);
+StateSignal STMM_segmentVolt206(16, true, 1000, 0.0, -32, 32, 0.0, -1, 338);
+StateSignal STMM_segmentVolt207(16, true, 1000, 0.0, -32, 32, 0.0, -1, 338);
+StateSignal STMM_segmentVolt208(16, true, 1000, 0.0, -32, 32, 0.0, -1, 338);
+
+// Message: STMM_337 [0x151]
+StateSignal STMM_counterMsg337(4, false, 1, 0.0, 0, 15, 0.0, -1, 337);
+StateSignal STMM_segmentVolt203(16, true, 1000, 0.0, -32, 32, 0.0, -1, 337);
+StateSignal STMM_segmentVolt204(16, true, 1000, 0.0, -32, 32, 0.0, -1, 337);
+StateSignal STMM_segmentVolt205(16, true, 1000, 0.0, -32, 32, 0.0, -1, 337);
+
+// Message: STMM_336 [0x150]
+StateSignal STMM_counterMsg336(4, false, 1, 0.0, 0, 15, 0.0, -1, 336);
+StateSignal STMM_segmentVolt200(16, true, 1000, 0.0, -32, 32, 0.0, -1, 336);
+StateSignal STMM_segmentVolt201(16, true, 1000, 0.0, -32, 32, 0.0, -1, 336);
+StateSignal STMM_segmentVolt202(16, true, 1000, 0.0, -32, 32, 0.0, -1, 336);
+
+// Message: STMM_335 [0x14f]
+StateSignal STMM_counterMsg335(4, false, 1, 0.0, 0, 15, 0.0, -1, 335);
+StateSignal STMM_segmentVolt109(16, true, 1000, 0.0, -32, 32, 0.0, -1, 335);
+StateSignal STMM_segmentVolt110(16, true, 1000, 0.0, -32, 32, 0.0, -1, 335);
+StateSignal STMM_segmentVolt111(16, true, 1000, 0.0, -32, 32, 0.0, -1, 335);
+
+// Message: STMM_334 [0x14e]
+StateSignal STMM_counterMsg334(4, false, 1, 0.0, 0, 15, 0.0, -1, 334);
+StateSignal STMM_segmentVolt106(16, true, 1000, 0.0, -32, 32, 0.0, -1, 334);
+StateSignal STMM_segmentVolt107(16, true, 1000, 0.0, -32, 32, 0.0, -1, 334);
+StateSignal STMM_segmentVolt108(16, true, 1000, 0.0, -32, 32, 0.0, -1, 334);
+
+// Message: STMM_333 [0x14d]
+StateSignal STMM_counterMsg333(4, false, 1, 0.0, 0, 15, 0.0, -1, 333);
+StateSignal STMM_segmentVolt103(16, true, 1000, 0.0, -32, 32, 0.0, -1, 333);
+StateSignal STMM_segmentVolt104(16, true, 1000, 0.0, -32, 32, 0.0, -1, 333);
+StateSignal STMM_segmentVolt105(16, true, 1000, 0.0, -32, 32, 0.0, -1, 333);
+
+// Message: STMM_332 [0x14c]
+StateSignal STMM_counterMsg332(4, false, 1, 0.0, 0, 15, 0.0, -1, 332);
+StateSignal STMM_segmentVolt100(16, true, 1000, 0.0, -32, 32, 0.0, -1, 332);
+StateSignal STMM_segmentVolt101(16, true, 1000, 0.0, -32, 32, 0.0, -1, 332);
+StateSignal STMM_segmentVolt102(16, true, 1000, 0.0, -32, 32, 0.0, -1, 332);
+
+// Message: STMM_299 [0x12b]
+StateSignal STMM_counterMsg299(4, false, 1, 0.0, 0, 15, 0.0, -1, 299);
+StateSignal STMM_segmentSync(8, false, 1, 0.0, 0, 1, 0.0, -1, 299);
+
 // Message: VCU_160 [0xa0]
 StateSignal VCU_counterMsg160(4, false, 1, 0.0, 0, 15, 0.0, -1, 160);
 StateSignal VCU_driveSpeed(16, true, 10, 0.0, -32768, 32767, 0.0, -1, 160);
@@ -147,6 +343,7 @@ StateSignal VCU_prechargeContactorState(8, false, 1, 0.0, 0, 255, 0.0, -1, 152);
 StateSignal VCU_mainPlusContactorState(8, false, 1, 0.0, 0, 255, 0.0, -1, 152);
 StateSignal VCU_mainMinusContactorState(8, false, 1, 0.0, 0, 255, 0.0, -1, 152);
 StateSignal VCU_rtmSound(1, false, 1, 0.0, 0, 1, 0.0, -1, 152);
+StateSignal VCU_ShifterState(8, false, 1, 0.0, 0, 255, 0.0, -1, 152);
 
 // Message: VCU_151 [0x97]
 StateSignal VCU_counterMsg151(4, false, 1, 0.0, 0, 15, 0.0, -1, 151);
@@ -573,6 +770,433 @@ StateSignal VCU_throttlePosition2(16, true, 10, 0.0, 0, 100, 0.0, -1, 150);
 
 
 /*
+ * Decode a CAN frame for the message STMM_363
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_363(const CAN_message_t &imsg) {
+
+	STMM_counterMsg363.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt809.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt810.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt811.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_362
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_362(const CAN_message_t &imsg) {
+
+	STMM_counterMsg362.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt806.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt807.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt808.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_361
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_361(const CAN_message_t &imsg) {
+
+	STMM_counterMsg361.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt803.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt804.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt805.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_360
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_360(const CAN_message_t &imsg) {
+
+	STMM_counterMsg360.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt800.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt801.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt802.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_359
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_359(const CAN_message_t &imsg) {
+
+	STMM_counterMsg359.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt709.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt710.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt711.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_358
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_358(const CAN_message_t &imsg) {
+
+	STMM_counterMsg358.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt706.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt707.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt708.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_357
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_357(const CAN_message_t &imsg) {
+
+	STMM_counterMsg357.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt703.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt704.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt705.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_356
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_356(const CAN_message_t &imsg) {
+
+	STMM_counterMsg356.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt700.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt701.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt702.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_355
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_355(const CAN_message_t &imsg) {
+
+	STMM_counterMsg355.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt609.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt610.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt611.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_354
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_354(const CAN_message_t &imsg) {
+
+	STMM_counterMsg354.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt606.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt607.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt608.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_353
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_353(const CAN_message_t &imsg) {
+
+	STMM_counterMsg353.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt603.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt604.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt605.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_352
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_352(const CAN_message_t &imsg) {
+
+	STMM_counterMsg352.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt600.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt601.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt602.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_351
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_351(const CAN_message_t &imsg) {
+
+	STMM_counterMsg351.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt509.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt510.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt511.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_350
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_350(const CAN_message_t &imsg) {
+
+	STMM_counterMsg350.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt506.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt507.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt508.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_349
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_349(const CAN_message_t &imsg) {
+
+	STMM_counterMsg349.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt503.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt504.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt505.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_348
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_348(const CAN_message_t &imsg) {
+
+	STMM_counterMsg348.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt500.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt501.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt502.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_347
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_347(const CAN_message_t &imsg) {
+
+	STMM_counterMsg347.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt409.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt410.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt411.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_346
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_346(const CAN_message_t &imsg) {
+
+	STMM_counterMsg346.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt406.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt407.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt408.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_345
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_345(const CAN_message_t &imsg) {
+
+	STMM_counterMsg345.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt403.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt404.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt405.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_344
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_344(const CAN_message_t &imsg) {
+
+	STMM_counterMsg344.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt400.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt401.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt402.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_343
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_343(const CAN_message_t &imsg) {
+
+	STMM_counterMsg343.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt309.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt310.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt311.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_342
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_342(const CAN_message_t &imsg) {
+
+	STMM_counterMsg342.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt306.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt307.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt308.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_341
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_341(const CAN_message_t &imsg) {
+
+	STMM_counterMsg341.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt303.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt304.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt305.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_340
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_340(const CAN_message_t &imsg) {
+
+	STMM_counterMsg340.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt300.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt301.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt302.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_339
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_339(const CAN_message_t &imsg) {
+
+	STMM_counterMsg339.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt209.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt210.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt211.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_338
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_338(const CAN_message_t &imsg) {
+
+	STMM_counterMsg338.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt206.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt207.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt208.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_337
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_337(const CAN_message_t &imsg) {
+
+	STMM_counterMsg337.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt203.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt204.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt205.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_336
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_336(const CAN_message_t &imsg) {
+
+	STMM_counterMsg336.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt200.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt201.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt202.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_335
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_335(const CAN_message_t &imsg) {
+
+	STMM_counterMsg335.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt109.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt110.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt111.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_334
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_334(const CAN_message_t &imsg) {
+
+	STMM_counterMsg334.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt106.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt107.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt108.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_333
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_333(const CAN_message_t &imsg) {
+
+	STMM_counterMsg333.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt103.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt104.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt105.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_332
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_332(const CAN_message_t &imsg) {
+
+	STMM_counterMsg332.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentVolt100.set_can_value((imsg.buf[2]) | (imsg.buf[3] << 8));
+	STMM_segmentVolt101.set_can_value((imsg.buf[4]) | (imsg.buf[5] << 8));
+	STMM_segmentVolt102.set_can_value((imsg.buf[6]) | (imsg.buf[7] << 8));
+
+}
+
+/*
+ * Decode a CAN frame for the message STMM_299
+ * \param imsg A reference to the incoming CAN message frame
+ */
+void read_STMM_299(const CAN_message_t &imsg) {
+
+	STMM_counterMsg299.set_can_value(((imsg.buf[0] & 0b00001111)));
+	STMM_segmentSync.set_can_value((imsg.buf[2]));
+
+}
+
+/*
  * Decode a CAN frame for the message VCU_160
  * \param imsg A reference to the incoming CAN message frame
  */
@@ -822,6 +1446,7 @@ void read_VCU_152(const CAN_message_t &imsg) {
 	VCU_mainPlusContactorState.set_can_value((imsg.buf[4]));
 	VCU_mainMinusContactorState.set_can_value((imsg.buf[5]));
 	VCU_rtmSound.set_can_value(((imsg.buf[6] & 0b00000001)));
+	VCU_ShifterState.set_can_value((imsg.buf[7]));
 
 }
 
@@ -1741,6 +2366,138 @@ void read_VCU_150(const CAN_message_t &imsg) {
 void decode_raptor_CAN2(const CAN_message_t &imsg) {
 
 	switch (imsg.id) {
+
+		case 363:
+			read_STMM_363(imsg);
+			break;
+
+		case 362:
+			read_STMM_362(imsg);
+			break;
+
+		case 361:
+			read_STMM_361(imsg);
+			break;
+
+		case 360:
+			read_STMM_360(imsg);
+			break;
+
+		case 359:
+			read_STMM_359(imsg);
+			break;
+
+		case 358:
+			read_STMM_358(imsg);
+			break;
+
+		case 357:
+			read_STMM_357(imsg);
+			break;
+
+		case 356:
+			read_STMM_356(imsg);
+			break;
+
+		case 355:
+			read_STMM_355(imsg);
+			break;
+
+		case 354:
+			read_STMM_354(imsg);
+			break;
+
+		case 353:
+			read_STMM_353(imsg);
+			break;
+
+		case 352:
+			read_STMM_352(imsg);
+			break;
+
+		case 351:
+			read_STMM_351(imsg);
+			break;
+
+		case 350:
+			read_STMM_350(imsg);
+			break;
+
+		case 349:
+			read_STMM_349(imsg);
+			break;
+
+		case 348:
+			read_STMM_348(imsg);
+			break;
+
+		case 347:
+			read_STMM_347(imsg);
+			break;
+
+		case 346:
+			read_STMM_346(imsg);
+			break;
+
+		case 345:
+			read_STMM_345(imsg);
+			break;
+
+		case 344:
+			read_STMM_344(imsg);
+			break;
+
+		case 343:
+			read_STMM_343(imsg);
+			break;
+
+		case 342:
+			read_STMM_342(imsg);
+			break;
+
+		case 341:
+			read_STMM_341(imsg);
+			break;
+
+		case 340:
+			read_STMM_340(imsg);
+			break;
+
+		case 339:
+			read_STMM_339(imsg);
+			break;
+
+		case 338:
+			read_STMM_338(imsg);
+			break;
+
+		case 337:
+			read_STMM_337(imsg);
+			break;
+
+		case 336:
+			read_STMM_336(imsg);
+			break;
+
+		case 335:
+			read_STMM_335(imsg);
+			break;
+
+		case 334:
+			read_STMM_334(imsg);
+			break;
+
+		case 333:
+			read_STMM_333(imsg);
+			break;
+
+		case 332:
+			read_STMM_332(imsg);
+			break;
+
+		case 299:
+			read_STMM_299(imsg);
+			break;
 
 		case 160:
 			read_VCU_160(imsg);

@@ -394,7 +394,7 @@ void set_mailboxes() {
   can2.setMBFilter(MB8, VCU_brakeBias.get_msg_id());
   can2.setMBFilter(MB9, VCU_driveSpeed.get_msg_id());
   can2.setMBFilter(MB10, BMS_maxCellVolt.get_msg_id());
-  can2.setMBFilter(MB11, BMS_minCellVolt.get_msg_id());
+  can2.setMBFilter(MB11, VCU_ShifterState.get_msg_id());
   can2.setMBFilter(MB12, 0);
   can2.setMBFilter(MB13, 0);
   can2.setMBFilter(MB14, 0);

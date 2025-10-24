@@ -97,7 +97,7 @@ class ScreensController {
 ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
     : display_left_(left), display_right_(right) {
   /* speed screen */
-  speed_screen_ = new ScreenNumber(display_left_, VCU_driveSpeed, "SPD:");
+  speed_screen_ = new ScreenNumber(display_left_, VCU_ShifterState, "shift_state:");
 
   /* Info screen 1 */
   info_screen_1_left_ = new ScreenInfo(display_left_);
@@ -117,7 +117,7 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
   info_screen_1_right_ = new ScreenInfo(display_right_);
   info_screen_1_right_->SetSignal(1, &PM_dcBusVolt, "HV:", "%4.1f");
   info_screen_1_right_->SetSignal(2, &PDM_pdmVoltAvg, "LV:", "%3.1f");
-  info_screen_1_right_->SetSignal(3, &VCU_radFanLDuty, "FAN:", "%3.0f%");
+  info_screen_1_right_->SetSignal(3, &VCU_brakeBias, "BIAS:", "%3.0f%");
   info_screen_1_right_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f%");
 
   /* Info screen 2 */
