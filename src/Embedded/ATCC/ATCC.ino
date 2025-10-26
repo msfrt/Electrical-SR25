@@ -8,16 +8,15 @@
 #include <FreqMeasureMulti.h>
 
 // bus and message_t definition
-FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> cbus2;
+FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> cbus1;
 static CAN_message_t msg;
-#define CAN1_BAUDRATE 1000000
+#define CAN1_BAUDRATE 500000
 
 // signal definitions
-#include "CAN/CAN1.hpp"
-#include "CAN/CAN2.hpp"
-
+#include "CAN/raptor_CAN1.hpp"
+#include "CAN/raptor_CAN2.hpp"
 // ATCC Module Select - 0 front, 1 back
-const int ATCCMS = 1;
+const int ATCCMS = 0;
 
 // sensor definitions
 #include "sensors.hpp"
@@ -63,8 +62,8 @@ void setup() {
   SPI.begin();
 
   //initialize the CAN Bus and set its baud rate to 1Mb
-  cbus2.begin();
-  cbus2.setBaudRate(CAN1_BAUDRATE);
+  cbus1.begin();
+  cbus1.setBaudRate(CAN1_BAUDRATE);
 
   //initialize ADCs
   initialize_ADCs();
@@ -91,15 +90,13 @@ void loop() {
   switch (ATCCMS)
   {
     case 0:
-      sample_ADCs_F();
+      sample_ADCs_R();
       send_can_F();
       
-      calculate_rotor_temp(ATCCF_rotorTempFL, ATCCF_rotorTempFR, ATCCR_rotorTempRL, ATCCR_rotorTempRR);
-      calculate_brake_bias(ATCCF_brakePressureF, ATCCF_brakePressureR, ATCCF_brakeBias);
       break;
     case 1:
       sample_ADCs_R();
-      send_can_R();
+      //send_can_R();
       break;
   }
 
