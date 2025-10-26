@@ -9,8 +9,10 @@
 
 // bus and message_t definition
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> cbus1;
+FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> cbus2;
 static CAN_message_t msg;
 #define CAN1_BAUDRATE 500000
+#define CAN2_BAUDRATE 1000000
 
 // signal definitions
 #include "CAN/raptor_CAN1.hpp"
@@ -64,6 +66,8 @@ void setup() {
   //initialize the CAN Bus and set its baud rate to 1Mb
   cbus1.begin();
   cbus1.setBaudRate(CAN1_BAUDRATE);
+  cbus2.begin();
+  cbus2.setBaudRate(CAN2_BAUDRATE);
 
   //initialize ADCs
   initialize_ADCs();

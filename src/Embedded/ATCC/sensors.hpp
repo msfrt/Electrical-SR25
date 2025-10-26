@@ -66,13 +66,9 @@ void sample_ADCs_R()
   {
     //adc2
     adc2.sample(coolant_temp_inlet_sens, coolant_temp_outlet_sens);
-
     //Serial.print("coolant_temp_sens_voltage: ");
-    ATCC_coolantTempMotorIn = 2;//voltage_to_temp(coolant_temp_inlet_sens.avg());
     //Serial.println(voltage_to_temp(coolant_temp_inlet_sens.avg()));
-
     //Serial.print("coolant_temp_sens_voltage: ");
-    ATCC_coolantTempInverterIn = 2;//voltage_to_temp(coolant_temp_outlet_sens.avg());
     //Serial.println(voltage_to_temp(coolant_temp_outlet_sens.avg()));
   }
 
@@ -83,9 +79,7 @@ void sample_ADCs_R()
 
     //adc3
     adc3.sample(coolant_temp_middle_sens);
-
     //Serial.print("coolant_temp_sens_voltage: ");
-    ATCC_coolantTempInverterOut = 2;//voltage_to_temp(coolant_temp_outlet_sens.avg());
     //Serial.println(voltage_to_temp(coolant_temp_outlet_sens.avg()));
 
   }
