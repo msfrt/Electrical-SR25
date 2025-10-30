@@ -250,7 +250,7 @@ void loop() {
   // read any incoming CAN messages
   // Serial.println("Reading CAN:");
   readCan();
-  // can1.events();
+  can1.events();
 
   // sample the light sensor and update the brightness if percent returned is >
   // -1

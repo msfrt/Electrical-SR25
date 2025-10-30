@@ -17,37 +17,12 @@ ADCChip adc1(ADC1_CS);
 ADCChip adc2(ADC2_CS);
 ADCChip adc3(ADC3_CS);
 
+// whatr reads a right voltage 3,9 3,4
+
 // rear sensors
-ADCSensor coolant_temp_middle_sens(1, 0, 1000); // adc3
-ADCSensor coolant_temp_outlet_sens(7, 0, 1000); // adc2
-ADCSensor coolant_temp_inlet_sens(0, 0, 1000); // adc2
-
-ADCSensor egt1_sens(2, 0, 100);
-ADCSensor egt2_sens(0, 0, 100);
-ADCSensor egt3_sens(1, 0, 100);
-ADCSensor egt4_sens(3, 0, 100);
-
-
-float voltage_to_NTC_M12_H_temp(float v){
-
-  // calculated from the excel document.
-  // fifth order because we don't really care about extrapolation here.
-  return -0.8982 * pow(v, 5) +
-          11.970 * pow(v, 4) -
-          61.647 * pow(v, 3) +
-          153.57 * pow(v, 2) -
-          209.75 * pow(v, 1) +
-          187.96;
-}
-
-float voltage_to_EGT_temp(float v){
-
-  // calculated from the excel document.
-  return 137.64 * pow(v, 3) -
-         280.17 * pow(v, 2) +
-         652.15 * pow(v, 1) -
-         374.03;
-}
+ADCSensor coolant_temp_middle_sens(10, 0, 1000); // adc3
+ADCSensor coolant_temp_outlet_sens(9, 0, 1000); // adc3
+ADCSensor coolant_temp_inlet_sens(4, 0, 1000); // adc3 
 
 
 void initialize_ADCs()
@@ -65,11 +40,8 @@ void sample_ADCs_R()
   if (sample_timer_2.isup())
   {
     //adc2
-    adc2.sample(coolant_temp_inlet_sens, coolant_temp_outlet_sens);
-    //Serial.print("coolant_temp_sens_voltage: ");
-    //Serial.println(voltage_to_temp(coolant_temp_inlet_sens.avg()));
-    //Serial.print("coolant_temp_sens_voltage: ");
-    //Serial.println(voltage_to_temp(coolant_temp_outlet_sens.avg()));
+    //adc2.sample();
+    
   }
 
   // 100 Hz
@@ -78,9 +50,13 @@ void sample_ADCs_R()
   {
 
     //adc3
-    adc3.sample(coolant_temp_middle_sens);
-    //Serial.print("coolant_temp_sens_voltage: ");
-    //Serial.println(voltage_to_temp(coolant_temp_outlet_sens.avg()));
+    adc3.sample(coolant_temp_middle_sens, coolant_temp_inlet_sens, coolant_temp_outlet_sens);
+    Serial.print("coolant_temp_sens_voltage: ");
+    Serial.println(coolant_temp_middle_sens.avg());
+    Serial.print("coolant_temp_sens_voltage: ");
+    Serial.println(coolant_temp_inlet_sens.avg());
+    Serial.print("coolant_temp_sens_voltage: ");
+    Serial.println(coolant_temp_outlet_sens.avg());
 
   }
 
