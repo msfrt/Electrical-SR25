@@ -33,10 +33,20 @@ NS_ :
 
 BS_:
 
-BU_: MM5 STMM DD PDM BMS PM VCU
+BU_: RAND MM5 STMM DD PDM BMS PM VCU
 VAL_TABLE_ contactorState 2 "Open" 1 "Close" 0 "Faulted" ;
 VAL_TABLE_ vehicleState 8 "Faulted" 7 "ReadyToMove" 6 "Standby" 5 "PrechargeComplete" 4 "PrechargeTimeout" 3 "Precharge" 2 "PrechargeReady" 1 "StartDelay" 0 "Off" ;
 
+
+BO_ 501 RAND_501: 8 RAND
+ SG_ RAND_postRadPres : 32|16@1- (0.1,0) [-3276.8|3276.7] "kPa" Vector__XXX
+ SG_ RAND_postRadTemp : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ RAND_counterMsg501 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 500 RAND_500: 8 RAND
+ SG_ RAND_preRadPres : 32|16@1- (0.1,0) [-3276.8|3276.7] "kPa" Vector__XXX
+ SG_ RAND_preRadTemp : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ RAND_counterMsg500 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
 BO_ 161 VCU_161: 8 VCU
  SG_ VCU_flowRateMotorOut : 48|16@1- (0.1,0) [-3276.8|3276.7] "lpm" Vector__XXX
@@ -791,6 +801,11 @@ BO_ 150 VCU_150: 8 VCU
 
 
 
+CM_ SG_ 501 RAND_postRadPres "Post-radiator pressure";
+CM_ SG_ 501 RAND_postRadTemp "Post-radiator temperature";
+CM_ SG_ 501 RAND_counterMsg501 "Counter Message 501";
+CM_ SG_ 500 RAND_preRadPres "Pre-radiator pressure";
+CM_ SG_ 500 RAND_preRadTemp "Pre-radiator temperature";
 CM_ SG_ 161 VCU_flowRateMotorOut "Motor out flow rate";
 CM_ SG_ 161 VCU_flowRateMotorIn "Motor in flow rate";
 CM_ SG_ 161 VCU_flowRateInverterOut "Inverter out flow rate";
