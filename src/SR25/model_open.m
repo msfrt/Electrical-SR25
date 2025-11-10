@@ -14,6 +14,7 @@ addpath(mdlPath);
 addpath(genpath([mdlPath filesep 'CAN']));
 addpath(genpath([mdlPath filesep 'Images']));
 addpath(genpath([mdlPath filesep 'Libraries']));
+addpath(genpath([mdlPath filesep 'Functions']));
 
 clear mdlPath;
 
