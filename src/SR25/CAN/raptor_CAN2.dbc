@@ -38,12 +38,6 @@ VAL_TABLE_ contactorState 2 "Open" 1 "Close" 0 "Faulted" ;
 VAL_TABLE_ vehicleState 8 "Faulted" 7 "ReadyToMove" 6 "Standby" 5 "PrechargeComplete" 4 "PrechargeTimeout" 3 "Precharge" 2 "PrechargeReady" 1 "StartDelay" 0 "Off" ;
 
 
-BO_ 162 VCU_162: 8 VCU
- SG_ VCU_az : 48|16@1- (0.001,0) [-32.768|32.767] "g" Vector__XXX
- SG_ VCU_ay : 32|16@1- (0.001,0) [-32.768|32.767] "g" Vector__XXX
- SG_ VCU_ax : 16|16@1- (0.001,0) [-32.768|32.767] "g" Vector__XXX
- SG_ VCU_counterMsg162 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
-
 BO_ 161 VCU_161: 8 VCU
  SG_ VCU_flowRateMotorOut : 48|16@1- (0.1,0) [-3276.8|3276.7] "lpm" Vector__XXX
  SG_ VCU_flowRateMotorIn : 32|16@1- (0.1,0) [-3276.8|3276.7] "lpm" Vector__XXX
@@ -396,7 +390,7 @@ BO_ 376 MM5_376: 8 MM5
 
 BO_ 372 MM5_372: 8 MM5
  SG_ MM5_yawRate : 0|16@1+ (0.005,-163.9) [-163.9|163.775] "deg/s" Vector__XXX
- SG_ MM5_ay : 32|16@1+ (0.0001274,-4.1745795) [-4.1745795|4.1745795] "g" Vector__XXX
+ SG_ MM5_ay : 32|16@1+ (-0.0001274,4.1745795) [-4.1745795|4.1745795] "g" Vector__XXX
 
 BO_ 331 STMM_331: 8 STMM
  SG_ STMM_segmentTemp811 : 48|16@1- (0.1,0) [-5|120] "degC" Vector__XXX
@@ -797,10 +791,6 @@ BO_ 150 VCU_150: 8 VCU
 
 
 
-CM_ SG_ 162 VCU_az "Estimated vertical acceleration at CG";
-CM_ SG_ 162 VCU_ay "Estimated lateral acceleration at CG";
-CM_ SG_ 162 VCU_ax "Estimated longitudinal acceleration at CG";
-CM_ SG_ 162 VCU_counterMsg162 "Counter Message 162";
 CM_ SG_ 161 VCU_flowRateMotorOut "Motor out flow rate";
 CM_ SG_ 161 VCU_flowRateMotorIn "Motor in flow rate";
 CM_ SG_ 161 VCU_flowRateInverterOut "Inverter out flow rate";
