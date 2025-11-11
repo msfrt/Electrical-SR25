@@ -956,6 +956,7 @@ CM_ SG_ 156 VCU_counterMsg156 "Counter Message 156";
 CM_ SG_ 155 VCU_rotorTempRR "RR rotor temperature";
 CM_ SG_ 155 VCU_rotorTempRL "RL rotor temperature";
 CM_ SG_ 155 VCU_counterMsg155 "Counter Message 155";
+CM_ SG_ 154 VCU_rotorTempFR "FR rotor temperature";
 CM_ SG_ 154 VCU_rotorTempFL "FL rotor temperature";
 CM_ SG_ 154 VCU_counterMsg154 "Counter Message 154";
 CM_ SG_ 2553934727 STMM_seg8Checksum "Checksum (sum of all bytes + 0x39 + length)
