@@ -51,12 +51,14 @@ void sample_ADCs_R()
 
     //adc3
     adc3.sample(coolant_temp_middle_sens, coolant_temp_inlet_sens, coolant_temp_outlet_sens);
+    /*
     Serial.print("coolant_temp_sens_voltage: ");
     Serial.println(coolant_temp_middle_sens.avg());
     Serial.print("coolant_temp_sens_voltage: ");
     Serial.println(coolant_temp_inlet_sens.avg());
     Serial.print("coolant_temp_sens_voltage: ");
     Serial.println(coolant_temp_outlet_sens.avg());
+    */
 
   }
 

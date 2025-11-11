@@ -8,6 +8,7 @@
 #include "Screen.hpp"
 #include "arduino.h"
 #include "images/SpartanBitmap.hpp"
+#include "images/nickandkosta.hpp"
 #include "images/StateRacingBitmap.hpp"
 
 /*
@@ -55,12 +56,12 @@ ScreenStartupAnim::ScreenStartupAnim(ILI9341_t3n &disp) : Screen(disp) {
   // set max framerate to 30 fps (this will never be achieved lol)
   frame_rate_timer_.set_frequency(30);
 
-  sparty_pos_y_ = (display_height_ - spartanBitmapHeight) /
+  sparty_pos_y_ = (display_height_ - 221) /
                   2;  // center the sparty vertically
-  sparty_pos_x_ = -spartanBitmapWidth;
+  sparty_pos_x_ = -166;
 
-  state_racing_pos_y_ = (display_height_ - stateRacingBitmapHeight) / 2;
-  state_racing_pos_x_ = (display_width_ - stateRacingBitmapWidth) / 2;
+  state_racing_pos_y_ = (display_height_ - 221) / 2;
+  state_racing_pos_x_ = (display_width_ - 166) / 2;
 };
 
 /**
@@ -76,8 +77,8 @@ void ScreenStartupAnim::Update(unsigned long &elapsed) {
 
     // draw state racing bitmap
     display_.drawBitmap(state_racing_pos_x_, state_racing_pos_y_,
-                        stateRacingBitmap, stateRacingBitmapWidth,
-                        stateRacingBitmapHeight, color_primary_);
+                        epd_bitmap_nickandkosta, 166,
+                        221, color_primary_);
 
     // cover part of the SR bitmap with black so sparty reveals it
     display_.fillRect(sparty_pos_x_ + 20, sparty_pos_y_,
@@ -85,8 +86,8 @@ void ScreenStartupAnim::Update(unsigned long &elapsed) {
                       color_ackground_);
 
     // draw sparty at the current position
-    display_.drawBitmap(sparty_pos_x_, sparty_pos_y_, spartanBitmap,
-                        spartanBitmapWidth, spartanBitmapHeight,
+    display_.drawBitmap(sparty_pos_x_, sparty_pos_y_, epd_bitmap_nickandkosta,
+                        166, 221,
                         color_secondary_);
 
     // send the updates to the screen
