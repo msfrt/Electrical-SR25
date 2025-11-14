@@ -15,13 +15,13 @@ ADCChip adc2(ADC2_CS);
 //Analog to Digital Convertor input signals
 //seg_1_mod_0 = Segment 1, Module 1
 
-ADCSensor tmap_temp_pre(0,0,1000);
+ADCSensor tmap_temp_pre(0,0,1000); // 
 ADCSensor tmap_pres_pre(1,0,1000);
 
 ADCSensor tmap_temp_post(2,0,1000);
 ADCSensor tmap_pres_post(3,0,1000);
 
-
+// takes 1k pullup into account
 float voltage_to_boschua_temp(float v) {
     return  -0.0722 * pow(v,4) -
             2.6887 * pow(v,3) +

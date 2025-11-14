@@ -18,8 +18,8 @@ void send_TMAP_500() {
     msg.len = 8;
 
     // automatically does calcs
-    RAND_preRadTemp = tmap_temp_pre.avg();
-    RAND_preRadPres = tmap_pres_pre.avg();
+    RAND_preRadTemp = voltage_to_boschua_temp(tmap_temp_pre.avg());
+    RAND_preRadPres = voltage_to_boschua_pres(tmap_pres_pre.avg());
 
     // load up the message buffer
     // Each message contains a counter and 3 signals
@@ -33,11 +33,13 @@ void send_TMAP_500() {
     msg.buf[6] = 0;
     msg.buf[7] = 0;
 
-    Serial.println("Temp: ");
-    Serial.println(tmap_temp_pre.avg());
+    // Serial.println("Temp: ");
+    // Serial.println(tmap_temp_pre.avg());
+    // Serial.println(RAND_preRadTemp.value(),4);
 
-    Serial.println("Pres: ");
-    Serial.println(tmap_pres_pre.avg());
+    // Serial.println("Pres: ");
+    // Serial.println(tmap_pres_pre.avg());
+    // Serial.println(RAND_preRadPres.value(),4);
 
     // send the message
     cbus2.write(msg);
@@ -53,8 +55,8 @@ void send_TMAP_501() {
     msg.len = 8;
 
     // automatically does calcs
-    RAND_postRadTemp = tmap_temp_post.avg();
-    RAND_postRadPres = tmap_pres_post.avg();
+    RAND_postRadTemp = voltage_to_boschua_temp(tmap_temp_post.avg());
+    RAND_postRadPres = voltage_to_boschua_pres(tmap_pres_post.avg());
 
     msg.buf[0] = ctr.value();
     msg.buf[1] = 0;
