@@ -2,6 +2,7 @@
 #define ScreenCONTROLLER_HPP
 
 #include "ScreenInfo.hpp"
+#include "screen4temps.hpp"
 #include "ScreenLapTime.hpp"
 #include "ScreenMessage.hpp"
 #include "ScreenNumber.hpp"
@@ -73,10 +74,10 @@ class ScreensController {
   ScreenStartupAnim *startup_screen_left_ = nullptr;
   ScreenStartupAnim *startup_screen_right_ = nullptr;
 
-  ScreenInfo *info_screen_1_left_ = nullptr;
+  ScreenTemps *info_screen_1_left_ = nullptr;
   ScreenInfo *info_screen_1_right_ = nullptr;
 
-  ScreenInfo *info_screen_2_left_ = nullptr;
+  ScreenTemps *info_screen_2_left_ = nullptr;
   ScreenInfo *info_screen_2_right_ = nullptr;
 
   ScreenInfo *info_screen_3_left_ = nullptr;
@@ -100,7 +101,7 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
   speed_screen_ = new ScreenNumber(display_left_, VCU_ShifterState, "shift_state:");
 
   /* Info screen 1 */
-  info_screen_1_left_ = new ScreenInfo(display_left_);
+  info_screen_1_left_ = new ScreenTemps(display_left_);
   /*
   info_screen_1_left_->SetSignal(1, &C50_gpsSpeed, "SPD:", "%3.1f");
   info_screen_1_left_->SetSignal(2, &VCU_brakeBias, "BIAS:", "%3.0f%");
@@ -108,11 +109,11 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
   info_screen_1_left_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f");
   */
   /* Info screen 3 */
-  info_screen_1_left_ = new ScreenInfo(display_left_);
-  info_screen_1_left_->SetSignal(1, &VCU_driveSpeed, "MPH:", "%4.1f");
-  info_screen_1_left_->SetSignal(2, &ATCC_coolantTempInverterOut, "COOLT:", "%4.1f");
-  info_screen_1_left_->SetSignal(3, &ATCC_coolantTempInverterIn, "COOLT:", "%4.1f");
-  info_screen_1_left_->SetSignal(4, &ATCC_coolantTempMotorIn, "COOLT:", "%4.1f");
+  info_screen_1_left_ = new ScreenTemps(display_left_);
+  info_screen_1_left_->SetSignal(1, &ATCC_coolantTempInverterOut, "", "%4.1f");
+  info_screen_1_left_->SetSignal(2, &ATCC_coolantTempInverterOut, "", "%4.1f");
+  info_screen_1_left_->SetSignal(3, &ATCC_coolantTempInverterIn, "", "%4.1f");
+  info_screen_1_left_->SetSignal(4, &ATCC_coolantTempMotorIn, "", "%4.1f");
 
   info_screen_1_right_ = new ScreenInfo(display_right_);
   info_screen_1_right_->SetSignal(1, &PM_dcBusVolt, "HV:", "%4.1f");
@@ -121,11 +122,11 @@ ScreensController::ScreensController(ILI9341_t3n &left, ILI9341_t3n &right)
   info_screen_1_right_->SetSignal(4, &PM_commandedTorque, "CMDT:", "%3.0f%");
 
   /* Info screen 2 */
-  info_screen_2_left_ = new ScreenInfo(display_left_);
-  info_screen_2_left_->SetSignal(1, &VCU_brakePressureF, "BPF:", "%4.1f");
-  info_screen_2_left_->SetSignal(2, &VCU_brakePressureR, "BPR:", "%4.1f");
-  info_screen_2_left_->SetSignal(3, &VCU_throttlePosition, "TPS:", "%3.1f%");
-  info_screen_2_left_->SetSignal(4, &PM_motorSpeed, "RPM:", "%4.0f");
+  info_screen_2_left_ = new ScreenTemps(display_left_);
+  info_screen_2_left_->SetSignal(1, &ATCC_coolantTempInverterOut, "", "%4.1f");
+  info_screen_2_left_->SetSignal(2, &ATCC_coolantTempInverterOut, "", "%4.1f");
+  info_screen_2_left_->SetSignal(3, &ATCC_coolantTempInverterIn, "", "%4.1f%");
+  info_screen_2_left_->SetSignal(4, &ATCC_coolantTempMotorIn, "", "%4.1f");
   // info_screen_2_left_->SetSignal(4, &ATCCR_shiftingPressure, "SFT:", "%3.1f");
 
   /* Info screen 3 */
