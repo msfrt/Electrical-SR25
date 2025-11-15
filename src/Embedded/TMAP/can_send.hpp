@@ -33,11 +33,11 @@ void send_TMAP_500() {
     msg.buf[6] = 0;
     msg.buf[7] = 0;
 
-    // Serial.println("Temp: ");
+    // Serial.println("Temp1: ");
     // Serial.println(tmap_temp_pre.avg());
     // Serial.println(RAND_preRadTemp.value(),4);
 
-    // Serial.println("Pres: ");
+    // Serial.println("Pres1: ");
     // Serial.println(tmap_pres_pre.avg());
     // Serial.println(RAND_preRadPres.value(),4);
 
@@ -66,6 +66,14 @@ void send_TMAP_501() {
     msg.buf[5] = RAND_postRadPres.can_value() >> 8;
     msg.buf[6] = 0;
     msg.buf[7] = 0;
+
+    // Serial.println("Temp2: ");
+    // Serial.println(tmap_temp_post.avg());
+    // Serial.println(RAND_postRadTemp.value(),4);
+
+    // Serial.println("Pres2: ");
+    // Serial.println(tmap_pres_post.avg());
+    // Serial.println(RAND_postRadPres.value(),4);
 
     // send the message
     cbus2.write(msg);

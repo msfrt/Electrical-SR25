@@ -6,11 +6,11 @@
 
 // ADC CS(Chip Select) teensy pins
 #define ADC1_CS 10
-#define ADC2_CS 9
+// #define ADC2_CS 9
 
 // ADCs
 ADCChip adc1(ADC1_CS);
-ADCChip adc2(ADC2_CS); 
+// ADCChip adc2(ADC2_CS); 
 
 //Analog to Digital Convertor input signals
 //seg_1_mod_0 = Segment 1, Module 1
