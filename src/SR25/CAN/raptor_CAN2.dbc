@@ -33,10 +33,57 @@ NS_ :
 
 BS_:
 
-BU_: MM5 STMM DD PDM BMS PM VCU
+BU_: RAND MM5 STMM DD PDM BMS PM VCU
 VAL_TABLE_ contactorState 2 "Open" 1 "Close" 0 "Faulted" ;
 VAL_TABLE_ vehicleState 8 "Faulted" 7 "ReadyToMove" 6 "Standby" 5 "PrechargeComplete" 4 "PrechargeTimeout" 3 "Precharge" 2 "PrechargeReady" 1 "StartDelay" 0 "Off" ;
 
+
+BO_ 554 RAND_554: 8 RAND
+ SG_ RAND_rateZHor : 32|16@1- (0.02,0) [-655.36|655.34] "degps" Vector__XXX
+ SG_ RAND_rateYHor : 16|16@1- (0.02,0) [-655.36|655.34] "degps" Vector__XXX
+ SG_ RAND_rateXHor : 0|16@1- (0.02,0) [-655.36|655.34] "degps" Vector__XXX
+
+BO_ 553 RAND_553: 8 RAND
+ SG_ RAND_accZHor : 32|16@1- (0.02,0) [-655.36|655.34] "mps2" Vector__XXX
+ SG_ RAND_accYHor : 16|16@1- (0.02,0) [-655.36|655.34] "mps2" Vector__XXX
+ SG_ RAND_accXHor : 0|16@1- (0.02,0) [-655.36|655.34] "mps2" Vector__XXX
+
+BO_ 552 RAND_552: 8 RAND
+ SG_ RAND_pitch : 16|16@1- (0.003,0) [-98.304|98.301] "deg" Vector__XXX
+ SG_ RAND_roll : 0|16@1- (0.003,0) [-98.304|98.301] "deg" Vector__XXX
+
+BO_ 551 RAND_551: 8 RAND
+ SG_ RAND_accCPoi : 48|16@1- (0.02,0) [-655.36|655.34] "mps2" Vector__XXX
+ SG_ RAND_radiusPoi : 32|16@1- (0.01,0) [-327.68|327.67] "m" Vector__XXX
+ SG_ RAND_distAPoi : 0|32@1- (0.001,0) [-2147483.648|2147483.647] "m" Vector__XXX
+
+BO_ 550 RAND_550: 8 Vector__XXX
+ SG_ RAND_angSPoi : 48|16@1- (0.003,0) [-98.304|98.301] "deg" Vector__XXX
+ SG_ RAND_velAPoi : 32|16@1- (0.02,0) [-655.36|655.34] "kph" Vector__XXX
+ SG_ RAND_velYPoi : 16|16@1- (0.02,0) [-655.36|655.34] "kph" Vector__XXX
+ SG_ RAND_velXPoi : 0|16@1- (0.02,0) [-655.36|655.34] "kph" Vector__XXX
+
+BO_ 501 RAND_501: 8 RAND
+ SG_ RAND_postRadPres : 32|16@1- (0.1,0) [-3276.8|3276.7] "kPa" Vector__XXX
+ SG_ RAND_postRadTemp : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ RAND_counterMsg501 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 500 RAND_500: 8 RAND
+ SG_ RAND_preRadPres : 32|16@1- (0.1,0) [-3276.8|3276.7] "kPa" Vector__XXX
+ SG_ RAND_preRadTemp : 16|16@1- (0.1,0) [-3276.8|3276.7] "degC" Vector__XXX
+ SG_ RAND_counterMsg500 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 162 VCU_162: 8 VCU
+ SG_ VCU_az : 48|16@1- (0.001,0) [-32.768|32.767] "g" Vector__XXX
+ SG_ VCU_ay : 32|16@1- (0.001,0) [-32.768|32.767] "g" Vector__XXX
+ SG_ VCU_ax : 16|16@1- (0.001,0) [-32.768|32.767] "g" Vector__XXX
+ SG_ VCU_counterMsg162 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+
+BO_ 161 VCU_161: 8 VCU
+ SG_ VCU_flowRateMotorOut : 48|16@1- (0.1,0) [-3276.8|3276.7] "lpm" Vector__XXX
+ SG_ VCU_flowRateMotorIn : 32|16@1- (0.1,0) [-3276.8|3276.7] "lpm" Vector__XXX
+ SG_ VCU_flowRateInverterOut : 16|16@1- (0.1,0) [-3276.8|3276.7] "lpm" Vector__XXX
+ SG_ VCU_counterMsg161 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
 BO_ 363 STMM_363: 8 STMM
  SG_ STMM_segmentVolt811 : 48|16@1- (0.001,0) [-32.768|32.767] "V" Vector__XXX
@@ -360,6 +407,7 @@ BO_ 153 VCU_153: 8 VCU
  SG_ VCU_counterMsg153 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
 
 BO_ 152 VCU_152: 8 VCU
+ SG_ VCU_ShifterState : 56|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ VCU_rtmSound : 48|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ VCU_mainMinusContactorState : 40|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ VCU_mainPlusContactorState : 32|8@1+ (1,0) [0|255] "" Vector__XXX
@@ -383,7 +431,7 @@ BO_ 376 MM5_376: 8 MM5
 
 BO_ 372 MM5_372: 8 MM5
  SG_ MM5_yawRate : 0|16@1+ (0.005,-163.9) [-163.9|163.775] "deg/s" Vector__XXX
- SG_ MM5_ay : 32|16@1+ (-0.0001274,4.1745795) [-4.1745795|4.1745795] "g" Vector__XXX
+ SG_ MM5_ay : 32|16@1+ (0.0001274,-4.1745795) [-4.1745795|4.1745795] "g" Vector__XXX
 
 BO_ 331 STMM_331: 8 STMM
  SG_ STMM_segmentTemp811 : 48|16@1- (0.1,0) [-5|120] "degC" Vector__XXX
@@ -784,6 +832,35 @@ BO_ 150 VCU_150: 8 VCU
 
 
 
+CM_ SG_ 554 RAND_rateZHor "Z-axis rate in horizontal coordinate system";
+CM_ SG_ 554 RAND_rateYHor "Y-axis rate in horizontal coordinate system";
+CM_ SG_ 554 RAND_rateXHor "X-axis rate in horizontal coordinate system";
+CM_ SG_ 553 RAND_accZHor "Z-axis acceleration in horizontal coordinate system";
+CM_ SG_ 553 RAND_accYHor "Y-axis acceleration in horizontal coordinate system";
+CM_ SG_ 553 RAND_accXHor "X-axis acceleration in horizontal coordinate system";
+CM_ SG_ 552 RAND_pitch "Pitch angle";
+CM_ SG_ 552 RAND_roll "Roll angle";
+CM_ SG_ 551 RAND_accCPoi "Centripetal acceleration at point of interest";
+CM_ SG_ 551 RAND_radiusPoi "Radius of curvature at point of interest";
+CM_ SG_ 551 RAND_distAPoi "Cumulative distance via acceleration and speed (with point of interest compensation)";
+CM_ SG_ 550 RAND_angSPoi "Slip angle at point of interest";
+CM_ SG_ 550 RAND_velAPoi "Velocity via acceleration at point of interest";
+CM_ SG_ 550 RAND_velYPoi "Y-axis velocity at point of interest";
+CM_ SG_ 550 RAND_velXPoi "X-axis velocity at point of interest";
+CM_ SG_ 501 RAND_postRadPres "Post-radiator pressure";
+CM_ SG_ 501 RAND_postRadTemp "Post-radiator temperature";
+CM_ SG_ 501 RAND_counterMsg501 "Counter Message 501";
+CM_ SG_ 500 RAND_preRadPres "Pre-radiator pressure";
+CM_ SG_ 500 RAND_preRadTemp "Pre-radiator temperature";
+CM_ SG_ 500 RAND_counterMsg500 "Counter Message 500";
+CM_ SG_ 162 VCU_az "Estimated vertical acceleration at CG";
+CM_ SG_ 162 VCU_ay "Estimated lateral acceleration at CG";
+CM_ SG_ 162 VCU_ax "Estimated longitudinal acceleration at CG";
+CM_ SG_ 162 VCU_counterMsg162 "Counter Message 162";
+CM_ SG_ 161 VCU_flowRateMotorOut "Motor out flow rate";
+CM_ SG_ 161 VCU_flowRateMotorIn "Motor in flow rate";
+CM_ SG_ 161 VCU_flowRateInverterOut "Inverter out flow rate";
+CM_ SG_ 161 VCU_counterMsg161 "Counter Message 161";
 CM_ SG_ 363 STMM_segmentVolt811 "Segment 8 module 11";
 CM_ SG_ 363 STMM_segmentVolt810 "Segment 8 module 10";
 CM_ SG_ 363 STMM_segmentVolt809 "Segment 8 module 9";
@@ -935,6 +1012,7 @@ CM_ SG_ 156 VCU_counterMsg156 "Counter Message 156";
 CM_ SG_ 155 VCU_rotorTempRR "RR rotor temperature";
 CM_ SG_ 155 VCU_rotorTempRL "RL rotor temperature";
 CM_ SG_ 155 VCU_counterMsg155 "Counter Message 155";
+CM_ SG_ 154 VCU_rotorTempFR "FR rotor temperature";
 CM_ SG_ 154 VCU_rotorTempFL "FL rotor temperature";
 CM_ SG_ 154 VCU_counterMsg154 "Counter Message 154";
 CM_ SG_ 2553934727 STMM_seg8Checksum "Checksum (sum of all bytes + 0x39 + length)
@@ -1070,6 +1148,7 @@ CM_ SG_ 153 VCU_pwrDownSwitch "Power down switch signal";
 CM_ SG_ 153 VCU_pwrUpSwitch "Power up switch signal";
 CM_ SG_ 153 VCU_startSwitch "Start switch signal";
 CM_ SG_ 153 VCU_counterMsg153 "Counter Message 153";
+CM_ SG_ 152 VCU_ShifterState "Torque-Shifter State";
 CM_ SG_ 152 VCU_rtmSound "Ready To Move sound";
 CM_ SG_ 152 VCU_mainMinusContactorState "Main- contactor state";
 CM_ SG_ 152 VCU_mainPlusContactorState "Main+ contactor state";
